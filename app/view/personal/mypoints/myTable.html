@@ -1,0 +1,22 @@
+{{each resultObject.items as i index}}
+
+<tr>
+
+
+    <td>{{i.integral_amount}}</td>
+    <td>
+        {{if i.type == '1'}}
+        获取
+        {{else}}
+        消费
+        {{/if}}
+    </td>
+    <td>{{i.integral_description}}</td>
+    <td>{{i.op_time}}</td>
+    <td>{{i.residue_integral}}</td>
+
+
+</tr>
+
+{{/each}}
+

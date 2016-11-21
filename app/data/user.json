@@ -1,0 +1,26 @@
+﻿{
+  "success": true,
+  "resultObject":{
+    "user":
+      {
+        "username": "叶立智子",
+        "pic":"http://files.jb51.net/file_images/game/201609/2016091513252541.jpg",
+        "issystem": false,
+        "email":"9555555@qq.com",
+        "tpl":"15900001111",
+        "qq":"100000",
+        "gender":true,
+        "School":"哈尔滨农业大学",
+        "department":"包谷系",
+        "major":"蓝瘦香菇",
+        "position":"职务",
+        "identity":"http://www.sznews.com/ent/images/attachement/jpg/site3/20141011/4437e629783815a2bce254.jpg",
+        "ismajor":true,
+        "isTpl": false,
+        "integral":8889,
+        "totalintegral": 100,
+        "totalcost": 50,
+        "remainingintegral": 50
+      }
+  }
+}

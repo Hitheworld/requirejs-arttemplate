@@ -1,0 +1,30 @@
+/**
+ * 创建作业
+ */
+.createtest .createtest-box .createtest-contnt {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item {
+  width: 500px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .layui-form-label {
+  width: 120px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .layui-form-label .major {
+  color: #FF0000;
+  font-size: 16px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .layui-input-inline .addtest-a {
+  display: block;
+  height: 38px;
+  line-height: 38px;
+  font-size: 16px;
+  color: #279ee9;
+  text-decoration: underline;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body {
+  padding: 10px20px;
+}

@@ -1,0 +1,766 @@
+/**
+ * 添加作业
+ */
+.addpaper {
+  padding: 20px 30px;
+}
+.addpaper .addpaperTitle {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  border-bottom: #f0f0f0 1px solid;
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+.addpaper .addpaperTitle h1 {
+  display: block;
+  float: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+}
+.addpaper .addpaperTitle .return {
+  float: right;
+  font-size: 14px;
+  color: #999999;
+}
+.addpaper #sliding-form {
+  margin: 20px auto;
+  max-width: 1140px;
+  overflow: hidden;
+  position: relative;
+}
+.addpaper #sliding-form #status {
+  width: 480px;
+  height: 70px;
+  margin: 0 auto;
+  position: relative;
+}
+.addpaper #sliding-form #status li {
+  float: left;
+  width: 33.333333%;
+  text-align: center;
+}
+.addpaper #sliding-form #status li i {
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  border: 5px solid #dcdcdc;
+  color: #dcdcdc;
+  text-align: center;
+  font-size: 0px;
+  margin: 0 auto;
+}
+.addpaper #sliding-form #status li.active,
+.addpaper #sliding-form #status li.ac {
+  font-weight: normal;
+}
+.addpaper #sliding-form #status li.active i,
+.addpaper #sliding-form #status li.ac i {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #FFFFFF;
+  color: #47bd7f;
+  border: 2px solid #47bd7f;
+  font-size: 24px;
+}
+.addpaper #sliding-form #status li.active.border::after,
+.addpaper #sliding-form #status li.ac.border::after {
+  background: #36b773;
+}
+.addpaper #sliding-form #status li.active.end::before,
+.addpaper #sliding-form #status li.ac.end::before {
+  background: #36b773;
+}
+.addpaper #sliding-form #status li.active .title,
+.addpaper #sliding-form #status li.ac .title {
+  color: #36b773;
+}
+.addpaper #sliding-form #status li.border::after {
+  content: '';
+  width: 118px;
+  height: 2px;
+  background: #dcdcdc;
+  position: absolute;
+  left: 101px;
+  top: 50%;
+  margin-top: -15px;
+}
+.addpaper #sliding-form #status li.end::before {
+  content: '';
+  width: 118px;
+  height: 2px;
+  background: #dcdcdc;
+  position: absolute;
+  right: 101px;
+  top: 50%;
+  margin-top: -15px;
+}
+.addpaper #sliding-form #status li .title {
+  margin-top: 10px;
+  text-align: center;
+}
+.addpaper #sliding-form .items {
+  width: 20000px;
+  clear: both;
+  position: relative;
+  overflow: hidden;
+}
+.addpaper #sliding-form .items .page {
+  width: 1140px;
+  float: left;
+}
+.addpaper #sliding-form .items .page .pagePaper {
+  width: 480px;
+  margin: 0 auto;
+}
+.addpaper #sliding-form .items .page .pagePaper .fieldset-header {
+  height: 85px;
+  line-height: 85px;
+  overflow: hidden;
+}
+.addpaper #sliding-form .items .page .pagePaper .fieldset-header h2 {
+  display: block;
+  float: left;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 600;
+}
+.addpaper #sliding-form .items .page .pagePaper .fieldset-header span {
+  display: block;
+  float: left;
+  margin-left: 20px;
+}
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul {
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 20px;
+}
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.error-li {
+  margin-bottom: 20px;
+}
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.error-li p {
+  margin-left: 110px;
+}
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.addpaper-ul-li {
+  display: block;
+}
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.addpaper-ul-li .addpaper-form-item select {
+  display: block;
+  width: 114px;
+  padding-left: 10px;
+  height: 38px;
+  line-height: 38px;
+  line-height: 36px\9;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+  border-radius: 2px;
+}
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.addpaper-ul-li .addpaper-form-item .paperwhenlong,
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.addpaper-ul-li .addpaper-form-item .testScores {
+  width: 88px;
+  float: left;
+}
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.addpaper-ul-li .addpaper-form-item .testScores-label {
+  text-align: left;
+}
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul.no-border-bottom {
+  border: none;
+}
+.addpaper #sliding-form .items .page1 .paperselete {
+  width: 320px !important;
+}
+.addpaper #sliding-form .items .page1 .paperselete option {
+  padding: 5px 5px;
+}
+.addpaper #sliding-form .items .page1 .tree-checkbox {
+  width: 378px;
+  height: 452px;
+  overflow: auto;
+  border: 1px solid #f0f0f0;
+  margin: 0 auto;
+}
+.addpaper #sliding-form .items .page2 li.error-li {
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.addpaper #sliding-form .items .page2 li.error-li p {
+  float: left;
+  margin-left: 72px;
+}
+.addpaper #sliding-form .items .page2 ul.addpaper-ul-ul {
+  overflow: hidden;
+}
+.addpaper #sliding-form .items .page2 ul.addpaper-ul-ul li.addpaper-ul-ul-li {
+  float: left;
+  height: 28px;
+  line-height: 28px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.addpaper #sliding-form .items .page2 ul.addpaper-ul-ul li.addpaper-ul-ul-li .addpaper2-form-item {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  position: relative;
+}
+.addpaper #sliding-form .items .page2 ul.addpaper-ul-ul li.addpaper-ul-ul-li .addpaper2-form-item .addpaper2-form-icon {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2db871;
+  margin-top: 12px;
+  margin-right: 10px;
+}
+.addpaper #sliding-form .items .page2 ul.addpaper-ul-ul li.addpaper-ul-ul-li .addpaper2-form-item label {
+  float: left;
+  padding: 0;
+  height: 28px;
+  line-height: 28px;
+}
+.addpaper #sliding-form .items .page2 ul.addpaper-ul-ul li.addpaper-ul-ul-li .addpaper2-form-item label.lb-padding {
+  text-align: right;
+  padding-right: 10px;
+}
+.addpaper #sliding-form .items .page2 ul.addpaper-ul-ul li.addpaper-ul-ul-li .addpaper2-form-item .form-label-state {
+  width: 60px;
+  text-align: left;
+}
+.addpaper #sliding-form .items .page2 ul.addpaper-ul-ul li.addpaper-ul-ul-li .addpaper2-form-item .form-label-end {
+  width: 22px;
+  text-align: right;
+}
+.addpaper #sliding-form .items .page2 ul.addpaper-ul-ul li.addpaper-ul-ul-li .addpaper2-form-item .form-label {
+  width: 80px;
+  text-align: center;
+}
+.addpaper #sliding-form .items .page2 ul.addpaper-ul-ul li.addpaper-ul-ul-li .addpaper2-form-item input {
+  float: left;
+  width: 65px;
+  padding: 0 5px;
+  height: 28px;
+  line-height: 28px;
+}
+.addpaper #sliding-form .items .page2 .addpager2-foot {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  overflow: hidden;
+  font-size: 16px;
+}
+.addpaper #sliding-form .items .page2 .addpager2-foot .left {
+  float: left;
+}
+.addpaper #sliding-form .items .page2 .addpager2-foot .right {
+  float: right;
+}
+.addpaper #sliding-form .items .page3 {
+  position: relative;
+}
+.addpaper #sliding-form .items .page3 .pagePaper-questions-nav {
+  width: 230px;
+  min-height: 520px;
+  background-color: #f3f3f3;
+  padding: 0px 15px;
+  overflow: hidden;
+}
+.addpaper #sliding-form .items .page3 .pagePaper-questions-nav .questions-nav-title {
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper-questions-nav .questions-nav-title h3 {
+  float: left;
+  font-size: 16px;
+  color: #333333;
+}
+.addpaper #sliding-form .items .page3 .pagePaper-questions-nav .questions-nav-title span {
+  float: left;
+  font-size: 14px;
+  color: #333333;
+  margin-top: 3px;
+  margin-left: 23px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper-questions-nav ul {
+  overflow: hidden;
+  width: 232px;
+  margin-right: -2px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper-questions-nav ul li {
+  float: left;
+  margin-left: 2px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper-questions-nav ul li .box-nav {
+  vertical-align: middle;
+  display: table-cell;
+  *position: absolute;
+  *top: 50%;
+  background-color: #FFFFFF;
+  width: 36.6666666px;
+  height: 38.6666666px;
+  cursor: pointer;
+}
+.addpaper #sliding-form .items .page3 .pagePaper-questions-nav ul li .box-nav a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  color: #333333;
+  text-align: center;
+  line-height: 36.666666px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper-top {
+  height: 35px;
+  line-height: 35px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper-top h3 {
+  font-size: 16px;
+  color: #333333;
+  font-weight: 600;
+}
+.addpaper #sliding-form .items .page3 .pagePaper {
+  width: 860px;
+  float: left;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content {
+  width: 100%;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li {
+  overflow: hidden;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-top: 20px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box.no-border-bottom {
+  border: none;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title {
+  display: block;
+  overflow: hidden;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 {
+  float: left;
+  display: block;
+  color: #36b773;
+  font-size: 16px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title.tianKong-title input {
+  width: auto;
+  height: 22px;
+  border: none;
+  border-bottom: 1px solid #999999;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul {
+  overflow: hidden;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li {
+  display: block;
+  float: left;
+  width: 12px;
+  height: 6px;
+  margin-right: 2px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value-active {
+  background: #2db871;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value {
+  background: #dcdcdc;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .btn-Change {
+  float: right;
+  cursor: pointer;
+  font-size: 16px;
+  color: #279ee9;
+  font-weight: 600;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete {
+  display: block;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li {
+  display: block;
+  min-height: 40px;
+  line-height: 40px;
+  color: #333333;
+  cursor: pointer;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box {
+  overflow: hidden;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box input {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box label {
+  float: right;
+  width: 95%;
+  font-size: 14px;
+  cursor: pointer;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box {
+  overflow: hidden;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box span {
+  float: left;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box p {
+  float: left;
+  width: 800px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li:hover {
+  background: #eafff1;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer {
+  overflow: hidden;
+  color: #333333;
+  font-size: 16px;
+  margin-top: 16px;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer {
+  float: left;
+  font-weight: 600;
+}
+.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet {
+  float: left;
+}
+.addpaper #sliding-form .items .btn_nav {
+  width: 505px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+.addpaper #sliding-form .items .btn_nav .btn-page-next,
+.addpaper #sliding-form .items .btn_nav .btn-page-sub {
+  cursor: pointer;
+  width: 240px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  color: #FFFFFF;
+  background: #2db871;
+  border: none;
+  float: none;
+}
+.addpaper #sliding-form .items .btn_nav .cont {
+  float: initial;
+  width: 100%;
+}
+.addpaper #sliding-form .items .btn_nav .left {
+  float: left;
+  background-color: #FFFFFF;
+  color: #333333;
+  border: 1px solid #f0f0f0;
+  margin-right: 20px;
+}
+.addpaper #sliding-form .items .btn_nav .right {
+  float: right;
+  border: 1px solid #2db871;
+}
+.page3-Change {
+  width: 100%;
+}
+.page3-Change .Change-box {
+  padding: 20px;
+}
+.page3-Change .Change-box .Change-title {
+  overflow: hidden;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 30px;
+}
+.page3-Change .Change-box .Change-title h1 {
+  float: left;
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 20px;
+}
+.page3-Change .Change-box .Change-title .t-box {
+  float: left;
+  overflow: hidden;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.page3-Change .Change-box .Change-title .t-box span {
+  float: left;
+  margin-right: 20px;
+}
+.page3-Change .Change-box .Change-search {
+  margin-bottom: 30px;
+}
+.page3-Change .Change-box .Change-search ul {
+  overflow: hidden;
+}
+.page3-Change .Change-box .Change-search ul li {
+  float: left;
+  height: 35px;
+  margin-right: 22px;
+}
+.page3-Change .Change-box .Change-search ul li select {
+  float: left;
+  width: 146px;
+  height: 100%;
+  border: 1px solid #f0f0f0;
+}
+.page3-Change .Change-box .Change-search ul li label {
+  float: left;
+  display: block;
+  height: 100%;
+  line-height: 35px;
+  text-align: left;
+}
+.page3-Change .Change-box .Change-search ul li.search-difficulty-li {
+  overflow: hidden;
+}
+.page3-Change .Change-box .Change-search ul li.search-difficulty-li label {
+  width: 40px;
+}
+.page3-Change .Change-box .Change-search ul li.search-topic-li {
+  overflow: hidden;
+}
+.page3-Change .Change-box .Change-search ul li.search-topic-li label {
+  width: 68px;
+}
+.page3-Change .Change-box .Change-search ul li.search-so-li {
+  float: right;
+  width: 290px;
+  margin-right: 0px;
+  position: relative;
+}
+.page3-Change .Change-box .Change-search ul li.search-so-li input {
+  width: 250px;
+  margin-left: -12px;
+  height: 32px;
+  line-height: 34px;
+  border: 1px solid #f0f0f0;
+  padding-left: 10px;
+  padding-right: 40px;
+  border-radius: 2px;
+}
+.page3-Change .Change-box .Change-search ul li.search-so-li .so-box {
+  width: 34px;
+  height: 32px;
+  border: none;
+  background: #FFFFFF;
+  border-left: 1px solid #f0f0f0;
+  background-position: 1px -4px;
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+.page3-Change .Change-box .Change-cont {
+  width: 100%;
+  min-height: 420px;
+}
+.page3-Change .Change-box .Change-cont .Change-cont-title-ul {
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  background-color: #f2fcf7;
+  padding: 0px 20px;
+}
+.page3-Change .Change-box .Change-cont .Change-cont-title-ul li {
+  float: left;
+  text-align: left;
+}
+.page3-Change .Change-box .Change-cont .Change-cont-title-ul li h1 {
+  font-size: 14px;
+  font-weight: 600;
+}
+.page3-Change .Change-box .Change-cont .Change-cont-title-ul li.Change-cont-ul-li {
+  width: 360px;
+}
+.page3-Change .Change-box .Change-cont .Change-cont-title-ul li.Change-table-topic {
+  width: 190px;
+}
+.page3-Change .Change-box .Change-cont .Change-cont-title-ul li.Change-table-traits {
+  width: 120px;
+}
+.page3-Change .Change-box .Change-cont .Change-cont-title-ul li.Change-table-difficulty {
+  width: 130px;
+}
+.page3-Change .Change-box .Change-cont .Change-cont-title-ul li.Change-table-operation {
+  width: 30px;
+}
+.page3-Change .Change-box .Change-cont .Change-cont-title-ul li.Change-table-operation a {
+  cursor: pointer;
+  color: #29AE21;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul {
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  padding: 0px 20px;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul.odd {
+  background-color: #f2fcf7;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul.even {
+  background-color: #FFFFFF;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li {
+  float: left;
+  text-align: left;
+  position: relative;
+  width: 100%;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-cont-ul-li {
+  width: 360px;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-cont-ul-li .Change-cont-ul-li-table {
+  overflow: hidden;
+  text-align: left;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-cont-ul-li .Change-cont-ul-li-table input {
+  float: left;
+  margin-top: 20px;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-cont-ul-li .Change-cont-ul-li-table label {
+  float: left;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 345px;
+  height: 50px;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-table-topic {
+  width: 190px;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-table-traits {
+  width: 120px;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-table-difficulty {
+  width: 130px;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-table-difficulty .facility-value {
+  float: left;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-table-difficulty .facility-value ul {
+  overflow: hidden;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-table-difficulty .facility-value ul li {
+  display: block;
+  float: left;
+  width: 12px;
+  height: 6px;
+  margin-right: 2px;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-table-difficulty .facility-value ul li.value-active {
+  background: #2db871;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-table-difficulty .facility-value ul li.value {
+  background: #dcdcdc;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-table-operation {
+  width: 30px;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-table-operation i {
+  font-size: 20px;
+  cursor: pointer;
+  color: #29AE21;
+}
+.page3-Change .Change-box .Change-cont .box {
+  display: none;
+  width: 100%;
+  background-color: #f3f9fd;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li {
+  display: block;
+  float: inherit;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box {
+  padding: 10px 20px;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .title {
+  height: 100%;
+  overflow: hidden;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .title p {
+  font-size: 16px;
+  height: 35px;
+  line-height: 35px;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .title p input {
+  width: auto;
+  height: 22px;
+  border: none;
+  background-color: none;
+  border-bottom: 1px solid #999999;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li {
+  min-height: 35px;
+  line-height: 35px;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box {
+  overflow: hidden;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box input {
+  float: left;
+  width: 16px;
+  height: 16px;
+  margin-top: 10px;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box label {
+  float: left;
+  width: 96%;
+  cursor: pointer;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box {
+  overflow: hidden;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box span {
+  float: left;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li:hover {
+  color: #36b773;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer {
+  height: 35px;
+  line-height: 35px;
+  overflow: hidden;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer {
+  color: #36b773;
+  float: left;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet {
+  float: left;
+}
+.page3-Change .Change-box #page {
+  margin-top: 30px;
+  text-align: center;
+}
+.page3-Change .Change-box .Change-footer {
+  margin-top: 40px;
+}
+.page3-Change .Change-box .Change-footer .btn-box {
+  float: right;
+  width: auto;
+}
+.page3-Change .Change-box .Change-footer .btn-box .buttom-submit {
+  background-color: #36b773;
+  color: #FFFFFF;
+  border: 1px solid #36b773;
+}
+.page3-Change .Change-box .Change-footer .btn-box .buttom-cancel {
+  background-color: #FFFFFF;
+  color: #333333;
+  border: 1px solid #f6f6f6;
+}

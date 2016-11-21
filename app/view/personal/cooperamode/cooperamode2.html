@@ -1,0 +1,17 @@
+{{if passCourse.success}}
+{{if passData != ''}}
+{{each passData}}
+<div class="Cooperamode_div">
+    <a href="#/course/del/b/{{$value.course_id}}" target="_blank" data-id="{{$value.course_id}}">
+        <img src="{{$value.photo}}" alt="photo"  onerror="this.src='./app/assets/images/error-user.png'">
+        <p class="Cooperamode_div_p1">{{$value.name}}</p>
+        <p class="Cooperamode_div_p3">查看课程</p>
+    </a>
+</div>
+{{/each}}
+{{else}}
+<div class="course-list-nodata">暂无数据</div>
+{{/if}}
+{{else}}
+<div class="error">{{item.errorMessage}}</div>
+{{/if}}

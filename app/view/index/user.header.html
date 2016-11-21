@@ -1,0 +1,33 @@
+{{if user.resultObject != ''}}
+<a class="user" href="#/user">
+	<div class="home-user-box">
+		<img src="{{user.resultObject.personal_img}}" onerror="this.src='./app/assets/images/error-user.png'" />
+	</div>
+	<div class="home-user-name" data-id="{{user.resultObject.id}}"
+	     data-indenty_status="{{user.resultObject.indenty_status}}"
+	     data-name="{{user.resultObject.login_name}}">
+		<span></span>
+	</div>
+</a>
+{{else}}
+<div class="user-box">
+	<div class="personal">
+		<a class="login" href="#/login">登录</a><span class="ei">|</span><a class="reg" href="#/signin">注册</a>
+	</div>
+</div>
+{{/if}}
+
+{{if user.resultObject != ''}}
+<ul class="user-nav">
+	<li class="home-nav2-li">
+		<a href="#/personal/mynews/1">
+			个人中心
+		</a>
+	</li>
+	<li class="home-nav2-li">
+		<a href="{{logout}}" class="J-login">
+			退出
+		</a>
+	</li>
+</ul>
+{{/if}}

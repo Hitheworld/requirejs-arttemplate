@@ -1,0 +1,428 @@
+<div class="page3-Change">
+	<div class="Change-box">
+		<div class="Change-title">
+			<h1>选择试题</h1><div class="t-box"><span>|</span><span class="t">课程名称</span></div>
+		</div>
+		<div class="Change-search">
+			<form id="searchForm">
+				<ul>
+					<li class="search-difficulty-li">
+						<label for="search-difficulty">难度</label>
+						<select name="search-difficulty" id="search-difficulty">
+							<option>全部</option>
+							<option>全部</option>
+							<option>全部</option>
+							<option>全部</option>
+							<option>全部</option>
+						</select>
+					</li>
+					<li class="search-topic-li">
+						<label for="search-topic">知识体系</label>
+						<select name="search-topic" id="search-topic">
+							<option>全部</option>
+							<option>全部</option>
+							<option>全部</option>
+							<option>全部</option>
+							<option>全部</option>
+						</select>
+					</li>
+					<li class="search-so-li">
+						<input type="text" class="search-so" name="search-so" />
+						<button class="so-box">
+							<i class="layui-icon">&#xe615;</i>
+						</button>
+					</li>
+				</ul>
+			</form>
+		</div>
+		<div class="Change-cont">
+			<ul class="Change-cont-title-ul">
+				<li class="Change-cont-ul-li">
+					<h1>试题名称</h1>
+				</li>
+				<li class="Change-table-topic">
+					<h1>知识点</h1>
+				</li>
+				<li class="Change-table-traits">
+					<h1>题型</h1>
+				</li>
+				<li class="Change-table-difficulty">
+					<h1>难度</h1>
+				</li>
+				<li class="Change-table-operation">
+					<h1>操作</h1>
+				</li>
+			</ul>
+
+
+
+			<!--1/单选题-->
+			{{each daiXuan as daiXuan i}}
+			<div class="table-body">
+				<ul class="Change-cont-ul">
+					<!--试题名称-->
+					<li class="Change-cont-ul-li">
+						<div class="Change-cont-ul-li-table">
+							<input type="radio" name="subject" />
+							<label>{{daiXuan.title}}</label>
+						</div>
+					</li>
+					<!--end试题名称-->
+					<!--知识点-->
+					<li class="Change-table-topic">
+						{{daiXuan.topic}}
+					</li>
+					<!--end知识点-->
+					<!--题型-->
+					<li class="Change-table-traits">
+						{{daiXuan.traits}}
+					</li>
+					<!--end题型-->
+					<!--难度-->
+					<li class="Change-table-difficulty">
+						<div class="facility-value">
+							<ul>
+								<li class="value-active"></li>
+								<li class="value-active"></li>
+								<li class="value"></li>
+								<li class="value"></li>
+							</ul>
+						</div>
+					</li>
+					<!--end难度-->
+					<!--操作-->
+					<li class="Change-table-operation">
+						<i class="fa fa-bars J-btn-toggle" aria-hidden="true"></i>
+					</li>
+					<!--end操作-->
+				</ul>
+				<div class="box">
+					<!-- 题库 -->
+					<ul class="pagePaper-content-questions">
+						<li>
+							<div class="pagePaper-content-box">
+								<div class="title">
+									<p>{{daiXuan.title}}</p>
+								</div>
+								<ul class="title-selete">
+									{{each daiXuan.titleselete as titleselete index}}
+									<li>
+										<div class="title-selete-box">
+											<input type="radio" name="subject" id="subject{{i}}-{{index}}" />
+											<label for="subject{{i}}-{{index}}">{{titleselete}}</label>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+								<div class="paper-answer">
+									<span class="answer">答案说明:</span><span class="answer-contnet">{{daiXuan.Answer}}</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!-- end题库 -->
+				</div>
+			</div>
+			{{/each}}
+			<!--end--1/单选题-->
+
+
+			<!--1/多选题-->
+			{{each duoXuan as duoXuan i}}
+			<div class="table-body">
+				<ul class="Change-cont-ul">
+					<!--试题名称-->
+					<li class="Change-cont-ul-li">
+						<div class="Change-cont-ul-li-table">
+							<input type="radio" name="subject" />
+							<label>{{duoXuan.title}}</label>
+						</div>
+					</li>
+					<!--end试题名称-->
+					<!--知识点-->
+					<li class="Change-table-topic">
+						{{duoXuan.topic}}
+					</li>
+					<!--end知识点-->
+					<!--题型-->
+					<li class="Change-table-traits">
+						{{duoXuan.traits}}
+					</li>
+					<!--end题型-->
+					<!--难度-->
+					<li class="Change-table-difficulty">
+						<div class="facility-value">
+							<ul>
+								<li class="value-active"></li>
+								<li class="value-active"></li>
+								<li class="value"></li>
+								<li class="value"></li>
+							</ul>
+						</div>
+					</li>
+					<!--end难度-->
+					<!--操作-->
+					<li class="Change-table-operation">
+						<i class="fa fa-bars J-btn-toggle" aria-hidden="true"></i>
+					</li>
+					<!--end操作-->
+				</ul>
+				<div class="box">
+					<!-- 题库 -->
+					<ul class="pagePaper-content-questions">
+						<li>
+							<div class="pagePaper-content-box">
+								<div class="title">
+									<p>{{duoXuan.title}}</p>
+								</div>
+								<ul class="title-selete">
+									{{each duoXuan.titleselete as titleselete index}}
+									<li>
+										<div class="title-selete-box">
+											<input type="checkbox" name="duoXuan" id="duoXuan-{{i}}-{{index}}" />
+											<label for="duoXuan-{{i}}-{{index}}">{{titleselete}}</label>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+								<div class="paper-answer">
+									<span class="answer">答案说明:</span><span class="answer-contnet">{{duoXuan.Answer}}</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!-- end题库 -->
+				</div>
+			</div>
+			{{/each}}
+			<!--end--1/多选题-->
+
+
+
+
+
+			<!--1/判断题-->
+			{{each panDuan as panDuan i}}
+			<div class="table-body">
+				<ul class="Change-cont-ul">
+					<!--试题名称-->
+					<li class="Change-cont-ul-li">
+						<div class="Change-cont-ul-li-table">
+							<input type="radio" name="subject" />
+							<label>{{panDuan.title}}</label>
+						</div>
+					</li>
+					<!--end试题名称-->
+					<!--知识点-->
+					<li class="Change-table-topic">
+						{{panDuan.topic}}
+					</li>
+					<!--end知识点-->
+					<!--题型-->
+					<li class="Change-table-traits">
+						{{panDuan.traits}}
+					</li>
+					<!--end题型-->
+					<!--难度-->
+					<li class="Change-table-difficulty">
+						<div class="facility-value">
+							<ul>
+								<li class="value-active"></li>
+								<li class="value-active"></li>
+								<li class="value"></li>
+								<li class="value"></li>
+							</ul>
+						</div>
+					</li>
+					<!--end难度-->
+					<!--操作-->
+					<li class="Change-table-operation">
+						<i class="fa fa-bars J-btn-toggle" aria-hidden="true"></i>
+					</li>
+					<!--end操作-->
+				</ul>
+				<div class="box">
+					<!-- 题库 -->
+					<ul class="pagePaper-content-questions">
+						<li>
+							<div class="pagePaper-content-box">
+								<div class="title">
+									<p>{{panDuan.title}}</p>
+								</div>
+								<ul class="title-selete">
+									<li>
+										<div class="title-selete-box">
+											<input type="radio" name="subject" id="panDuan{{i}}-{{index}}-yes" />
+											<label for="panDuan{{i}}-{{index}}-yes">对</label>
+										</div>
+									</li>
+									<li>
+										<div class="title-selete-box">
+											<input type="radio" name="subject" id="panDuan{{i}}-{{index}}-no" />
+											<label for="panDuan{{i}}-{{index}}-no">错</label>
+										</div>
+									</li>
+								</ul>
+								<div class="paper-answer">
+									<span class="answer">答案说明:</span><span class="answer-contnet">{{panDuan.Answer}}</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!-- end题库 -->
+				</div>
+			</div>
+			{{/each}}
+			<!--end--1/判断题-->
+
+
+
+
+
+
+			<!--1/填空题-->
+			{{each tianKong as tianKong i}}
+			<div class="table-body">
+				<ul class="Change-cont-ul">
+					<!--试题名称-->
+					<li class="Change-cont-ul-li">
+						<div class="Change-cont-ul-li-table">
+							<input type="radio" name="subject" />
+							<label>{{#tianKong.title}}</label>
+						</div>
+					</li>
+					<!--end试题名称-->
+					<!--知识点-->
+					<li class="Change-table-topic">
+						{{tianKong.topic}}
+					</li>
+					<!--end知识点-->
+					<!--题型-->
+					<li class="Change-table-traits">
+						{{tianKong.traits}}
+					</li>
+					<!--end题型-->
+					<!--难度-->
+					<li class="Change-table-difficulty">
+						<div class="facility-value">
+							<ul>
+								<li class="value-active"></li>
+								<li class="value-active"></li>
+								<li class="value"></li>
+								<li class="value"></li>
+							</ul>
+						</div>
+					</li>
+					<!--end难度-->
+					<!--操作-->
+					<li class="Change-table-operation">
+						<i class="fa fa-bars J-btn-toggle" aria-hidden="true"></i>
+					</li>
+					<!--end操作-->
+				</ul>
+				<div class="box">
+					<!-- 题库 -->
+					<ul class="pagePaper-content-questions">
+						<li>
+							<div class="pagePaper-content-box">
+								<div class="title">
+									<p>{{#tianKong.title}}</p>
+								</div>
+								<div class="paper-answer">
+									<span class="answer">答案说明:</span><span class="answer-contnet">{{tianKong.Answer}}</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!-- end题库 -->
+				</div>
+			</div>
+			{{/each}}
+			<!--end--1/填空题-->
+
+
+
+
+			<!--1/简答题-->
+			{{each jianDa as jianDa i}}
+			<div class="table-body">
+				<ul class="Change-cont-ul">
+					<!--试题名称-->
+					<li class="Change-cont-ul-li">
+						<div class="Change-cont-ul-li-table">
+							<input type="radio" name="subject" />
+							<label>{{jianDa.title}}</label>
+						</div>
+					</li>
+					<!--end试题名称-->
+					<!--知识点-->
+					<li class="Change-table-topic">
+						{{jianDa.topic}}
+					</li>
+					<!--end知识点-->
+					<!--题型-->
+					<li class="Change-table-traits">
+						{{jianDa.traits}}
+					</li>
+					<!--end题型-->
+					<!--难度-->
+					<li class="Change-table-difficulty">
+						<div class="facility-value">
+							<ul>
+								<li class="value-active"></li>
+								<li class="value-active"></li>
+								<li class="value"></li>
+								<li class="value"></li>
+							</ul>
+						</div>
+					</li>
+					<!--end难度-->
+					<!--操作-->
+					<li class="Change-table-operation">
+						<i class="fa fa-bars J-btn-toggle" aria-hidden="true"></i>
+					</li>
+					<!--end操作-->
+				</ul>
+				<div class="box">
+					<!-- 题库 -->
+					<ul class="pagePaper-content-questions">
+						<li>
+							<div class="pagePaper-content-box">
+								<div class="title">
+									<p>{{jianDa.title}}</p>
+								</div>
+								<ul class="title-selete">
+									<li>
+										<div class="title-selete-box jianDa-selete-box">
+											<span>答案:</span><p>{{jianDa.titleselete}}</p>
+										</div>
+									</li>
+								</ul>
+								<div class="paper-answer">
+									<span class="answer">答案说明:</span><span class="answer-contnet">{{jianDa.Answer}}</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!-- end题库 -->
+				</div>
+			</div>
+			{{/each}}
+			<!--end--1/简答题-->
+
+
+
+
+
+		</div>
+
+		<div id="page"></div>
+
+		<div class="Change-footer">
+			<div class="btn-box">
+				<button class="layui-btn buttom-submit">确定</button>
+				<button class="layui-btn buttom-cancel">取消</button>
+			</div>
+		</div>
+	</div>
+</div>

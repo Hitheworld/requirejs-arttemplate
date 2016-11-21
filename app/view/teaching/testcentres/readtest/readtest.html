@@ -1,0 +1,154 @@
+<div class="readtest">
+	<div class="readtest-box">
+
+		<!--标题-->
+		<div class="viewtest-top">
+			<h1>{{GeneratedPaper.resultObject.testName}}</h1>
+			<div class="studentInfo">
+				<span>大姐夫</span>
+				<span>{{GeneratedPaper.resultObject.student}}</span>
+				<span>耗时：{{GeneratedPaper.resultObject.timeConsuming}}</span>
+				<span>总分：{{GeneratedPaper.resultObject.studentTotalScore}}分</span>
+			</div>
+			<a href="javascript:history.back(-1);">
+				<i class="layui-icon">&#x1006;</i>
+			</a>
+		</div>
+		<!--end标题-->
+
+		<div class="readtest-content">
+			<div class="readtest-content_header">
+				<span class="readtest-content_header_this layui-btn-radius">单选题</span>
+				<span class="layui-btn-radius">多选题</span>
+				<span class="layui-btn-radius">判断题</span>
+				<span class="layui-btn-radius">填空题</span>
+				<span class="layui-btn-radius">简答题</span>
+			</div>
+
+			<div>
+				总分 60
+				得分 51
+			</div>
+
+			<div class="readtest-content-dv">
+				<div>
+					<p>1、 请写出jquery的ajax方法(至少三个) ( 4分)</p>
+					<p><span>学员答案：</span>get post getScript getJson</p>
+					<p>参考答案：$.ajax(),$.get(),$.post()</p>
+					<p>教师打分：<input type="text" />分</p>
+				</div>
+				<div>
+					<p>1、 请写出jquery的ajax方法(至少三个) ( 4分)</p>
+					<p><span>学员答案：</span>get post getScript getJson</p>
+					<p>参考答案：$.ajax(),$.get(),$.post()</p>
+					<p>教师打分：<input type="text" />分</p>
+				</div>
+				<div>
+					<p>1、 请写出jquery的ajax方法(至少三个) ( 4分)</p>
+					<p><span>学员答案：</span>get post getScript getJson</p>
+					<p>参考答案：$.ajax(),$.get(),$.post()</p>
+					<p>教师打分：<input type="text" />分</p>
+				</div>
+				<div>
+					<p>1、 请写出jquery的ajax方法(至少三个) ( 4分)</p>
+					<p><span>学员答案：</span>get post getScript getJson</p>
+					<p>参考答案：$.ajax(),$.get(),$.post()</p>
+					<p>教师打分：<input type="text" />分</p>
+				</div>
+
+			</div>
+
+		</div>
+
+
+
+
+		<!--题库导航-->
+		<div id="sidebar">
+			<div class="pagePaper-questions-nav">
+				{{if daiXuan}}
+				<div class="questions-nav-title">
+					<h3>单选题</h3>
+					<span>共{{GeneratedPaper.resultObject.daiXuan.totalScore}}分</span>
+				</div>
+				<ul>
+					{{each daiXuan as value i}}
+					<li>
+						<div class="box-nav">
+							<a href="javascript:$('#nav-daiXuan-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+						</div>
+					</li>
+					{{/each}}
+				</ul>
+				{{/if}}
+				{{if duoXuan}}
+				<div class="questions-nav-title">
+					<h3>多选题</h3>
+					<span>共{{GeneratedPaper.resultObject.duoXuan.totalScore}}分</span>
+				</div>
+				<ul>
+					{{each duoXuan as value i}}
+					<li>
+						<div class="box-nav">
+							<a href="javascript:$('#nav-duoXuan-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+						</div>
+					</li>
+					{{/each}}
+				</ul>
+				{{/if}}
+				{{if panDuan}}
+				<div class="questions-nav-title">
+					<h3>判断题</h3>
+					<span>共{{GeneratedPaper.resultObject.panDuan.totalScore}}分</span>
+				</div>
+				<ul>
+					{{each panDuan as value i}}
+					<li>
+						<div class="box-nav">
+							<a href="javascript:$('#nav-panDuan-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+						</div>
+					</li>
+					{{/each}}
+				</ul>
+				{{/if}}
+				{{if tianKong}}
+				<div class="questions-nav-title">
+					<h3>填空题</h3>
+					<span>共{{GeneratedPaper.resultObject.tianKong.totalScore}}分</span>
+				</div>
+				<ul>
+					{{each tianKong as value i}}
+					<li>
+						<div class="box-nav">
+							<a href="javascript:$('#nav-tianKong-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+						</div>
+					</li>
+					{{/each}}
+				</ul>
+				{{/if}}
+				{{if jianDa}}
+				<div class="questions-nav-title">
+					<h3>简答题</h3>
+					<span>共{{GeneratedPaper.resultObject.jianDa.totalScore}}分</span>
+				</div>
+				<ul>
+					{{each jianDa as value i}}
+					<li>
+						<div class="box-nav">
+							<a href="javascript:$('#nav-jianDa-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+						</div>
+					</li>
+					{{/each}}
+				</ul>
+				{{/if}}
+			</div>
+		</div>
+		<!--//题库导航-->
+
+		<div class="readtest-btn">
+			<button class="layui-btn">完成批阅，下一位同学</button>
+			<button class="layui-btn">返回列表</button>
+			<p>还剩14位学生未批阅</p>
+		</div>
+	</div>
+</div>

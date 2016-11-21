@@ -1,0 +1,35 @@
+<div>
+    <div class="personal_picModal">
+            <form id="MyModal" method="post" enctype="multipart/form-data">
+                <input class="layui-upload-file" id="UpLoadFiletou" name="c" type="file" />
+            </form>
+        <img class="personal_picModal_img" title="上传头像" src="{{resultObject[0].personal_img}}" alt="" onerror="this.src='./app/assets/images/error-user.png'" />
+    </div>
+    <div class="personal_name" title="上传头像" data-id="{{resultObject[0].login_name}}">{{resultObject[0].name}}</div>
+    <div class="personal_msg">
+        <div class="personal_msg_dv_1">我的积分:<span>{{resultObject[0].tot_integral}}</span></div>
+        {{if resultObject[0].indenty_status == "0"}}
+        <div class="personal_msg_dv_2">未认证</div>
+        {{else if resultObject[0].indenty_status == "1"}}
+        <div class="personal_msg_dv_2">审核中</div>
+        {{else if resultObject[0].indenty_status == "2"}}
+        <div class="personal_msg_dv_2">认证教师</div>
+        {{else if resultObject[0].indenty_status == "3"}}
+        <div class="personal_msg_dv_2">未认证</div>
+        {{/if}}
+    </div>
+</div>
+
+<ul class="personal_ul">
+    <li class="personal_this" data-url="mynews"><a href="#/personal/mynews">我的消息</a></li>
+    <li data-url="userdata"><a href="#/personal/userdata">个人资料</a></li>
+    <li data-url="teaccert"><a href="#/personal/teaccert">教师资格认证</a></li>
+    {{if resultObject[0].cooperationStatus}}
+    <li data-url="cooperamode"><a href="#/personal/cooperamode">合作课程</a></li>
+    {{else}}
+    <li data-url="cooperation"><a href="#/personal/cooperation">合作模式</a></li>
+    {{/if}}
+
+    <li data-url="mypoints"><a href="#/personal/mypoints">我的积分</a></li>
+    <li data-url="myquestion"><a href="#/personal/myquestion">我的提问</a></li>
+</ul>

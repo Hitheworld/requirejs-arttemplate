@@ -1,0 +1,17 @@
+{{if teacherJoinStatus.resultObject == -1}}
+	<button class="layui-btn course-del-cooperation J-btn-popup">立即合作</button>
+{{else if teacherJoinStatus.resultObject == 0}} <!--  0 没有教师用户  --没有登录 -->
+	<button class="layui-btn course-del-cooperation J-btn-popup">立即合作</button>
+{{else if teacherJoinStatus.resultObject == 1}} <!--  1; //非认证教师 -->
+	<button class="layui-btn course-del-cooperation J-btn-popup">立即合作</button>
+{{else if teacherJoinStatus.resultObject == 2}}  <!--  2; //认证待审核教师 -->
+	<button class="layui-btn course-del-cooperation J-btn-popup">立即合作</button>
+{{else if teacherJoinStatus.resultObject == 3}}  <!--  3; //已认证 -->
+	<span id="addtypehtml"><button class="layui-btn course-del-cooperation J-btn-popup"  id="addTeacherToCourse">立即合作</button></span>
+{{else if teacherJoinStatus.resultObject == 4}}  <!--  4; //合作待审核 -->
+	<span>正在审核中…</span>
+{{else if teacherJoinStatus.resultObject == 5}}  <!--  5; //已认证且合作成功 -->
+	<span>已合作</span>
+{{else}}
+	<button class="layui-btn course-del-cooperation J-btn-popup">立即合作</button>
+{{/if}}

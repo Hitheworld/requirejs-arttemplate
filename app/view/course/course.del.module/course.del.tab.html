@@ -1,0 +1,10 @@
+{{if success}}
+<div class="layui-tab-item layui-show">
+	{{#resultObject[0].brief_introduction}}
+</div>
+<div class="layui-tab-item">
+	{{#resultObject[0].outline}}
+</div>
+{{else}}
+<div class="course-list-nodata">暂无数据</div>
+{{/if}}

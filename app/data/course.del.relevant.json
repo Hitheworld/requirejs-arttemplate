@@ -1,0 +1,35 @@
+{
+  "success": true,
+  "resultObject": {
+      "lists": [
+          {
+            "pic": "http://www.lolnj.com.img.800cdn.com/uploads/allimg/141010/1-141010114510231.jpg",
+            "title": "《Java基础入门》",
+            "people": 50,
+            "url": "88999",
+            "object":"高中"
+          },
+          {
+            "pic": "http://www.lolnj.com.img.800cdn.com/uploads/allimg/141010/1-141010114510231.jpg",
+            "title": "《Java基础入门》",
+            "people": 50,
+            "url": "88999",
+            "object":"高中"
+          },
+          {
+            "pic": "http://www.lolnj.com.img.800cdn.com/uploads/allimg/141010/1-141010114510231.jpg",
+            "title": "《Java基础入门》",
+            "people": 50,
+            "url": "88999",
+            "object":"高中"
+          },
+          {
+            "pic": "http://www.lolnj.com.img.800cdn.com/uploads/allimg/141010/1-141010114510231.jpg",
+            "title": "《Java基础入门》",
+            "people": 50,
+            "url": "88999",
+            "object":"高中"
+          }
+      ]
+  }
+}

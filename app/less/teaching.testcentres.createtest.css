@@ -1,0 +1,137 @@
+/**
+     * 创建考试
+ */
+.createtest .createtest-box .createtest-contnt {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item {
+  width: 500px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .layui-form-label {
+  width: 120px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .layui-form-label .major {
+  color: #FF0000;
+  font-size: 16px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .layui-input-inline .addtest-a {
+  display: block;
+  height: 38px;
+  line-height: 38px;
+  font-size: 16px;
+  color: #279ee9;
+  text-decoration: underline;
+}
+.addTestPaper {
+  padding: 10px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-box-header {
+  height: 35px;
+  line-height: 35px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-box-header div {
+  position: relative;
+  height: 100%;
+  float: left;
+  width: 216px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-box-header div label {
+  float: left;
+  height: 100%;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-box-header div p {
+  float: left;
+  width: 144px;
+  height: 33px;
+  border: 1px solid #e0e0e0;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-box-header div .addTestPaper-box-header-div {
+  position: absolute;
+  top: 34px;
+  left: 0;
+  width: 150%;
+  height: 50px;
+  border: 1px solid #e0e0e0;
+  display: block;
+  z-index: 6;
+  background-color: #f0f0f0;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-box-header .addTestPaper-box-header-date input {
+  width: 88px;
+  height: 100%;
+  border: 1px solid #e0e0e0;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-box-header .addTestPaper-box-header-date + span {
+  margin-left: 20px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-box-header .addTestPaper-box-header-date + span input {
+  width: 248px;
+  border: 1px solid #e0e0e0;
+  height: 100%;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body {
+  padding: 10px 20px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .organizepaper-header {
+  padding-bottom: 30px;
+  padding-top: 30px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .organizepaper-header ul {
+  overflow: hidden;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .organizepaper-header ul li {
+  float: left;
+  margin-right: 20px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .organizepaper-header ul li label {
+  float: left;
+  display: block;
+  width: 86px;
+  height: 35px;
+  line-height: 35px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .organizepaper-header ul li select {
+  float: left;
+  width: 145px;
+  height: 35px;
+  line-height: 35px;
+  border: #f0f0f0 1px solid;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .dataTables_info,
+.addTestPaper .addTestPaper-box .addTestPaper-body .dataTables_paginate {
+  margin-top: 30px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .addTestPaperButtom {
+  margin-top: 42px;
+  overflow: hidden;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .addTestPaperButtom ul {
+  float: right;
+  overflow: hidden;
+  margin-right: -20px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .addTestPaperButtom ul li {
+  float: left;
+  margin-right: 20px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .addTestPaperButtom ul li button {
+  width: 92px;
+  height: 38px;
+  line-height: 38px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .addTestPaperButtom ul li button.submit {
+  background: #2db871;
+  color: #FFFFFF;
+  border: none;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .addTestPaperButtom ul li button.cancel {
+  background: #FFFFFF;
+  color: #333333;
+  border: 1px solid #f6f6f6;
+}

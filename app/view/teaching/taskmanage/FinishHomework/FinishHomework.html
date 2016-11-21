@@ -1,0 +1,65 @@
+<div class="myClass">
+    <div class="myclass_btn">
+        <button class="layui-btn" id="Create_a_class"><a href="#/teaching/taskmanage/createtask">布置作业</a></button>
+    </div>
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title">
+            <li><a href="#/teaching/taskmanage/releasetask">待完成作业</a></li>
+            <li class="layui-this"><a href="#/teaching/taskmanage/FinishHomework">已完成作业</a></li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="markexampapers-header">
+                <ul>
+                    <li>
+                        <div class="item-box">
+                            <label for="markexampapers-peper-difficulty">班级</label>
+                            <select id="markexampapers-peper-difficulty">
+                                <option>全部</option>
+                                <option>全部</option>
+                                <option>全部</option>
+                                <option>全部</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-box">
+                            <span>时间:
+                                <input type="text" id="startdate"/> ———
+                                <input type="text" id="enddate"/>
+                            </span>
+                            <span>
+                                <input type="text">
+                            </span>
+                            <span>
+                                <button class="layui-btn" id="myquestion_btn">确定</button>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            {{if TestPaperDB.resultObject.lists != '' || TestPaperDB.resultObject.lists != undefined}}
+            <div class="markexampapers-cont">
+                <table id="releasetaskTable" class="display" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>试卷名称</th>
+                        <th>难度</th>
+                        <th>关联课程</th>
+                        <th>热度（次）</th>
+                        <th>创建时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+
+            {{else}}
+            <!--空文件-->
+            <div class="contnet-dummy">
+                <div class="dummy-file"></div>
+            </div>
+            <!--end空文件-->
+            {{/if}}
+        </div>
+    </div>
+</div>

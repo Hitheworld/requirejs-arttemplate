@@ -1,0 +1,267 @@
+//教师资格认证
+.teaccert-lessform-content {
+    overflow: hidden;
+    margin-top: 30px;
+            
+    .teaccert-form-item {
+        margin-top: 20px;
+        width: 100%;
+        min-height: 50px;
+        position: relative;
+        .layui-form-label {
+            width: 100px;
+        } 
+        //专业选择
+        .teaccert-major {
+            margin-left: 0px;
+            float: left;
+        }
+        //提交按钮
+        .teaccert-form-btn {
+            margin-left: 130px;
+        }
+        
+        .teaccert-form-item-box {
+            
+            .layui-form-select {
+                width: 230px;
+                float: left;
+            }
+            input {
+                width: 230px;
+                font-size: 14px;
+            }
+            .error {
+                display: block;
+                margin-left: 22px;
+                margin-top: 5px;
+            }
+            //laerUI
+             input[type=checkbox],  input[type=radio]{
+                display: block !important;
+                width: 20px !important;
+                height: 20px;
+                border: 1px solid #e4e4e4;
+            }
+            .radio-box {
+                height: 36px;
+                line-height: 36px;
+                float: left;
+                margin-right: 20px;
+                input {
+                    float: left;
+                    margin-right: 5px;
+                    margin-top: 10px;
+                    border: none;
+                }
+                .error {
+                    float: left;
+                }
+            }
+            .teaccert-form-label {
+                float: left;
+                width: 90px;
+                text-align: right;
+                line-height: 50px;
+                color: #333;  
+                font-size: 13px;
+            }
+            .teaccert-form-inpt {
+                float: left;
+                width: 305px;
+                margin-left: 10px;
+                height: 48px;
+                line-height: 36px;
+                border: 1px solid #ccc;
+                padding-left: 10px;
+                padding-right: 10px;
+                font-size: 13px;
+                color: #999;
+            }
+            //所在学校
+            .school-box {
+                position: relative;
+                width: 100%;
+                .school {
+                    
+                }
+                .school-selete {
+                    display: none;
+                    position: absolute;
+                    top: 42px;
+                    left: 21px;
+                    z-index: 9999;
+                    overflow-y: scroll;
+                    width: 230px;
+                    height: 240px;
+                    font-size: 16px;
+                    background-color: #fff;
+                    box-shadow: 0 0 10px #ccc;
+                    -ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#cccccc')";
+                    filter:progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135,
+Color='#cccccc');
+                    z-index: 20;
+                    font-size: 13px;
+                    color: #333333;
+                    li {
+                        display: block;
+                        padding: 5px 10px;
+                        height: 30px;
+                        line-height: 30px;
+                        border-bottom: 1px solid #f0f0f0;
+                        cursor: pointer;
+                        &:hover {
+                            color: #2DB871;
+                        }  
+                    }
+                }
+            }
+            //所教专业
+            .layui-input-block {
+                width: 513px;
+                max-height: 75px;
+                border: 1px solid #ebebeb;
+                background-color: #fafafa;
+                padding: 13px 20px;
+                margin: 0px;
+                .div-ul {
+                    overflow: hidden;
+                    .li {
+                        float: left;
+                        width: 33.3333%;
+                        overflow: hidden;
+                        margin-bottom: 10px;
+                        input {
+                            float: left;
+                            margin-right: 5px;
+                        }
+                        label {
+                            float: left;
+                        }
+                        .layui-form-checkbox {
+                            float: left;
+                            height: 25px;
+                            line-height: 21px;
+                            padding-right: 23px;
+                            span {
+                                display: none;
+                            }
+                            i {
+                                right: 18px;
+                                width: 15px;
+                            }
+                        }
+                        label {
+                            width: 109px;
+                            display: block;
+                            float: left;
+                            word-wrap: normal;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-align: left;
+                        }
+                        &.layui-this {
+                            
+                        }
+                    }
+                }
+            }
+            //展开
+            .open-box {
+                padding: 0px 20px;
+                height: 26px;
+                line-height: 26px;
+                .title-open {
+                    float: right;
+                    width: auto;
+                    cursor: pointer;
+                }
+            }
+            .teaccert-form-item-box-other-box {
+                background-color: #FFF;
+                border: none;
+                .title-other {
+                    width: auto;
+                    padding-left: 0px;
+                    margin-left: -20px;
+                }
+            }
+
+        } 
+
+    }
+}
+
+//上传
+.site-demo-upload {
+    position: relative;
+    background: #e2e2e2;
+    width: 230px;
+    height: 210px;
+    float: left;
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+    }
+    .site-demo-upbar {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 230px;
+        height: 210px;
+        #Myform{
+            label{
+                position: absolute;
+                display: inline;
+                right: -452px;
+            }
+        }
+        .layui-upload-file {
+            background-color: rgba(0,0,0,.2);
+            color: rgba(255,255,255,1);
+            opacity: 0;
+            -moz-opacity: 0.5;
+            -khtml-opacity: 0.5;
+            filter: alpha(opacity=0);
+            font-size: 110px;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: pointer;
+            overflow: hidden;
+            &.error {
+                display: block !important;
+                float: none !important;
+                margin: 0px !important;
+            }
+        }
+
+    }
+}
+//上传左则文字内容
+.teaccert-form-item-box-right-cont {
+    float: left;
+    width: 332px;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 2px;
+    h3 {
+        color: #333333;
+    }
+    p {
+        margin-top: 15px;
+        color: #999999;
+        line-height: 24px;
+    }
+}
+//上传
+.upload-box {
+    .error {
+        display: none;
+        float: right;
+    }
+}

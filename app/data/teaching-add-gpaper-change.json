@@ -1,0 +1,130 @@
+{
+  "success": true,
+  "resultObject": {
+    "daiXuan": {
+      "lists":[
+        {
+          "title": "关于数据解析以下说法正确的是:",
+          "topic": "数据库基础",
+          "traits": "单选",
+          "difficulty": "一般",
+          "titleselete": [
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套"
+          ],
+          "Answer": "<input type='text' />该类型对输入框和文本输入框没有任何区别"
+        },
+        {
+          "title": "关于数据解析以下说法正确的是:",
+          "topic": "数据库基础",
+          "traits": "单选",
+          "difficulty": "一般",
+          "titleselete": [
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套"
+          ],
+          "Answer": "<input type='text' />该类型对输入框和文本输入框没有任何区别"
+        },
+        {
+          "title": "关于数据解析以下说法正确的是:",
+          "topic": "数据库基础",
+          "traits": "单选",
+          "difficulty": "一般",
+          "titleselete": [
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套"
+          ],
+          "Answer": "<input type='text' />该类型对输入框和文本输入框没有任何区别"
+        }
+      ]
+    },
+    "duoXuan": {
+      "lists":[
+        {
+          "title": "关于数据解析以下说法正确的是:",
+          "topic": "数据库基础",
+          "traits": "多选",
+          "difficulty": "一般",
+          "titleselete": [
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套"
+          ],
+          "Answer": "<input type='text' />该类型对输入框和文本输入框没有任何区别"
+        },
+        {
+          "title": "关于数据解析以下说法正确的是:",
+          "topic": "数据库基础",
+          "traits": "多选",
+          "difficulty": "一般",
+          "titleselete": [
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套"
+          ],
+          "Answer": "<input type='text' />该类型对输入框和文本输入框没有任何区别"
+        }
+      ],
+      "totalScore": 60
+    },
+    "panDuan": {
+      "lists":[
+        {
+          "title": "关于数据解析以下说法正确的是:",
+          "topic": "数据库基础",
+          "traits": "判断",
+          "difficulty": "一般",
+          "titleselete": [
+            "对",
+            "错"
+          ],
+          "Answer": "对<input type=”search”>该类型的输入框和文本输入框没有任何区别"
+        }
+      ],
+      "totalScore": 60
+    },
+    "tianKong": {
+      "lists":[
+        {
+          "title": "关于数据解析以下说法正确的是<input type='text' />对输入框和文本输入框没有任对&lt;input type=”search”&gt;该类型的输入框和文本输入框没有任何区别",
+          "topic": "数据库基础",
+          "traits": "填空",
+          "difficulty": "一般",
+          "Answer": "<input type='text' />该类型对输入框和文本输入框没有任何区别"
+        },
+        {
+          "title": "关于数据解析以下说法正确的是<input type='text' />对输入框和文本输入框没有任",
+          "topic": "数据库基础",
+          "traits": "填空",
+          "difficulty": "一般",
+          "Answer": "<input type='text' />该类型对输入框和文本输入框没有任何区别"
+        }
+      ],
+      "totalScore": 60
+    },
+    "jianDa": {
+      "lists":[
+        {
+          "title": "关于数据解析以下说法正确的是:",
+          "topic": "数据库基础",
+          "traits": "简答",
+          "difficulty": "一般",
+          "titleselete": "减小光盘存放在硬盘上的容量，XML数据结构有且只有一个根节点，并且不能嵌套。<input type=”search”>该类型的输入框和文本输入框没有任何区别。",
+          "Answer": "对<input type=”search”>该类型的输入框和文本输入框没有任何区别"
+        }
+      ],
+      "totalScore": 60
+    },
+    "totalScore": 60,
+    "totalpages": 100,
+    "currentpage": 1
+  }
+}

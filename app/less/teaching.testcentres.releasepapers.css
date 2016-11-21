@@ -1,0 +1,76 @@
+.releasepapers.releasepapers-tab-box {
+  width: 100%;
+  background-color: #FFFFFF;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body {
+  padding: 20px 30px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .create-test-btn {
+  width: 125px;
+  height: 38px;
+  line-height: 38px;
+  padding: 0;
+  background: #36b773;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab {
+  overflow: hidden;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-title {
+  padding-left: 0px;
+  height: 58px;
+  background: #FFFFFF;
+  overflow: hidden;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-title li {
+  height: 59px;
+  line-height: 59px;
+  display: block;
+  float: left;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-title .layui-this:after {
+  height: 58px !important;
+  border: none;
+  border-bottom: solid 2px #2DB871;
+  height: 50px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content {
+  width: 100%;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching table.dataTable thead tr th.examination,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching table.dataTable thead tr th.examination,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching table.dataTable tbody tr td.examination,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching table.dataTable tbody tr td.examination {
+  padding-left: 10px !important;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching table.dataTable thead tr th.operation,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching table.dataTable thead tr th.operation,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching table.dataTable tbody tr td.operation,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching table.dataTable tbody tr td.operation {
+  padding-right: 10px !important;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .dataTables_wrapper .dataTables_paginate,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .dataTables_wrapper .dataTables_paginate {
+  margin-top: 20px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .operation-icon,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .operation-icon {
+  overflow: hidden;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .operation-icon a,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .operation-icon a {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .operation-icon a i,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .operation-icon a i {
+  font-size: 20px;
+  color: #72cc9d;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .operation-icon a:hover i,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .operation-icon a:hover i {
+  color: #75bfee;
+}

@@ -1,0 +1,119 @@
+
+
+<form id="signupForm" class="teaccert-lessform-content">
+	<div class="layui-form-item teaccert-form-item">
+		<label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">姓名：</label>
+		<div class="layui-input-block teaccert-form-item-box">
+			<input type="text" name="name" id="name" required  class="layui-input" />
+		</div>
+	</div>
+	<div class="layui-form-item teaccert-form-item">
+		<label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">性别：</label>
+		<div class="layui-input-block teaccert-form-item-box">
+			<div class="radio-box">
+				<input type="radio" name="sex" value="1" title="男" checked>
+				<label>男</label>
+			</div>
+			<div class="radio-box">
+				<input type="radio" name="sex" value="0" title="女">
+				<label>女</label>
+			</div>
+		</div>
+	</div>
+	<div class="layui-form-item teaccert-form-item">
+		<label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">所在学校：</label>
+		<div class="layui-input-block teaccert-form-item-box">
+			<div class="school-box">
+				<input type="hidden" name="college_id" id="college_id">
+				<input type="text" name="college_name" id="college_name" required  class="layui-input school J-school J-school1" />
+				<ul class="school-selete school-selete school-selete1" id="school-selete1">
+					<li>四川大家1</li>
+					<li>四川大家2</li>
+					<li>四川大家3</li>
+					<li>四川大家砝4</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="layui-form-item teaccert-form-item">
+		<label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">所在院系：</label>
+		<div class="layui-input-block teaccert-form-item-box">
+			<div class="school-box">
+				<input type="hidden" name="id" id="teacher_id">
+				<input type="hidden" name="department_id" id="department_id">
+				<input type="text" name="department_name" id="department_name" required  class="layui-input school J-school J-school2" />
+				<ul class="school-selete school-selete school-selete2">
+					<li>四川大家1</li>
+					<li>四川大家2</li>
+					<li>四川大家3</li>
+					<li>四川大家砝4</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="layui-form-item teaccert-form-item">
+		<label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">所教专业：</label>
+		<div class="teaccert-form-item-box teaccert-major">
+			<input type="text" name="subject" id="subject" class="layui-input" />
+			<!--<div class="layui-input-block">-->
+				<!--<div class="div-ul">-->
+					<!--<div class="li">-->
+						<!--<input type="checkbox" /><label>北京航天航空大学</label>-->
+					<!--</div>-->
+					<!--<div class="li">-->
+						<!--<input type="checkbox" /><label>程力学与航天航...</label>-->
+					<!--</div>-->
+					<!--<div id="view"></div>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="layui-input-block open-box">-->
+				<!--<label class="layui-form-label title-open" id="J-open-major">展开</label>-->
+			<!--</div>-->
+
+			<!--<div class="layui-input-block teaccert-form-item-box-other-box">-->
+				<!--<label class="layui-form-label title-other">其它：</label>-->
+				<!--<input type="text" name="post" class="layui-input" />-->
+			<!--</div>-->
+
+		</div>
+
+	</div>
+	<div class="layui-form-item teaccert-form-item">
+		<label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">职务：</label>
+		<div class="layui-input-block teaccert-form-item-box">
+			<input type="text" name="job_title" id="job_title" class="layui-input" />
+		</div>
+	</div>
+	<input type="hidden" name="certification_img" id="UpLoadFile_hidden">
+	<div style="height: 225px;width: 100%"></div>
+
+	<div class="layui-form-item teaccert-form-item">
+		<div class="layui-input-block teaccert-form-btn">
+			<button class="layui-btn" id="teaccert-submit"  type="submit">立即提交</button>
+		</div>
+	</div>
+</form>
+<div style="position: relative">
+	<div class="layui-form-item layui-form-text teaccert-form-item" style="position: absolute;width: 100%;top: -295px;left: 0;">
+		<label class="layui-form-label" style="width: 100px"><img src="./app/assets/images/4564.gif" alt="">上传照片：</label>
+		<div class="teaccert-form-item-box upload-box">
+			<div class="site-demo-upload">
+				<img id="LAY_demo_upload" src="http://img4.cache.netease.com/photo/0003/2016-10-15/C3DCSNQG00AJ0003.jpg" />
+				<div class="site-demo-upbar">
+					<form id="Myform" method="post" enctype="multipart/form-data">
+						<input required class="layui-upload-file {required : true,required : '请上传图片'}" name="c" id="UpLoadFile" type="file" />
+					</form>
+				</div>
+			</div>
+			<p for="test" class="error">请上传图片哦</p>
+			<div class="teaccert-form-item-box teaccert-form-item-box-right-cont">
+				<h3>照片为传智认证专用照片，其他网站及个人无法查看</h3>
+				<p>教师资格证上所有信息清晰可见，证件号清楚。照片免冠，手持证件人五官清晰可见。<br />
+					格式：jpg，png<br />
+					大小：小于500M</p>
+			</div>
+		</div>
+
+	</div>
+</div>
+

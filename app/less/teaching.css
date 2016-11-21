@@ -1,0 +1,86 @@
+.teaching {
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f6;
+  overflow: hidden;
+}
+.teaching .teachingBox {
+  position: relative;
+  width: 1200px;
+  margin: 30px auto;
+}
+.teaching .teachingBox .teaching-nav {
+  display: block;
+  width: 85px;
+  position: absolute;
+  left: -105px;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title {
+  width: 100%;
+  height: auto;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li {
+  display: block;
+  padding: 0px;
+  height: 100px;
+  line-height: 60px;
+  font-size: 16px;
+  color: #333333;
+  border-left: #FFFFFF 2px solid;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li a {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li a i.nav-icon {
+  width: 34px;
+  height: 35px;
+  display: block;
+  margin: 0px auto;
+  margin-top: 20px;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li a i.nav-icon.nav-myclass {
+  background: url("../../app/assets/images/nav/nav-myclass.png") no-repeat;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li a i.nav-icon.nav-review {
+  background: url("../../app/assets/images/nav/nav-review.png") no-repeat;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li a i.nav-icon.nav-task {
+  background: url("../../app/assets/images/nav/nav-task.png") no-repeat;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li a i.nav-icon.nav-test {
+  background: url("../../app/assets/images/nav/nav-test.png") no-repeat;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li.layui-this {
+  color: #333333;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li.layui-this a {
+  border-left: #36b773 2px solid;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li.layui-this:after {
+  height: 60px;
+  border: none;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li:hover {
+  border-left: #36b773 2px solid;
+  background-color: #36b773;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li:hover i.nav-icon.nav-myclass {
+  background: url("../../app/assets/images/nav/nav-myclass-active.png") no-repeat;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li:hover i.nav-icon.nav-review {
+  background: url("../../app/assets/images/nav/nav-review-active.png") no-repeat;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li:hover i.nav-icon.nav-task {
+  background: url("../../app/assets/images/nav/nav-task-active.png") no-repeat;
+}
+.teaching .teachingBox .teaching-nav ul.teaching-nav-title li.teaching-nav-li:hover i.nav-icon.nav-test {
+  background: url("../../app/assets/images/nav/nav-test-active.png") no-repeat;
+}
+.teaching .teachingBox .teaching-tab-content {
+  width: 1200px;
+  padding: 0px;
+}

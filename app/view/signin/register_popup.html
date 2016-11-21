@@ -1,0 +1,43 @@
+<form id="signinFrom">
+<div class="popup_login">
+    <div class="popup_login_dv">
+        <input type="hidden" id="popup_login_dv_checkEmail">
+        <p class="popup_login_dv_h">注册</p>
+        <div class="popup_login_dv_span">
+            <img src="./app/assets/images/4564.gif" alt="">
+            <span>可用博学谷账号直接登录</span>
+            <span><a href="#/login">登录</a><img src="./app/assets/images/login/login-t.png" alt=""></span>
+        </div>
+        <div class="popup_login_dv_ipt">
+            <input type="text" name="login_name" placeholder="请输入手机号或邮箱" id="register_name">
+            <span class="register_message1"></span>
+        </div>
+	    <p for="register_name" class="error" style="display: none;"></p>
+	    <p name="isname" style="display: none;"></p>
+        <!--<div class="popup_login_dv_ipt verification_ipt" style="display:none;">-->
+            <!--<input type="text" class="verification" name="verification" placeholder="请输入验证码">-->
+            <!--<img src="{{checkCode}}" alt="">-->
+        <!--</div>-->
+        <div class="popup_login_dv_ipt verification_ipt">
+
+        </div>
+	    <p for="verification" class="error" style="display: none;"></p>
+        <div class="popup_login_dv_ipt">
+            <input type="text" name="nick_name" placeholder="输入昵称" id="username">
+        </div>
+	    <p for="username" class="error" style="display: none;"></p>
+        <div class="popup_login_dv_ipt">
+            <input type="password" name="password" placeholder="设置密码" id="pwd">
+        </div>
+	    <p for="pwd" class="error" style="display: none;"></p>
+        <div>
+            <input type="checkbox" name="agree" id="agree" />
+            <span>同意<a href="javascript:void (0)">《博学谷院校注册协议》</a></span>
+        </div>
+	    <p for="agree" class="error" style="display: none;"></p>
+        <div class="popup_login_dv_ipt">
+            <button class="layui-btn register">注册</button>
+        </div>
+    </div>
+</div>
+</form>

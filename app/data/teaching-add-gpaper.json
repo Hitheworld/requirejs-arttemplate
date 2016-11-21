@@ -1,0 +1,149 @@
+{
+  "success": true,
+  "resultObject": {
+    "daiXuan": {
+      "lists":[
+        {
+          "questionContent": "关于数据解析以下说法正确的是:",
+          "options": [
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套"
+          ],
+          "answer": "参考答案参考答案对<input type=”search”>该类型的输入框和文本输入框没有任何区别",
+          "solution": "<input type='text' />该类型对输入框和文本输入框没有任何区别"
+        },
+        {
+          "questionContent": "关于数据解析以下说法正确的是:",
+          "options": [
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套"
+          ],
+          "answer": "对<input type=”search”>该类型的输入框和文本输入框没有任何区别参考答案",
+          "solution": "<input type='text' />该类型对输入框和文本输入框没有任何区别"
+        }
+      ],
+      "difficulty": "B",
+      "totalScore": 60,
+      "goal": 40,
+      "qNum": 5,
+      "yesSubject": 15,
+      "wrongSubject": 15,
+      "notSubject": 15,
+      "studentTotalScore": 60
+    },
+    "duoXuan": {
+      "lists":[
+        {
+          "questionContent": "关于数据解析以下说法正确的是:",
+          "options": [
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套"
+          ],
+          "answer": "对<input type=”search”>该类型的输入框和文本输入框没有任何区别--参考答案",
+          "solution": "<input type='text' />该类型对输入框和文本输入框没有任何区别"
+        },
+        {
+          "questionContent": "关于数据解析以下说法正确的是:",
+          "options": [
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套",
+            "XML数据结构有且只有一个根节点，并且不能嵌套"
+          ],
+          "answer": "对<input type=”search”>该类型的输入框和文本输入框没有任何区别--参考答案",
+          "solution": "<input type='text' />该类型对输入框和文本输入框没有任何区别"
+        }
+      ],
+      "difficulty": "A",
+      "totalScore": 60,
+      "goal": 40,
+      "qNum": 5,
+      "yesSubject": 15,
+      "wrongSubject": 15,
+      "notSubject": 15,
+      "studentTotalScore": 60
+    },
+    "panDuan": {
+      "lists":[
+        {
+          "questionContent": "关于数据解析以下说法正确的是:",
+          "options": [
+            "对",
+            "错"
+          ],
+          "answer": "对<input type=”search”>该类型的输入框和文本输入框没有任何区别",
+          "solution": "对<input type=”search”>该类型的输入框和文本输入框没有任何区别"
+        }
+      ],
+      "difficulty": "D",
+      "totalScore": 60,
+      "goal": 40,
+      "qNum": 5,
+      "yesSubject": 15,
+      "wrongSubject": 15,
+      "notSubject": 15,
+      "studentTotalScore": 60
+    },
+    "tianKong": {
+      "lists":[
+        {
+          "questionContent": "关于数据解析以下说法正确的是<input type='text' />对输入框和文本输入框没有任对&lt;input type='text'&gt;该类型的输入框和文本输入框没有任何区别",
+          "answer": "对<input type=”search”>该类型的输入框和文本输入框没有任何区别",
+          "solution": "<input type='text' />该类型对输入框和文本输入框没有任何区别"
+        },
+        {
+          "questionContent": "关于数据解析以下说法正确的是<input type='text' />对输入框和文本输入框没有任",
+          "answer": "对<input type=”search”>该类型的输入框和文本输入框没有任何区别",
+          "solution": "<input type='text' />该类型对输入框和文本输入框没有任何区别"
+        }
+      ],
+      "difficulty": "B",
+      "totalScore": 60,
+      "goal": 40,
+      "qNum": 5,
+      "yesSubject": 15,
+      "wrongSubject": 15,
+      "notSubject": 15,
+      "studentTotalScore": 60
+    },
+    "jianDa": {
+      "lists":[
+        {
+          "questionContent": "关于数据解析以下说法正确的是:",
+          "options": "减小光盘存放在硬盘上的容量，XML数据结构有且只有一个根节点，并且不能嵌套。<input type=”search”>该类型的输入框和文本输入框没有任何区别。",
+          "answer": "对<input type=”search”>该类型的输入框和文本输入框没有任何区别",
+          "solution": "对<input type=”search”>该类型的输入框和文本输入框没有任何区别"
+        }
+      ],
+      "difficulty": "A",
+      "totalScore": 60,
+      "goal": 40,
+      "qNum": 5,
+      "yesSubject": 15,
+      "wrongSubject": 15,
+      "notSubject": 15,
+      "studentTotalScore": 60
+    },
+    "classname": "电气工程及其自动化1班",
+    "classnumber": 50,
+    "AssignmentNumber": 5,
+    "testTime": "2016-10-26 13:00-15:00:00 共计120分钟",
+    "testScore": 100,
+    "testDifficulty": "A",
+    "courseName": "java基础",
+    "chapter": "面授ios就业 面授java基础第1阶段",
+    "questionsNumber": 40,
+    "testName": "下半年嵌入式系统设计师上午试卷",
+    "studentName" : "顾亚楠",
+    "timeConsuming": "01:50:30",
+    "studentTotalScore": 60,
+    "notSubject": 15
+
+  }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+function login(){
+	$.ajax({
+		url:'http://univ-dev.boxuegu.com:58000/login',
+		type:'post',
+		data:{username:'online',password:'123456'},
+		dataType:'json',
+		success:function(data){
+			console.log(data);
+		}
+	});
+	//window.location.href = "#/home";
+}
+</script>
+</head>
+<body>
+<input type="button" value="登录" onclick="login();">
+</body>
+</html>

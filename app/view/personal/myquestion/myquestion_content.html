@@ -1,0 +1,35 @@
+{{if resultObject.items != ''}}
+
+
+{{each resultObject.items as i index}}
+<div class="myquestion_content_dv">
+    <a href="http://www.boxuegu.com/web/qusDetail/{{i.id}}" target="_blank">
+        <p class="myquestion_content_dv_p1">
+            <span class="myquestion_content_dv_p1_span1">来自学科:</span>
+        <span class="myquestion_content_dv_p1_span2">
+            {{i.name}}
+        </span>
+            <span class="myquestion_content_dv_p1_time">{{i.create_time}}</span>
+        </p>
+        <div>
+            <p class="myquestion_content_dv_title">{{i.title}}</p>
+            <p class="myquestion_content_dv_dv_p">{{#i.content | dataHtml:i.content}}</p>
+        </div>
+        <p class="myquestion_content_dv_p2">
+            <span class="myquestion_content_dv_p2_p1"><img src="" alt="">{{i.answer_sum}}</span>
+            <span class="myquestion_content_dv_p2_p1"><img src="" alt="">{{i.praise_sum}}</span>
+            <span class="myquestion_content_dv_p2_p2"><img src="" alt="">{{i.browse_sum}}</span>
+        </p>
+    </a>
+
+</div>
+{{/each}}
+
+
+{{else}}
+暂无数据
+{{/if}}
+
+
+
+

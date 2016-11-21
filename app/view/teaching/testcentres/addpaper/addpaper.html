@@ -1,0 +1,370 @@
+<!--添加试卷-->
+<div class="addpaper">
+
+	<div class="addpaperTitle">
+		<h1>添加试卷</h1>
+		<a href="#/teaching/testcentres/organizepaper" class="return">返回</a>
+	</div>
+
+
+		<div id="sliding-form">
+			<ul id="status">
+				<li class="state active">
+					<i>
+						<span>1</span>
+					</i>
+					<div class="title">设置试卷</div>
+				</li>
+				<li class="border">
+					<i>
+						<span>2</span>
+					</i>
+					<div  class="title">设置题型</div>
+				</li>
+				<li class="end">
+					<i>
+						<span>3</span>
+					</i>
+					<div class="title">生成试卷</div>
+				</li>
+			</ul>
+			<div class="items">
+				<div class="page page1">
+
+					<form id="page1-form">
+					<div class="pagePaper">
+						<div class="fieldset-header">
+							<h2>STEP1  试卷信息</h2>
+						</div>
+						<ul class="addpaper-ul">
+							<li class="addpaper-ul-li">
+								<div class="layui-form-item addpaper-form-item">
+									<label class="layui-form-label">试卷名称</label>
+									<div class="layui-input-block teaccert-form-item-box">
+										<input type="text" name="papername" id="papername" class="layui-input" />
+									</div>
+								</div>
+							</li>
+
+							<li class="error-li">
+								<p for="papername" class="error" style="display: none;"></p>
+							</li>
+
+							<li class="addpaper-ul-li">
+								<div class="layui-form-item addpaper-form-item">
+									<label class="layui-form-label">试卷时长</label>
+									<div class="layui-input-block teaccert-form-item-box">
+										<input type="text" name="paperwhenlong" id="paperwhenlong" class="layui-input paperwhenlong" />
+										<label class="layui-form-label testScores-label">分钟</label>
+									</div>
+								</div>
+							</li>
+
+							<li class="error-li">
+								<p for="paperwhenlong" class="error" style="display: none;"></p>
+							</li>
+
+							<li class="addpaper-ul-li">
+								<div class="layui-form-item addpaper-form-item">
+									<label class="layui-form-label">试卷难度</label>
+									<div class="layui-input-block teaccert-form-item-box">
+										<select name="papertraits" id="papertraits" lay-verify="required">
+											<option value="A">容易</option>
+											<option value="B">一般</option>
+											<option value="C">较难</option>
+											<option value="D">难</option>
+										</select>
+									</div>
+								</div>
+							</li>
+							<li class="addpaper-ul-li">
+								<div class="layui-form-item addpaper-form-item">
+									<label class="layui-form-label">试卷分数</label>
+									<div class="layui-input-block teaccert-form-item-box">
+										<input type="text" name="testScores" id="testScores" class="layui-input testScores" />
+										<label class="layui-form-label testScores-label">分</label>
+									</div>
+								</div>
+							</li>
+
+							<li class="error-li">
+								<p for="testScores" class="error" style="display: none;"></p>
+							</li>
+						</ul>
+						<div class="fieldset-header">
+							<h2>STEP2  试卷信息</h2>
+						</div>
+						<ul class="addpaper-ul no-border-bottom">
+							<li class="addpaper-ul-li">
+								<div class="layui-form-item addpaper-form-item">
+									<label class="layui-form-label">试卷名称</label>
+									<div class="layui-input-block teaccert-form-item-box">
+										{{if findTeacherCoursesDB.success}}
+											<select name="paperselete" id="paperselete" class="layui-input paperselete">
+											{{if findTeacherCoursesDB.resultObject != ''}}
+												{{each findTeacherCoursesDB.resultObject as TeacherCourses i}}
+													<option value="{{TeacherCourses.id}}">{{TeacherCourses.name}}</option>
+												{{/each}}
+											{{else}}
+												<option>无数据</option>
+											{{/if}}
+											</select>
+										{{else}}
+											{{findTeacherCoursesDB.errorMessage}}
+										{{/if}}
+									</div>
+								</div>
+							</li>
+							<li class="addpaper-ul-li">
+								<div class="tree-checkbox">
+									<div class="ztree" id="tree-combined"></div>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+
+					<div class="btn_nav">
+						<button type="submit" class="next cont btn-page-next">下一步</button>
+					</div>
+					</form>
+
+				</div>
+				<div class="page page2">
+
+					<form id="page2-form">
+						<div class="pagePaper">
+							<div class="fieldset-header">
+								<h2>STEP1  试卷信息</h2><span  id="residualtalScore">剩余0分未分配</span>
+							</div>
+							<ul class="addpaper-ul">
+								<!--单选题-->
+								<li class="addpaper-ul-li">
+									<ul class="addpaper-ul-ul">
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<i class="addpaper2-form-icon"></i>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state">单选题</label>
+												<input type="text" name="daiXuanQuestions" class="layui-input" id="daiXuanQuestions" />
+												<label class="form-label-end">题</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state lb-padding">每题</label>
+												<input type="text" name="daiXuanPortion" class="layui-input" id="daiXuanPortion" />
+												<label class="form-label-end">分</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label" id="daiXuanTotalScore">共0分</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label">可用<span id="daiXuanUsable">25</span>道</label>
+											</div>
+										</li>
+									</ul>
+								</li>
+
+								<li class="error-li">
+									<p for="daiXuanQuestions" class="error" style="display: none;"></p>
+									<p for="daiXuanPortion" class="error" style="display: none;"></p>
+								</li>
+
+								<!--多选题-->
+								<li class="addpaper-ul-li">
+									<ul class="addpaper-ul-ul">
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<i class="addpaper2-form-icon"></i>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state">多选题</label>
+												<input type="text" name="duoXuanQuestions" class="layui-input" id="duoXuanQuestions" />
+												<label class="form-label-end">题</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state lb-padding">每题</label>
+												<input type="text" name="duoXuanPortion" class="layui-input" id="duoXuanPortion" />
+												<label class="form-label-end">分</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label" id="duoXuanTotalScore">共0分</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label">可用<span id="duoXuanUsable">25</span>道</label>
+											</div>
+										</li>
+									</ul>
+								</li>
+
+								<li class="error-li">
+									<p for="duoXuanQuestions" class="error" style="display: none;"></p>
+									<p for="duoXuanPortion" class="error" style="display: none;"></p>
+								</li>
+
+								<!--判断题-->
+								<li class="addpaper-ul-li">
+									<ul class="addpaper-ul-ul">
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<i class="addpaper2-form-icon"></i>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state">判断题</label>
+												<input type="text" name="panDuanQuestions" class="layui-input" id="panDuanQuestions" />
+												<label class="form-label-end">题</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state lb-padding">每题</label>
+												<input type="text" name="panDuanPortion" class="layui-input" id="panDuanPortion" />
+												<label class="form-label-end">分</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label"  id="panDuanTotalScore">共0分</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label">可用<span id="panDuanUsable">25</span>道</label>
+											</div>
+										</li>
+									</ul>
+								</li>
+
+								<li class="error-li">
+									<p for="panDuanQuestions" class="error" style="display: none;"></p>
+									<p for="panDuanPortion" class="error" style="display: none;"></p>
+								</li>
+
+								<!--填空题-->
+								<li class="addpaper-ul-li">
+									<ul class="addpaper-ul-ul">
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<i class="addpaper2-form-icon"></i>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state">填空题</label>
+												<input type="text" name="tianKongQuestions" class="layui-input" id="tianKongQuestions" />
+												<label class="form-label-end">题</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state lb-padding">每题</label>
+												<input type="text" name="tianKongPortion" class="layui-input" id="tianKongPortion" />
+												<label class="form-label-end">分</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label"  id="tianKongTotalScore">共0分</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label">可用<span id="tianKongUsable">25</span>道</label>
+											</div>
+										</li>
+									</ul>
+								</li>
+
+								<li class="error-li">
+									<p for="tianKongQuestions" class="error" style="display: none;"></p>
+									<p for="tianKongPortion" class="error" style="display: none;"></p>
+								</li>
+
+								<!--简答题-->
+								<li class="addpaper-ul-li">
+									<ul class="addpaper-ul-ul">
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<i class="addpaper2-form-icon"></i>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state">简答题</label>
+												<input type="text" name="jianDaQuestions" class="layui-input" id="jianDaQuestions" />
+												<label class="form-label-end">题</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state lb-padding">每题</label>
+												<input type="text" name="jianDaPortion" class="layui-input" id="jianDaPortion" />
+												<label class="form-label-end">分</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label" id="jianDaTotalScore">共0分</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label">可用<span id="jianDaUsable">25</span>道</label>
+											</div>
+										</li>
+									</ul>
+								</li>
+
+								<li class="error-li">
+									<p for="jianDaQuestions" class="error" style="display: none;"></p>
+									<p for="jianDaPortion" class="error" style="display: none;"></p>
+								</li>
+
+							</ul>
+							<div class="addpager2-foot">
+								<div class="left" id="totalQuestions">总计0题</div>
+								<div class="right" id="totalPortion">共0分</div>
+							</div>
+						</div>
+
+						<div class="btn_nav">
+							<button type="button" class="prev left btn-page-next">上一步</button>
+							<button type="submit" class="next right btn-page-next">生成试卷</button>
+						</div>
+					</form>
+				</div>
+				<div class="page page3">
+
+					<div class="page3-box" id="page3">
+
+					</div>
+
+					<div class="btn_nav">
+						<button type="button" class="prev left btn-page-next">上一步</button>
+						<input type="button" class="next right btn-page-sub" id="sub" value="确定" />
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+</div>
+<!--end添加试卷-->

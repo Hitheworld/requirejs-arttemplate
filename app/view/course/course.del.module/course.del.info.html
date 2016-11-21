@@ -1,0 +1,45 @@
+
+	{{if data.resultObject[0].vedio == undefined || data.resultObject[0].vedio == ''}}
+	<a href="javascript:void(0);">
+		<img class="course-del-pic" src="{{data.resultObject[0].photo}}" onerror="this.src='./app/assets/images/error-user.png'" />
+	</a>
+	{{else}}
+	<div class="course-del-video">
+		<div class="video-div J-btn-video"></div>
+		<embed src="./app/assets/videoplayer/ckplayer.swf"
+		       flashVars="f={{data.resultObject[0].vedio}}&p=0" quality="high" width="100%"
+		       height="100%" align="middle" allowScriptAccess="always" allowFullscreen="false"
+		       type="application/x-shockwave-flash"></embed>
+	</div>
+	{{/if}}
+
+	<div class="course-del-info">
+		<div class="course-del-title">
+			<h3>{{data.resultObject[0].name}}</h3>
+			<a href="javascript:void(0);" class="J-btn-fx btn-fx">分享</a>
+			<!-- JiaThis Button BEGIN -->
+			<div class="jiathis_style_32x32 fx-box">
+				<a class="jiathis_button_weixin"></a>
+				<a class="jiathis_button_xiaoyou"></a>
+				<a class="jiathis_button_cqq"></a>
+				<a class="jiathis_button_tsina"></a>
+				<a class="jiathis_button_qzone"></a>
+				<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+			</div>
+			<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+			<!-- JiaThis Button END -->
+		</div>
+
+
+		<span class="course-del-object">适用对象：{{data.resultObject[0].object}}</span>
+		<span class="solid">|</span>
+		<span class="course-del-people"> {{data.resultObject[0].seq}}人正在使用</span>
+
+		<div class="course-del-cont">
+			<p class="ellipsis">{{data.resultObject[0].discription}}</p>
+		</div>
+		<div class="course-del-button-box">
+			<button class="layui-btn buttom-margin-left course-del-resource" onclick="javascript:window.open('{{resource_url}}{{data.resultObject[0].url}}')">查看配套资源</button>
+			<span id="btn-type"></span>
+		</div>
+	</div>

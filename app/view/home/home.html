@@ -1,0 +1,195 @@
+
+<div id="main">
+	<!--轮播图咨询公告-->
+	<div class="cy_banner">
+		<div class="cy_show">
+			<div class="cy_prev"></div>
+			<div class="cy_cont">
+				<ul>
+					{{if banner.success}}
+					{{each banner.resultObject as i index}}
+					<li index="{{index}}">
+						<a href="javascript:void (0)"><img src="{{i.image_url}}"style="width: 100%;height: 100%" alt=""></a>
+					</li>
+					{{/each}}
+					{{/if}}
+				</ul>
+			</div>
+			<div class="cy_next"></div>
+			<div class="cy_show_container">
+				<ul class="cy_circle">
+					{{if banner.success}}
+					{{each banner.resultObject as i index}}
+					<li></li>
+					{{/each}}
+					{{/if}}
+				</ul>
+			</div>
+		</div>
+		<div class="cy_banner_right">
+			<div class="cy_News_h"><span>资讯公告</span><a href="#/info/1">更多</a></div>
+			<div class="cy_News">
+				<ul id="index-news">
+					{{if affiche.success}}
+					{{each affiche.resultObject as value i}}
+					<li><span>▶</span><a href="#/info/del/{{value.id}}" class="ellipsis" title="{{#value.content}}">{{#value.content}}</a></li>
+					{{/each}}
+					{{/if}}
+				</ul>
+			</div>
+			<div class="cy_banner_right_dv"></div>
+			<div class="cy_News_r">
+				{{if indenty_status != undefined}}
+					{{if indenty_status == 2}}
+						<a href="#/course/b/1" class="cy_News_r_a1">我的课程</a>
+						<a href="#/teaching/myclass/Reading_class" class="cy_News_r_a2">我的班级</a>
+					{{else}}
+						<a href="#/personal/teaccert" class="cy_News_r_a1">教师资格认证</a>
+						<a href="javascript:void (0)" class="cy_News_r_a2">堂播虎下载</a>
+					{{/if}}
+				{{else}}
+						<a href="#/login" class="cy_News_r_a1">教师资格认证</a>
+						<a href="javascript:void (0)" class="cy_News_r_a2">堂播虎下载</a>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+	<!--轮播图咨询公告-->
+
+<!--精品课程-->
+	<div class="index-course">
+		<div class="am-titlebar" >
+			<h2 class="am-titlebar-title ">
+				精品课程
+			</h2>
+			<div class="am-titlebar-nav">
+				<a href="#/course/b/1" class="">更多</a>
+			</div>
+		</div>
+		<div class="index-course-lists">
+			<ul data-am-widget="gallery" class="am-gallery am-avg-sm-5
+  am-avg-md-5 am-avg-lg-5 am-gallery-default" data-am-gallery="{}"  id="index-course" >
+				{{if Course.success}}
+				{{each Course.resultObject}}
+				<li>
+					<div class="am-gallery-item">
+						<a target="_blank" href="#/course/del/b/{{$value.id}}" class="">
+							<img src="{{$value.photo}}"  alt="{{$value.photo}}" onerror="this.src='./app/assets/images/error-user.png'" />
+							<h3 class="am-gallery-title">{{$value.name}}</h3>
+							<div class="am-gallery-desc ellipsis">{{$value.discription}}</div>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+				{{else}}
+				<div class="course-list-nodata">暂无数据</div>
+				{{/if}}
+			</ul>
+		</div>
+	</div>
+	<!--/精品课程-->
+
+	<!-- 博问答与教学扩展资源-->
+	<div class="index-sk-and-assert">
+		<div class="index-qa">
+			<!--博问答-->
+			<div class="am-titlebar" >
+				<h2 class="am-titlebar-title ">
+					博问答
+				</h2>
+				<a class="am-titlebar-title title2" target="_blank" href="http://boxuegu.com/web/html/quiz.html">
+					我的提问
+				</a>
+				<div class="am-titlebar-nav">
+					<a target="_blank" href="http://www.boxuegu.com/web/html/ansAndQus.html" class="">更多</a>
+				</div>
+			</div>
+			<ul id="index-boask">
+				{{if askAndAnswer.success}}
+				{{each askAndAnswer.resultObject.items}}
+				<li>
+					<a target="_blank" href="http://www.boxuegu.com/web/qusDetail/{{$value.questionId}}">
+						<div class="index-qa-list">
+							<div class="index-qa-top"><div class="index-qa-box">{{$value.praiseSum}}赞</div> <span class="index-qa-name">{{$value.createNickName}}</span><span class="index-answer">回答</span><span class="index-qa-title">{{$value.title}}</span></div>
+							{{if $value.content != undefined}}
+							<div class="index-qa-cont">{{#$value.content | dataHtml:$value.content}}</div>
+							{{/if}}
+						</div>
+					</a>
+				</li>
+				{{/each}}
+				{{else}}
+				<div class="nodata">暂无数据</div>
+				{{/if}}
+			</ul>
+		</div>
+		<!--//博问答-->
+
+		<!--教学扩展资源-->
+		<div class="index-uq">
+			<div class="am-titlebar" >
+				<div class="tb-box"></div>
+				<h2 class="am-titlebar-title ">
+					教学扩展资源
+				</h2>
+				<div class="am-titlebar-nav">
+					<a href="#/resources/1" class="">更多</a>
+				</div>
+			</div>
+			<ul id="index-TeachingResources">
+				{{if extendResource.success}}
+				{{each extendResource.resultObject}}
+				{{if extendResource.resultObject.length}}
+				<li class="am-gallery-default">
+					<div class="index-uq-box">
+						<h3 class="am-gallery-title">
+							<a href="#/resources/del/8889">{{$value.name}}</a>
+						</h3>
+						<div class="index-uq-bottom">
+							{{$value.description}}
+						</div>
+					</div>
+				</li>
+				{{/if}}
+				{{/each}}
+				{{else}}
+				<div class="nodata">暂无数据</div>
+				{{/if}}
+			</ul>
+		</div>
+		<!--/教学扩展资源-->
+	</div>
+	<!-- /博问答与教学扩展资源-->
+
+	<!--合作院校模块-->
+	<div class="cy_banner2">
+		<div class="am-titlebar" >
+			<div class="tb-box"></div>
+			<h2 class="am-titlebar-title ">
+				合作院校
+			</h2>
+		</div>
+		<div class="cy_banner2_banner_prev">＜</div>
+		<div class="cy_banner2_banner">
+			<div class="cy_banner2_banner_cont">
+				<ul id="index-banner-cont">
+					{{if colleges.success}}
+					{{each colleges.resultObject}}
+					<li><img class="cy_banner2_banner_cont_p1" src="{{$value.imageUrl}}" onerror="this.src='./app/assets/images/error-user.png'" alt="">
+						<p class="cy_banner2_banner_cont_p2">{{$value.collegeName}}</p>
+						<p class="cy_banner2_banner_cont_p3"> </p>
+					</li>
+					{{/each}}
+					{{/if}}
+				</ul>
+			</div>
+		</div>
+		<div class="cy_banner2_banner_next">＞</div>
+		{{if myJoin.success}}
+		<a target="_blank" href="{{myJoin.resultObject.specail_url}}" class="cy_banner2_r">
+			<img src="{{myJoin.resultObject.img_url}}"  onerror="this.src='./app/assets/images/error-user.png'" alt="" />
+		</a>
+		{{/if}}
+	</div>
+	<!--合作院校模块-->
+</div>

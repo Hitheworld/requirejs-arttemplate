@@ -1,0 +1,94 @@
+@import "common.less";
+.myLogin{
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: url("../assets/images/login.jpg") no-repeat;
+  .popup_login{
+    width: 490px;
+    min-height: 465px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ccc;
+    margin: 179px auto;
+    overflow: hidden;
+    background-color: #fff;
+    .popup_login_dv{
+      width: 370px;
+      margin: 60px auto;
+      .popup_login_dv_h{
+        font-size: 23px;
+        text-align: center;
+      }
+      .popup_login_dv_span{
+        color: #666;
+        img{
+          float: left;
+          margin-top: 7px;
+        }
+        span+span{
+          float: right;
+          a{
+            color: #39b674;
+            float: left;
+          }
+          img{
+            float: right;
+            margin-top: 2px;
+            margin-left: 5px;
+          }
+        }
+      }
+      div{
+        margin: 20px auto;
+        input[type='checkbox']{
+          height: 18px;
+          float: left;
+          &+span{
+            a{color: #44bd7d}
+          }
+        }
+      }
+      .popup_login_dv_ipt{
+        height: 50px;
+        width: 100%;
+        input{
+          width: 100%;
+          height: 48px;
+          border: 1px solid #f0f0f0;
+          outline: none;
+          font-size: 15px;
+          text-indent: 10px;
+          color: #bbbbbb;
+        }
+        .verification{
+          width: 252px;
+          display: inline-block;
+        }
+        .verification+img{
+          float: right;
+          width: 108px;
+          height: 50px;
+        }
+        button{
+          width: 100%;
+          height: 100%;
+          font-size: 17px;
+          background-color: #2db871;
+          letter-spacing: 5px;
+        }
+      }
+      .popup_login_dv_mm{
+        span{
+          float: right;
+          a{
+            color: #36b773;
+          }
+        }
+      }
+    }
+  }
+}

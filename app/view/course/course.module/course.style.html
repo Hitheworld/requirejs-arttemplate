@@ -1,0 +1,8 @@
+<a href="javascript:void(0);" data-courseId="">全部</a>
+{{if success}}
+{{each resultObject}}
+<a href="javascript:void(0);" data-courseid="{{$value.id}}">{{$value.name}}</a>
+{{/each}}
+{{else}}
+<div class="course-list-nodata">暂无数据</div>
+{{/if}}

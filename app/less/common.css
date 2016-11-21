@@ -1,0 +1,199 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  font-family: "微软雅黑";
+}
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  color: inherit;
+  border: none;
+  text-decoration: none;
+}
+#content {
+  overflow: hidden;
+}
+.am-titlebar {
+  overflow: hidden;
+  border-bottom: 1px solid #f0f0f0;
+}
+.am-titlebar .am-titlebar-title,
+.am-titlebar .am-titlebar-nav {
+  padding-bottom: 20px;
+}
+.am-titlebar h2.am-titlebar-title {
+  display: block;
+  float: left;
+  color: #333333;
+  font-size: 20px;
+  font-weight: 100;
+}
+.am-titlebar .am-titlebar-nav {
+  float: right;
+}
+.am-titlebar .am-titlebar-nav a {
+  font-size: 14px;
+  color: #bbbbbb;
+}
+.am-titlebar .am-titlebar-nav a:hover {
+  color: #29AE21;
+}
+.font {
+  width: auto;
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+  vertical-align: top;
+}
+.font3 {
+  letter-spacing: 0.5em;
+  margin-right: -0.5em;
+}
+.font2 {
+  letter-spacing: 2.0em;
+  margin-right: -2em;
+}
+.font2e {
+  letter-spacing: 2.3em;
+  margin-right: -2.3em;
+}
+.error {
+  font-size: 16px;
+  color: #FF0000;
+}
+.course-del-nav {
+  width: 100%;
+  background-color: #ffffff;
+}
+.course-del-nav .nav {
+  width: 1200px;
+  background-color: #ffffff;
+  margin: 20px auto 0;
+}
+.course-del-nav .nav .layui-breadcrumb a,
+.course-del-nav .nav .layui-breadcrumb a span {
+  font-size: 14px;
+  color: #36b773 !important;
+}
+.course-del-nav .nav .layui-breadcrumb a cite {
+  color: #333333 !important;
+}
+.layui-layer-setwin .layui-layer-close2 {
+  right: 0 !important;
+  top: 0 !important;
+}
+.laypageskin_molv a,
+.laypageskin_molv span {
+  padding: 0 15px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+}
+table.dataTable thead tr th {
+  border-bottom: none !important;
+  background-color: #f2fcf7 !important;
+  height: 52px !important;
+  line-height: 52px !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+table.dataTable tbody.display tr td.even > .sorting_1 {
+  background-color: none !important;
+}
+table.dataTable tbody tr {
+  height: 52px !important;
+  line-height: 52px !important;
+}
+table.dataTable tbody tr td {
+  border-top: 1px solid #f0f0f0 !important;
+  padding: 0 !important;
+}
+table.dataTable tbody tr.odd {
+  background-color: #FFFFFF !important;
+  border-left: 1px solid #f0f0f0 !important;
+  border-right: 1px solid #f0f0f0 !important;
+}
+table.dataTable tbody tr.odd > .sorting_1 {
+  background-color: #FFFFFF !important;
+}
+table.dataTable tbody tr.even {
+  background-color: #f2fcf7 !important;
+}
+table.dataTable tbody tr.even > .sorting_1 {
+  background-color: #f2fcf7 !important;
+}
+table.dataTable tbody tr.selected {
+  background-color: #B0BED9 !important;
+}
+table.dataTable tbody tr.selected > .sorting_1 {
+  background-color: #B0BED9 !important;
+}
+table.dataTable.no-footer {
+  border-bottom: 1px solid #f0f0f0 !important;
+}
+.dataTables_wrapper .dataTables_paginate a {
+  border: none !important;
+}
+.dataTables_wrapper .dataTables_paginate a.paginate_button {
+  border-radius: 2px !important;
+  background-color: #f1eff0 !important;
+  margin: 0 3px 6px !important;
+  padding: 0 15px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  display: inline-block !important;
+  vertical-align: top !important;
+  font-size: 12px !important;
+}
+.dataTables_wrapper .dataTables_paginate a:hover {
+  background: #2cb82c !important;
+  border: none !important;
+  color: #FFFFFF !important;
+}
+.dataTables_wrapper .dataTables_paginate span a.paginate_button.current {
+  background: #2cb82c !important;
+  border: none !important;
+  color: #FFFFFF !important;
+}
+.dataTables_wrapper .dataTables_paginate span a.paginate_button.current:hover {
+  color: #FFFFFF !important;
+}
+table.dataTable td.select-checkbox::before {
+  margin-top: 6px !important;
+}
+table.dataTable td.select-checkbox::after {
+  margin-top: -15px !important;
+  margin-left: -6px !important;
+}
+#portamento_container {
+  float: right;
+  position: relative;
+}
+#portamento_container {
+  float: right;
+  position: relative;
+  /* no need to float anymore, become absolutely positoned */
+  /* if the panel is sliding, it needs position:fixed */
+}
+#portamento_container #sidebar {
+  float: none;
+  position: absolute;
+}
+#portamento_container #sidebar.fixed {
+  position: fixed;
+}
+/* take the positioning of the sidebar, and become the start point for the sidebar positioning */

@@ -1,0 +1,161 @@
+.infoLists {
+  margin-top: 20px;
+}
+.infoLists .infoList-box {
+  margin-top: 20px;
+}
+.infoLists .infoLists-contnet {
+  width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.infoLists .infoLists-contnet ul {
+  float: left;
+  width: 851px;
+  overflow: hidden;
+}
+.infoLists .infoLists-contnet ul li {
+  display: block;
+  height: 180px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-top: 1px solid #f0f0f0;
+}
+.infoLists .infoLists-contnet ul li .infoLists-item {
+  height: 149px;
+  overflow: hidden;
+  margin-top: 30px;
+  border: 1px solid #fff;
+}
+.infoLists .infoLists-contnet ul li .infoLists-item a {
+  overflow: hidden;
+}
+.infoLists .infoLists-contnet ul li .infoLists-item a .infoLists-pic {
+  width: 233px;
+  height: 149px;
+  float: left;
+}
+.infoLists .infoLists-contnet ul li .infoLists-item a .infoLists-pic img {
+  width: 100%;
+  height: 100%;
+}
+.infoLists .infoLists-contnet ul li .infoLists-item a .infoLists-cont {
+  width: 596px;
+  height: 149px;
+  float: right;
+  margin-left: 20px;
+  position: relative;
+}
+.infoLists .infoLists-contnet ul li .infoLists-item a .infoLists-cont p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.infoLists .infoLists-contnet ul li .infoLists-item a .infoLists-cont p:first-child {
+  font-size: 16px;
+  color: #292929;
+  margin: 10px auto;
+  max-height: 42px;
+}
+.infoLists .infoLists-contnet ul li .infoLists-item a .infoLists-cont p:first-child + p {
+  font-size: 14px;
+  color: #969696;
+  margin: 10px auto;
+  max-height: 57px;
+}
+.infoLists .infoLists-contnet ul li .infoLists-item a .infoLists-cont .infoLists-footer {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+}
+.infoLists .infoLists-contnet ul li .infoLists-item a .infoLists-cont .infoLists-footer span {
+  margin-left: 30px;
+}
+.infoLists .infoLists-contnet ul li .infoLists-item a .infoLists-cont .infoLists-footer span:first-child {
+  margin-left: 0;
+}
+.infoLists .infoLists-contnet ul li .infoLists-item:hover {
+  border: 1px solid #39b674;
+  cursor: pointer;
+}
+.infoLists .infoLists-contnet ul li .infoLists-item:hover .infoLists-cont p:first-child {
+  color: #39b674;
+}
+.infoLists .infoLists-contnet ul li:first-child {
+  border-top: 1px solid #fff;
+  margin-top: 0;
+  height: 170px;
+}
+.infoLists .infoLists-contnet ul li:first-child .infoLists-item {
+  margin-top: 20px;
+}
+.infoLists .infoLists-contnet #indicatorContainer {
+  width: 318px;
+  float: right;
+  background-color: #fafafa;
+}
+.infoLists .infoLists-contnet #indicatorContainer .indicatorContainer_p {
+  margin: 30px auto;
+  width: 100%;
+  border-left: 4px solid #39b674;
+  text-indent: 28px;
+  font-size: 19px;
+  color: #242424;
+  line-height: 20px;
+  height: 20px;
+}
+.infoLists .infoLists-contnet #indicatorContainer .indicatorContainer_dv {
+  width: 258px;
+  margin: 30px auto;
+}
+.infoLists .infoLists-contnet #indicatorContainer .indicatorContainer_dv div img {
+  width: 100%;
+  height: 165px;
+  background-color: #d1d1d1;
+}
+.infoLists .infoLists-contnet #indicatorContainer .indicatorContainer_dv div p {
+  margin: 20px auto;
+  font-size: 13px;
+  line-height: 25px;
+  overflow: hidden;
+}
+.infoLists .infoLists-contnet #indicatorContainer .indicatorContainer_dv div p span:first-child {
+  float: left;
+  width: 10px;
+}
+.infoLists .infoLists-contnet #indicatorContainer .indicatorContainer_dv div p span:first-child + span {
+  width: 238px;
+  float: right;
+  max-height: 50px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.infoLists .infoLists-contnet #indicatorContainer .indicatorContainer_dv div:hover {
+  color: #39b674;
+  cursor: pointer;
+}
+.infoLists .infoLists-contnet #indicatorContainer .indicatorContainer_dv div:hover span {
+  color: #39b674;
+}
+.infoLists .infoLists-contnet .infoLists_btn {
+  clear: left;
+  float: left;
+  margin-bottom: 30px;
+  width: 851px;
+}
+.infoLists .infoLists-contnet .infoLists_btn button {
+  width: 158px;
+  height: 48px;
+  display: block;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  color: #000;
+}
+.infoLists .infoLists-contnet .infoLists_btn button:hover {
+  border: 1px solid #39b674;
+  color: #39b674;
+}

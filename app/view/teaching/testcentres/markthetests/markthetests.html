@@ -1,0 +1,46 @@
+<div class="markthetests">
+    <div class="markthetests_header">
+        <span>计算机考试二级Java模拟试题一</span>
+        <span>班级：自动化1班</span>
+        <span>考试时间：2016-10-26 13:00-15:00</span>
+        <a href="javascript:history.back(-1);">返回</a>
+    </div>
+    <div class="markthetests_header1">
+        <button class="layui-btn">批量发布成绩</button><button class="layui-btn">下载学生成绩</button>
+        <div class="item-box">
+            <label for="markexampapers-peper-difficulty">班级</label>
+            <select id="markexampapers-peper-difficulty">
+                <option>全部</option>
+                <option>全部</option>
+                <option>全部</option>
+                <option>全部</option>
+            </select>
+        </div>
+        <span>交卷人数：<span>30/28</span></span><span>已批阅人数：<span>15</span></span>
+    </div>
+    <div id="paperHtml">
+        {{if TestPaperDB.resultObject.lists != '' ||  TestPaperDB.resultObject.lists != undefined}}
+        <div class="markexampapers-cont">
+            <table id="markexampapersTable" class="display" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>试卷名称</th>
+                    <th>难度</th>
+                    <th>关联课程</th>
+                    <th>热度（次）</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+
+        {{else}}
+        <!--空文件-->
+        <div class="contnet-dummy">
+            <div class="dummy-file"></div>
+        </div>
+        <!--end空文件-->
+        {{/if}}
+    </div>
+</div>

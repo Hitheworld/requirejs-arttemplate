@@ -1,0 +1,57 @@
+<!--<div class="poinst_get">-->
+<!--<div class="poinst_get_her">-->
+<!--<p>总积分:<span>0</span></p>-->
+<!--<p>总花费:<span>0</span></p>-->
+<!--<p>剩余积分:<span>0</span></p>-->
+<!--</div>-->
+<!--<div class="poinst_get_btn">-->
+<!--<button class="layui-btn">小积分，大用途！查看如何使用积分</button>-->
+<!--</div>-->
+<!--<div class="poinst_get_dv">-->
+<!--<img src="" alt="">-->
+<!--<p>很可惜，还没有积分</p>-->
+<!--<p>快去<span>赚积分</span>吧</p>-->
+<!--</div>-->
+<!--</div>-->
+<div class="poinst_get">
+    <div class="poinst_get_her1">
+        <p class="poinst_get_her1_p">总积分:<span>{{resultObject[0].tot_integral}}</span></p>
+        <p class="poinst_get_her1_p">总花费:<span>{{resultObject[0].expense_integral}}</span></p>
+        <p class="poinst_get_her1_p">剩余积分:<span>{{resultObject[0].residue_integral}}</span></p>
+        <p class="poinst_get_her1_p1">你的积分这么多，真想花光它！查看如何使用积分</p>
+    </div>
+    <div class="poinst_get_dv1">
+        <p class="poinst_get_dv1_p1">积分明细</p>
+        <div class="poinst_get_dv1_p2">
+            <span>类型：
+                <select>
+                    <option value="">全部</option>
+                    <option value="2">消费</option>
+                    <option value="1">获取</option>
+                </select>
+            </span>
+            <span>时间:
+                <input type="text" id="startdate" /> ———
+                <input type="text" id="enddate" />
+            </span>
+            <span>
+                <button class="layui-btn" id="myquestion_btn">确定</button>
+            </span>
+        </div>
+        <table border="1" class="poinst_get_table">
+            <tr>
+                <th>积分数量</th>
+                <th>类型</th>
+                <th>途径</th>
+                <th>时间</th>
+                <th>余额</th>
+            </tr>
+            <tbody class="myTable">
+
+            </tbody>
+        </table>
+        <div>
+            <div id="page"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{{if item.success}}
+	{{if item.resultObject.items != ''}}
+		{{each item.resultObject.items}}
+		<li>
+			<a class="a-item" href="#/course/del/{{pagination}}/{{$value.id}}">
+				<div class="course-item">
+					<div class="course-pic">
+						<img src="{{$value.photo}}" alt="{{$value.name}}" onerror="this.src='./app/assets/images/error-user.png'" />
+					</div>
+					<h3>{{$value.name}}</h3>
+					<div class="course-info">
+						<div class="course-info-object">适用对象：{{$value.course_no}}</div>
+						<div class="course-info-academy">{{$value.seq}}院校正在使用</div>
+
+					</div>
+				</div>
+			</a>
+		</li>
+		{{/each}}
+	{{else}}
+		<div class="course-list-nodata">暂无数据</div>
+	{{/if}}
+
+{{else}}
+	<div class="course-list-nodata">暂无数据</div>
+	<div class="error">{{item.errorMessage}}</div>
+{{/if}}

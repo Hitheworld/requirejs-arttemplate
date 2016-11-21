@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "resultObject":{
+    "isCooperation": true,
+    "auditCooperation": [{
+      "id":"8888",
+      "imgUrl":"http://img5.imgtn.bdimg.com/it/u=4155302816,1201715785&fm=21&gp=0.jpg",
+      "title":"dfgdfgdf"
+    }],
+    "haveCooperation": [{
+      "id":"8888",
+      "imgUrl":"http://img5.imgtn.bdimg.com/it/u=4155302816,1201715785&fm=21&gp=0.jpg",
+      "title":"dfgdfgdf"
+    }]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "success": true,
+  "resultObject": {
+    "lists": [
+      {
+        "pic": "http://img4.cache.netease.com/photo/0003/2016-10-15/C3DCSNQG00AJ0003.jpg",
+        "title": "《java入门教程》",
+        "object": "高中",
+        "academy": 50,
+        "url": "8889"
+      },
+      {
+        "pic": "http://img4.cache.netease.com/photo/0003/2016-10-15/C3DCSNQG00AJ0003.jpg",
+        "title": "《java入门教程》",
+        "object": "高中",
+        "academy": 50,
+        "url": "8889"
+      },
+      {
+        "pic": "http://img4.cache.netease.com/photo/0003/2016-10-15/C3DCSNQG00AJ0003.jpg",
+        "title": "《java入门教程》",
+        "object": "高中",
+        "academy": 50,
+        "url": "8889"
+      },
+      {
+        "pic": "http://img4.cache.netease.com/photo/0003/2016-10-15/C3DCSNQG00AJ0003.jpg",
+        "title": "《java入门教程》",
+        "object": "高中",
+        "academy": 50,
+        "url": "8889"
+      },
+      {
+        "pic": "http://img4.cache.netease.com/photo/0003/2016-10-15/C3DCSNQG00AJ0003.jpg",
+        "title": "《java入门教程》",
+        "object": "高中",
+        "academy": 50,
+        "url": "8889"
+      },
+      {
+        "pic": "http://img4.cache.netease.com/photo/0003/2016-10-15/C3DCSNQG00AJ0003.jpg",
+        "title": "《java入门教程》",
+        "object": "高中",
+        "academy": 50,
+        "url": "8889"
+      },
+      {
+        "pic": "http://img4.cache.netease.com/photo/0003/2016-10-15/C3DCSNQG00AJ0003.jpg",
+        "title": "《java入门教程》",
+        "object": "高中",
+        "academy": 50,
+        "url": "8889"
+      },
+      {
+        "pic": "http://img4.cache.netease.com/photo/0003/2016-10-15/C3DCSNQG00AJ0003.jpg",
+        "title": "《java入门教程》",
+        "object": "高中",
+        "academy": 50,
+        "url": "8889"
+      },
+      {
+        "pic": "http://img4.cache.netease.com/photo/0003/2016-10-15/C3DCSNQG00AJ0003.jpg",
+        "title": "《java入门教程》",
+        "object": "高中",
+        "academy": 50,
+        "url": "8889"
+      }
+    ],
+    "totalpages":100,
+    "currentpage":1,
+    "totalnumber": 1000
+  }
+}

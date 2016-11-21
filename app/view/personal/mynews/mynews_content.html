@@ -1,0 +1,24 @@
+{{if success}}
+    {{if resultObject.lists.length != 0}}
+        {{each resultObject.lists as i index}}
+        <div>
+            {{if i.isRead}}
+            {{else}}
+            <span class="unread">●</span>
+            {{/if}}
+            <input type="checkbox" data-id="{{i.id}}">
+            <span class="mynews_content_title">系统消息</span>
+            {{if i.isRead}}
+            <span class="mynews_content_span" style="color: #737373" data-id="{{i.id}}" data-content="{{i.content}}">{{i.title}}</span>
+            {{else}}
+            <span class="mynews_content_span" data-id="{{i.id}}" data-content="{{i.content}}">{{i.title}}</span>
+            {{/if}}
+            <span class="mynews_content_time">{{i.create_time}}</span>
+        </div>
+        {{/each}}
+    {{else}}
+    暂无数据
+    {{/if}}
+{{else}}
+    {{errorMessage}}
+{{/if}}

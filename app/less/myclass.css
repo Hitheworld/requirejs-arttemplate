@@ -1,0 +1,168 @@
+.myClass {
+  padding: 30px;
+  overflow: hidden;
+  background-color: #fff;
+  min-height: 800px;
+}
+.myClass .layui-tab-content {
+  padding: 0;
+}
+.myClass .layui-tab-content .myClass_table {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  width: 100%;
+  border: 1px solid #e6e6e6;
+  text-align: center;
+}
+.myClass .layui-tab-content .myClass_table th {
+  color: #39b674;
+}
+.myClass .layui-tab-content .myClass_table tr {
+  height: 39px;
+}
+.layui-tab-title li:hover a {
+  display: block;
+}
+.myClass_student .myClass_student_header {
+  height: 38px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.myClass_student .myClass_student_header span {
+  display: inline-block;
+  font-size: 13px;
+  border-left: 2px solid #e8e8e8;
+  text-indent: 20px;
+  color: #6f6f6f;
+}
+.myClass_student .myClass_student_header span + span {
+  margin-left: 20px;
+}
+.myClass_student .myClass_student_header span:first-child {
+  border-left: none;
+  text-indent: 0;
+  color: #2f2f2f;
+}
+.myClass_student .myClass_student_header a {
+  float: right;
+}
+.myClass_student .myClass_student_header1 span {
+  display: inline-block;
+  text-align: center;
+  min-width: 69px;
+  margin-right: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 36px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #f1f1f1;
+  border-radius: 25%;
+  line-height: 35px;
+}
+.myClass_student .myClass_student_header1 span:hover {
+  background-color: #36b774;
+  border: 1px solid #39b674;
+  color: #fff;
+  cursor: pointer;
+}
+.myClass_student .myClass_student_header1 .myClass_student_header1_this {
+  background-color: #36b774;
+  border: 1px solid #39b674;
+  color: #fff;
+}
+.myClass_student .myClass_student_header1 + div .myClass_table {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  width: 100%;
+  border: 1px solid #e6e6e6;
+  text-align: center;
+}
+.myClass_student .myClass_student_header1 + div .myClass_table th {
+  color: #39b674;
+}
+.myClass_student .myClass_student_header1 + div .myClass_table tr {
+  height: 39px;
+}
+#Create_a_class_form {
+  width: 421px;
+  margin-top: 28px;
+  margin-right: 79px;
+}
+#Create_a_class_form .layui-input-block .layui-btn {
+  width: 100%;
+  background-color: #36b774;
+}
+#Add_the_student_form {
+  margin-top: 28px;
+  margin-right: 79px;
+}
+#Add_the_student_form .layui-input-block .layui-btn {
+  width: 100%;
+  background-color: #36b774;
+}
+#To_import_the_students_form {
+  margin-top: 28px;
+  margin-right: 79px;
+}
+#To_import_the_students_form .layui-input-block a {
+  color: #289beb;
+  text-decoration: underline;
+}
+#To_import_the_students_form .layui-input-block .layui-btn {
+  width: 100%;
+  background-color: #36b774;
+}
+.set_course_table {
+  margin: 30px auto;
+  width: 420px;
+  border: 1px solid #fff;
+  text-align: center;
+}
+.set_course_table th {
+  color: #39b674;
+}
+.set_course_table tr {
+  height: 39px;
+}
+.set_course_table td input[type=checkbox] {
+  float: left;
+}
+.set_course_table + button {
+  display: block;
+  width: 420px;
+  background-color: #39b674;
+  margin: 0 auto;
+}
+.school-box {
+  position: relative;
+  width: 100%;
+}
+.school-box .school-selete {
+  display: none;
+  position: absolute;
+  top: 42px;
+  left: 0;
+  z-index: 9999;
+  overflow-y: scroll;
+  width: 311px;
+  height: 240px;
+  font-size: 16px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ccc;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#cccccc')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc');
+  z-index: 20;
+  font-size: 13px;
+  color: #333333;
+}
+.school-box .school-selete li {
+  display: block;
+  padding: 5px 10px;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+}
+.school-box .school-selete li:hover {
+  color: #2DB871;
+}

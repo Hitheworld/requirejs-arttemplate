@@ -1,0 +1,50 @@
+
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+        <li class="layui-this">个人资料</li>
+    </ul>
+    <div class="layui-tab-content">
+        <form id="userDataForm" method="get">
+            <div class="cy_form_content">
+                <div class="cy_form_dv">
+                    <div class="buer"><img src="./app/assets/images/4564.gif" alt="">昵称</div>
+                    <input type="text" class="cy_form_dv_inpt" id="nick_name" placeholder="20个字符，只能为汉字和字母" name="nick_name">
+                </div>
+                {{if resultObject[0].login_type}}
+                <div class="cy_form_dv">
+                    <div class="buer">用户名</div>
+                    <input type="text" class="cy_form_dv_inpt" id="email"  disabled="disabled">
+                    <input type="hidden" name="login_name" value="{{resultObject[0].login_name}}">
+                    <a href="javascript:void (0)" class="change_password_btn">修改密码</a>
+                </div>
+                <div class="cy_form_dv">
+                    <div class="buer"><img src="./app/assets/images/4564.gif" alt="">手机号</div>
+                    <input type="text" class="cy_form_dv_inpt" name="mobile" id="mobile" placeholder="请您填写手机号">
+                    <a href="javascript:void (0)"  class="change_phone_btn">验证手机号</a>
+                </div>
+                {{else}}
+                <div class="cy_form_dv">
+                    <div class="buer">用户名</div>
+                    <input type="text" class="cy_form_dv_inpt"  id="mobile"  disabled="disabled">
+                    <input type="hidden" name="login_name" value="{{resultObject[0].login_name}}">
+                    <a href="javascript:void (0)" class="change_password_btn">修改密码</a>
+                </div>
+                <div class="cy_form_dv">
+                    <div class="buer"><img src="./app/assets/images/4564.gif" id="email" alt="">Email</div>
+                    <input type="text"  class="cy_form_dv_inpt" name="email" placeholder="请您填写Email">
+                    <a href="javascript:void (0)">验证邮箱</a>
+                </div>
+                {{/if}}
+
+                <div class="cy_form_dv">
+                    <div class="buer buer_1"><img src="./app/assets/images/4564.gif" alt="">QQ</div>
+                    <input type="text" class="cy_form_dv_inpt" name="qq" id="qq" placeholder="请您填写QQ号码">
+                </div>
+                <div class="cy_form_dv2">
+                    <button class="layui-btn" type="submit">保存</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

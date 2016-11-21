@@ -1,0 +1,431 @@
+.resourcesDel { 
+    overflow: hidden;
+    .resourcesDel-top {
+        width: 1200px;
+        margin: 20px auto 0;
+        .resourcesDel-box {
+            width: 100%;
+            height: 333px;
+            //图片
+            a {
+                cursor: default;
+            }
+            img.resourcesDel-pic {
+                display: block;
+                float: left;
+                width: 500px;
+                height: 100%;
+            }
+            .resourcesDel-info {
+                width: 606px;
+                height: 269px;
+                background-color: #fafafa;
+                float: right;
+                padding: 30px 32px;
+                position: relative;
+                .resourcesDel-title {
+                    overflow: hidden;
+                    h3 {
+                        float: left;
+                        font-size: 20px;
+                        color: #333333;
+                        margin-bottom: 30px;
+                    }
+                    //分享
+                    .btn-fx {
+                        float: right;
+                        font-size: 16px;
+                        color: #36b773;
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                    .fx-box {
+                        display: none;
+                        position: absolute; 
+                        top: 60px;
+                        right: 30px;
+                        width: 319px;
+                        height: 52px;
+                        a {
+                            display: block;
+                            &.jtico {
+                                padding: 0px !important;
+                                width: 52px !important;
+                                height: 52px !important;
+                                background: url("../../app/assets/images/icons/fx-icon/fx-box.png") no-repeat;
+                                background-position: -266px 0px;
+                            }
+                            .jtico {
+                                padding: 0px !important;
+                                display: block;
+                                width: 52px !important;
+                                height: 52px !important;
+                                background: url("../../app/assets/images/icons/fx-icon/fx-box.png") no-repeat;
+                                &:hover{
+                                    opacity:0.8;
+                                    background: url("../../app/assets/images/icons/fx-icon/fx-box-active.png") no-repeat;
+                                }
+                                &.jtico_weixin {
+                                    background-position: 0px 0px ;
+                                }
+                                &.jtico_xiaoyou {
+                                    background-position: -53px 0px;
+                                }
+                                &.jtico_cqq {
+                                    background-position: -106px 0px;
+                                }
+                                &.jtico_tsina {
+                                    background-position: -159px 0px;
+                                }
+                                &.jtico_qzone {
+                                    background-position: -213px 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .resourcesDel-object,
+                .resourcesDel-people,
+                .solid {
+                    color: #999999;
+                    font-size: 16px;
+                }
+                .resourcesDel-object {
+                    margin-right: 20px;
+                }
+                .resourcesDel-people {
+                    margin-left: 20px;
+                    i {
+                        font-size: 14px;
+                        color: #bbbbbb;
+                        margin-right: 8px;
+                    }
+                }
+                .resourcesDel-cont {
+                    margin-top: 30px;
+                    margin-bottom: 30px;
+                    p {
+                        font-size: 16px;
+                        line-height: 28px;
+                        color: #999999;
+                    }
+                }
+                .resourcesDel-button-box {
+                    position: absolute;
+                    bottom: 30px;
+                    left: 32px;
+                    overflow: hidden;
+                    .layui-btn {
+                        width: 150px;
+                        height: 56px;
+                        padding: 0;
+                        text-align: center;
+                        font-size: 20px;
+                        color: #FFFFFF;
+                        float: left;
+                    }
+                    .buttom-margin-left {
+                        margin-right: 10px;
+                    }
+                    .resourcesDel-resource {
+                        background-color: #36b773;
+                    }
+                    span.notLogged {
+                        color: #36b773;
+                    }
+                    span {
+                        float: right;
+                        display: block;
+                        color: #333333;
+                        font-size: 18px;
+                        width: 150px;
+                        height: 56px;
+                        line-height: 56px;
+                        text-align: center;
+                        
+                    }
+                }
+                //申请成功
+                .resourcesDel-body {
+                    position: absolute;
+                    bottom: 25px;
+                    right: 106px;
+                    ul {
+                        overflow: hidden;
+                        margin-left: -148px;
+                        margin-top: 10px;
+                        li {
+                            float: left;
+                            width: 96px;
+                            margin-left: 110px;
+                            text-align: center;
+                            p {
+                                color: #333333;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .resourcesDel-foot {
+        margin-top: 50px;
+        //tab容器
+        .resourcesDel-tab {
+            width: 830px;
+            float: left;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+            //TAB
+            .layui-tab {
+                margin-top: 0;
+                width: 100%;
+                .layui-tab-title {
+                    height: auto;
+                    li {
+                        padding: 0px;
+                        margin-right: 40px;
+                        font-size: 18px;
+                        padding-bottom: 18px;
+                        color: #999999;
+                    }
+                    .layui-this {
+                        color: #333333;
+                        &:after {
+                            height: 60px;
+                        }
+                    }
+                }
+            }
+            
+        }
+        //申领记录
+        .resourcesDel-del-claim-record {
+            float: right;
+            width: 340px;
+            margin-bottom: 30px;
+            .index-uq {
+                float: right;
+                width: 350px;
+                background: #fafafa;
+                margin-top: 20px;
+                padding-top: 30px;
+                .am-titlebar {
+                    overflow: hidden;
+                    .tb-box {
+                        margin-left: 1px;
+                        margin-right: 28px;
+                        width: 4px;
+                        height: 20px;
+                        background: #36b773;
+                        float: left;
+                    }
+                    .am-titlebar-nav {
+                        margin-right: 30px;
+                        span {
+                            color: #36b773;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                ul {
+                    display: block;
+                    .course-list-nodata {
+                        padding-bottom: 175px;
+                        position: relative;
+                        .nodata-pic {
+                            width: 123px;
+                            margin: 0 auto;
+                            margin-top: 90px;
+                            img {
+                                
+                            }
+                        }
+                        
+                    }
+                    li {
+                        display: block;
+                        overflow: hidden;
+                        border-bottom: 1px solid #f1f1f1;
+                        .index-uq-box {
+                            margin-top: 30px;
+                            margin-bottom: 30px;
+                            margin-left: 32px;
+                            margin-right: 40px;
+                            font-size: 14px;
+                            overflow: hidden;
+                            img {
+                                width: 54px;
+                                height: 54px;
+                                border-radius: 50%;
+                                float: left;
+                            }
+                            
+                            .index-uq-bottom {
+                                float: right;
+                                width: 205px;
+                                
+                                h3 {
+                                    display: block;
+                                    font-size: 16px;
+                                    font-weight: 100;
+                                    color: #333333;
+                                    width: 100%;
+                                    word-wrap: normal;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                }
+                                div {
+                                    margin-top: 18px;
+                                    font-size: 14px;
+                                    height: 14px;
+                                    line-height: 14px;
+                                    color: #999999;
+                                    word-wrap: normal;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    .time {
+                                        margin-right: 20px;
+                                        
+                                    }
+                                    .book {
+                                        
+                                    }
+                                    i {
+                                        margin-right: 8px;
+                                        font-size: 14px;
+                                        color: #dddddd;    
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+//申请资源弹出层
+.ApplyResource {
+    .ApplyResource-box {
+        margin-top: 10px;
+        .ApplyResource-body {
+            width: 548px;
+            margin: 0 auto;
+            .error {
+                margin-left: 100px; 
+            }
+            .layui-form-item {
+                margin-top: 20px;
+                .layui-form-label {
+                    width: 100px;
+                    padding: 0px;
+                    .major {
+                        line-height: 38px;
+                        color: #FF0000;
+                    }
+                }
+                .layui-input-inline {
+                    width: 432px;
+                    overflow: hidden;
+                    .disabled-text {
+                        width: 224px;
+                        background-color: #f1f1f1;
+                    }
+                    .btn-add,.btn-min {
+                        width: 30px;
+                        height: 38px;
+                        line-height: 38px;
+                        font-size: 14px;
+                        color: #333333;
+                        border: none;
+                        float: left;
+                        cursor: pointer;
+                        background-color: #f8f8f8;
+                        border: #f8f8f8 1px solid;
+                        &:hover {
+                            border: #36b773 1px solid;  
+                            color: #36b773;
+                        }
+                    }
+                    .btn-input {
+                        width: 65px;
+                        float: left;
+                        margin: 0px 10px;
+                    }
+                    &.no-lebel {
+                        margin-left: 100px;
+                    }
+                    input {
+                        border:1px solid #f0f0f0;
+                        margin: 0px;
+                        &.input-width-no {
+                            width: 224px;
+                        }
+                    }
+                }
+                .layui-input-block {
+                    float: left;
+                    width: 432px;
+                    margin-left: 0px;
+                    margin-right: 10px;
+                    ul {
+                        overflow: hidden;
+                        margin-right: -15px;
+                        li {
+                            float: left;
+                            width: 134px;
+                            margin-right: 15px;
+                            select {
+                                width: 100%;
+                                height: 38px;
+                                line-height: 38px;
+                                border:1px solid #f0f0f0;
+                                margin: 0px;
+                                padding: 0px;
+                            }
+                        }
+                    }
+                    .ApplyResource-textarea {
+                        resize: none;
+                        margin: 0px;
+                    }
+                    &.box-btn-block {
+                        float: initial;
+                        margin: 0 auto;
+                        margin-top: 40px;
+                        //按钮
+                        .ApplyResource-btn {
+                            width: 209px;
+                            height: 50px;
+                            line-height: 50px;
+                            font-size: 18px;
+                            padding: 0px;
+                            cursor: pointer;
+                            &.submit-btn {
+                                background-color: #3db675;
+                                color: #FFFFFF;
+                            }
+                            &.primary-btn {
+                                background-color: #FFFFFF;
+                                color: #333333;    
+                            }
+                        }
+                    }    
+                }
+            }
+        }
+    }
+}
+
+
+//资源待审核中
+

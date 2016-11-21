@@ -1,0 +1,94 @@
+.teaching {
+    width: 100%;
+    height: 100%;
+    background-color: #f6f6f6;
+    overflow: hidden;
+    .teachingBox {
+        position: relative;
+        width: 1200px;
+        margin: 30px auto;
+        //主TAB
+        .teaching-nav {
+            display: block;
+            width: 85px;
+            position: absolute;
+            //top: 30px;
+            left: -105px;
+            ul.teaching-nav-title {
+                width: 100%;
+                height: auto;
+                background-color: #FFFFFF;
+                text-align: center;
+                li.teaching-nav-li {
+                    display: block;
+                    padding: 0px;
+                    height: 100px;
+                    line-height: 60px;
+                    font-size: 16px;
+                    color: #333333;
+                    border-left: #FFFFFF 2px solid;
+                    a {
+                        display: block;
+                        width: 100%;
+                        margin-bottom: 12px;
+                        i.nav-icon {
+                            width: 34px;
+                            height: 35px;
+                            display: block;
+                            margin: 0px auto;
+                            margin-top: 20px;
+                            &.nav-myclass {
+                                background: url("../../app/assets/images/nav/nav-myclass.png") no-repeat;
+                            }
+                            &.nav-review {
+                                background: url("../../app/assets/images/nav/nav-review.png") no-repeat;
+                            }
+                            &.nav-task {
+                                background: url("../../app/assets/images/nav/nav-task.png") no-repeat;
+                            }
+                            &.nav-test {
+                                background: url("../../app/assets/images/nav/nav-test.png") no-repeat;
+                            }
+                        }
+                        
+                    }
+                    &.layui-this { 
+                        a {
+                            border-left: #36b773 2px solid;
+                        }
+                        color: #333333;
+                        &:after {
+                            height: 60px;
+                            border: none;
+                        }
+                    }
+                    &:hover {
+                        border-left: #36b773 2px solid;
+                        background-color: #36b773;
+                        i.nav-icon {
+                            &.nav-myclass {
+                                background: url("../../app/assets/images/nav/nav-myclass-active.png") no-repeat;
+                            }
+                            &.nav-review {
+                                background: url("../../app/assets/images/nav/nav-review-active.png") no-repeat;
+                            }
+                            &.nav-task {
+                                background: url("../../app/assets/images/nav/nav-task-active.png") no-repeat;
+                            }
+                            &.nav-test {
+                                background: url("../../app/assets/images/nav/nav-test-active.png") no-repeat;
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+        //tab内容区
+        .teaching-tab-content {
+            width: 1200px;
+            padding: 0px;
+        }
+       
+    } 
+}

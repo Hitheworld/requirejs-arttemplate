@@ -1,0 +1,153 @@
+.myClass {
+  background-color: #fff;
+  padding: 30px;
+}
+.myClass .markexampapers-contnet .markexampapers-header,
+.myClass .layui-tab-content .markexampapers-header {
+  padding-bottom: 30px;
+  padding-top: 30px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.myClass .markexampapers-contnet .markexampapers-header ul,
+.myClass .layui-tab-content .markexampapers-header ul {
+  overflow: hidden;
+}
+.myClass .markexampapers-contnet .markexampapers-header ul li,
+.myClass .layui-tab-content .markexampapers-header ul li {
+  float: left;
+  margin-right: 20px;
+}
+.myClass .markexampapers-contnet .markexampapers-header ul li .item-box label,
+.myClass .layui-tab-content .markexampapers-header ul li .item-box label {
+  float: left;
+  display: block;
+  width: 86px;
+  height: 35px;
+  line-height: 35px;
+}
+.myClass .markexampapers-contnet .markexampapers-header ul li .item-box select,
+.myClass .layui-tab-content .markexampapers-header ul li .item-box select {
+  float: left;
+  width: 145px;
+  height: 35px;
+  line-height: 35px;
+  border: #f0f0f0 1px solid;
+}
+.myClass .markexampapers-contnet .markexampapers-cont table.dataTable thead tr th.name,
+.myClass .layui-tab-content .markexampapers-cont table.dataTable thead tr th.name,
+.myClass .markexampapers-contnet .markexampapers-cont table.dataTable tbody tr td.name,
+.myClass .layui-tab-content .markexampapers-cont table.dataTable tbody tr td.name {
+  padding-left: 10px !important;
+}
+.myClass .markexampapers-contnet .markexampapers-cont table.dataTable thead tr th.operation,
+.myClass .layui-tab-content .markexampapers-cont table.dataTable thead tr th.operation,
+.myClass .markexampapers-contnet .markexampapers-cont table.dataTable tbody tr td.operation,
+.myClass .layui-tab-content .markexampapers-cont table.dataTable tbody tr td.operation {
+  padding-right: 10px !important;
+}
+.myClass .markexampapers-contnet .markexampapers-cont .dataTables_wrapper .dataTables_paginate,
+.myClass .layui-tab-content .markexampapers-cont .dataTables_wrapper .dataTables_paginate {
+  margin-top: 20px;
+}
+.myClass .markexampapers-contnet .markexampapers-cont .operation-icon,
+.myClass .layui-tab-content .markexampapers-cont .operation-icon {
+  overflow: hidden;
+}
+.myClass .markexampapers-contnet .markexampapers-cont .operation-icon a,
+.myClass .layui-tab-content .markexampapers-cont .operation-icon a {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 100%;
+  text-align: center;
+}
+.myClass .markexampapers-contnet .markexampapers-cont .operation-icon a i,
+.myClass .layui-tab-content .markexampapers-cont .operation-icon a i {
+  font-size: 20px;
+  color: #999999;
+}
+.myClass .markexampapers-contnet .markexampapers-cont .operation-icon a:hover i,
+.myClass .layui-tab-content .markexampapers-cont .operation-icon a:hover i {
+  color: #36b773;
+}
+.contnet-dummy {
+  width: 100%;
+  min-height: 890px;
+}
+.contnet-dummy .dummy-file {
+  margin: 0 auto;
+  margin-top: 200px;
+  width: 253px;
+  height: 268px;
+  background: url("../../app/assets/images/bg/bg-dummy-file.png") no-repeat;
+}
+.markthetests {
+  background-color: #fff;
+  padding: 30px;
+}
+.markthetests .markthetests_header {
+  height: 38px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.markthetests .markthetests_header span {
+  display: inline-block;
+  font-size: 13px;
+  border-left: 2px solid #e8e8e8;
+  text-indent: 20px;
+  color: #6f6f6f;
+}
+.markthetests .markthetests_header span + span {
+  margin-left: 20px;
+}
+.markthetests .markthetests_header span:first-child {
+  border-left: none;
+  text-indent: 0;
+  color: #2f2f2f;
+}
+.markthetests .markthetests_header a {
+  float: right;
+}
+.markthetests .markthetests_header1 {
+  margin: 30px auto;
+  height: 38px;
+}
+.markthetests .markthetests_header1 button {
+  height: 38px;
+  width: 158px;
+  background-color: #36b774;
+  color: #fff;
+  border-radius: 0;
+  float: left;
+  margin-right: 20px;
+}
+.markthetests .markthetests_header1 .item-box {
+  float: left;
+  height: 38px;
+}
+.markthetests .markthetests_header1 .item-box label {
+  float: left;
+  display: block;
+  width: 86px;
+  height: 35px;
+  line-height: 35px;
+}
+.markthetests .markthetests_header1 .item-box select {
+  float: left;
+  width: 145px;
+  height: 35px;
+  line-height: 35px;
+  border: #f0f0f0 1px solid;
+}
+.markthetests .markthetests_header1 span {
+  height: 38px;
+  line-height: 37px;
+  float: left;
+  margin-left: 20px;
+  font-size: 14px;
+  text-indent: 20px;
+  color: #6f6f6f;
+}
+.markthetests .markthetests_header1 span span {
+  color: #2592bb;
+  float: none;
+}

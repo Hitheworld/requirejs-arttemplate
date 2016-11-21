@@ -1,0 +1,88 @@
+//考试管理tab 
+.releasepapers.releasepapers-tab-box {
+    width: 100%;
+    background-color: #FFFFFF;
+    .releasepapers-body {
+        padding: 20px 30px;
+        //创建班级按钮
+        .create-test-btn {
+            width: 125px;
+            height: 38px;
+            line-height: 38px;
+            padding: 0;
+            background: #36b773;
+        }
+        .layui-tab {
+            overflow: hidden;
+            .layui-tab-title {
+                padding-left: 0px;
+                height: 58px;
+                background: #FFFFFF;
+                overflow: hidden;
+                li {
+                    height: 59px;
+                    line-height: 59px;
+                    display: block;
+                    float: left;
+                    
+                }
+                .layui-this {
+                    &:after { 
+                        height: 58px !important;
+                        border: none;
+                        border-bottom: solid 2px #2DB871;
+                        height: 50px;
+                    }
+                }
+            }
+            .layui-tab-content {
+                width: 100%;
+                .layui-tab-item {
+                    //未进行考试
+                    .Not-carried-teaching,.HistoryExam-teaching {
+                        
+                        
+                        table.dataTable thead tr th,table.dataTable tbody tr td {
+                            &.examination {
+                                padding-left: 10px !important;
+                            }
+                            &.operation {
+                                padding-right: 10px !important;
+                            }
+                        }
+                        .dataTables_wrapper {
+                            .dataTables_paginate {
+                                margin-top: 20px;
+                            }
+                        }
+                        
+                        //icon
+                        .operation-icon {
+                            overflow: hidden;
+                            a {
+                                display: block;
+                                float: left;
+                                width: 25px;
+                                height: 100%;
+                                text-align: center;
+                                cursor: pointer;
+                                i {
+                                    font-size: 20px;
+                                    color: #72cc9d;
+                                }
+                                &:hover {
+                                i {
+                                    color: #75bfee;
+                                }
+                            }
+                            }
+                        }
+                    }
+                    //end未进行考试
+                    
+                }
+            }
+        }
+    }
+}
+//结束考试管理tab

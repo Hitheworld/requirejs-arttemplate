@@ -1,0 +1,31 @@
+<div class="infoDel">
+    <div class="infoDel-box">
+        <div class="course-del-nav">
+            <div class="nav">
+			<span class="layui-breadcrumb" lay-separator="|" style="visibility: visible;">
+				 <a href="#/home">首页<span>&gt;</span></a>
+				 <a href="#/info/1">资讯列表<span>&gt;</span></a>
+				 <a id="course-del-name"><cite>资讯详情</cite></a>
+			</span>
+            </div>
+        </div>
+
+        <div class="infoDel_content">
+            <p class="infoDel_content_p1">{{resultObject.title}}</p>
+            <p class="infoDel_content_p2">
+                <span>{{resultObject.create_time}}</span>
+                <span>浏览：{{resultObject.page_view}}</span>
+                <span>小编：{{resultObject.author}}</span>
+            </p>
+            <div>
+                <img src="{{resultObject.image_url}}" alt="">
+            </div>
+            <p>
+
+                {{resultObject.content}}
+            </p>
+        </div>
+
+
+    </div>
+</div>

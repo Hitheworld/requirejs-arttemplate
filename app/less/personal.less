@@ -1,0 +1,699 @@
+.content_personal {
+  overflow: hidden;
+  background-color: #f6f6f6;
+  .personal_content {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    top: 30px;
+    .personal_intro {
+      width: 260px;
+      overflow: hidden;
+      float: left;
+      div {
+        overflow: hidden;
+        background-color: #fff;
+        .personal_picModal {
+          width: 80px;
+          height: 80px;
+          display: block;
+          border-radius: 50%;
+          margin: 0 auto;
+          margin-top: 30px;
+          margin-bottom: 10px;
+          position: relative;
+          cursor: pointer;
+          form{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            input{
+              background-color: rgba(0,0,0,.2);
+              color: rgba(255,255,255,1);
+              opacity: 0;
+              -moz-opacity: 0.5;
+              -khtml-opacity: 0.5;
+              filter: alpha(opacity=0);
+              font-size: 110px;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0px;
+              left: 0px;
+              cursor: pointer;
+              overflow: hidden;
+              &.error {
+                display: block !important;
+                float: none !important;
+                margin: 0px !important;
+              }
+            }
+          }
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .personal_name {
+          text-align: center;
+          width: 130px;
+          margin: 0 auto;
+          margin-bottom: 20px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: #333333;
+        }
+        .personal_msg {
+          overflow: hidden;
+          margin: 10px auto;
+          margin-bottom: 30px;
+          text-align: center;
+          .personal_msg_dv_1 {
+            margin-bottom: 10px;
+            color: #333333;
+          }
+        }
+      }
+      ul {
+        width: 100%;
+        height: 548px;
+        margin-top: 30px;
+        background-color: #fff;
+        li {
+          text-align: center;
+          font-size: 17px;
+          height: 60px;
+          line-height: 60px;
+          border-left: 2px solid #fff;
+          border-bottom: 1px solid #f1f1f1;
+          &:hover {
+            border-left: 2px solid #36b774;
+            a {
+              color: #36b774;
+              display: block;
+            }
+          }
+          &.personal_this {
+            border-left: 2px solid #36b774;
+            a {
+              color: #36b774;
+            }
+          }
+        }
+      }
+    }
+    #personal {
+      float: right;
+      width: 852px;
+      min-height: 1080px;
+      padding: 0 29px 0 29px;
+      background-color: #fff;
+      margin-bottom: 100px;
+      .layui-tab-content {
+        padding: 0;
+        .my_open {
+          margin-top: 30px;
+          position: relative;
+          div {
+            width: 100%;
+            height: 35px;
+            display: block;
+            div {
+              float: left;
+              width: 110px;
+              height: 33px;
+              line-height: 35px;
+              text-align: center;
+              border: 1px solid #ccc;
+              font-size: 13px;
+              color: #999;
+            }
+            p {
+              float: left;
+              width: 33px;
+              height: 33px;
+              line-height: 35px;
+              text-align: center;
+              border: 1px solid #ccc;
+              border-left: none;
+              img {
+                width: 8px;
+                height: 5px;
+              }
+            }
+            &:hover {
+              cursor: pointer;
+            }
+          }
+          ul {
+            display: none;
+            position: absolute;
+            top: 45px;
+            left: 0;
+            width: 144px;
+            height: 105px;
+            background-color: #fff;
+            box-shadow: 0 0 10px #ccc;
+            z-index: 20;
+            font-size: 13px;
+            color: #333333;
+            li {
+              text-align: center;
+              line-height: 34px;
+              cursor: pointer;
+              height: 34px;
+              border-bottom: 1px solid #f0f0f0;
+              &:hover {
+                color: #36b774;
+              }
+            }
+          }
+        }
+        .mynews_content {
+          div {
+            line-height: 75px;
+            height: 74px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #333;
+            font-size: 14px;
+            position: relative;
+            span {
+              float: left
+            }
+            .unread {
+              display: block;
+              position: absolute;
+              height: 10px;
+              top: 0;
+              left: -18px;
+              line-height: 73px;
+              color: red;
+            }
+            input {
+              float: left;
+              margin-top: 31px
+            }
+            .mynews_content_title {
+              margin-left: 10px;
+              color: #999999;
+            }
+            .mynews_content_span {
+              margin-left: 10px;
+              cursor: pointer;
+              max-width: 680px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              &:hover {
+                color: #39b674
+              }
+            }
+            .mynews_content_time {
+              float: right;
+            }
+          }
+        }
+        .mynews_checkbox {
+          width: 100%;
+          height: 75px;
+          line-height: 75px;
+          input {
+            float: left;
+            margin-top: 31px;
+          }
+          span, a {
+            margin-left: 10px;
+          }
+          a {
+            color: #999999
+          }
+        }
+      }
+
+    }
+  }
+}
+
+//教师资格认证
+.cy_form_content {
+  overflow: hidden;
+  margin-top: 30px;
+  .cy_form_dv {
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    p{
+      clear: left;
+      margin-left: 60px;
+    }
+    a {
+      position: absolute;
+      top: 15px;
+      left: 400px;
+      color: #35b673;
+    }
+    .buer {
+      display: inline-block;
+      width: 47px;
+      height: 50px;
+      text-align: right;
+      line-height: 50px;
+      color: #333;
+      font-size: 13px;
+    }
+    .cy_form_dv_inpt {
+      display: inline-block;
+      width: 305px;
+      margin-left: 10px;
+      height: 48px;
+      line-height: 36px;
+      border: 1px solid #ccc;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 14px;
+      color: #999;
+    }
+    .cy_form_dv_radio {
+      float: left;
+      width: 100px;
+      margin-left: 18px;
+      height: 100%;
+      line-height: 34px;
+      font-size: 14px;
+      color: #999;
+    }
+    .cy_message {
+      display: none;
+      float: left;
+      height: 34px;
+      width: 145px;
+      margin-left: 10px;
+      text-indent: 21px;
+      line-height: 33px;
+      color: red;
+    }
+    .cy_form_dv_selet1 {
+      float: left;
+      width: 126px;
+      margin-left: 18px;
+      height: 100%;
+      border: 1px solid #ccc;
+      line-height: 34px;
+      border-radius: 3px;
+      text-indent: 10px;
+      font-size: 14px;
+      color: #999;
+      background-position: 105px 15px;
+    }
+    .cy_form_dv_selet1_open {
+      display: none;
+      z-index: 20;
+      width: 126px;
+      height: 100px;
+      font-size: 14px;
+      color: #666;
+      background-color: #FFFFFF;
+      border: 1px solid #eeeeee;
+      position: absolute;
+      top: 36px;
+      left: 96px;
+      padding: 0;
+      margin: 0;
+    }
+    .cy_form_dv_selet3 {
+      float: left;
+      width: 323px;
+      margin-left: 18px;
+      height: 100%;
+      border: 1px solid #ccc;
+      line-height: 34px;
+      border-radius: 3px;
+      text-indent: 10px;
+      font-size: 14px;
+      color: #999;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cy_form_dv_selet3_open {
+      display: none;
+      z-index: 10;
+      width: 323px;
+      height: 156px;
+      font-size: 14px;
+      color: #666;
+      background-color: #FFFFFF;
+      border: 1px solid #ccc;
+      position: absolute;
+      top: 0;
+      left: 96px;
+      padding: 0;
+      margin: 0;
+      border-radius: 3px;
+    }
+  }
+  .cy_form_dv1 {
+    margin-top: 15px;
+    width: 580px;
+    position: relative;
+    overflow: hidden;
+    .buer {
+      float: left;
+      width: 47px;
+      height: 34px;
+      text-align: right;
+      line-height: 34px;
+      color: #333;
+      font-size: 14px;
+    }
+    .modify-photo {
+      position: relative;
+      cursor: pointer;
+      float: left;
+      margin-left: 18px;
+      width: 260px;
+      height: 174px;
+      a {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        width: 260px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        color: #fff;
+        background: #000;
+        opacity: 0.5;
+      }
+      &:hover a {
+        display: block;
+      }
+    }
+    .shez {
+      width: 180px;
+      height: 180px;
+      a {
+        width: 180px;
+      }
+    }
+    .order-size {
+      clear: left;
+      margin-left: 96px;
+      display: block;
+    }
+  }
+  .cy_form_dv2 {
+    margin-top: 40px;
+    button {
+      width: 210px;
+      height: 50px;
+      font-size: 18px;
+      margin-left: 53px;
+      background-color: #39b674;
+    }
+  }
+}
+
+.change_password {
+  width: 420px;
+  margin: 70px auto;
+  button {
+    width: 100%;
+    height: 50px;
+    background-color: #39b674;
+  }
+}
+
+
+.change_phone {
+  width: 420px;
+  margin: 30px auto;
+}
+.change_email{
+  width: 420px;
+  margin: 30px auto;
+  button {
+    width: 100%;
+    height: 50px;
+    background-color: #39b674;
+  }
+}
+
+.mynews_alert {
+  width: 440px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+//我的提问
+.myquestion_content {
+  margin-bottom: 30px;
+  .myquestion_content_dv {
+    height: 168px;
+    border-bottom: 1px solid #f0f0f0;
+    a{
+      .myquestion_content_dv_p1 {
+        margin-top: 30px;
+        font-size: 14px;
+        color: #989898;
+        height: 18px;
+        line-height: 18px;
+        span {
+          float: left;
+          height: 100%
+        }
+        .myquestion_content_dv_p1_span2 {
+          margin-left: 2px;
+          padding: 0 8px 0 8px;
+          background-color: #f5f5f5;
+        }
+        .myquestion_content_dv_p1_time {
+          float: right;
+        }
+      }
+      div {
+        margin-top: 20px;
+        cursor: pointer;
+        .myquestion_content_dv_title {
+          color: #333;
+          font-size: 14px;
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .myquestion_content_dv_dv_p {
+          color: #999;
+          margin-top: 10px;
+          font-size: 14px;
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        &:hover {
+          p {
+            color: #36b774
+          }
+        }
+      }
+      .myquestion_content_dv_p2 {
+        margin-top: 20px;
+        height: 18px;
+        span {
+          float: left;
+          margin-right: 30px;
+          color: #c4c4c4;
+          height: 100%;
+          img {
+            width: 13px;
+            margin-right: 9px;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+//我的合作课程
+.cooperamode1{
+  display: block;
+}
+.cooperamode2{
+  display: none;
+}
+.Cooperamode {
+  margin: 0 0 30px 0;
+  .Cooperamode_div {
+    width: 214px;
+    height: 248px;
+    border: 1px solid #fff;
+    border-bottom: 1px solid #f0f0f0;
+    display: inline-block;
+    margin-right: 30px;
+    margin-top: 30px;
+    text-align: center;
+    &:hover {
+      box-shadow: 0 0 10px #ccc;
+      border: 1px solid #39b674;
+    }
+    img {
+      width: 100%;
+      height: 140px;
+    }
+    .Cooperamode_div_p1 {
+      margin-top: 30px;
+      font-size: 16px;
+      color: #2f2f2f;
+    }
+    .Cooperamode_div_p2 {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #39b674;
+    }
+    .Cooperamode_div_p3 {
+      margin-top: 20px;
+      font-size: 14px;
+      &:hover {
+        color: #39b674;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+//我的积分
+.poinst_get {
+  .poinst_get_her {
+    margin-top: 30px;
+    overflow: hidden;
+    p {
+      width: 283px;
+      height: 48px;
+      float: left;
+      background-color: #f0f0f0;
+      margin-left: 1px;
+      text-align: center;
+      line-height: 48px;
+      color: #39b674;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  .poinst_get_her1 {
+    margin-top: 30px;
+    overflow: hidden;
+    p {
+      width: 157px;
+      height: 57px;
+      float: left;
+      background-color: #f0f0f0;
+      margin-left: 1px;
+      text-align: center;
+      line-height: 57px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+    .poinst_get_her1_p1 {
+      width: 376px;
+      color: #39b674;
+    }
+  }
+  .poinst_get_btn {
+    margin-top: 30px;
+    overflow: hidden;
+    button {
+      width: 330px;
+      height: 56px;
+      display: block;
+      margin: 0 auto;
+      background-color: #39b674;
+    }
+  }
+  .poinst_get_dv {
+    margin: 0 auto;
+    margin-top: 157px;
+    width: 175px;
+    overflow: hidden;
+    img {
+      width: 36px;
+      height: 32px;
+      float: left;
+      margin-right: 10px;
+    }
+    p {
+      float: left;
+      color: #989898;
+      span {
+        color: #39b674;
+        cursor: pointer;
+      }
+    }
+  }
+  .poinst_get_dv1 {
+    .poinst_get_dv1_p1 {
+      margin-top: 25px;
+      font-size: 17px;
+    }
+    .poinst_get_dv1_p2{
+      margin-top: 10px;
+      background-color: #f0f0f0;
+      overflow: hidden;
+      height: 48px;
+      span{
+        float: left;
+        height: 100%;
+        line-height: 48px;
+        font-size: 16px;
+        color: #333;
+        &+span{
+          margin-left: 49px;
+          &+span{
+            margin-left: 49px;
+            button{
+              height: 27px;
+              line-height: 24px;
+              font-size: 16px;
+              width: 74px;
+              background-color: #36b773;
+            }
+          }
+        }
+        input{
+          width: 108px;
+          height: 25px;
+          outline: none;
+          border: 1px solid #ccc;
+        }
+      }
+      span:first-child{
+        margin-left: 19px;
+      }
+    }
+    .poinst_get_table{
+      margin-top: 10px;
+      margin-bottom: 40px;
+      width: 100%;
+      border: 1px solid #e6e6e6;
+      text-align: center;
+      th{
+        color: #39b674;
+      }
+      tr{
+        height: 39px;
+      }
+    }
+  }
+}

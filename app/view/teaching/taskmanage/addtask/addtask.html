@@ -1,0 +1,573 @@
+<!--添加试卷-->
+<div class="addpaper">
+
+	<div class="addpaperTitle">
+		<h1>添加作业</h1>
+		<a href="#/teaching/testcentres/organizepaper" class="return">返回</a>
+	</div>
+
+
+		<div id="sliding-form">
+			<ul id="status">
+				<li class="state active">
+					<i>
+						<span>1</span>
+					</i>
+					<div class="title">设置试卷</div>
+				</li>
+				<li class="border">
+					<i>
+						<span>2</span>
+					</i>
+					<div  class="title">设置题型</div>
+				</li>
+				<li class="end">
+					<i>
+						<span>3</span>
+					</i>
+					<div class="title">生成作业</div>
+				</li>
+			</ul>
+			<div class="items">
+				<div class="page page1">
+
+					<form id="page1-form">
+					<div class="pagePaper">
+						<div class="fieldset-header">
+							<h2>STEP1  作业信息</h2>
+						</div>
+						<ul class="addpaper-ul">
+							<li class="addpaper-ul-li">
+								<div class="layui-form-item addpaper-form-item">
+									<label class="layui-form-label">作业名称</label>
+									<div class="layui-input-block teaccert-form-item-box">
+										<input type="text" name="papername" id="papername" class="layui-input" />
+									</div>
+								</div>
+							</li>
+
+							<li class="error-li">
+								<p for="papername" class="error" style="display: none;"></p>
+							</li>
+
+						</ul>
+						<div class="fieldset-header">
+							<h2>STEP2  设置知识点</h2>
+						</div>
+						<ul class="addpaper-ul no-border-bottom">
+							<li class="addpaper-ul-li">
+								<div class="layui-form-item addpaper-form-item">
+									<label class="layui-form-label">试卷名称</label>
+									<div class="layui-input-block teaccert-form-item-box">
+										{{if findTeacherCoursesDB.success}}
+											<select name="paperselete" id="paperselete" class="layui-input paperselete">
+											{{if findTeacherCoursesDB.resultObject != ''}}
+												{{each findTeacherCoursesDB.resultObject as TeacherCourses i}}
+													<option value="{{TeacherCourses.id}}">{{TeacherCourses.name}}</option>
+												{{/each}}
+											{{else}}
+												<option>无数据</option>
+											{{/if}}
+											</select>
+										{{else}}
+											{{findTeacherCoursesDB.errorMessage}}
+										{{/if}}
+									</div>
+								</div>
+							</li>
+							<li class="addpaper-ul-li">
+								<div class="tree-checkbox">
+									<div class="ztree" id="tree-combined"></div>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+
+					<div class="btn_nav">
+						<button type="submit" class="next cont btn-page-next">下一步</button>
+					</div>
+					</form>
+
+				</div>
+				<div class="page page2">
+
+					<form id="page2-form">
+						<div class="pagePaper">
+							<div class="fieldset-header">
+								<h2>设置题型</h2>
+							</div>
+							<ul class="addpaper-ul">
+								<!--单选题-->
+								<li class="addpaper-ul-li">
+									<ul class="addpaper-ul-ul">
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<i class="addpaper2-form-icon"></i>
+											</div>
+										</li>
+
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label">可用<span id="daiXuanUsable">25</span>道</label>
+											</div>
+										</li>
+
+
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state">单选题</label>
+												<input type="text" name="daiXuanQuestions" class="layui-input" id="daiXuanQuestions" />
+												<label class="form-label-end">题</label>
+											</div>
+										</li>
+
+									</ul>
+								</li>
+
+								<li class="error-li">
+									<p for="daiXuanQuestions" class="error" style="display: none;"></p>
+									<p for="daiXuanPortion" class="error" style="display: none;"></p>
+								</li>
+
+								<!--多选题-->
+								<li class="addpaper-ul-li">
+									<ul class="addpaper-ul-ul">
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<i class="addpaper2-form-icon"></i>
+											</div>
+										</li>
+
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label">可用<span id="duoXuanUsable">25</span>道</label>
+											</div>
+										</li>
+
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state">多选题</label>
+												<input type="text" name="duoXuanQuestions" class="layui-input" id="duoXuanQuestions" />
+												<label class="form-label-end">题</label>
+											</div>
+										</li>
+
+									</ul>
+								</li>
+
+								<li class="error-li">
+									<p for="duoXuanQuestions" class="error" style="display: none;"></p>
+									<p for="duoXuanPortion" class="error" style="display: none;"></p>
+								</li>
+
+								<!--判断题-->
+								<li class="addpaper-ul-li">
+									<ul class="addpaper-ul-ul">
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<i class="addpaper2-form-icon"></i>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label">可用<span id="panDuanUsable">25</span>道</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state">判断题</label>
+												<input type="text" name="panDuanQuestions" class="layui-input" id="panDuanQuestions" />
+												<label class="form-label-end">题</label>
+											</div>
+										</li>
+
+									</ul>
+								</li>
+
+								<li class="error-li">
+									<p for="panDuanQuestions" class="error" style="display: none;"></p>
+									<p for="panDuanPortion" class="error" style="display: none;"></p>
+								</li>
+
+								<!--填空题-->
+								<li class="addpaper-ul-li">
+									<ul class="addpaper-ul-ul">
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<i class="addpaper2-form-icon"></i>
+											</div>
+										</li>
+
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label">可用<span id="tianKongUsable">25</span>道</label>
+											</div>
+										</li>
+
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state">填空题</label>
+												<input type="text" name="tianKongQuestions" class="layui-input" id="tianKongQuestions" />
+												<label class="form-label-end">题</label>
+											</div>
+										</li>
+									</ul>
+								</li>
+
+								<li class="error-li">
+									<p for="tianKongQuestions" class="error" style="display: none;"></p>
+									<p for="tianKongPortion" class="error" style="display: none;"></p>
+								</li>
+
+								<!--简答题-->
+								<li class="addpaper-ul-li">
+									<ul class="addpaper-ul-ul">
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<i class="addpaper2-form-icon"></i>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label">可用<span id="jianDaUsable">25</span>道</label>
+											</div>
+										</li>
+										<li class="addpaper-ul-ul-li">
+											<div class="addpaper2-form-item">
+												<label class="form-label-state">简答题</label>
+												<input type="text" name="jianDaQuestions" class="layui-input" id="jianDaQuestions" />
+												<label class="form-label-end">题</label>
+											</div>
+										</li>
+
+									</ul>
+								</li>
+
+								<li class="error-li">
+									<p for="jianDaQuestions" class="error" style="display: none;"></p>
+									<p for="jianDaPortion" class="error" style="display: none;"></p>
+								</li>
+
+							</ul>
+							<div class="addpager2-foot">
+								<div class="left" id="totalQuestions">总计0题</div>
+							</div>
+						</div>
+
+						<div class="btn_nav">
+							<button type="button" class="prev left btn-page-next">上一步</button>
+							<button type="button" class="next right btn-page-next">生成作业</button>
+						</div>
+					</form>
+				</div>
+				<div class="page page3">
+
+					<div class="page3-box">
+						<!--题库导航-->
+						<div id="sidebar">
+							<div class="pagePaper-questions-nav">
+								{{if daiXuan}}
+								<div class="questions-nav-title">
+									<h3>单选题</h3>
+									<span>共{{GeneratedPaper.resultObject.daiXuan.totalScore}}分</span>
+								</div>
+								<ul>
+									{{each daiXuan as value i}}
+									<li>
+										<div class="box-nav">
+											<a href="javascript:$('#nav-daiXuan-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+								{{/if}}
+								{{if duoXuan}}
+								<div class="questions-nav-title">
+									<h3>多选题</h3>
+									<span>共{{GeneratedPaper.resultObject.duoXuan.totalScore}}分</span>
+								</div>
+								<ul>
+									{{each duoXuan as value i}}
+									<li>
+										<div class="box-nav">
+											<a href="javascript:$('#nav-duoXuan-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+								{{/if}}
+								{{if panDuan}}
+								<div class="questions-nav-title">
+									<h3>判断题</h3>
+									<span>共{{GeneratedPaper.resultObject.panDuan.totalScore}}分</span>
+								</div>
+								<ul>
+									{{each panDuan as value i}}
+									<li>
+										<div class="box-nav">
+											<a href="javascript:$('#nav-panDuan-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+								{{/if}}
+								{{if tianKong}}
+								<div class="questions-nav-title">
+									<h3>填空题</h3>
+									<span>共{{GeneratedPaper.resultObject.tianKong.totalScore}}分</span>
+								</div>
+								<ul>
+									{{each tianKong as value i}}
+									<li>
+										<div class="box-nav">
+											<a href="javascript:$('#nav-tianKong-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+								{{/if}}
+								{{if jianDa}}
+								<div class="questions-nav-title">
+									<h3>简答题</h3>
+									<span>共{{GeneratedPaper.resultObject.jianDa.totalScore}}分</span>
+								</div>
+								<ul>
+									{{each jianDa as value i}}
+									<li>
+										<div class="box-nav">
+											<a href="javascript:$('#nav-jianDa-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+								{{/if}}
+							</div>
+						</div>
+						<!--//题库导航-->
+
+						<!--page3-单选题-->
+						<div class="pagePaper">
+							<div class="pagePaper-top">
+								<h3>单选题</h3>
+							</div>
+							<div class="pagePaper-content">
+								<ul class="pagePaper-content-questions">
+									{{each daiXuan as daiXuan i}}
+									<li>
+										<div class="pagePaper-content-box">
+											<div class="title">
+												<h3 id="nav-daiXuan-{{i}}">{{i+1}}、{{daiXuan.questionContent}}</h3>
+												<div class="facility-value">
+													<ul>
+														<li class="value-active"></li>
+														<li class="value-active"></li>
+														<li class="value"></li>
+														<li class="value"></li>
+													</ul>
+												</div>
+
+												<a class="btn-Change J-btn-Change" href="javascript:void(0);">换题</a>
+											</div>
+											<ul class="title-selete">
+												{{each daiXuan.options as options index}}
+												<li>
+													<div class="title-selete-box">
+														<input type="radio" name="subject" id="daiXuan{{i}}-{{index}}" />
+														<label for="daiXuan{{i}}-{{index}}">{{options}}</label>
+													</div>
+												</li>
+												{{/each}}
+											</ul>
+											<div class="paper-answer">
+												<span class="answer">答案说明:</span><span class="answer-contnet">{{daiXuan.answer}}</span>
+											</div>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+						<!--end page3-单选题-->
+
+						<!--page3-多选题-->
+						<div class="pagePaper">
+							<div class="pagePaper-top">
+								<h3>多选题</h3>
+							</div>
+							<div class="pagePaper-content">
+								<ul class="pagePaper-content-questions">
+									{{each duoXuan as duoXuan i}}
+									<li>
+										<div class="pagePaper-content-box">
+											<div class="title">
+												<h3 id="nav-duoXuan-{{i}}">{{i+1}}、{{duoXuan.questionContent}}</h3>
+												<div class="facility-value">
+													<ul>
+														<li class="value-active"></li>
+														<li class="value-active"></li>
+														<li class="value"></li>
+														<li class="value"></li>
+													</ul>
+												</div>
+
+												<a class="btn-Change J-btn-Change" href="javascript:void(0);">换题</a>
+											</div>
+											<ul class="title-selete">
+												{{each duoXuan.options as options index}}
+												<li>
+													<div class="title-selete-box">
+														<input type="checkbox" name="subject" id="duoXuan{{i}}-{{index}}" />
+														<label for="duoXuan{{i}}-{{index}}">{{options}}</label>
+													</div>
+												</li>
+												{{/each}}
+											</ul>
+											<div class="paper-answer">
+												<span class="answer">答案说明:</span><span class="answer-contnet">{{duoXuan.answer}}</span>
+											</div>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+						<!--end page3-多选题-->
+
+						<!--page3-判断题-->
+						<div class="pagePaper">
+							<div class="pagePaper-top">
+								<h3>判断题</h3>
+							</div>
+							<div class="pagePaper-content">
+								<ul class="pagePaper-content-questions">
+									{{each panDuan as panDuan i}}
+									<li>
+										<div class="pagePaper-content-box">
+											<div class="title">
+												<h3  id="nav-panDuan-{{i}}">{{i+1}}、{{panDuan.questionContent}}</h3>
+												<div class="facility-value">
+													<ul>
+														<li class="value-active"></li>
+														<li class="value-active"></li>
+														<li class="value"></li>
+														<li class="value"></li>
+													</ul>
+												</div>
+
+												<a class="btn-Change J-btn-Change" href="javascript:void(0);">换题</a>
+											</div>
+											<ul class="title-selete">
+												<li>
+													<div class="title-selete-box">
+														<input type="radio" name="subject" id="panDuan{{i}}-{{index}}-yes" />
+														<label for="panDuan{{i}}-{{index}}-yes">对</label>
+													</div>
+												</li>
+												<li>
+													<div class="title-selete-box">
+														<input type="radio" name="subject" id="panDuan{{i}}-{{index}}-no" />
+														<label for="panDuan{{i}}-{{index}}-no">错</label>
+													</div>
+												</li>
+											</ul>
+											<div class="paper-answer">
+												<span class="answer">答案说明:</span><span class="answer-contnet">{{panDuan.answer}}</span>
+											</div>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+						<!--end page3-判断题-->
+
+						<!--page3-填空题-->
+						<div class="pagePaper">
+							<div class="pagePaper-top">
+								<h3>填空题</h3>
+							</div>
+							<div class="pagePaper-content">
+								<ul class="pagePaper-content-questions">
+									{{each tianKong as tianKong i}}
+									<li>
+										<div class="pagePaper-content-box">
+											<div class="title tianKong-title">
+												<h3  id="nav-tianKong-{{i}}">{{i+1}}、{{#tianKong.questionContent}}</h3>
+												<div class="facility-value">
+													<ul>
+														<li class="value-active"></li>
+														<li class="value-active"></li>
+														<li class="value"></li>
+														<li class="value"></li>
+													</ul>
+												</div>
+
+												<a class="btn-Change J-btn-Change" href="javascript:void(0);">换题</a>
+											</div>
+											<div class="paper-answer">
+												<span class="answer">答案说明:</span><span class="answer-contnet">{{tianKong.solution}}</span>
+											</div>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+						<!--end page3-填空题-->
+
+						<!--page3-简答题-->
+						<div class="pagePaper">
+							<div class="pagePaper-top">
+								<h3>简答题</h3>
+							</div>
+							<div class="pagePaper-content">
+								<ul class="pagePaper-content-questions">
+									{{each jianDa as jianDa i}}
+									<li>
+										<div class="pagePaper-content-box no-border-bottom">
+											<div class="title">
+												<h3  id="nav-jianDa-{{i}}">{{i+1}}、{{jianDa.questionContent}}</h3>
+												<div class="facility-value">
+													<ul>
+														<li class="value-active"></li>
+														<li class="value-active"></li>
+														<li class="value"></li>
+														<li class="value"></li>
+													</ul>
+												</div>
+
+												<a class="btn-Change J-btn-Change" href="javascript:void(0);">换题</a>
+											</div>
+											<ul class="title-selete">
+												<li>
+													<div class="title-selete-box jianDa-selete-box">
+														<span>答案:</span><p>{{jianDa.options}}</p>
+													</div>
+												</li>
+											</ul>
+											<div class="paper-answer">
+												<span class="answer">答案说明:</span><span class="answer-contnet">{{jianDa.solution}}</span>
+											</div>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+						<!--end page3-简答题-->
+
+						<!-- end题库 -->
+
+						<div class="btn_nav">
+							<button type="button" class="prev left btn-page-next">上一步</button>
+							<input type="button" class="next right btn-page-sub" id="sub" value="确定" />
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+</div>
+<!--end添加试卷-->

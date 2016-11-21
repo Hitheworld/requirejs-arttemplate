@@ -1,0 +1,30 @@
+{{if success}}
+	{{if resultObject != ''}}
+		{{each resultObject}}
+		<li>
+			<a href="#/course/del/{{$value.id}}">
+				<div class="course-del-relevant-box">
+					<div class="course-del-pic">
+						<img src="{{$value.photo}}" onerror="this.src='./app/assets/images/error-user.png'"  />
+					</div>
+					<div class="course-del-cont">
+						<h3>{{$value.name}}</h3>
+						<div class="course-del-relevant-people">{{$value.people}}人正在使用</div>
+						<div class="course-del-relevant-object">适用对象：{{$value.object}}</div>
+					</div>
+				</div>
+			</a>
+		</li>
+		{{/each}}
+	{{else}}
+		<div class="course-del-noData">
+			<a href="javascript:void(0);">
+				<div class="course-del-relevant-box">
+					<span>暂无数据</span>
+				</div>
+			</a>
+		</div>
+	{{/if}}
+{{else}}
+	{{errorMessage}}
+{{/if}}

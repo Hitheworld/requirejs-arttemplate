@@ -1,0 +1,309 @@
+.cy_banner {
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 30px;
+  overflow: hidden;
+  .cy_show {
+    width: 830px;
+    height: 400px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    .cy_prev {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 25px;
+      height: 50px;
+      z-index: 3;
+      cursor: pointer;
+      background: url("../assets/images/next.png") no-repeat;
+      background-size: 100% 100%;
+      margin-top: -25px;
+      &:hover {
+        opacity: .7;
+      }
+    }
+    .cy_next {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 25px;
+      height: 50px;
+      z-index: 22;
+      cursor: pointer;
+      background: url("../assets/images/pre.png") no-repeat;
+      background-size: 100% 100%;
+      margin-top: -25px;
+      &:hover {
+        opacity: .7;
+      }
+    }
+    .cy_cont {
+      width: 10000px;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      ul {
+        text-align: center;
+        li {
+          width: 830px;
+          height: 400px;
+          float: left;
+          cursor: pointer;
+          img {
+            z-index: -1;
+          }
+        }
+      }
+    }
+    .cy_show_container {
+      position: absolute;
+      top: 368px;
+      left: 358px;
+      overflow: hidden;
+      .cy_circle {
+        height: 12px;
+        li {
+          width: 12px;
+          height: 12px;
+          float: left;
+          background: #ffffff;
+          cursor: pointer;
+          margin-left: 10px;
+          border-radius: 50px;
+        }
+        .cy_circle-cur {
+          background: #68c04a;
+        }
+        li:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  .cy_banner_right {
+    width: 340px;
+    height: 400px;
+    float: right;
+    overflow: hidden;
+    background-color: #fafafa;
+    .cy_News_h {
+      overflow: hidden;
+      height: 20px;
+      margin-top: 30px;
+      span {
+        float: left;
+        margin: 0;
+        border-left: 4px solid #36b773;
+        text-indent: 30px;
+        line-height: 20px;
+        font-weight: bold;
+      }
+      a {
+        float: right;
+        margin-right: 30px;
+        color: #ccc;
+        font-size: 14px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .cy_News {
+      margin-bottom: 28px;
+      min-height: 174px;
+      max-height: 174px;
+      overflow: hidden;
+      ul {
+        margin-top: 30px;
+        li {
+          color: #999;
+          margin-top: 18px;
+          height: 14px;
+          line-height: 14px;
+          span {
+            float: left;
+            height: 14px;
+            margin-left: 35px;
+            line-height: 14px;
+            font-size: 12px;
+            margin-right: 10px;
+          }
+          a {
+            display: inline-block;
+            width: 255px;
+            height: 14px;
+            font-size: 14px;
+            color: #999;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          &:hover {
+            color: #36b773;
+            a {
+              color: #36b773;
+            }
+          }
+        }
+      }
+
+    }
+    .cy_banner_right_dv {
+      width: 100%;
+      height: 30px;
+      background-color: #fff;
+    }
+    .cy_News_r {
+      background-color: #fafafa;
+      padding: 24px 30px 24px 30px;
+      a {
+        display: inline-block;
+        background-color: #dddddd;
+        width: 45%;
+        height: 40px;
+        font-size: 16px;
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+        &:hover {
+          opacity: .8;
+        }
+      }
+      .cy_News_r_a1 {
+        background-color: #36b773;
+      }
+      .cy_News_r_a2 {
+        margin-left: 20px;
+        background-color: #279ee9;
+      }
+    }
+  }
+}
+
+.cy_banner2 {
+  width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  overflow: hidden;
+  .am-titlebar {
+
+    overflow: hidden;
+    border-bottom: 1px solid #f0f0f0;
+    .am-titlebar-title, .am-titlebar-nav {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+    h2.am-titlebar-title {
+      display: block;
+      float: left;
+      color: #333333;
+      font-size: 20px;
+    }
+    .am-titlebar-nav {
+      float: right;
+      a {
+        font-size: 14px;
+        color: #bbbbbb;
+      }
+    }
+  }
+  .cy_banner2_banner_prev {
+    float: left;
+    margin-top: 80px;
+    width: 20px;
+    height: 22px;
+    z-index: 3;
+    cursor: pointer;
+    color: #000;
+    margin-right: 20px;
+    &:hover{
+      background-color: #ededed;
+    }
+  }
+  .cy_banner2_banner_next {
+    float: left;
+    margin-top: 80px;
+    width: 20px;
+    height: 22px;
+    z-index: 22;
+    cursor: pointer;
+    color: #000;
+    margin-left: 20px;
+    &:hover{
+      background-color: #ededed;
+    }
+  }
+  .cy_banner2_banner {
+    width: 750px;
+    float: left;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+    .cy_banner2_banner_cont {
+      width: 10000px;
+      height: 132px;
+      float: left;
+      position: relative;
+      ul {
+        li:first-child {
+          margin: 0
+        }
+        li {
+          float: left;
+          width: 150px;
+          height: 132px;
+          background-color: #f6f6f6;
+          position: relative;
+          p {
+            padding: 0;
+            margin: 0
+          }
+          .cy_banner2_banner_cont_p1 {
+            display: block;
+            width: 55px;
+            height: 55px;
+            border: 1px solid #000;
+            border-radius: 50px;
+            margin: 0 auto;
+            margin-top: 25px;
+          }
+          .cy_banner2_banner_cont_p2 {
+            width: 100%;
+            height: 20px;
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+            margin-top: 15px;
+          }
+          .cy_banner2_banner_cont_p3{
+            position: absolute;
+            top: 0;
+            right: -10px;
+            width: 20px;
+            height: 132px;
+            background-color: #fff;
+          }
+        }
+      }
+      ul > li+li+li+li+li{
+        .cy_banner2_banner_cont_p3{
+          display: none;
+        }
+      }
+    }
+  }
+  .cy_banner2_r {
+    display: block;
+    width: 350px;
+    height: 132px;
+    float: right;
+    margin-top: 30px;
+    text-align: center;
+    background-color: #d6d6d6;
+    cursor: pointer;
+    line-height: 60px;
+  }
+}

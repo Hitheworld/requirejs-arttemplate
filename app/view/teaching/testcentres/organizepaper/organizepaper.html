@@ -1,0 +1,73 @@
+<!--组织试卷-->
+<div class="organizepaper">
+	<div class="organizepaper-body">
+
+		<div class="content-title">
+			<h3>组织试卷</h3>
+			<button type="button" class="layui-btn create-test-btn" onclick="javascript: location.href = '#/teaching/testcentres/addpaper';"><i class="layui-icon">&#xe61f;</i>添加试卷</button>
+		</div>
+
+		<div class="content-body" id="paperHtml">
+			<div class="organizepaper-contnet">
+				<div class="organizepaper-header">
+					<ul>
+						<li>
+							<div class="item-box">
+								<label for="organizepaper-peper-difficulty">试卷难度：</label>
+								<select id="organizepaper-peper-difficulty">
+									<option>全部</option>
+									<option>全部</option>
+									<option>全部</option>
+									<option>全部</option>
+								</select>
+							</div>
+						</li>
+						<li>
+							<div class="item-box">
+								<label for="organizepaper-course-difficulty">关联课程：</label>
+								<select id="organizepaper-course-difficulty">
+									<option>全部</option>
+									<option>全部</option>
+									<option>全部</option>
+									<option>全部</option>
+								</select>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				{{if TestPaperDB.resultObject.lists != '' ||  TestPaperDB.resultObject.lists != undefined}}
+				<div class="organizepaper-cont">
+					<table id="organizepaperTable" class="display" cellspacing="0" width="100%">
+						<thead>
+						<tr>
+							<th>试卷名称</th>
+							<th>难度</th>
+							<th>关联课程</th>
+							<th>热度（次）</th>
+							<th>创建时间</th>
+							<th>操作</th>
+						</tr>
+						</thead>
+					</table>
+				</div>
+
+				{{else}}
+				<!--空文件-->
+				<div class="contnet-dummy">
+					<div class="dummy-file"></div>
+				</div>
+				<!--end空文件-->
+				{{/if}}
+
+			</div>
+
+
+
+
+
+
+		</div>
+	</div>
+</div>
+<!--end组织试卷-->

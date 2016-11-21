@@ -1,0 +1,28 @@
+{{if resourcesListsDB.success}}
+{{if resourcesListsDB.resultObject.items != ''}}
+{{each resourcesListsDB.resultObject.items}}
+<li>
+	<a class="a-item" href="#/resources/del/{{$value.id}}">
+		<div class="resourcesLists-item">
+			<div class="resourcesLists-pic">
+				<img src="{{$value.image_url}}" alt="{{$value.name}}" onerror="this.src='./app/assets/images/error-user.png'" />
+			</div>
+			<h3>{{$value.name}}</h3>
+			<div class="resourcesLists-info">
+				<div class="resourcesLists-info-academy">{{$value.type}}</div>
+				<div class="resourcesLists-info-object">
+					<i class="fa fa-user" aria-hidden="true"></i>
+					{{$value.totCount}}人已申请</div>
+			</div>
+		</div>
+	</a>
+</li>
+{{/each}}
+{{else}}
+<div class="course-list-nodata">暂无数据</div>
+{{/if}}
+
+{{else}}
+<div class="course-list-nodata">暂无数据</div>
+<div class="error">{{item.errorMessage}}</div>
+{{/if}}

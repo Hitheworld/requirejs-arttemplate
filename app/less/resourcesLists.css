@@ -1,0 +1,119 @@
+.resourcesLists {
+  width: 1200px;
+  margin: 0 auto;
+  /*fine-screen*/
+}
+.resourcesLists .fine-screen {
+  margin-top: 50px;
+}
+.resourcesLists .fine-screen .fs-content {
+  line-height: 30px;
+  font-size: 16px;
+  margin-bottom: 13px;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+}
+.resourcesLists .fine-screen .fs-content .classify {
+  float: left;
+  height: 55px;
+  line-height: 55px;
+}
+.resourcesLists .fine-screen .fs-content .resourcesLists-type,
+.resourcesLists .fine-screen .fs-content .course-sort {
+  float: right;
+  width: 1120px;
+}
+.resourcesLists .fine-screen .fs-content .font {
+  color: #999999;
+}
+.resourcesLists .fine-screen .fs-content a {
+  display: block;
+  min-width: 90px;
+  height: 55px;
+  line-height: 55px;
+  float: left;
+  text-align: center;
+  margin-right: 10px;
+}
+.resourcesLists .fine-screen .fs-content a:hover {
+  color: #36b773;
+}
+.resourcesLists .fine-screen .fs-content a.active {
+  color: #36b773;
+}
+.resourcesLists .resourcesLists-top {
+  margin-top: 20px;
+  clear: left;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box {
+  margin-right: -30px;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box::after,
+.resourcesLists .resourcesLists-top .resourcesLists-items-box::before {
+  content: "";
+  display: table;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box:after {
+  clear: both;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box .resourcesLists-item li {
+  float: left;
+  display: block;
+  width: 216px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box .resourcesLists-item li .a-item {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #f1f1f1;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box .resourcesLists-item li .a-item .resourcesLists-item {
+  height: auto;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box .resourcesLists-item li .a-item .resourcesLists-item .resourcesLists-pic {
+  width: 100%;
+  height: 140px;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box .resourcesLists-item li .a-item .resourcesLists-item .resourcesLists-pic img {
+  width: 100%;
+  height: 100%;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box .resourcesLists-item li .a-item .resourcesLists-item h3 {
+  font-size: 16px;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  padding: 30px 0px 0px;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box .resourcesLists-item li .a-item .resourcesLists-item .resourcesLists-info {
+  overflow: hidden;
+  padding: 20px 10px 30px;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box .resourcesLists-item li .a-item .resourcesLists-item .resourcesLists-info .resourcesLists-info-academy {
+  float: left;
+  text-align: center;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box .resourcesLists-item li .a-item .resourcesLists-item .resourcesLists-info .resourcesLists-info-object {
+  float: right;
+  text-align: center;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box .resourcesLists-item li .a-item .resourcesLists-item .resourcesLists-info .resourcesLists-info-object i {
+  color: #bbbbbb;
+  font-size: 14px;
+  margin-right: 8px;
+}
+.resourcesLists .resourcesLists-top .resourcesLists-items-box .resourcesLists-item li .a-item:hover {
+  box-shadow: 0px 0px 4px #000;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#000000')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+.resourcesLists .page-box {
+  width: 100%;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 100px;
+}

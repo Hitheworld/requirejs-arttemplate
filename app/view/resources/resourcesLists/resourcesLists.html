@@ -1,0 +1,40 @@
+<div id="main" class="resourcesLists">
+	<!--选择区-->
+	<div class="fine-screen" id="active-searchs-date">
+		<div class="fs-content" id="style-html">
+			<span class="classify"><span class="font ">资源分类</span>：</span>
+			<div class="resourcesLists-type">
+				<a href="javascript:void(0);" data-courseId="" class="active">全部</a>
+				{{if resourcesNavs.success}}
+				{{each resourcesNavs.resultObject}}
+					<a href="javascript:void(0);" data-courseid="{{$value.id}}">{{$value.name}}</a>
+				{{/each}}
+				{{else}}
+				<div class="course-list-nodata">暂无数据</div>
+				{{/if}}
+			</div>
+		</div>
+		<div class="fs-content">
+			<span class="classify"><span class="font font2">排序</span>：</span>
+			<span id="sort-html" class="course-sort">
+				<a href="javascript:void(0);" data-sort="">全部</a>
+				<a href="javascript:void(0);" data-sort="new">最新</a>
+				<a href="javascript:void(0);" data-sort="hot">最热</a>
+			</span>
+		</div>
+	</div>
+	<!--/选择区-->
+
+	<div class="resourcesLists-top">
+		<div class="resourcesLists-items-box">
+			<ul class="resourcesLists-item" id="resourcesLists-item">
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="page-box">
+		<div id="page"></div>
+	</div>
+
+</div>

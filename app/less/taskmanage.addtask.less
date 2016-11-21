@@ -1,0 +1,845 @@
+/**
+ * 添加作业
+ */
+@page-width: 1140px;
+@page-pagePaper: 480px;
+.addpaper {
+    padding: 20px 30px;
+    .addpaperTitle {
+        width: 100%;
+        height: 36px;
+        line-height: 36px;
+        border-bottom: #f0f0f0 1px solid;
+        padding-bottom: 20px;
+        overflow: hidden;
+        h1 {
+            display: block;
+            float: left;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333333;
+        }
+        .return {
+            float: right;
+            font-size: 14px;
+            color: #999999;
+        }
+    } 
+    #sliding-form {
+        margin: 20px auto;
+        max-width: @page-width;
+        overflow: hidden;
+        position: relative;
+        #status {
+            width: @page-pagePaper;
+            height: 70px;
+            margin: 0 auto;
+            position: relative;
+            li {
+                float: left;
+                width: 33.333333%;
+                text-align: center;
+                i {
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    border-radius: 50%;
+                    background-color: #f1f1f1;
+                    border: 5px solid #dcdcdc;
+                    color: #dcdcdc;
+                    text-align: center;
+                    font-size: 0px;
+                    margin: 0 auto;
+                }
+                &.active,&.ac {
+                    i {
+                        width: 40px;
+                        height: 40px;
+                        line-height: 40px;
+                        background-color: #FFFFFF;
+                        color: #47bd7f;
+                        border: 2px solid #47bd7f;
+                        font-size: 24px;
+                    }
+                    font-weight: normal;
+                    &.border::after {
+                        background: #36b773;
+                    }
+                    &.end::before {
+                        background: #36b773;
+                    }
+                    .title {
+                        color: #36b773;
+                    }
+                }
+                &.border {
+                    &::after {
+                        content: '';
+                        width: 118px;
+                        height: 2px;
+                        background: #dcdcdc;
+                        position: absolute;
+                        left: 101px;
+                        top: 50%;
+                        margin-top: -15px;
+                    }
+                }
+                &.end {
+                    &::before {
+                        content: '';
+                        width: 118px;
+                        height: 2px;
+                        background: #dcdcdc;
+                        position: absolute;
+                        right: 101px;
+                        top: 50%;
+                        margin-top: -15px;
+                    }
+                }
+                .title {
+                    margin-top: 10px;
+                    text-align: center;
+                }
+            }
+        }
+        .items {
+            width: 20000px;
+            clear: both;
+            position: relative;
+            overflow: hidden;
+            .page {
+                width: @page-width;
+                float: left;
+                
+                .pagePaper {
+                    width: @page-pagePaper;
+                    margin: 0 auto;
+                    .fieldset-header {
+                        height: 85px;
+                        line-height: 85px;
+                        overflow: hidden;
+                        h2 {
+                            display: block;
+                            float: left;
+                            font-size: 16px;
+                            color: #333333;
+                            font-weight: 600;
+                        }
+                        span {
+                            display: block;
+                            float: left;
+                            margin-left: 20px;
+                        }
+                    }
+                    ul.addpaper-ul {
+                        border-bottom: 1px solid #f0f0f0;
+                        margin-bottom: 20px;
+                        li.error-li {
+                            margin-bottom: 20px;
+                            p {
+                                margin-left: 110px;
+                            }
+                        }
+                        li.addpaper-ul-li {
+                            display: block;
+                            .addpaper-form-item {
+                                select {
+                                    display: block;
+                                    width: 114px;
+                                    padding-left: 10px;
+                                    height: 38px;
+                                    line-height: 38px;
+                                    line-height: 36px\9;
+                                    border: 1px solid #e6e6e6;
+                                    background-color: #fff;
+                                    border-radius: 2px;
+                                }
+                                //分数
+                                .paperwhenlong, .testScores {
+                                    width: 88px;
+                                    float: left;
+                                }
+                                .testScores-label {
+                                    text-align: left;
+                                }
+                            }
+                            
+                        }
+                        &.no-border-bottom {
+                            border: none;
+                        }
+                    }
+                }
+                
+            }
+            
+            .page1 {
+                .paperselete {
+                    width: 320px !important;
+                    option {
+                        padding: 5px 5px;
+                    }
+                }
+                .tree-checkbox {
+                    width: 378px;
+                    height: 452px;
+                    overflow: auto;
+                    border: 1px solid #f0f0f0;
+                    margin: 0 auto;
+                }
+            }
+            .page2 {
+                li.error-li {
+                    margin-bottom: 20px;
+                    overflow: hidden;
+                    p {
+                        float: left;
+                        margin-left: 72px;
+                    }
+                }
+                ul.addpaper-ul-ul {
+                    overflow: hidden;
+                    
+                    li.addpaper-ul-ul-li {
+                        float: left;
+                        height: 28px;
+                        line-height: 28px;
+                        margin-bottom: 10px;
+                        overflow: hidden;
+                        .addpaper2-form-item {
+                            overflow: hidden;
+                            height: 100%;
+                            margin: 0;
+                            position: relative;
+                            .addpaper2-form-icon {
+                                display: block;
+                                width: 6px;
+                                height: 6px;
+                                border-radius: 50%;
+                                background: #2db871;
+                                margin-top: 12px;
+                                margin-right: 10px;
+                            }
+                            label {
+                                float: left;
+                                padding: 0;
+                                height: 28px;
+                                line-height: 28px;
+                                &.lb-padding {
+                                    text-align: right;
+                                    padding-right: 10px;
+                                }
+                            }
+                            .form-label-state {
+                                width: 60px;
+                                text-align: left;
+                            }
+                            .form-label-end {
+                                width: 22px;
+                                text-align: right;
+                            }
+                            .form-label {
+                                width: 80px;
+                                text-align: center;
+                            }
+                            input {
+                                float: left;
+                                width: 65px;
+                                padding: 0 5px;
+                                height: 28px;
+                                line-height: 28px;
+                            }
+                        }
+                    }
+                }
+                .addpager2-foot {
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                    overflow: hidden;
+                    font-size: 16px;
+                    .left {
+                        float: left;
+                    }
+                    .right {
+                        float: right;
+                    }
+                } 
+            }
+            .page3 {
+                position: relative;
+                .page3-box {
+                   
+                }
+                //题库管理
+                
+               
+                .pagePaper-questions-nav {
+                    width: 230px;
+                    min-height: 520px;
+                    background-color: #f3f3f3;
+                    padding: 0px 15px;
+                    overflow: hidden;
+                    .questions-nav-title {
+                        overflow: hidden;
+                        margin-bottom: 20px;
+                        margin-top: 20px;
+                        h3 {
+                            float: left;
+                            font-size: 16px;
+                            color: #333333;
+                        }
+                        span {
+                            float: left;
+                            font-size: 14px;
+                            color: #333333;
+                            margin-top: 3px;
+                            margin-left: 23px;
+                        }
+                    }
+                    ul {
+                        overflow: hidden;
+                        width: 232px;
+                        margin-right: -2px;
+                        li {
+                            float: left;
+                            margin-left: 2px;
+                            .box-nav {
+                                vertical-align: middle;    
+                                display: table-cell;    
+                                *position: absolute;    
+                                *top: 50%; 
+                                background-color: #FFFFFF;
+                                width: 36.6666666px;
+                                height: 38.6666666px;
+                                cursor: pointer;  
+                                a {
+                                    display: block;
+                                    width: 100%;
+                                    height: 100%;
+                                    font-size: 14px;
+                                    color: #333333;
+                                    text-align: center;
+                                    line-height: 36.666666px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .pagePaper-top {
+                    height: 35px;
+                    line-height: 35px;
+                    h3 {
+                        font-size: 16px;
+                        color: #333333;
+                        font-weight: 600;
+                    }
+                }
+                .pagePaper {
+                    width: 860px;
+                    float: left;
+                    .pagePaper-content {
+                        width: 100%;
+                        //题库
+                        ul.pagePaper-content-questions {
+                            
+                            li {
+                                overflow: hidden;
+                                .pagePaper-content-box {
+                                    padding-bottom: 40px;
+                                    border-bottom: 1px solid #f0f0f0;
+                                    padding-top: 20px;
+                                    &.no-border-bottom {
+                                        border: none;
+                                    }
+                                    .title {
+                                        display: block;
+                                        overflow: hidden;
+                                        h3 {
+                                            float: left;
+                                            display: block;
+                                            color: #36b773;
+                                            font-size: 16px;
+                                        }
+                                        &.tianKong-title {
+                                            input {
+                                                width: auto;
+                                                height: 22px;
+                                                border: none;
+                                                border-bottom: 1px solid #999999;
+                                            }
+                                        }
+                                        .facility-value {
+                                            float: left;
+                                            margin-top: 10px;
+                                            margin-left: 10px;
+                                            ul {
+                                                overflow: hidden;
+                                                li {
+                                                    display: block;
+                                                    float: left;
+                                                    width: 12px;
+                                                    height: 6px;
+                                                    margin-right: 2px;
+                                                    &.value-active {
+                                                       background: #2db871;
+                                                    }
+                                                    &.value {
+                                                        background: #dcdcdc;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        //换题按钮
+                                        .btn-Change {
+                                            float: right;
+                                            cursor: pointer;
+                                            font-size: 16px;
+                                            color: #279ee9;
+                                            font-weight: 600;
+                                        }
+                                    }
+                                     ul.title-selete {
+                                        display: block;
+                                        margin-left: 30px;
+                                        margin-top: 20px;
+                                        li {
+                                            display: block;
+                                            min-height: 40px;
+                                            line-height: 40px;
+                                            color: #333333;
+                                            cursor: pointer;
+                                            .title-selete-box {
+                                                overflow: hidden;
+                                                input {
+                                                    float: left;
+                                                    width: 20px;
+                                                    height: 20px;
+                                                    margin-top: 10px;
+                                                }
+                                                label {
+                                                    float: right;
+                                                    width: 95%;
+                                                    font-size: 14px;
+                                                    cursor: pointer;
+                                                }
+                                                &.jianDa-selete-box {
+                                                    overflow: hidden;
+                                                    span {
+                                                        float: left;
+                                                    }
+                                                    p {
+                                                        float: left;
+                                                        width: 800px;
+                                                    }
+                                                }
+                                            }
+                                            &:hover {
+                                                background: #eafff1;
+                                            }
+                                        }
+                                    }
+                                    
+                                    //答案
+                                    .paper-answer {
+                                        overflow: hidden;
+                                        color: #333333;
+                                        font-size: 16px;
+                                        margin-top: 16px;
+                                        .answer {
+                                            float: left;
+                                            font-weight: 600;
+                                        }
+                                        .answer-contnet {
+                                            float: left;
+                                        }
+                                    }
+                                        
+                                }
+                                
+                               
+                                
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            
+            //底部按钮下一步
+            .btn_nav {
+//              width: @page-pagePaper;
+                width: 505px;
+                margin: 20px auto;
+                overflow: hidden;
+                .btn-page-next,.btn-page-sub {
+                    cursor: pointer;
+                    width: 240px;
+                    height: 50px;
+                    line-height: 50px;
+                    font-size: 16px;
+                    color: #FFFFFF;
+                    background: #2db871;
+                    border: none;
+                    float: none;
+                    
+                }
+                .cont {
+                    float: initial;
+                    width: 100%;
+                }
+                .left {
+                    float: left;
+                    background-color: #FFFFFF;
+                    color: #333333;
+                    border: 1px solid #f0f0f0;
+                    margin-right: 20px;
+                }
+                .right {
+                    float: right;
+                    border: 1px solid #2db871;
+                }
+            }
+            
+            
+        }
+        
+    }
+}
+
+
+//换题
+.page3-Change {
+    width: 100%;
+    .Change-box {
+        padding: 20px;
+        .Change-title {
+            overflow: hidden;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 30px;
+            h1 {
+                float: left;
+                font-size: 20px;
+                font-weight: 600;
+                margin-right: 20px;
+            }
+            .t-box {
+                float: left;
+                overflow: hidden;
+                font-size: 14px;
+                margin-top: 5px;
+                span {
+                    float: left;
+                    margin-right: 20px;
+                }
+                span.t {
+                    
+                }
+            }
+            
+        }
+        .Change-search {
+            margin-bottom: 30px;
+            ul {
+                overflow: hidden;
+                li {
+                    float: left;
+                    height: 35px;
+                    margin-right: 22px;
+                    select {
+                        float: left;
+                        width: 146px;
+                        height: 100%;
+                        border: 1px solid #f0f0f0;
+                    }
+                    label {
+                        float: left;
+                        display: block;
+                        height: 100%;
+                        line-height: 35px;
+                        text-align: left;
+                    }
+                    &.search-difficulty-li {
+                        overflow: hidden;
+                        label {
+                            width: 40px;
+                        }
+                    }
+                    &.search-topic-li {
+                        overflow: hidden;
+                        label {
+                            width: 68px;
+                        }
+                        
+                    }
+                    &.search-so-li {
+                        float: right;
+                        width: 290px;
+                        margin-right: 0px;
+                        position: relative;
+                        input {
+                            width: 250px;
+                            margin-left: -12px;
+                            height: 32px;
+                            line-height: 34px;
+                            border: 1px solid #f0f0f0;
+                            padding-left: 10px;
+                            padding-right: 40px;
+                            border-radius: 2px;
+                        }
+                        .so-box {
+                            width: 34px;
+                            height: 32px;
+                            border: none;
+                            background: #FFFFFF;
+                            border-left: 1px solid #f0f0f0;
+                            background-position: 1px -4px;
+                            cursor: pointer;
+                            position: absolute;
+                            top: 2px;
+                            right: 2px;
+                        }
+                    }
+                }
+            }
+        }
+        .Change-cont {
+            width: 100%;
+            min-height: 420px;
+            //标题区
+            .Change-cont-title-ul {
+                overflow: hidden;
+                height: 50px;
+                line-height: 50px;
+                display: block;
+                background-color: #f2fcf7;
+                padding: 0px 20px; 
+                li {
+                    float: left;
+                    text-align: left;
+                    h1 {
+                        font-size: 14px;
+                        font-weight: 600;
+                    }
+                     &.Change-cont-ul-li {
+                        width: 360px;
+                    }
+                     //td 知识点
+                    &.Change-table-topic {
+                       width: 190px;
+                    }
+                    //td 题型
+                    &.Change-table-traits {
+                        width: 120px;
+                    }
+                    //td 难度
+                    &.Change-table-difficulty {
+                        width: 130px;
+                    }
+                    //td 操作
+                    &.Change-table-operation {
+                        width: 30px;
+                        a {
+                            cursor: pointer;
+                            color: #29AE21;
+                        }
+                    }
+                }
+            }
+            .table-body {
+                
+                
+                //内容区
+                .Change-cont-ul {
+                    overflow: hidden;
+                    height: 50px;
+                    line-height: 50px;
+                    display: block;
+                    padding: 0px 20px; 
+                    &.odd {
+                        background-color: #f2fcf7;
+                    } 
+                    &.even {
+                        background-color: #FFFFFF;
+                    }
+                    li {
+                        float: left;
+                        text-align: left;
+                        position: relative;
+                        width: 100%;
+                        &.Change-cont-ul-li {
+                            width: 360px;
+                            .Change-cont-ul-li-table {
+                                overflow: hidden;
+                                text-align: left;
+                                input {
+                                    float: left;
+                                    margin-top: 20px;
+                                    
+                                }
+                                label {
+                                    float: left;
+                                    word-wrap: normal;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    width: 345px;
+                                    height: 50px;
+                                }
+                            }
+                        }
+                        //td 知识点
+                        &.Change-table-topic {
+                           width: 190px;
+                        }
+                        //td 题型
+                        &.Change-table-traits {
+                            width: 120px;
+                        }
+                        //td 难度
+                        &.Change-table-difficulty {
+                            width: 130px;
+                            .facility-value {
+                                float: left;
+                                margin-top: 20px;
+                                margin-left: 10px;
+                                ul {
+                                    overflow: hidden;
+                                    li {
+                                        display: block;
+                                        float: left;
+                                        width: 12px;
+                                        height: 6px;
+                                        margin-right: 2px;
+                                        &.value-active {
+                                           background: #2db871;
+                                        }
+                                        &.value {
+                                            background: #dcdcdc;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        //td 操作
+                        &.Change-table-operation {
+                            width: 30px;
+                            i {
+                                font-size: 20px;
+                                cursor: pointer;
+                                color: #29AE21;
+                            }
+                        }
+                    }
+                     
+                }
+            }
+            
+            
+            //弹出题库
+            .box {
+                display: none;
+                width: 100%;
+                background-color: #f3f9fd;
+                ul.pagePaper-content-questions {
+                    li {
+                        display: block;
+                        float: inherit;
+                        .pagePaper-content-box {
+                            padding: 10px 20px;
+                            .title {
+                                height: 100%;
+                                overflow: hidden;
+                                p {
+                                    font-size: 16px;
+                                    height: 35px;
+                                    line-height: 35px;
+                                    input {
+                                        width: auto;
+                                        height: 22px;
+                                        border: none;
+                                        background-color: none;
+                                        border-bottom: 1px solid #999999;
+                                                                        }
+                                }
+                            }
+                            ul.title-selete {
+                               li {
+                                   min-height: 35px;
+                                   line-height: 35px;
+                                   .title-selete-box {
+                                       overflow: hidden;
+                                       input {
+                                           float: left;
+                                           width: 16px;
+                                           height: 16px;
+                                           margin-top: 10px;
+                                       }
+                                       label {
+                                            float: left;
+                                            width: 96%;
+                                            cursor: pointer;
+                                       }
+                                       //简答
+                                       &.jianDa-selete-box {
+                                           overflow: hidden;
+                                           span {
+                                               float: left;
+                                           }
+                                           p {
+                                               
+                                           }
+                                       }
+                                   }
+                                   &:hover {
+                                       color: #36b773;
+                                   }
+                               }  
+                            }
+                            .paper-answer {
+                                height: 35px;
+                                line-height: 35px;
+                                overflow: hidden;
+                                .answer {
+                                    color: #36b773;
+                                    float: left;
+                                }
+                                .answer-contnet {
+                                    float: left;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        //分页
+        #page {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        //按钮组
+        .Change-footer {
+            margin-top: 40px;
+            .btn-box {
+                float: right;
+                width: auto;
+                .buttom-submit {
+                    background-color: #36b773;
+                    color: #FFFFFF;
+                    border: 1px solid #36b773;
+                }
+                .buttom-cancel {
+                    background-color: #FFFFFF;
+                    color: #333333;
+                    border: 1px solid #f6f6f6;
+                }
+            }
+            
+        }
+    }
+}

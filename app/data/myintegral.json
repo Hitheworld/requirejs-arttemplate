@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "resultObject": {
+    "aggregateScore":"325435",
+    "expenditure":"65436",
+    "integral":"355435",
+    "content":[
+      {
+        "number":"365436",
+        "form":"sdfsd",
+        "approach":"sxdgsdfg",
+        "time":"5436536",
+        "balance":"6436"
+      }
+    ],
+    "totalpages":100,
+    "currentpage":1,
+    "totalnumber": 1000
+  }
+}

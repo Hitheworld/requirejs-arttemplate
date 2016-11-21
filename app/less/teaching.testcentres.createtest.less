@@ -1,0 +1,152 @@
+/**
+     * 创建考试
+ */
+
+.createtest {
+  .createtest-box {
+    .createtest-contnt {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      .layui-form-item {
+        width: 500px;
+        margin: 0 auto;
+        padding-bottom: 30px;
+        .layui-form-label {
+          width: 120px;
+          .major {
+            color: #FF0000;
+            font-size: 16px;
+          }
+        }
+        .layui-input-inline {
+          .addtest-a {
+            display: block;
+            height: 38px;
+            line-height: 38px;
+            font-size: 16px;
+            color: #279ee9;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+//弹出层
+.addTestPaper {
+  padding: 10px;
+  .addTestPaper-box {
+    .addTestPaper-box-header {
+      height: 35px;
+      line-height: 35px;
+      div {
+        position: relative;
+        height: 100%;
+        float: left;
+        width: 216px;
+        label {
+          float: left;
+          height: 100%;
+        }
+        p {
+          float: left;
+          width: 144px;
+          height: 33px;
+          border: 1px solid #e0e0e0;
+        }
+        .addTestPaper-box-header-div {
+          position: absolute;
+          top: 34px;
+          left: 0;
+          width: 150%;
+          height: 50px;
+          border: 1px solid #e0e0e0;
+          display: block;
+          z-index: 6;
+          background-color: #f0f0f0;
+        }
+      }
+      .addTestPaper-box-header-date {
+        input {
+          width: 88px;
+          height: 100%;
+          border: 1px solid #e0e0e0;
+        }
+        & + span {
+          margin-left: 20px;
+          input {
+            width: 248px;
+            border: 1px solid #e0e0e0;
+            height: 100%;
+          }
+        }
+      }
+    }
+    .addTestPaper-body {
+      padding: 10px 20px;
+
+      .organizepaper-header {
+        padding-bottom: 30px;
+        padding-top: 30px;
+        border-bottom: 1px solid #f0f0f0;
+        ul {
+          overflow: hidden;
+          li {
+            float: left;
+            margin-right: 20px;
+            label {
+              float: left;
+              display: block;
+              width: 86px;
+              height: 35px;
+              line-height: 35px;
+            }
+            select {
+              float: left;
+              width: 145px;
+              height: 35px;
+              line-height: 35px;
+              border: #f0f0f0 1px solid;
+            }
+          }
+        }
+      }
+
+      .dataTables_info, .dataTables_paginate {
+        margin-top: 30px;
+      }
+
+      .addTestPaperButtom {
+        margin-top: 42px;
+        overflow: hidden;
+        ul {
+          float: right;
+          overflow: hidden;
+          margin-right: -20px;
+          li {
+            float: left;
+            margin-right: 20px;
+            button {
+              width: 92px;
+              height: 38px;
+              line-height: 38px;
+              font-size: 16px;
+              cursor: pointer;
+              &.submit {
+                background: #2db871;
+                color: #FFFFFF;
+                border: none;
+              }
+              &.cancel {
+                background: #FFFFFF;
+                color: #333333;
+                border: 1px solid #f6f6f6;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

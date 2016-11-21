@@ -1,0 +1,173 @@
+<div id="main" class="resourcesDel">
+
+	<div class="course-del-nav">
+		<div class="nav">
+			<span class="layui-breadcrumb" lay-separator="|" style="visibility: visible;">
+				 <a href="#/home">首页<span>&gt;</span></a>
+				 <a href="#/resources/1">扩展资源列表<span>&gt;</span></a>
+				{{if resourcesDelDB.success}}
+					{{if resourcesDelDB.resultObject != ''}}
+					 <a id="course-del-name"><cite>{{resourcesDelDB.resultObject.name}}</cite></a>
+					{{else}}
+						暂无数据
+					{{/if}}
+				{{else}}
+					{{resourcesDelDB.errorMessage}}
+				{{/if}}
+			</span>
+		</div>
+	</div>
+
+
+	<div class="resourcesDel-top">
+		<div class="resourcesDel-box">
+
+			{{if resourcesDelDB.success}}
+				{{if resourcesDelDB.resultObject != ''}}
+					<a href="javascript:void(0);">
+						<img class="resourcesDel-pic" src="{{resourcesDelDB.resultObject.image_url}}" onerror="this.src='./app/assets/images/error-user.png'" />
+					</a>
+					<div class="resourcesDel-info">
+						<div class="resourcesDel-title">
+							<h3>{{resourcesDelDB.resultObject.name}}</h3>
+							<a href="javascript:void(0);" class="J-btn-fx btn-fx">分享</a>
+							<!-- JiaThis Button BEGIN -->
+							<div class="jiathis_style_32x32 fx-box">
+								<a class="jiathis_button_weixin"></a>
+								<a class="jiathis_button_xiaoyou"></a>
+								<a class="jiathis_button_cqq"></a>
+								<a class="jiathis_button_tsina"></a>
+								<a class="jiathis_button_qzone"></a>
+								<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+							</div>
+							<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+							<!-- JiaThis Button END -->
+						</div>
+
+
+						<span class="resourcesDel-object">{{resourcesDelDB.resultObject.type}}</span>
+						<span class="solid">|</span>
+						<span class="resourcesDel-people"> <i class="fa fa-user" aria-hidden="true"></i>{{resourcesDelDB.resultObject.totCount}}人已申请 </span>
+
+						<div class="resourcesDel-cont">
+							<p class="ellipsis">{{resourcesDelDB.resultObject.description}}</p>
+						</div>
+
+						{{if StatusDB.success}}
+							{{if StatusDB.resultObject == 0}}
+							<div class="resourcesDel-button-box">
+								<button class="layui-btn buttom-margin-left resourcesDel-resource J-apply-resource">立即申请</button>
+							</div>
+							{{else if StatusDB.resultObject == 1}}
+							<div class="resourcesDel-button-box">
+								<button class="layui-btn buttom-margin-left resourcesDel-resource J-apply-resource">立即申请</button>
+							</div>
+							{{else if StatusDB.resultObject == 3}}
+							<div class="resourcesDel-button-box">
+								<button class="layui-btn buttom-margin-left resourcesDel-resource J-apply-resource">立即申请</button>
+							</div>
+							{{else if StatusDB.resultObject == 2}}
+							<!--申请中的-->
+							<div class="resourcesDel-body">
+								<img src="./app/assets/images/icons/resourcesDel-info-icon.png" />
+								<ul>
+									<li><p>填写信息</p></li>
+									<li><p>工作人员审核<br />13日前联系你</p></li>
+									<li><p>申请成功</p></li>
+								</ul>
+							</div>
+							<!--end申请中的-->
+							{{else}}
+							   不可用
+							{{/if}}
+						{{/if}}
+					</div>
+				{{else}}
+					暂无数据
+				{{/if}}
+			{{else}}
+				{{resourcesDelDB.errorMessage}}
+			{{/if}}
+		</div>
+
+		<div class="resourcesDel-foot">
+			<div class="resourcesDel-tab">
+
+				<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+					<ul class="layui-tab-title">
+						<li class="layui-this">资源简介</li>
+					</ul>
+					<div class="layui-tab-content">
+						<div class="layui-tab-item layui-show">
+							{{if resourcesDelDB.success}}
+								{{if resourcesDelDB.resultObject != ''}}
+									{{#resourcesDelDB.resultObject.content}}
+								{{else}}
+									暂无数据
+								{{/if}}
+							{{else}}
+								{{resourcesDelDB.errorMessage}}
+							{{/if}}
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!--申领记录-->
+			<div class="resourcesDel-del-claim-record">
+				<div class="index-uq">
+					<div class="am-titlebar">
+						<div class="tb-box"></div>
+						<h2 class="am-titlebar-title ">
+							{{if resourcesDelDB.success}}
+								{{if resourcesDelDB.resultObject != ''}}
+									{{resourcesDelDB.resultObject.name}}
+								{{else}}
+									暂无数据
+								{{/if}}
+							{{else}}
+								{{resourcesDelDB.errorMessage}}
+							{{/if}}
+						</h2>
+						<div class="am-titlebar-nav">
+							<span>申领记录</span>
+						</div>
+					</div>
+					<ul id="index-TeachingResources">
+
+						{{if ClaimRecordDB.success}}
+						{{if ClaimRecordDB.resultObject != ''}}
+						{{each ClaimRecordDB.resultObject}}
+						<li class="am-gallery-default">
+							<div class="index-uq-box">
+								<img src="{{$value.personal_img}}"  onerror="this.src='./app/assets/images/error-user.png'" />
+								<div class="index-uq-bottom">
+									<h3 class="am-gallery-title">{{$value.name}}</h3>
+									<div>
+										<span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>{{$value.check_time}}</span>
+										<span class="book"><i class="fa fa-book" aria-hidden="true"></i>{{$value.num}}本</span>
+									</div>
+								</div>
+							</div>
+						</li>
+						{{/each}}
+						{{else}}
+						<div class="course-list-nodata">
+							<div class="nodata-pic">
+								<img src="./app/assets/images/bg/no-ApplyResource.png" />
+							</div>
+						</div>
+						{{/if}}
+
+						{{else}}
+						<div class="course-list-nodata">暂无数据</div>
+						<div class="error">{{item.errorMessage}}</div>
+						{{/if}}
+
+					</ul>
+				</div>
+			</div>
+			<!--/申领记录-->
+		</div>
+	</div>
+</div>

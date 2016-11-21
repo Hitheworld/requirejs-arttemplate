@@ -1,0 +1,250 @@
+/**
+ * 预览作业
+ */
+.teaching {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+.teaching .teachingBox {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: 0px auto;
+}
+.teaching .teachingBox .teaching-nav,
+.teaching .teachingBox .testcentres-nav {
+  display: none;
+}
+.teaching .teachingBox .teaching-tab-content {
+  margin: 0px;
+}
+.preview {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow: auto;
+  background-color: #FFFFFF;
+}
+.preview .preview-box {
+  padding: 30px;
+  padding-top: 60px;
+  overflow: hidden;
+}
+.preview .preview-box .preview-content {
+  width: 860px;
+  float: left;
+}
+.preview .preview-box .preview-content .viewtest-top {
+  margin-top: 0px;
+  margin-bottom: 40px;
+  position: relative;
+}
+.preview .preview-box .preview-content .viewtest-top h1 {
+  font-size: 24px;
+  color: #333333;
+  font-weight: 600;
+}
+.preview .preview-box .preview-content .viewtest-top a {
+  position: absolute;
+  top: -35px;
+  right: -275px;
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+.preview .preview-box .preview-content .viewtest-top a i {
+  font-size: 30px;
+  color: #cccccc;
+}
+.preview .preview-box .preview-content .pagePaper {
+  width: 100%;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-top {
+  width: 100%;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-top h3 {
+  font-size: 16px;
+  color: #333333;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-top i {
+  font-size: 20px;
+  position: absolute;
+  top: 24px;
+  left: 15px;
+  color: #f0f0f0;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content {
+  width: 100%;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li {
+  overflow: hidden;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box.no-border-bottom {
+  border: none;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title {
+  display: block;
+  overflow: hidden;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 {
+  float: left;
+  display: block;
+  color: #36b773;
+  font-size: 16px;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title.tianKong-title input {
+  width: auto;
+  height: 22px;
+  border: none;
+  border-bottom: 1px solid #999999;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul {
+  overflow: hidden;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li {
+  display: block;
+  float: left;
+  width: 12px;
+  height: 6px;
+  margin-right: 2px;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value-active {
+  background: #2db871;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value {
+  background: #dcdcdc;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .btn-Change {
+  float: right;
+  cursor: pointer;
+  font-size: 16px;
+  color: #279ee9;
+  font-weight: 600;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete {
+  display: block;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li {
+  display: block;
+  min-height: 40px;
+  line-height: 40px;
+  color: #333333;
+  cursor: pointer;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box {
+  overflow: hidden;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box input {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box label {
+  float: right;
+  width: 95%;
+  font-size: 14px;
+  cursor: pointer;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box {
+  overflow: hidden;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box span {
+  float: left;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box p {
+  float: left;
+  width: 800px;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li:hover {
+  background: #eafff1;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer {
+  overflow: hidden;
+  color: #333333;
+  font-size: 16px;
+  margin-top: 16px;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer {
+  float: left;
+  font-weight: 600;
+}
+.preview .preview-box .preview-content .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet {
+  float: left;
+}
+.preview .preview-box .pagePaper-questions-nav {
+  width: 230px;
+  min-height: 520px;
+  background-color: #f3f3f3;
+  padding: 0 15px;
+  overflow: hidden;
+  float: right;
+}
+.preview .preview-box .pagePaper-questions-nav .questions-nav-title {
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.preview .preview-box .pagePaper-questions-nav .questions-nav-title h3 {
+  float: left;
+  font-size: 16px;
+  color: #333333;
+}
+.preview .preview-box .pagePaper-questions-nav .questions-nav-title span {
+  float: left;
+  font-size: 14px;
+  color: #333333;
+  margin-top: 3px;
+  margin-left: 23px;
+}
+.preview .preview-box .pagePaper-questions-nav ul {
+  overflow: hidden;
+  width: 232px;
+  margin-right: -2px;
+}
+.preview .preview-box .pagePaper-questions-nav ul li {
+  float: left;
+  margin-left: 2px;
+}
+.preview .preview-box .pagePaper-questions-nav ul li .box-nav {
+  vertical-align: middle;
+  display: table-cell;
+  *position: absolute;
+  *top: 50%;
+  background-color: #FFFFFF;
+  width: 36.6666666px;
+  height: 38.6666666px;
+  cursor: pointer;
+}
+.preview .preview-box .pagePaper-questions-nav ul li .box-nav a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  color: #333333;
+  text-align: center;
+  line-height: 36.666666px;
+}

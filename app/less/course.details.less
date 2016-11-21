@@ -1,0 +1,454 @@
+.course-del {
+    overflow: hidden;
+    .course-del-top {
+        width: 1200px;
+        margin: 20px auto 0;
+        .course-del-box {
+            width: 100%;
+            height: 333px;
+            //图片
+            a {
+                cursor: default;
+            }
+            img.course-del-pic {
+                display: block;
+                float: left;
+                width: 500px;
+                height: 100%;
+            }
+            //视频图片
+            .course-del-video {
+                display: block;
+                float: left;
+                width: 500px;
+                height: 100%;
+                cursor: pointer;
+                position: relative;
+                .video-div {
+                    position: absolute;
+                    top: 0px;
+                    bottom: 0px;
+                    left: 0px;
+                    right: 0px;
+                    background-color: #000000;
+                    cursor: pointer;
+                    opacity: 0.5;
+                    filter:alpha(opacity=50);  
+                    /*This works in IE 8 & 9 too*/  
+                    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";  
+                    /*IE4-IE9*/  
+                    filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=50);  
+                }
+            }
+            .course-del-info {
+                width: 606px;
+                height: 269px;
+                background-color: #fafafa;
+                float: right;
+                padding: 30px 32px;
+                position: relative;
+                .course-del-title {
+                    overflow: hidden;
+                    h3 {
+                        float: left;
+                        font-size: 20px;
+                        color: #333333;
+                        margin-bottom: 30px;
+                    }
+                    //分享
+                    .btn-fx {
+                        float: right;
+                        font-size: 16px;
+                        color: #36b773;
+                        text-decoration: underline;
+                    }
+                    .fx-box {
+                        display: none;
+                        position: absolute; 
+                        top: 60px;
+                        right: 30px;
+                        width: 319px;
+                        height: 52px;
+                        a {
+                            display: block;
+                            &.jtico {
+                                padding: 0px !important;
+                                width: 52px !important;
+                                height: 52px !important;
+                                background: url("../../app/assets/images/icons/fx-icon/fx-box.png") no-repeat;
+                                background-position: -266px 0px;
+                            }
+                            .jtico {
+                                padding: 0px !important;
+                                display: block;
+                                width: 52px !important;
+                                height: 52px !important;
+                                background: url("../../app/assets/images/icons/fx-icon/fx-box.png") no-repeat;
+                                &:hover{
+                                    opacity:0.8;
+                                    background: url("../../app/assets/images/icons/fx-icon/fx-box-active.png") no-repeat;
+                                }
+                                &.jtico_weixin {
+                                    background-position: 0px 0px ;
+                                }
+                                &.jtico_xiaoyou {
+                                    background-position: -53px 0px;
+                                }
+                                &.jtico_cqq {
+                                    background-position: -106px 0px;
+                                }
+                                &.jtico_tsina {
+                                    background-position: -159px 0px;
+                                }
+                                &.jtico_qzone {
+                                    background-position: -213px 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .course-del-object,
+                .course-del-people,
+                .solid {
+                    color: #999999;
+                    font-size: 16px;
+                }
+                .course-del-object {
+                    margin-right: 20px;
+                }
+                .course-del-people {
+                    margin-left: 20px;
+                }
+                .course-del-cont {
+                    margin-top: 30px;
+                    margin-bottom: 30px;
+                    p {
+                        font-size: 16px;
+                        line-height: 28px;
+                        color: #999999;
+                    }
+                }
+                .course-del-button-box {
+                    position: absolute;
+                    bottom: 30px;
+                    left: 32px;
+                    overflow: hidden;
+                    .layui-btn {
+                        width: 150px;
+                        height: 56px;
+                        padding: 0;
+                        text-align: center;
+                        font-size: 20px;
+                        color: #FFFFFF;
+                        float: left;
+                    }
+                    .buttom-margin-left {
+                        margin-right: 10px;
+                    }
+                    .course-del-resource {
+                        background-color: #36b773;
+                    }
+                    .course-del-cooperation {
+                        background-color: #279ee9;
+                    }
+                    span.notLogged {
+                        color: #36b773;
+                    }
+                    span {
+                        float: right;
+                        display: block;
+                        color: #333333;
+                        font-size: 18px;
+                        width: 150px;
+                        height: 56px;
+                        line-height: 56px;
+                        text-align: center;
+                        
+                    }
+                }
+            }
+        }
+    }
+    .course-del-foot {
+        margin-top: 50px;
+        //tab容器
+        .course-del-tab {
+            width: 830px;
+            float: left;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+            //TAB
+            .layui-tab {
+                margin-top: 0;
+                width: 100%;
+                .layui-tab-title {
+                    height: auto;
+                    li {
+                        padding: 0px;
+                        margin-right: 40px;
+                        font-size: 18px;
+                        padding-bottom: 18px;
+                        color: #999999;
+                    }
+                    .layui-this {
+                        color: #333333;
+                        &:after {
+                            height: 60px;
+                        }
+                    }
+                }
+            }
+            //相关课程
+            .course-del-relevant-body {
+                position: relative;
+            }
+            .course-del-relevant {
+                padding-top: 20px;
+                width: 710px;
+                margin: 0 auto;
+                overflow: hidden;
+                margin-bottom: 10px;
+                clear: left;
+                //左右切换按钮   
+                .course-del-relevant-prev,
+                .course-del-relevant-next {
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -35px;
+                    width: 40px;
+                    height: 40px;
+                    z-index: 3;
+                    cursor: pointer;
+                    color: #000;
+                    background: #6d6d6d;
+                    opacity: 0.4;
+                    filter:Alpha(opacity=20);
+                    -webkit-filter: Alpha(opacity=20);
+                    em {
+                        position: absolute;
+                        top: 10px;
+                        width: 10px;
+                        height: 19px;
+                        font-size: 0px;
+                        background: url("../assets/images/icons/left-right-switch.png") no-repeat;
+                    }
+                }
+                .course-del-relevant-prev {
+                    left: 0px;
+                    em {
+                        background-position: 0 0;
+                        left: 16px;
+                    }
+                }
+                .course-del-relevant-next {
+                    right: 0px;
+                    em {
+                        background-position: -26px 0;
+                        right: 16px;
+                    }
+                }
+                .course-del-lists-box {
+                    position: relative;
+                    &::after,
+                    &::before {
+                        content: "";
+                        display: table;
+                    }
+                    &:after {
+                        clear: both;
+                    }
+                    .course-del-lists {
+                        
+                        ul {
+                            overflow: hidden;
+                            width: 10000px;
+                            li {
+                                float: left;
+                                margin-right: 30px;
+                                display: block;
+                                width: 216px;
+                                position: relative;
+                                a {
+                                    display: block;
+                                    .course-del-relevant-box {
+                                        width: 100%;
+                                        border-bottom: 1px solid #f1f1f1;
+                                        .course-del-pic {
+                                            width: 100%;
+                                            img {
+                                                width: 100%;
+                                                height: 140px;
+                                            }
+                                        }
+                                        .course-del-cont {
+                                            width: 100%;
+                                            margin-top: 30px;
+                                            h3 {
+                                                font-size: 16px;
+                                                color: #333333;
+                                                word-wrap: normal;
+                                                text-overflow: ellipsis;
+                                                white-space: nowrap;
+                                                overflow: hidden;
+                                                text-align: center;
+                                            }
+                                            .course-del-relevant-people,.course-del-relevant-object {
+                                                font-size: 14px;
+                                                text-align: center;
+                                                color: #a0a0a0;
+                                            }
+                                            .course-del-relevant-people {
+                                                margin-top: 20px;
+                                                margin-bottom: 10px;
+                                            }
+                                            .course-del-relevant-object {
+                                                
+                                                padding-bottom: 30px;
+                                                border-bottom: 1px solid #f1f1f1;
+                                                
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //广告位
+        .course-del-adsense {
+            float: right;
+            width: 340px;
+            height: 272px;
+            margin-bottom: 30px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+//相关课程无数据
+.course-del-noData {
+    width: 100%;
+    height: 290px;
+}
+
+//弹出视频样式
+.popup-video {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #000000;
+    .video-box {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+//合作成功弹出层
+.popup-successful {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    .title {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 20px;
+        color: #333333;
+    }
+    .cont {
+        
+        margin-top: 68px;
+        .success-title {
+            overflow: hidden;
+            width: 244px;
+            margin: 0 auto;
+            h1 {
+                float: left;
+                color: #333333;
+                font-size: 24px;
+                font-weight: 600;
+                text-align: center;
+            }
+            .icon {
+                float: left;
+                width: 28px;
+                height: 28px;
+            }
+        }
+        
+        p {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+    }
+    .success-btn,.btn-box {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+    }
+    .success-btn {
+        width: 148px;
+        margin-left: -74px;
+        color: #FFFFFF;
+        background-color: #36b773;
+    }
+    
+    .btn-box {
+        width: 316px;
+        margin-left: -158px;
+        overflow: hidden;
+        .prove-btn,.close-btn {
+            width: 148px;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+            position: relative;
+            font-size: 18px;
+            text-align: center;
+        }
+        .prove-btn {
+            float: left;
+            color: #FFFFFF;
+            background-color: #36b773;
+        }
+        .close-btn {
+            float: right;
+            color: #333333;
+            background-color: #FFFFFF;
+            border: #f6f6f6 1px solid;
+        }
+    }
+    
+}
+
+//审核中
+.review {
+    .cont {
+        margin-left: 130px !important;
+        p {
+            text-align: left !important;
+        }
+    }
+    
+    .close-btn {
+        color: #FFFFFF !important;
+        float: inherit !important;
+        background-color: #36b773 !important;
+    }
+}
+

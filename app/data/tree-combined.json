@@ -1,0 +1,66 @@
+{
+  "success": true,
+  "resultObject":
+  [
+    {
+      "id": 1,
+      "pId": 0,
+      "name": "java基础",
+      "open": true
+    },
+    {
+      "id": 11,
+      "pId": 1,
+      "name": "第一章 数据类型与运算符",
+      "open": true
+    },
+    {
+      "id": 101, "pId": 11, "name": "关键字和标识符", "file": "core/standardData"
+    },
+    {
+      "id": 102, "pId": 11, "name": "运算符与表达式A", "file": "core/standardData"
+    },
+    {
+      "id": 103, "pId": 11, "name": "运算符与表达式B", "file": "core/standardData"
+    },
+
+
+    {
+      "id": 22,
+      "pId": 1,
+      "name": "第二章 流程控制",
+      "open": true
+    },
+    {
+      "id": 201, "pId": 22, "name": "流程控制与顺序结构语句", "file": "core/standardData"
+    },
+    {
+      "id": 202, "pId": 22, "name": "if条件语句", "file": "core/standardData"
+    },
+    {
+      "id": 203, "pId": 22, "name": "switch条件语句", "file": "core/standardData"
+    },
+    {
+      "id": 204, "pId": 22, "name": "while循环语句", "file": "core/standardData"
+    },
+
+    {
+      "id": 33,
+      "pId": 1,
+      "name": "第三章 函数",
+      "open": true
+    },
+    {
+      "id": 301, "pId": 33, "name": "流程控制与顺序结构语句", "file": "core/standardData"
+    },
+    {
+      "id": 302, "pId": 33, "name": "if条件语句", "file": "core/standardData"
+    },
+    {
+      "id": 303, "pId": 33, "name": "switch条件语句", "file": "core/standardData"
+    },
+    {
+      "id": 304, "pId": 33, "name": "while循环语句", "file": "core/standardData"
+    }
+  ]
+}

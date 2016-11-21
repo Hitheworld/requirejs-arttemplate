@@ -1,0 +1,40 @@
+.testcentres.testcentres-tab-box {
+  width: 100%;
+}
+.testcentres.testcentres-tab-box .testcentres-nav {
+  display: block;
+  background-color: #FFFFFF;
+}
+.testcentres.testcentres-tab-box .testcentres-nav .testcentres-tab-title {
+  width: 450px;
+  margin: 30px auto;
+  height: 60px;
+  line-height: 60px;
+}
+.testcentres.testcentres-tab-box .testcentres-nav .testcentres-tab-title li {
+  float: left;
+  width: 105px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 10px;
+}
+.testcentres.testcentres-tab-box .testcentres-nav .testcentres-tab-title li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 20px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #333333;
+}
+.testcentres.testcentres-tab-box .testcentres-nav .testcentres-tab-title li.testcentres-this {
+  border-radius: 20px;
+  background-color: #36b773;
+}
+.testcentres.testcentres-tab-box .testcentres-nav .testcentres-tab-title li.testcentres-this a {
+  color: #FFFFFF;
+}
+.testcentres.testcentres-tab-box .testcentres-tab-content {
+  background-color: #FFFFFF;
+}

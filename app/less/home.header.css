@@ -1,0 +1,227 @@
+.home-header {
+  width: 100%;
+  height: 60px;
+  background-color: #F8F8F8;
+  border-bottom: #000000 1px solid;
+}
+.home-header .home-header-box {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+.home-header .home-header-box .home-logo {
+  float: left;
+  width: 207px;
+  height: 100%;
+}
+.home-header .home-header-box .home-logo a {
+  display: block;
+  overflow: hidden;
+  border: none;
+  height: 100%;
+}
+.home-header .home-header-box .home-logo a img {
+  float: left;
+  width: 190px;
+  height: 31px;
+  margin-top: 13px;
+}
+.home-header .home-header-box .home-nav {
+  float: left;
+  height: 100%;
+}
+.home-header .home-header-box .home-nav .home-nav-li {
+  float: left;
+  width: 120px;
+  height: 100%;
+  line-height: 60px;
+  position: relative;
+  font-size: 18px;
+}
+.home-header .home-header-box .home-nav .home-nav-li a {
+  display: block;
+  border: none;
+  color: #666;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.home-header .home-header-box .home-nav .home-nav-li a:hover,
+.home-header .home-header-box .home-nav .home-nav-li a.active {
+  color: #36b773;
+}
+.home-header .home-header-box .home-nav .home-nav-li:hover a {
+  color: #36b773;
+}
+.home-header .home-header-box .home-nav .home-nav-li:hover .home-li-nav2 {
+  display: block;
+}
+.home-header .home-header-box .home-nav .home-nav-li .home-li-nav2 {
+  display: none;
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  color: #333333;
+  z-index: 9999;
+}
+.home-header .home-header-box .home-nav .home-nav-li .home-li-nav2 .home-li-nav2box {
+  margin-top: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 4px #000;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#000000')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+.home-header .home-header-box .home-nav .home-nav-li .home-li-nav2 .home-li-nav2box .home-nav2-li {
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
+  font-size: 18px;
+  color: #333333;
+}
+.home-header .home-header-box .home-nav .home-nav-li .home-li-nav2 .home-li-nav2box .home-nav2-li a {
+  display: block;
+  color: #666;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.home-header .home-header-box .home-nav .home-nav-li .home-li-nav2 .home-li-nav2box .home-nav2-li a:hover {
+  color: #36b773;
+}
+.home-header .home-header-box .home-user {
+  float: right;
+  width: 135px;
+  height: 100%;
+}
+.home-header .home-header-box .home-user .user {
+  display: block;
+  width: 56px;
+  float: right;
+  height: 100%;
+}
+.home-header .home-header-box .home-user .user .home-user-box {
+  float: left;
+  padding-top: 11px;
+}
+.home-header .home-header-box .home-user .user .home-user-box img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+.home-header .home-header-box .home-user .user .home-user-name {
+  float: right;
+  margin-top: 30px;
+}
+.home-header .home-header-box .home-user .user .home-user-name span {
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid #c2c2c2;
+}
+.home-header .home-header-box .home-user:hover .user-nav {
+  display: block;
+}
+.home-header .home-header-box .home-user .user-nav {
+  position: absolute;
+  top: 60px;
+  display: none;
+  margin: 0px;
+  padding: 0px;
+  width: 135px;
+  background-color: #666666;
+  color: #ffffff;
+  z-index: 9999;
+}
+.home-header .home-header-box .home-user .user-nav li {
+  height: 40px;
+  line-height: 40px;
+}
+.home-header .home-header-box .home-user .user-nav li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+}
+.home-header .home-header-box .home-user .user-nav li a:hover {
+  background-color: #000000;
+}
+.home-header .home-header-box .home-user .user-box {
+  width: 100%;
+  float: right;
+  height: 100%;
+}
+.home-header .home-header-box .personal {
+  width: 100%;
+  height: 100%;
+}
+.home-header .home-header-box .personal .login,
+.home-header .home-header-box .personal .reg {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+  vertical-align: top;
+  width: 45%;
+  height: 100%;
+  line-height: 60px;
+  text-align: center;
+}
+.home-header .home-header-box .personal .ei {
+  width: 10%;
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+  vertical-align: top;
+  height: 100%;
+  line-height: 60px;
+  text-align: center;
+}
+.home-flex {
+  position: fixed;
+  left: 50%;
+  margin-left: 605px;
+  bottom: 50px;
+  width: 34px;
+  text-align: center;
+  z-index: 2000;
+}
+.home-flex .home-hi-top {
+  display: block;
+  width: 33px;
+  height: 33px;
+  padding: 13.5px;
+  font-size: 16px;
+  background-color: #ffffff;
+  text-align: center;
+  color: #666;
+  cursor: pointer;
+  border: 1px solid  #eeeeee;
+  z-index: 9999;
+}
+.home-flex .home-hi-top:hover {
+  background: #36b773;
+  color: #FFFFFF;
+}
+.home-flex .home-top {
+  display: block;
+  width: 33px;
+  height: 33px;
+  padding: 13.5px;
+  background: #ffffff url(../assets/images/icons/top.png) no-repeat;
+  background-position: 20px 22px;
+  text-align: center;
+  color: #666;
+  cursor: pointer;
+  margin-top: 20px;
+  border: 1px solid  #eeeeee;
+  z-index: 9999;
+}
+.home-flex .home-top:hover {
+  background: #36b773 url(../assets/images/icons/top.png) no-repeat;
+  background-position: 20px 22px;
+  color: #FFFFFF;
+}

@@ -1,0 +1,57 @@
+<div id="main" class="course-del">
+
+	<div class="course-del-nav">
+		<div class="nav">
+			<span class="layui-breadcrumb" lay-separator="|" style="visibility: visible;">
+				 <a href="#/home">首页<span>&gt;</span></a>
+				 <a href="#/course">课程中心<span>&gt;</span></a>
+				 <a id="course-del-name"></a>
+			</span>
+		</div>
+	</div>
+
+	<div class="course-del-top">
+		<div class="course-del-box" id="course-del-info"></div>
+
+		<div class="course-del-foot">
+			<div class="course-del-tab">
+
+				<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+					<ul class="layui-tab-title">
+						<li class="layui-this">课程简介</li>
+						<li>课程大纲</li>
+					</ul>
+					<div class="layui-tab-content" id="course-del-tab"></div>
+				</div>
+
+				<!--相关课程-->
+				<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+					<ul class="layui-tab-title">
+						<li class="layui-this">相关课程</li>
+					</ul>
+				</div>
+
+				<div class="course-del-relevant-body">
+					<div class="course-del-relevant">
+						<div class="course-del-relevant-prev">
+							<em class="arrow">&lt;</em>
+						</div>
+						<div class="course-del-lists-box">
+							<div  class="course-del-lists">
+								<ul id="course-del-items"></ul>
+							</div>
+						</div>
+						<div class="course-del-relevant-next">
+							<em class="arrow">&gt;</em>
+						</div>
+					</div>
+				</div>
+				<!--/相关课程-->
+
+			</div>
+			<!--广告位-->
+			<div class="course-del-adsense" id="course-del-adsense"></div>
+			<!--/广告位-->
+		</div>
+	</div>
+</div>
