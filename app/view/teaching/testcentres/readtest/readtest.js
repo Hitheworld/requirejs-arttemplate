@@ -19,39 +19,58 @@ define(['template',
 	          viewtestTpl,
 	          common,api) {
 
-		function createPage(page,childpage,pagenumber) {
-			document.title = "博学谷·院校-教师端考试中心-组织试卷";
-
-			//数据源
-			//数据源
-			var GeneratedPaperDB = GeneratedPaper();
-			console.log('添加数据是:',GeneratedPaperDB);
-
-			$("#testcentresHtml").html(template.compile( viewtestTpl)({
-				GeneratedPaper: GeneratedPaperDB,
-				daiXuan: GeneratedPaperDB.resultObject.daiXuan.lists,
-				duoXuan: GeneratedPaperDB.resultObject.duoXuan.lists,
-				panDuan: GeneratedPaperDB.resultObject.panDuan.lists,
-				tianKong: GeneratedPaperDB.resultObject.tianKong.lists,
-				jianDa: GeneratedPaperDB.resultObject.jianDa.lists
-			}));
-
-			//设置导航的active
-			$(".home-header .home-nav .home-nav-li a").removeClass("active");
-			$(".home-header .home-nav .home-nav-li a.teaching").addClass("active");
+		function createPage(page,childpage,examId, studentId) {
+			document.title = "博学谷·院校-教师端考试中心-批阅试卷";
 
 
+			common.ajaxRequest("bxg/examMark/findMarkExamPaper","POST",{
+				exam_id:examId,
+				student_id:studentId
+			},function(data){
+				if (data.success){
+					$("#app").html(template.compile(viewtestTpl)({
+						GeneratedPaper: data,
+						danXuan: data.resultObject.danxuan.lists,
+						duoXuan: data.resultObject.duoxuan.lists,
+						panDuan: data.resultObject.panduan.lists,
+						tianKong: data.resultObject.tiankong.lists,
+						jianDa: data.resultObject.jianda.lists
+					}));
 
-			//题库导航
-			$('#sidebar').portamento({disableWorkaround: true});
+					//隐藏换题按钮
+					$(".btn-Change").hide();
+
+					//处理试卷中的图片
+					$('.J-pic-click .J-boxer').boxer({
+						requestKey: 'abc123'
+					});
+					$('.J-pic-click img').boxer({
+						requestKey: 'abc123'
+					});
+
+					//题库导航
+					var t = $('.fixed').offset().top;
+					var mh = $('.paper-main').height();
+					var fh = $('.fixed').height();
+					$(window).scroll(function(e){
+						s = $(document).scrollTop();
+						if(s > t - 10){
+							$('.fixed').css({'position':'fixed','top':'10px'});
+							if(s + fh > mh){
+								$('.fixed').css('top',mh-s-fh+'px');
+							}
+						}else{
+							$('.fixed').css('position','');
+						}
+					});
+				}
+			})
+
+
+
 
 
 		}
-
-		//获取生成的考试数据
-		var GeneratedPaper = function() {
-			return common.requestService('../app/data/teaching-add-gpaper.json','get', {});
-		};
 
 		return {
 			createPage: createPage

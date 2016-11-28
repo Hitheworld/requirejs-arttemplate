@@ -35,7 +35,7 @@ define(['template',
 				"<li><div class='infoLists-item'>" +
 				"<a href='#/info/del/{{$value.id}}'>" +
 				"<div class='infoLists-pic'><img src='{{$value.image_url}}' /></div>" +
-				"<div class='infoLists-cont'><p>{{$value.title}}</p><p>{{$value.content}}</p>" +
+				"<div class='infoLists-cont'><p>{{$value.title | dataHtml:$value.title}}</p><p>{{$value.content | dataHtml:$value.content}}</p>" +
 				"<div class='infoLists-footer'><span>{{$value.create_time}}</span>" +
 				"<span>浏览:{{$value.page_view}}</span><span>小编:{{$value.author}}</span> </div> </div> </a></div></li>" +
 				"{{/each}}";

@@ -33,18 +33,6 @@
   line-height: 35px;
   border: #f0f0f0 1px solid;
 }
-.myClass .markexampapers-contnet .markexampapers-cont table.dataTable thead tr th.name,
-.myClass .layui-tab-content .markexampapers-cont table.dataTable thead tr th.name,
-.myClass .markexampapers-contnet .markexampapers-cont table.dataTable tbody tr td.name,
-.myClass .layui-tab-content .markexampapers-cont table.dataTable tbody tr td.name {
-  padding-left: 10px !important;
-}
-.myClass .markexampapers-contnet .markexampapers-cont table.dataTable thead tr th.operation,
-.myClass .layui-tab-content .markexampapers-cont table.dataTable thead tr th.operation,
-.myClass .markexampapers-contnet .markexampapers-cont table.dataTable tbody tr td.operation,
-.myClass .layui-tab-content .markexampapers-cont table.dataTable tbody tr td.operation {
-  padding-right: 10px !important;
-}
 .myClass .markexampapers-contnet .markexampapers-cont .dataTables_wrapper .dataTables_paginate,
 .myClass .layui-tab-content .markexampapers-cont .dataTables_wrapper .dataTables_paginate {
   margin-top: 20px;
@@ -69,6 +57,38 @@
 .myClass .markexampapers-contnet .markexampapers-cont .operation-icon a:hover i,
 .myClass .layui-tab-content .markexampapers-cont .operation-icon a:hover i {
   color: #36b773;
+}
+button a {
+  color: #fff;
+}
+button:hover a {
+  display: block;
+  color: #fff;
+}
+.myClass_table {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  width: 100%;
+  border: 1px solid #e6e6e6;
+  text-align: center;
+}
+.myClass_table th {
+  color: #39b674;
+  border: 1px solid #e6e6e6;
+}
+.myClass_table tr {
+  height: 39px;
+}
+.myClass_table tr td:first-child {
+  text-align: left;
+  text-indent: 15px;
+}
+.myClass_table tr td:first-child input {
+  float: left;
+  margin-left: 15px;
+}
+.myClass_table tr td {
+  border: 1px solid #e6e6e6;
 }
 .contnet-dummy {
   width: 100%;

@@ -31,11 +31,11 @@
   line-height: 38px;
   font-size: 14px;
   color: #FFFFFF;
+  background-color: #36b773;
 }
 .organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-header {
   padding-bottom: 30px;
   padding-top: 30px;
-  border-bottom: 1px solid #f0f0f0;
 }
 .organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-header ul {
   overflow: hidden;
@@ -58,16 +58,34 @@
   line-height: 35px;
   border: #f0f0f0 1px solid;
 }
-.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont table.dataTable thead tr th.name,
-.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont table.dataTable tbody tr td.name {
-  padding-left: 10px !important;
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-th.paperName,
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-td.paperName {
+  width: 348px;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-left: 10px;
 }
-.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont table.dataTable thead tr th.operation,
-.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont table.dataTable tbody tr td.operation {
-  padding-right: 10px !important;
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-th.difficulty,
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-td.difficulty {
+  width: 153px;
 }
-.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .dataTables_wrapper .dataTables_paginate {
-  margin-top: 20px;
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-th.courseName,
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-td.courseName {
+  width: 164px;
+}
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-th.hots,
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-td.hots {
+  width: 152px;
+}
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-th.createTime,
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-td.createTime {
+  width: 200px;
+}
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-th.operation,
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-td.operation {
+  width: auto;
 }
 .organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .operation-icon {
   overflow: hidden;
@@ -85,6 +103,10 @@
 }
 .organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .operation-icon a:hover i {
   color: #36b773;
+}
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont #page {
+  margin-top: 60px;
+  text-align: center;
 }
 .organizepaper .organizepaper-body .content-body .contnet-dummy {
   width: 100%;

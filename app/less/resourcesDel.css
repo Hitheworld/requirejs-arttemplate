@@ -384,6 +384,7 @@
   float: initial;
   margin: 0 auto;
   margin-top: 40px;
+  overflow: hidden;
 }
 .ApplyResource .ApplyResource-box .ApplyResource-body .layui-form-item .layui-input-block.box-btn-block .ApplyResource-btn {
   width: 209px;
@@ -391,13 +392,16 @@
   line-height: 50px;
   font-size: 18px;
   padding: 0px;
+  margin: 0px;
   cursor: pointer;
 }
 .ApplyResource .ApplyResource-box .ApplyResource-body .layui-form-item .layui-input-block.box-btn-block .ApplyResource-btn.submit-btn {
+  float: left;
   background-color: #3db675;
   color: #FFFFFF;
 }
 .ApplyResource .ApplyResource-box .ApplyResource-body .layui-form-item .layui-input-block.box-btn-block .ApplyResource-btn.primary-btn {
+  float: right;
   background-color: #FFFFFF;
   color: #333333;
 }

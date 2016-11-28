@@ -179,7 +179,7 @@
 .addpaper #sliding-form .items .page1 .tree-checkbox {
   width: 378px;
   height: 452px;
-  overflow: auto;
+  overflow-x: hidden;
   border: 1px solid #f0f0f0;
   margin: 0 auto;
 }
@@ -300,6 +300,7 @@
 .addpaper #sliding-form .items .page3 .fixed-box .pagePaper-questions-nav ul li {
   float: left;
   margin-left: 2px;
+  margin-bottom: 2px;
 }
 .addpaper #sliding-form .items .page3 .fixed-box .pagePaper-questions-nav ul li .box-nav {
   vertical-align: middle;
@@ -511,40 +512,40 @@
   margin-bottom: 30px;
   overflow: hidden;
 }
-.page3-Change .Change-box .Change-search ul {
+.page3-Change .Change-box .Change-search ul.searchBox-ul {
   overflow: hidden;
 }
-.page3-Change .Change-box .Change-search ul li {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li {
   float: left;
   height: 35px;
   margin-right: 22px;
 }
-.page3-Change .Change-box .Change-search ul li select {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li select {
   float: left;
   width: 146px;
   height: 100%;
   border: 1px solid #f0f0f0;
 }
-.page3-Change .Change-box .Change-search ul li label {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li label {
   float: left;
   display: block;
   height: 100%;
   line-height: 35px;
   text-align: left;
 }
-.page3-Change .Change-box .Change-search ul li.search-difficulty-li {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-difficulty-li {
   overflow: hidden;
 }
-.page3-Change .Change-box .Change-search ul li.search-difficulty-li label {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-difficulty-li label {
   width: 40px;
 }
-.page3-Change .Change-box .Change-search ul li.search-topic-li {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-topic-li {
   overflow: hidden;
 }
-.page3-Change .Change-box .Change-search ul li.search-topic-li label {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-topic-li label {
   width: 68px;
 }
-.page3-Change .Change-box .Change-search ul li.search-topic-li .down-input {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-topic-li .down-input {
   width: 146px;
   height: 34px;
   line-height: 34px;
@@ -552,7 +553,16 @@
   background: #FFFFFF;
   cursor: pointer;
 }
-.page3-Change .Change-box .Change-search ul li.search-topic-li .down-box {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-topic-li i.close-Ztree {
+  display: none;
+  position: absolute;
+  top: 141px;
+  right: 255px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+}
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-topic-li .down-box {
   display: none;
   position: absolute;
   top: 135px;
@@ -560,7 +570,7 @@
   width: 330px;
   height: 450px;
   border: 1px solid #f0f0f0;
-  z-index: 9999999;
+  z-index: 9;
   background: #ffffff;
   overflow: auto;
   padding: 0px 30px;
@@ -569,20 +579,13 @@
   white-space: nowrap;
   overflow-x: hidden;
 }
-.page3-Change .Change-box .Change-search ul li.search-topic-li .down-box i {
-  position: absolute;
-  top: 10px;
-  right: 30px;
-  font-size: 28px;
-  cursor: pointer;
-}
-.page3-Change .Change-box .Change-search ul li.search-so-li {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-so-li {
   float: right;
   width: 290px;
   margin-right: 0px;
   position: relative;
 }
-.page3-Change .Change-box .Change-search ul li.search-so-li input {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-so-li input {
   width: 250px;
   margin-left: -12px;
   height: 32px;
@@ -592,7 +595,7 @@
   padding-right: 40px;
   border-radius: 2px;
 }
-.page3-Change .Change-box .Change-search ul li.search-so-li .so-box {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-so-li .so-box {
   width: 34px;
   height: 32px;
   border: none;

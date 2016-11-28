@@ -10,22 +10,16 @@
                     <ul>
                         <li>
                             <div class="item-box">
-                                <label for="markexampapers-peper-difficulty">试卷难度：</label>
+                                <label for="markexampapers-peper-difficulty">班级：</label>
                                 <select id="markexampapers-peper-difficulty">
-                                    <option>全部</option>
-                                    <option>全部</option>
-                                    <option>全部</option>
-                                    <option>全部</option>
                                 </select>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div id="paperHtml">
-                    {{if TestPaperDB.resultObject.lists != '' ||  TestPaperDB.resultObject.lists != undefined}}
                     <div class="markexampapers-cont">
-                        <table id="markexampapersTable" class="display" cellspacing="0" width="100%">
-                            <thead>
+                        <table id="markexampapersTable" class="display myClass_table" cellspacing="0" width="100%">
                             <tr>
                                 <th>试卷名称</th>
                                 <th>难度</th>
@@ -34,17 +28,16 @@
                                 <th>创建时间</th>
                                 <th>操作</th>
                             </tr>
-                            </thead>
+                            <tbody id="markexampapersTable_tbody">
+
+                            </tbody>
                         </table>
                     </div>
+                    <div>
+                        <div id="page">
 
-                    {{else}}
-                    <!--空文件-->
-                    <div class="contnet-dummy">
-                        <div class="dummy-file"></div>
+                        </div>
                     </div>
-                    <!--end空文件-->
-                    {{/if}}
                 </div>
             </div>
         </div>

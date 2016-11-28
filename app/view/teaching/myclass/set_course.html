@@ -1,3 +1,4 @@
+{{if success}}
 <table border="1" class="set_course_table">
     <tr>
         <th>课程名称</th>
@@ -5,21 +6,25 @@
         <th>逾期时间</th>
     </tr>
     <tbody class="set_course_table_val">
-        <tr>
-            <td><input type="checkbox">1</td>
-            <td>2</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox">1</td>
-            <td>2</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox">1</td>
-            <td>2</td>
-            <td>3</td>
-        </tr>
+
+
+    {{each resultObject}}
+
+    <tr>
+        {{if $value.check_status}}
+        <td><input type="checkbox" data-id="{{$value.id}}" checked />{{$value.name}}</td>
+        {{else}}
+        <td><input type="checkbox" data-id="{{$value.id}}" />{{$value.name}}</td>
+        {{/if}}
+        <td>{{$value.begin_time}}</td>
+        <td>{{$value.end_time}}</td>
+    </tr>
+    {{/each}}
+
+
     </tbody>
 </table>
-<button class="layui-btn">立即提交</button>
+<button class="layui-btn set_course_btn" style="margin-bottom: 20px">确定</button>
+{{else}}
+暂无数据
+{{/if}}

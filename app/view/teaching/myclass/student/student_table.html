@@ -1,19 +1,27 @@
-{{each resultObject.information as i index}}
+{{each resultObject.studentList as i index}}
 
 <tr>
 
 
-    <td>{{i.approach}}</td>
-    <td>{{i.balance}}</td>
-    <td>{{i.form}}</td>
-    <td>{{i.id}}</td>
-    <td>{{i.num}}</td>
     <td>
-        <button class="layui-btn" ><a href="#/teaching/myclass/student">管理学生</a></button>
-        <button class="layui-btn">设置课程</button>
-        <button class="layui-btn">删除</button></td>
-
-
+        {{if resultObject.squad.status}}
+        {{else}}
+        <input type="checkbox" data-id="{{i.id}}">
+        {{/if}}
+        {{i.name}}
+    </td>
+    <td>{{i.studentNo}}</td>
+    <td>{{i.group}}</td>
+    <td>{{i.mobile}}</td>
+    <td>{{i.studentNo}}</td>
+    <td>
+        {{if resultObject.squad.status}}
+        <button class="layui-btn Delete_the_student" data-id="{{i.id}}" data-name="{{i.login_name}}">删除</button>
+        {{else}}
+        <button class="layui-btn compile_student" data-id="{{i.id}}">编辑信息</button>
+        <button class="layui-btn Delete_the_student" data-id="{{i.id}}" data-name="{{i.login_name}}">删除</button>
+        {{/if}}
+    </td>
 </tr>
 
 {{/each}}

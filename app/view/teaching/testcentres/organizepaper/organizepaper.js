@@ -12,23 +12,19 @@ define(['template',
 		'jquery',
 		'layui',
 		'layer',
+		'laypage',
 		'text!tplUrl/teaching/testcentres/organizepaper/organizepaper.html',
-		'text!tplUrl/teaching/testcentres/organizepaper/organizepaper.operation.html',
+		'text!tplUrl/teaching/testcentres/organizepaper/organizepaper-table.html',
 		'common',
 		'api',
-		'json!DataTables-1.10.13/i18n/Chinese.json',
-		'datatables.net',
 		'jquery.validate',
 		'jquery.validate.zh',
-		'jquery.hovertreescroll',
-		'portamento',
 		'css!font-awesome',
-		'css!cssUrl/teaching.testcentres.organizepaper',
-		'css!cssUrl/teaching.testcentres.preview'
+		'css!cssUrl/teaching.testcentres.organizepaper'
 	],
-	function (template,$,layui,layer,
+	function (template,$,layui,layer,laypage,
 	          organizePaperTpl,
-	          organizePaperOperationTpl,
+	          tableTpl,
 	          common,api,Chinese) {
 
 		function createPage(page,childpage,pagenumber) {
@@ -42,80 +38,123 @@ define(['template',
 			$(".testcentres-tab-title li").removeClass("testcentres-this");
 			$(".testcentres-tab-title li.organizepaper").addClass("testcentres-this");
 
-			$(".teaching").css("position","relative");
-			$(".teachingBox").css("background-color","#f6f6f6");
-			$(".teachingBox").css("position","relative");
-			$(".teaching-nav").show();
-			$(".testcentres-nav").show();
+			var login_name = $(".home-user-name").data("name");//教师登录名
+			var teacherId = $(".home-user-name").data("id");//教师登录名
+			var courseId = null,difficulty = null, pageNumber = 1, pageSize = 10;
 
+
+			//课程数据源
+			var CoursesDB = findTeacherCourses(teacherId);
 
 			//数据源
-			var TestPaperDB = TestPaper();
-			var data = TestPaperDB.resultObject.lists;
-
-			//数据源---预览试卷
-			var GeneratedPaperDB = GeneratedPaper();
+			var TestPaperDB = TestPaper(login_name, difficulty, courseId, pageNumber, pageSize);
+			var data = TestPaperDB.resultObject.items;
 
 			$("#testcentresHtml").html(template.compile( organizePaperTpl)({
-				TestPaperDB: TestPaperDB
+				TestPaperDB: TestPaperDB,
+				TestPager: data,
+				Courses: CoursesDB
 			}));
 
+			$("#table").html(template.compile( tableTpl)({
+				TestPaperDB: TestPaperDB,
+				TestPager: data
+			}));
+			//奇偶行色
+			$(".table-tr:odd").addClass("odd");
+			$(".table-tr:even").addClass("even");
+			page();
 
-
-
-			//处理子孙页面
-			//this.subPageCreatePage = function(page,childpage,pagenumber){
-			//	require( ['tplUrl/teaching/'+page+'/'+childpage+'/'+pagenumber+'/'+pagenumber], function (m) {
-			//		m.createPage(page,childpage,pagenumber);
-			//	});
-			//}
-
-			//生成表格
-			var table = $('#organizepaperTable').DataTable({
-				data: data,  //对象数据
-				columns: [
-					{ data: 'name' },
-					{ data: 'difficulty' },
-					{ data: 'relatedCourses' },
-					{ data: 'heat' },
-					{ data: 'creationTime' },
-					{ data: organizePaperOperationTpl }
-				],
-				"searching": false,  //是否开启本地搜索功能
-				"lengthChange": false, //是否允许最终用户改变表格每页显示的记录数
-				"language": Chinese,   //国际化--中文
-				"lengthChange": false,   //是否允许用户改变表格每页显示的记录数
-				"pageLength": 10 ,   //改变初始的页面长度(每页显示的记录数)
-				"columnDefs": [
-					{ "width": "348px",className: "name", "targets": 0 },
-					{ "width": "153px",className: "difficulty", "targets": 1 },
-					{ "width": "164px",className: "relatedCourses", "targets": 2 },
-					{ "width": "152px",className: "heat", "targets": 3 },
-					{ "width": "200px",className: "creationTime", "targets": 4 },
-					{ "width": "auto",className: "operation", "targets": 5 },
-					{
-					"targets": -1,
-					"data": null,
-					"defaultContent": organizePaperOperationTpl
-				} ]
+			//删除
+			$(".J-delete").on('click', function(){
+				var examepaperId =  $(this).data("id");
+				layer.confirm('确定要删除此考试试卷么？', {
+					btn: ['确定','取消'] //按钮
+				}, function(){
+					var deleteDB = DeletePaper(examepaperId);
+					if(deleteDB.success){
+						layer.msg(deleteDB.resultObject.message, {icon: 1} , function(){
+							//刷新操作
+							history.go(0);
+						});
+						//刷新操作
+					}else {
+						layer.alert(deleteDB.errorMessage);
+					}
+				}, function(){
+					layer.msg("你已取消操作", {icon: 2});
+				});
 			});
 
-			$('#organizepaperTable tbody').on( 'click', 'button', function () {
-				var data = table.row( $(this).parents('tr') ).data();
-				alert( data[0] +"'s salary is: "+ data[ 5 ] );
-			} );
+			//难度选择  --- 课程选择
+			$("#difficulty,#courseId").change(function() {
+				difficulty = $("#difficulty option:checked").val();
+				courseId = $("#courseId option:checked").val();
+				//数据源
+				var TestPaperDB = TestPaper(login_name, difficulty, courseId, pageNumber, pageSize);
+				var data = TestPaperDB.resultObject.items;
+				$("#table").html(template.compile( tableTpl)({
+					TestPaperDB: TestPaperDB,
+					TestPager: data
+				}));
+				//奇偶行色
+				$(".table-tr:odd").addClass("odd");
+				$(".table-tr:even").addClass("even");
+				page();
+			});
+
+			function page(){
+				laypage({
+					cont:  $('#page'), //容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：<div id="page1"></div>
+					pages: TestPaperDB.resultObject.totalPageCount, //通过后台拿到的总页数
+					curr: 1, //当前页
+					skin: '#2cb82c', //配色方案
+					jump: function(obj, first){ //触发分页后的回调
+						if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
+							//数据源
+							var TestPaperDB = TestPaper(login_name, difficulty, courseId, obj.curr, pageSize);
+							var data = TestPaperDB.resultObject.items;
+							$("#table").html(template.compile( tableTpl)({
+								TestPaperDB: TestPaperDB,
+								TestPager: data
+							}));
+							//奇偶行色
+							$(".table-tr:odd").addClass("odd");
+							$(".table-tr:even").addClass("even");
+						}
+					}
+				});
+			}
+
+
 
 		}
 
 		//获取考试试卷数据
-		var TestPaper = function() {
-			return common.TextrequestService('app/data/testpaper.json','get', {});
+		var TestPaper = function(login_name, difficulty, courseId, pageNumber, pageSize) {
+			return common.requestService('bxg/examPaper/findExamPaperPage','get', {
+				login_name: login_name,
+				difficulty: difficulty,
+				courseId: courseId,
+				pageNumber: pageNumber,
+				pageSize: pageSize
+			});
 		};
 
 
-		//获取生成的考试数据
-		var GeneratedPaper = function() {
-			return common.TextrequestService('app/data/teaching-add-gpaper.json','get', {});
+		//查询该老师对应的课程下拉列表
+		var findTeacherCourses = function(teacherId) {
+			return common.requestService('bxg/examPaper/findTeacherCourses','get', {
+				teacherId: teacherId
+			});
+		};
+
+
+		//删除考试数据
+		var DeletePaper = function(examepaperId) {
+			return common.requestService('bxg/examPaper/deleteExamePaper','get', {
+				examepaperId: examepaperId
+			});
 		};
 
 		return {

@@ -12,6 +12,16 @@
   padding: 0;
   background: #36b773;
 }
+.releasepapers.releasepapers-tab-box .releasepapers-body .no-data {
+  width: 100%;
+  text-align: center;
+  margin-top: 220px;
+  margin-bottom: 280px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .no-data img {
+  width: 135px;
+  height: 165px;
+}
 .releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab {
   overflow: hidden;
 }
@@ -20,6 +30,8 @@
   height: 58px;
   background: #FFFFFF;
   overflow: hidden;
+  font-size: 16px;
+  font-weight: 600;
 }
 .releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-title li {
   height: 59px;
@@ -34,30 +46,12 @@
   height: 50px;
 }
 .releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content {
-  width: 100%;
+  padding: 0px;
 }
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching table.dataTable thead tr th.examination,
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching table.dataTable thead tr th.examination,
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching table.dataTable tbody tr td.examination,
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching table.dataTable tbody tr td.examination {
-  padding-left: 10px !important;
-}
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching table.dataTable thead tr th.operation,
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching table.dataTable thead tr th.operation,
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching table.dataTable tbody tr td.operation,
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching table.dataTable tbody tr td.operation {
-  padding-right: 10px !important;
-}
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .dataTables_wrapper .dataTables_paginate,
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .dataTables_wrapper .dataTables_paginate {
-  margin-top: 20px;
-}
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .operation-icon,
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .operation-icon {
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon {
   overflow: hidden;
 }
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .operation-icon a,
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .operation-icon a {
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a {
   display: block;
   float: left;
   width: 25px;
@@ -65,12 +59,101 @@
   text-align: center;
   cursor: pointer;
 }
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .operation-icon a i,
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .operation-icon a i {
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a i {
   font-size: 20px;
   color: #72cc9d;
 }
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .operation-icon a:hover i,
-.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .operation-icon a:hover i {
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a:hover i {
   color: #75bfee;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching {
+  margin-top: 30px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .table .table-tr .table-th.testClass,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .table .table-tr .table-td.testClass {
+  width: 230px;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .table .table-tr .table-th.testPaper,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .table .table-tr .table-td.testPaper {
+  width: 365px;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 10px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .table .table-tr .table-th.testTime,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .table .table-tr .table-td.testTime {
+  width: 280px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .table .table-tr .table-th.grouping,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .table .table-tr .table-td.grouping {
+  width: 110px;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 10px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .table .table-tr .table-th.operation,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .table .table-tr .table-td.operation {
+  width: 100px;
+  padding-right: 10px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-th.testClass,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-td.testClass {
+  width: 185px;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-th.testPaper,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-td.testPaper {
+  width: 220px;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 10px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-th.startTime,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-td.startTime {
+  width: 220px;
+  padding-right: 10px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-th.handNumber,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-td.handNumber {
+  width: 120px;
+  padding-right: 10px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-th.grouping,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-td.grouping {
+  width: 85px;
+  padding-right: 10px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-th.state,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-td.state {
+  width: 116px;
+  padding-right: 10px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-th.operation,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-td.operation {
+  width: 100px;
+  padding-right: 10px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item #page1,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item #page2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
 }

@@ -4,6 +4,7 @@ define(['template',
         'layer',
         'text!tplUrl/teaching/testcentres/markthetests/markthetests.html',
         'common',
+        'laypage',
         'api',
         'json!DataTables-1.10.13/i18n/Chinese.json',
         'datatables.net',
@@ -14,7 +15,7 @@ define(['template',
     ],
     function (template,$,layui,layer,
               markthetestsTpl,
-              common,api,Chinese) {
+              common,laypage,api,Chinese) {
 
         function createPage(page,childpage,pagenumber) {
             document.title = "博学谷·院校-教师端考试中心-发布试卷";
@@ -25,81 +26,86 @@ define(['template',
             //设置头部导航
             $(".testcentres-tab-title li").removeClass("testcentres-this");
             $(".testcentres-tab-title li.releasepapers").addClass("testcentres-this");
-            $(".teaching").css("position","relative");
-            $(".teachingBox").css("background-color","#f6f6f6");
-            $(".teachingBox").css("position","relative");
-            $(".teaching-nav").show();
-            $(".testcentres-nav").show();
 
-            var TestPaperDB = TestPaper();
-            var data = TestPaperDB.resultObject.lists;
+            var markthetestshtml1 = "{{if resultObject.items.length != 0}}" +
+                "{{each resultObject.items}}" +
+                "<tr>" +
+                "<td>{{$value.studentName}}</td>" +
+                "<td>{{$value.jjTime}}</td>" +
+                "<td>{{$value.duration}}</td>" +
+                "<td>{{$value.score}}</td>" +
+                "<td>{{$value.groupName}}</td>" +
+                "<td>" +
+                "{{if $value.status == 2}}" +
+                "待批阅" +
+                "{{else if $value.status == 3}}" +
+                "待发布" +
+                "{{else if $value.status == 4}}" +
+                "已发布" +
+                "{{else if $value.status == 0}}" +
+                "未交卷" +
+                "{{/if}}" +
+                "</td>" +
+                "<td>" +
+                "{{if $value.status == 2}}" +
+                "<button class='layui-btn'><a href='#/teaching/testcentres/readtest/{{$value.examId}}/{{$value.studentId}}'>批阅试卷</a></button>" +
+                "{{else if $value.status == 3}}" +
+                "<button class='layui-btn' data-id='{{{{$value.id}}}}'>发布</button>" +
+                "{{else if $value.status == 4}}" +
+                "<button class='layui-btn'><a href='#/teaching/testcentres/markthetests/{{$value.id}}'>查看</a></button>" +
+                "{{else if $value.status == 0}}" +
+                    "--"+
+                "{{else if $value.status == 1}}" +
+                "考试中"+
+                "{{/if}}" +
+                "</td>" +
+                "</tr>" +
+                "{{/each}}" +
+                "{{else}}暂无数据" +
+                "{{/if}}";
 
-            //数据源---预览试卷
-            var GeneratedPaperDB = GeneratedPaper();
+            function markthetests (sort,status,pageNumber,pageSize) {
+                common.ajaxRequest("bxg/examMark/findMarkExamPage", "POST", {
+                    exam_id: pagenumber,
+                    sort:sort || "",
+                    status:status || "",
+                    pageNumber:pageNumber || 1,
+                    pageSize:pageSize
+                }, function (data) {
+                    if (data.success) {
+                        $("#markexampapersTable_tbody").html(template.compile(markthetestshtml1)(data));
+                        //显示分页
+                        laypage({
+                            cont: $('#page'), //容器。值支持id名、原生dom对象，jquery对象,
+                            pages: parseInt(data.resultObject.totalPageCount), //总页数 parseInt(data.resultObject.totalpages)
+                            curr: pageNumber || 1, //当前页
+                            skin: '#2cb82c',
+                            jump: function (obj, first) { //触发分页后的回调
+                                if (!first) { //点击跳页触发函数自身，并传递当前页：obj.curr
+                                    markthetests(sort,status, obj.curr, pageSize);
+                                }
+                            }
+                        });
 
-            $("#teachingHtml").html(template.compile(markthetestsTpl)({
-                TestPaperDB: TestPaperDB
-            }));
+                    }
+                });
+            }
 
 
-
-            //生成表格
-            var table = $('#markexampapersTable').DataTable({
-                data: data,  //对象数据
-                columns: [
-                    { data: 'name' },
-                    { data: 'difficulty' },
-                    { data: 'relatedCourses' },
-                    { data: 'heat' },
-                    { data: 'creationTime' },
-                    { data: "<div class='operation-icon'>" +
-                    "<a href='#/teaching/testcentres/markthetests' title='查看'>" +
-                    "<i class='fa fa-search' aria-hidden='true'></i></a>" +
-                    "<a href='javascript:void(0);' title='编辑'><i class='fa fa-pencil' aria-hidden='true'>" +
-                    "</i></a></div>" }
-                ],
-                "searching": false,  //是否开启本地搜索功能
-                "lengthChange": false, //是否允许最终用户改变表格每页显示的记录数
-                "language": Chinese,   //国际化--中文
-                "lengthChange": false,   //是否允许用户改变表格每页显示的记录数
-                "pageLength": 10 ,   //改变初始的页面长度(每页显示的记录数)
-                "columnDefs": [
-                    { "width": "348px",className: "name", "targets": 0 },
-                    { "width": "153px",className: "difficulty", "targets": 1 },
-                    { "width": "164px",className: "relatedCourses", "targets": 2 },
-                    { "width": "152px",className: "heat", "targets": 3 },
-                    { "width": "200px",className: "creationTime", "targets": 4 },
-                    { "width": "auto",className: "operation", "targets": 5 },
-                    {
-                        "targets": -1,
-                        "data": null,
-                        "defaultContent": "<div class='operation-icon'>" +
-                        "<a href='#/teaching/testcentres/lookreadtest' title='查看'>" +
-                        "<i class='fa fa-search' aria-hidden='true'></i></a>" +
-                        "<a href='#/teaching/testcentres/readtest' title='编辑'><i class='fa fa-pencil' aria-hidden='true'>" +
-                        "</i></a></div>"
-                    } ]
+            common.ajaxRequest("bxg/examMark/findMarkExam", "POST", {
+                exam_id: pagenumber
+            }, function (data) {
+                if (data.success) {
+                    $("#teachingHtml").html(template.compile(markthetestsTpl)(data));
+                    $("#markexampapers-peper-difficulty").on("change",function(){
+                        var select_this1 = $("#markexampapers-peper-difficulty option:checked");
+                        markthetests("",select_this1.val(), 1, 9);
+                    })
+                }
             });
 
-            $('#markexampapersTable tbody').on( 'click', 'button', function () {
-                var data = table.row( $(this).parents('tr') ).data();
-                alert( data[0] +"'s salary is: "+ data[ 5 ] );
-            } );
-
-
+            markthetests("","",1,9)
         }
-
-        //获取考试试卷数据
-        var TestPaper = function() {
-            return common.requestService('../app/data/testpaper.json','get', {});
-        };
-
-
-        //获取生成的考试数据
-        var GeneratedPaper = function() {
-            return common.requestService('../app/data/teaching-add-gpaper.json','get', {});
-        };
-
 
 
         return {

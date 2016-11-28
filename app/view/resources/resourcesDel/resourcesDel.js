@@ -57,6 +57,15 @@ define(['template',
 				$(".fx-box").toggle();
 			});
 
+			//...的处理
+			//$('.ellipsis').each(function(){
+			//	var maxwidth= 30;
+			//	if($(this).text().length>maxwidth){
+			//		$(this).text($(this).text().substring(0,maxwidth));
+			//		$(this).html($(this).html()+'...');
+			//	}
+			//});
+
 			//登录
 			$(".J-apply-resource").on('click', function(){
 				if(StatusDB.resultObject != undefined &&  StatusDB.resultObject == 0){
@@ -90,6 +99,7 @@ define(['template',
 
 					})
 				});
+				$("#resourceName").val(resourcesDelDB.resultObject.name);
 				//初始化三级省市区
 				$("#citybox").citySelect({prov:"江苏", city:"南京", dist:"玄武区南京"});
 				//加减交互

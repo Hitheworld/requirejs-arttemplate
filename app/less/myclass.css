@@ -26,16 +26,27 @@
 .myClass_student .myClass_student_header {
   height: 38px;
   border-bottom: 1px solid #f0f0f0;
+  border-radius: 0;
 }
-.myClass_student .myClass_student_header span {
+.myClass_student .myClass_student_header button {
+  height: 30px;
+  line-height: 30px;
+  background-color: #39b674;
+}
+.myClass_student .myClass_student_header span,
+.myClass_student .myClass_student_header .myClass_student_header_span1 {
   display: inline-block;
   font-size: 13px;
   border-left: 2px solid #e8e8e8;
   text-indent: 20px;
   color: #6f6f6f;
 }
-.myClass_student .myClass_student_header span + span {
+.myClass_student .myClass_student_header span + span,
+.myClass_student .myClass_student_header .myClass_student_header_span1 + span {
   margin-left: 20px;
+}
+.myClass_student .myClass_student_header .myClass_student_header_span2 {
+  border-left: 2px solid #fff;
 }
 .myClass_student .myClass_student_header span:first-child {
   border-left: none;
@@ -70,18 +81,117 @@
   border: 1px solid #39b674;
   color: #fff;
 }
-.myClass_student .myClass_student_header1 + div .myClass_table {
+.myClass_student .myClass_student_header2 .myClass_student_header2_dv {
+  display: inline-block;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child .myClass_student_header2_span1_X {
+  display: none;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span .myClass_student_header2_span1_X {
+  display: none;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span + span .myClass_student_header2_span1_X {
+  display: none;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span + span + span {
+  position: relative;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span + span + span .myClass_student_header2_span1_X {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 2px;
+  width: 15px;
+  height: 15px;
+  color: #fff;
+  background-color: #ff5f5d;
+  border-radius: 50%;
+  line-height: 15px;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span + span + span:hover .myClass_student_header2_span1_X {
+  display: block;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span + span + span + span {
+  position: relative;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span + span + span + span .myClass_student_header2_span1_X {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 2px;
+  width: 15px;
+  height: 15px;
+  color: #fff;
+  background-color: #ff5f5d;
+  border-radius: 50%;
+  line-height: 15px;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span + span + span + span:hover .myClass_student_header2_span1_X {
+  display: block;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span + span + span + span + span {
+  position: relative;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span + span + span + span + span .myClass_student_header2_span1_X {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 2px;
+  width: 15px;
+  height: 15px;
+  color: #fff;
+  background-color: #ff5f5d;
+  border-radius: 50%;
+  line-height: 15px;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span + span + span + span + span:hover .myClass_student_header2_span1_X {
+  display: block;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_span1 {
+  display: inline-block;
+  text-align: center;
+  min-width: 69px;
+  margin-right: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 36px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #f1f1f1;
+  border-radius: 25%;
+  line-height: 35px;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_span1:hover {
+  background-color: #36b774;
+  border: 1px solid #39b674;
+  color: #fff;
+  cursor: pointer;
+}
+.myClass_student .myClass_student_header2 .myClass_student_header2_this {
+  background-color: #36b774;
+  border: 1px solid #39b674;
+  color: #fff;
+}
+.myClass_student div .myClass_table {
   margin-top: 10px;
   margin-bottom: 40px;
   width: 100%;
   border: 1px solid #e6e6e6;
   text-align: center;
 }
-.myClass_student .myClass_student_header1 + div .myClass_table th {
+.myClass_student div .myClass_table th {
   color: #39b674;
 }
-.myClass_student .myClass_student_header1 + div .myClass_table tr {
+.myClass_student div .myClass_table tr {
   height: 39px;
+}
+.myClass_student div .myClass_table tr td:first-child {
+  text-align: left;
+  text-indent: 15px;
+}
+.myClass_student div .myClass_table tr td:first-child input {
+  float: left;
+  margin-left: 15px;
 }
 #Create_a_class_form {
   width: 421px;
@@ -133,6 +243,13 @@
   background-color: #39b674;
   margin: 0 auto;
 }
+.Add_the_student_select {
+  width: 100%;
+  min-height: 36px;
+  font-size: 13px;
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+}
 .school-box {
   position: relative;
   width: 100%;
@@ -165,4 +282,12 @@
 }
 .school-box .school-selete li:hover {
   color: #2DB871;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

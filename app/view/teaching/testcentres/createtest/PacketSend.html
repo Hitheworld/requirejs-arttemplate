@@ -1,0 +1,23 @@
+<div class="PacketSend">
+	<i class="fa fa-angle-up" aria-hidden="true"></i>
+	<ul>
+		{{if GroupList.success}}
+			{{if GroupList.resultObject}}
+				{{each GroupList.resultObject as Group i}}
+					<li>
+						<input type="checkbox" name="groups" value="{{Group.group_name}}"
+						       {{if EditLoad.resultObject}}
+								    {{each groups as group}}
+								        {{if group == Group.group_name}}{{group}} checked="checked" {{/if}}
+									{{/each}}
+						       {{/if}} /><label>{{Group.group_name}}组</label>
+					</li>
+				{{/each}}
+				{{else}}
+			<span>无数据</span>
+			{{/if}}
+		{{else}}
+			{{Courses.errorMessage}}
+		{{/if}}
+	</ul>
+</div>

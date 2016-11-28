@@ -20,7 +20,7 @@
                 font-size: 16px;
                 font-weight: 600;
                 height: 38px;
-                line-height: 38px;
+                line-height: 38px;   
                 font-size: 16px;
                 color: #333333;
                 margin-right: 27px;
@@ -31,6 +31,10 @@
                 line-height: 38px;
                 font-size: 14px;
                 color: #FFFFFF;
+                background-color: #36b773;
+                i {
+                    margin-right: 8px;
+                }
             }
         }
         
@@ -67,17 +71,35 @@
                 }
                 .organizepaper-cont {
                     
-                    table.dataTable thead tr th,table.dataTable tbody tr td {
-                        &.name {
-                            padding-left: 10px !important;
-                        }
-                        &.operation {
-                            padding-right: 10px !important;
-                        }
-                    }
-                    .dataTables_wrapper {
-                        .dataTables_paginate {
-                            margin-top: 20px;
+                    
+                    //表格尺寸 
+                   .table {
+                        .table-tr {  
+                            .table-th,.table-td {
+                                &.paperName {
+                                    width: 348px;
+                                    word-wrap: normal;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    padding-left: 10px;
+                                }
+                                &.difficulty {
+                                    width: 153px;
+                                }
+                                &.courseName {
+                                    width: 164px; 
+                                }
+                                &.hots {
+                                    width: 152px;
+                                }
+                                &.createTime {
+                                    width: 200px;
+                                }
+                                &.operation {
+                                    width: auto;
+                                }
+                            }   
                         }
                     }
                     
@@ -100,6 +122,13 @@
                             }
                         }
                     }
+                    
+                    
+                    #page {
+                        margin-top: 60px;
+                        text-align: center;
+                    }
+                    
                 }
                 
             }

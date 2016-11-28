@@ -12,13 +12,26 @@
             padding: 0;
             background: #36b773;
         }
+        //无数据
+        .no-data {
+            width: 100%;
+            text-align: center;
+            margin-top: 220px;
+            margin-bottom: 280px;
+            img {
+                width: 135px;
+                height: 165px;
+            }
+        }
         .layui-tab {
             overflow: hidden;
-            .layui-tab-title {
+            .layui-tab-title { 
                 padding-left: 0px;
                 height: 58px;
                 background: #FFFFFF;
                 overflow: hidden;
+                font-size: 16px;
+                font-weight: 600;
                 li {
                     height: 59px;
                     line-height: 59px;
@@ -36,49 +49,131 @@
                 }
             }
             .layui-tab-content {
-                width: 100%;
+                padding: 0px;
                 .layui-tab-item {
                     //未进行考试
-                    .Not-carried-teaching,.HistoryExam-teaching {
-                        
-                        
-                        table.dataTable thead tr th,table.dataTable tbody tr td {
-                            &.examination {
-                                padding-left: 10px !important;
+                     //icon
+                    .operation-icon {
+                        overflow: hidden;
+                        a {
+                            display: block;
+                            float: left;
+                            width: 25px;
+                            height: 100%;
+                            text-align: center;
+                            cursor: pointer;
+                            i {
+                                font-size: 20px;
+                                color: #72cc9d;
                             }
-                            &.operation {
-                                padding-right: 10px !important;
+                            &:hover {
+                            i {
+                                color: #75bfee;
                             }
                         }
-                        .dataTables_wrapper {
-                            .dataTables_paginate {
-                                margin-top: 20px;
+                        }
+                    }
+                    .Not-carried-teaching ,.HistoryExam-teaching {
+                        margin-top: 30px;
+                    }
+                    .Not-carried-teaching {
+                        
+                        //表格尺寸 
+                       .table {
+                            .table-tr {  
+                                .table-th,.table-td {
+                                    &.testClass {
+                                        width: 230px;
+                                        word-wrap: normal;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        padding-left: 10px;
+                                        padding-right: 10px;
+                                    }
+                                    &.testPaper {
+                                        width: 365px;
+                                        word-wrap: normal;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        padding-right: 10px;
+                                    }
+                                    &.testTime {
+                                        width: 280px; 
+                                    }
+                                    &.grouping {
+                                        width: 110px;
+                                        word-wrap: normal;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        padding-right: 10px;
+                                    }
+                                    &.operation {
+                                        width: 100px;
+                                        padding-right: 10px;
+                                    }
+                                }   
                             }
                         }
                         
-                        //icon
-                        .operation-icon {
-                            overflow: hidden;
-                            a {
-                                display: block;
-                                float: left;
-                                width: 25px;
-                                height: 100%;
-                                text-align: center;
-                                cursor: pointer;
-                                i {
-                                    font-size: 20px;
-                                    color: #72cc9d;
-                                }
-                                &:hover {
-                                i {
-                                    color: #75bfee;
-                                }
-                            }
+                       
+                    }
+                    //end未进行考试
+                    
+                    .HistoryExam-teaching {
+                        //表格尺寸 
+                       .table {
+                            .table-tr {  
+                                .table-th,.table-td {
+                                    &.testClass {
+                                        width: 185px;
+                                        word-wrap: normal;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        padding-left: 10px;
+                                        padding-right: 10px;
+                                    }
+                                    &.testPaper {
+                                        width: 220px;
+                                        word-wrap: normal;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        padding-right: 10px;
+                                    }
+                                    &.startTime {
+                                        width: 220px; 
+                                        padding-right: 10px;
+                                    }
+                                    &.handNumber {
+                                        width: 120px;
+                                        padding-right: 10px;
+                                    }
+                                    &.grouping {
+                                        width: 85px;
+                                        padding-right: 10px;
+                                    }
+                                    &.state {
+                                        width: 116px;
+                                        padding-right: 10px;
+                                    }
+                                    &.operation {
+                                        width: 100px;
+                                        padding-right: 10px;
+                                    }
+                                }   
                             }
                         }
                     }
-                    //end未进行考试
+                    
+                    #page1,#page2 {
+                        margin-top: 30px;
+                        margin-bottom: 30px;
+                        text-align: center;
+                    }
                     
                 }
             }

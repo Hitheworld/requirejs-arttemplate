@@ -1,8 +1,8 @@
 <div class="markthetests">
     <div class="markthetests_header">
-        <span>计算机考试二级Java模拟试题一</span>
-        <span>班级：自动化1班</span>
-        <span>考试时间：2016-10-26 13:00-15:00</span>
+        <span>{{resultObject.examPaperName}}</span>
+        <span>班级：{{resultObject.squadName}}</span>
+        <span>考试时间：{{resultObject.startTime}}</span>
         <a href="javascript:history.back(-1);">返回</a>
     </div>
     <div class="markthetests_header1">
@@ -10,37 +10,37 @@
         <div class="item-box">
             <label for="markexampapers-peper-difficulty">班级</label>
             <select id="markexampapers-peper-difficulty">
-                <option>全部</option>
-                <option>全部</option>
-                <option>全部</option>
-                <option>全部</option>
+                <option value="">全部</option>
+                <option value="2">待批阅</option>
+                <option value="3">待发布</option>
+                <option value="0">未交卷</option>
+                <option value="4">已发布</option>
             </select>
         </div>
-        <span>交卷人数：<span>30/28</span></span><span>已批阅人数：<span>15</span></span>
+        <span>交卷人数：<span>{{resultObject.ykCounts}}/{{resultObject.jjCounts}}</span></span><span>已批阅人数：<span>{{resultObject.markedCounts}}</span></span>
     </div>
     <div id="paperHtml">
-        {{if TestPaperDB.resultObject.lists != '' ||  TestPaperDB.resultObject.lists != undefined}}
         <div class="markexampapers-cont">
-            <table id="markexampapersTable" class="display" cellspacing="0" width="100%">
-                <thead>
+            <table id="markexampapersTable" class="display myClass_table" cellspacing="0" width="100%">
                 <tr>
-                    <th>试卷名称</th>
-                    <th>难度</th>
-                    <th>关联课程</th>
-                    <th>热度（次）</th>
-                    <th>创建时间</th>
+                    <th>姓名</th>
+                    <th>交卷时间</th>
+                    <th>耗时</th>
+                    <th>分数</th>
+                    <th>分组</th>
+                    <th>状态</th>
                     <th>操作</th>
                 </tr>
-                </thead>
+                <tbody id="markexampapersTable_tbody">
+
+                </tbody>
             </table>
         </div>
+        <div>
+            <div id="page">
 
-        {{else}}
-        <!--空文件-->
-        <div class="contnet-dummy">
-            <div class="dummy-file"></div>
+            </div>
         </div>
-        <!--end空文件-->
-        {{/if}}
+
     </div>
 </div>

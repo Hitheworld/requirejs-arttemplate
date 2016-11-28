@@ -41,7 +41,7 @@
 								<div class="layui-form-item addpaper-form-item">
 									<label class="layui-form-label">试卷名称</label>
 									<div class="layui-input-block teaccert-form-item-box">
-										<input type="text" name="papername" id="papername" class="layui-input" />
+										<input type="text" name="papername" id="papername" class="layui-input" value="{{findExamBasicDB.resultObject.exampaperName}}" />
 									</div>
 								</div>
 							</li>
@@ -54,7 +54,7 @@
 								<div class="layui-form-item addpaper-form-item">
 									<label class="layui-form-label">试卷时长</label>
 									<div class="layui-input-block teaccert-form-item-box">
-										<input type="text" name="paperwhenlong" id="paperwhenlong" class="layui-input paperwhenlong" />
+										<input type="text" name="paperwhenlong" id="paperwhenlong" class="layui-input paperwhenlong" value="{{findExamBasicDB.resultObject.duration}}" />
 										<label class="layui-form-label testScores-label">分钟</label>
 									</div>
 								</div>
@@ -68,11 +68,24 @@
 								<div class="layui-form-item addpaper-form-item">
 									<label class="layui-form-label">试卷难度</label>
 									<div class="layui-input-block teaccert-form-item-box">
-										<select name="papertraits" id="papertraits" lay-verify="required">
+										<select name="papertraits" id="papertraits">
 											<option value="A">容易</option>
 											<option value="B">一般</option>
 											<option value="C">较难</option>
 											<option value="D">难</option>
+											{{if findExamBasicDB.resultObject.difficulty}}
+												<option selected="selected" value="{{findExamBasicDB.resultObject.difficulty}}">
+													{{if findExamBasicDB.resultObject.difficulty == 'A'}}
+													容易
+													{{else if findExamBasicDB.resultObject.difficulty == 'B'}}
+													一般
+													{{else if findExamBasicDB.resultObject.difficulty == 'C'}}
+													较难
+													{{else if findExamBasicDB.resultObject.difficulty == 'D'}}
+													难
+													{{/if}}
+												</option>
+											{{/if}}
 										</select>
 									</div>
 								</div>
@@ -81,7 +94,7 @@
 								<div class="layui-form-item addpaper-form-item">
 									<label class="layui-form-label">试卷分数</label>
 									<div class="layui-input-block teaccert-form-item-box">
-										<input type="text" name="testScores" id="testScores" class="layui-input testScores" />
+										<input type="text" name="testScores" id="testScores" class="layui-input testScores" value="{{findExamBasicDB.resultObject.totalScore}}" />
 										<label class="layui-form-label testScores-label">分</label>
 									</div>
 								</div>
@@ -103,11 +116,16 @@
 											<select name="paperselete" id="paperselete" class="layui-input paperselete">
 											{{if findTeacherCoursesDB.resultObject != ''}}
 												{{each findTeacherCoursesDB.resultObject as TeacherCourses i}}
-													<option value="{{TeacherCourses.id}}">{{TeacherCourses.name}}</option>
+													<option
+														{{if TeacherCourses.id == findExamBasicDB.resultObject.courseId}} selected="selected" {{/if}}
+														value="{{TeacherCourses.id}}">{{TeacherCourses.name}}</option>
 												{{/each}}
 											{{else}}
 												<option>无数据</option>
 											{{/if}}
+
+
+
 											</select>
 										{{else}}
 											{{findTeacherCoursesDB.errorMessage}}
@@ -167,7 +185,7 @@
 										</li>
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
-												<label class="form-label">可用<span id="daiXuanUsable">25</span>道</label>
+												<label class="form-label">可用<span id="daiXuanUsable">0</span>道</label>
 											</div>
 										</li>
 									</ul>
@@ -207,7 +225,7 @@
 										</li>
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
-												<label class="form-label">可用<span id="duoXuanUsable">25</span>道</label>
+												<label class="form-label">可用<span id="duoXuanUsable">0</span>道</label>
 											</div>
 										</li>
 									</ul>
@@ -247,7 +265,7 @@
 										</li>
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
-												<label class="form-label">可用<span id="panDuanUsable">25</span>道</label>
+												<label class="form-label">可用<span id="panDuanUsable">0</span>道</label>
 											</div>
 										</li>
 									</ul>
@@ -287,7 +305,7 @@
 										</li>
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
-												<label class="form-label">可用<span id="tianKongUsable">25</span>道</label>
+												<label class="form-label">可用<span id="tianKongUsable">0</span>道</label>
 											</div>
 										</li>
 									</ul>
@@ -359,7 +377,7 @@
 
 					<div class="btn_nav">
 						<button type="button" class="prev left btn-page-next">上一步</button>
-						<input type="button" class="next right btn-page-sub" id="sub" value="确定" />
+						<input type="button" class="next right btn-page-sub" id="sub" onclick="javascript:location.href = '#/teaching/testcentres/organizepaper';" value="确定" />
 					</div>
 
 				</div>

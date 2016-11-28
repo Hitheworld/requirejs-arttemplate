@@ -1,4 +1,14 @@
-define(['jquery','route'], function ($,route) {
+define(['template','jquery','layer','route','common','api',
+	'text!tplUrl/common/noPermissions.html',
+	'text!tplUrl/common/login/popup.login.html',
+	'text!tplUrl/index/user.header.html',
+	'popupLogin'
+], function (template,$,layer,route,common,api,
+             noPermissionsTpl,
+             popupLoginTpl,
+             userTpl,
+             popupLogin
+) {
     function Route() {
 	    var Path = route;
 	    /**
@@ -7,6 +17,7 @@ define(['jquery','route'], function ($,route) {
 	    function clearPanel(){
 		    //你可以把一些代码在这里做花式DOM的过渡，如淡入淡出或幻灯片。
 		    //$("body").fadeOut(1000);
+
 	    }
 
 	    //页面配置
@@ -90,11 +101,11 @@ define(['jquery','route'], function ($,route) {
 	    };
 
 	    //教学中心
-	    var teaching = function(page,childpage,pagenumber) {
+	    var teaching = function(page,childpage,pageType,exampPaperId) {
 		    require( ['app/view/teaching/teaching.js'], function (m) {
-			    m.createPage(page,childpage,pagenumber);
+			    m.createPage(page,childpage,pageType,exampPaperId);
 			    if(page != undefined){
-				    m.TeachingRightContent(page,childpage,pagenumber);
+				    m.TeachingRightContent(page,childpage,pageType,exampPaperId);
 			    }
 		    });
 	    };
@@ -128,78 +139,106 @@ define(['jquery','route'], function ($,route) {
 		    //路由---登录
 	    Path.map("#/login").to(function(){
 		    login();
-	    }).enter(clearPanel);
+	    }).enter(clearPanel).exit(function(){
+		    history.go(0); //退出的时候刷新页面
+	    });
 
 	    //路由---注册
 	    Path.map("#/signin").to(function(){
 		    signin();
-	    }).enter(clearPanel);
+	    }).enter(clearPanel).exit(function(){
+		    history.go(0); //退出的时候刷新页面
+	    });
 
 		//路由---注册成功
 		Path.map("#/RegisterSuccess").to(function(){
 			RegisterSuccess();
-		}).enter(clearPanel);
+		}).enter(clearPanel).exit(function(){
+			history.go(0); //退出的时候刷新页面
+		});
 
 		//路由---忘记密码
 		Path.map("#/reset_password").to(function(){
 			reset_password();
-		}).enter(clearPanel);
+		}).enter(clearPanel).exit(function(){
+			history.go(0); //退出的时候刷新页面
+		});
 
 	    //路由---首页
 	    Path.map("#/home").to(function(){
 		    home();
-	    }).enter(clearPanel);
+	    }).enter(clearPanel).exit(function(){
+		    history.go(0); //退出的时候刷新页面
+	    });
 
 	    //路由---精品课程列表
 	    Path.map("#/course/:pagination/:pagenumber").to(function(){
 		    course(this.params['pagination'],this.params['pagenumber']);
-	    }).enter(clearPanel);
+	    }).enter(clearPanel).exit(function(){
+		    history.go(0); //退出的时候刷新页面
+	    });
 
 	    //路由---精品课程详情
 	    Path.map("#/course/del/:pagination/:courseId").to(function(){
 		    courseDel(this.params['pagination'],this.params['courseId']);
-	    }).enter(clearPanel);
+	    }).enter(clearPanel).exit(function(){
+		    history.go(0); //退出的时候刷新页面
+	    });
 
 	    //路由---扩展资源列表
 	    Path.map("#/resources/:pagenumber").to(function(){
 		    resourcesLists(this.params['pagenumber']);
-	    }).enter(clearPanel);
+	    }).enter(clearPanel).exit(function(){
+		    history.go(0); //退出的时候刷新页面
+	    });
 
 	    //路由---扩展资源详情
 	    Path.map("#/resources/del/:resourceId").to(function(){
 		    resourcesDel(this.params['resourceId']);
-	    }).enter(clearPanel);
+	    }).enter(clearPanel).exit(function(){
+		    history.go(0); //退出的时候刷新页面
+	    });
 
 	    //路由---资讯列表
 	    Path.map("#/info/:pagenumber").to(function(){
 		    infoLists(this.params['pagenumber']);
-	    }).enter(clearPanel);
+	    }).enter(clearPanel).exit(function(){
+		    history.go(0); //退出的时候刷新页面
+	    });
 
 	    //路由---资讯详情
 	    Path.map("#/info/del/:infoId").to(function(){
 		    infoDel(this.params['infoId']);
-	    }).enter(clearPanel);
+	    }).enter(clearPanel).exit(function(){
+		    history.go(0); //退出的时候刷新页面
+	    });
 
 	    //路由---教学中心主页
-	    Path.map("#/teaching/:page/:childpage(/:pagenumber)").to(function(){
-		    teaching(this.params['page'],this.params['childpage'],this.params['pagenumber']);
-	    }).enter(clearPanel);
+	    Path.map("#/teaching/:page/:childpage(/:pageType)(/:exampPaperId)").to(function(){
+		    teaching(this.params['page'],this.params['childpage'],this.params['pageType'],this.params['exampPaperId']);
+	    }).enter(clearPanel).exit(function(){
+		    history.go(0); //退出的时候刷新页面
+	    });
 
 	    //路由---展示页
 	    Path.map("#/cooperate").to(function(){
 		    cooperate();
-	    }).enter(clearPanel);
+	    }).enter(clearPanel).exit(function(){
+		    history.go(0); //退出的时候刷新页面
+	    });
 
 	    //路由---个人中心
 	    Path.map("#/personal/:type(/:pagenumber)").to(function(){
 			personalHome(this.params['type'],this.params['pagenumber']);
-	    }).enter(clearPanel);
+	    }).enter(clearPanel).exit(function(){
+		    history.go(0); //退出的时候刷新页面
+	    });
 
 	    //路由测试---
 	    Path.map("#/users").to(function(){
 		    alert("Users!");
 	    }).exit(function(){
-		    error404();
+		    history.go(0); //退出的时候刷新页面
 	    });
 
 	    //路由--- 404
@@ -210,6 +249,100 @@ define(['jquery','route'], function ($,route) {
 	    //初始化路由配置
 	    Path.root("#/home");
 	    Path.listen();
+
+
+	    /**
+	     * 个人中心
+	     * 正式 sessionUser
+	     * 本地测试  localLogin?username=351982312@qq.com
+	     */
+	    common.ajaxRequest('bxg/user/localLogin?username=351982312@qq.com', "GET", {}, function (data, state) {
+
+		    var logout = api.BATHPATH +'logout';
+		    $("#header-user").html(template.compile(userTpl)({
+			    logout: logout,
+			    user: data
+		    }));
+
+		    new AccessPermission().init();
+		    /**
+		     * 权限访问
+		     */
+		    function AccessPermission(){
+
+			    var seft = this;
+
+			    this.init = function(){
+				    seft.filter();  //初始化
+			    };
+
+
+			    /**
+			     *  过滤器
+			     *  拦截访问权限页面
+			     */
+			    this.filter = function(){
+				    var url = window.location.hash; //获取'#'后面的值
+
+				    /**
+				     * 兼容indexOf
+				     */
+				    if (!Array.prototype.indexOf)
+				    {
+					    Array.prototype.indexOf = function(elt /*, from*/)
+					    {
+						    var len = this.length >>> 0;
+
+						    var from = Number(arguments[1]) || 0;
+						    from = (from < 0)
+							    ? Math.ceil(from)
+							    : Math.floor(from);
+						    if (from < 0)
+							    from += len;
+
+						    for (; from < len; from++)
+						    {
+							    if (from in this &&
+								    this[from] === elt)
+								    return from;
+						    }
+						    return -1;
+					    };
+				    }
+
+				    //放行的路径
+				    var uri = (url.indexOf("#/home") != -1 ) || (url.indexOf("#/course")!=  -1 ) || (url.indexOf("#/resources")!=  -1 ) ||
+					    (url.indexOf("#/login") != -1 ) ||  (url.indexOf("#/signin") != -1) ||  (url.indexOf("#/info") != -1);
+				    if(!uri ){
+					    seft.permissions();  //权限访问
+				    };
+			    };
+
+			    /**
+			     * 权限说明
+			     */
+			    this.permissions = function(){
+				    var login_name = data.resultObject.login_name;
+				    if(data.success) {
+					    if( login_name == '' || login_name == undefined ){
+						    $("#app").html( template.compile( noPermissionsTpl)({}));
+						    layer.open({
+							    type: 1,
+							    title: false,
+							    skin: 'layui-layer-rim', //加上边框
+							    area: ['500px', '500px'], //宽高
+							    content: popupLoginTpl
+						    });
+						    //加载弹窗登录js文件;
+						    popupLogin.popupLogin();
+					    }
+				    }else {
+					    layer.alert(data.errorMessage);
+				    }
+			    };
+		    }
+
+	    });
 
     }
 

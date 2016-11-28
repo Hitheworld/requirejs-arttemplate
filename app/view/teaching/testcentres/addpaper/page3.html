@@ -1,7 +1,7 @@
 <!--题库导航-->
 <div class="fixed-box">
 	<div class="pagePaper-questions-nav fixed">
-		{{if danXuan}}
+		{{if danXuan != ""}}
 		<div class="questions-nav-title">
 			<h3>单选题</h3>
 			<span>共{{danXuan.totalScore}}分</span>
@@ -16,10 +16,10 @@
 			{{/each}}
 		</ul>
 		{{/if}}
-		{{if duoXuan}}
+		{{if duoXuan != ""}}
 		<div class="questions-nav-title">
 			<h3>多选题</h3>
-			<span>共{{GeneratedPaper.resultObject.duoXuan.totalScore}}分</span>
+			<span>共{{duoXuan.totalScore}}分</span>
 		</div>
 		<ul>
 			{{each duoXuan as value i}}
@@ -31,10 +31,10 @@
 			{{/each}}
 		</ul>
 		{{/if}}
-		{{if panDuan}}
+		{{if panDuan != ""}}
 		<div class="questions-nav-title">
 			<h3>判断题</h3>
-			<span>共{{GeneratedPaper.resultObject.panDuan.totalScore}}分</span>
+			<span>共{{panDuan.totalScore}}分</span>
 		</div>
 		<ul>
 			{{each panDuan as value i}}
@@ -46,10 +46,10 @@
 			{{/each}}
 		</ul>
 		{{/if}}
-		{{if tianKong}}
+		{{if tianKong != ""}}
 		<div class="questions-nav-title">
 			<h3>填空题</h3>
-			<span>共{{GeneratedPaper.resultObject.tianKong.totalScore}}分</span>
+			<span>共{{tianKong.totalScore}}分</span>
 		</div>
 		<ul>
 			{{each tianKong as value i}}
@@ -61,10 +61,10 @@
 			{{/each}}
 		</ul>
 		{{/if}}
-		{{if jianDa}}
+		{{if jianDa != ""}}
 		<div class="questions-nav-title">
 			<h3>简答题</h3>
-			<span>共{{GeneratedPaper.resultObject.jianDa.totalScore}}分</span>
+			<span>共{{jianDa.totalScore}}分</span>
 		</div>
 		<ul>
 			{{each jianDa as value i}}
@@ -82,7 +82,7 @@
 
 <div class="paper-main J-pic-click">
 	<!--page3-单选题-->
-	{{if danXuan}}
+	{{if danXuan != ""}}
 	<div class="pagePaper">
 		<div class="pagePaper-top">
 			<h3>单选题</h3>
@@ -96,14 +96,31 @@
 							<h3 id="nav-daiXuan-{{i}}">{{i+1}}、{{#danXuan.questionContent}}</h3>
 							<div class="facility-value">
 								<ul>
+									{{if danXuan.difficulty == 'A'}}
+									<li class="value-active"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									{{else if danXuan.difficulty == 'B'}}
 									<li class="value-active"></li>
 									<li class="value-active"></li>
 									<li class="value"></li>
 									<li class="value"></li>
+									{{else if danXuan.difficulty == 'C'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value"></li>
+									{{else if danXuan.difficulty == 'D'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									{{/if}}
 								</ul>
 							</div>
 
-							<a class="btn-Change J-btn-Change" href="javascript:void(0);">换题</a>
+							<a class="btn-Change J-btn-Change" data-type="0" data-id="{{danXuan.id}}" href="javascript:void(0);">换题</a>
 						</div>
 						<ul class="title-selete">
 							{{each danXuan.optionsList as options index || danXuan.optionsPictureList as pic}}
@@ -133,7 +150,7 @@
 	<!--end page3-单选题-->
 
 	<!--page3-多选题-->
-	{{if duoXuan}}
+	{{if duoXuan != ""}}
 	<div class="pagePaper">
 		<div class="pagePaper-top">
 			<h3>多选题</h3>
@@ -147,14 +164,31 @@
 							<h3 id="nav-duoXuan-{{i}}">{{i+1}}、{{duoXuan.questionContent}}</h3>
 							<div class="facility-value">
 								<ul>
+									{{if duoXuan.difficulty == 'A'}}
+									<li class="value-active"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									{{else if duoXuan.difficulty == 'B'}}
 									<li class="value-active"></li>
 									<li class="value-active"></li>
 									<li class="value"></li>
 									<li class="value"></li>
+									{{else if duoXuan.difficulty == 'C'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value"></li>
+									{{else if duoXuan.difficulty == 'D'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									{{/if}}
 								</ul>
 							</div>
 
-							<a class="btn-Change J-btn-Change" href="javascript:void(0);">换题</a>
+							<a class="btn-Change J-btn-Change"  data-type="1" data-id="{{duoXuan.id}}" href="javascript:void(0);">换题</a>
 						</div>
 						<ul class="title-selete">
 							{{each duoXuan.options as options index  || duoXuan.optionsPictureList as pic}}
@@ -184,7 +218,7 @@
 	<!--end page3-多选题-->
 
 	<!--page3-判断题-->
-	{{if panDuan}}
+	{{if panDuan != ""}}
 	<div class="pagePaper">
 		<div class="pagePaper-top">
 			<h3>判断题</h3>
@@ -198,14 +232,31 @@
 							<h3  id="nav-panDuan-{{i}}">{{i+1}}、{{panDuan.questionContent}}</h3>
 							<div class="facility-value">
 								<ul>
+									{{if panDuan.difficulty == 'A'}}
+									<li class="value-active"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									{{else if panDuan.difficulty == 'B'}}
 									<li class="value-active"></li>
 									<li class="value-active"></li>
 									<li class="value"></li>
 									<li class="value"></li>
+									{{else if panDuan.difficulty == 'C'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value"></li>
+									{{else if panDuan.difficulty == 'D'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									{{/if}}
 								</ul>
 							</div>
 
-							<a class="btn-Change J-btn-Change" href="javascript:void(0);">换题</a>
+							<a class="btn-Change J-btn-Change" data-type="2" data-id="{{panDuan.id}}" href="javascript:void(0);">换题</a>
 						</div>
 						<ul class="title-selete">
 							<li>
@@ -234,7 +285,7 @@
 	<!--end page3-判断题-->
 
 	<!--page3-填空题-->
-	{{if tianKong}}
+	{{if tianKong != ""}}
 	<div class="pagePaper">
 		<div class="pagePaper-top">
 			<h3>填空题</h3>
@@ -248,14 +299,31 @@
 							<h3  id="nav-tianKong-{{i}}">{{i+1}}、{{#tianKong.questionContent}}</h3>
 							<div class="facility-value">
 								<ul>
+									{{if tianKong.difficulty == 'A'}}
+									<li class="value-active"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									{{else if tianKong.difficulty == 'B'}}
 									<li class="value-active"></li>
 									<li class="value-active"></li>
 									<li class="value"></li>
 									<li class="value"></li>
+									{{else if tianKong.difficulty == 'C'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value"></li>
+									{{else if tianKong.difficulty == 'D'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									{{/if}}
 								</ul>
 							</div>
 
-							<a class="btn-Change J-btn-Change" href="javascript:void(0);">换题</a>
+							<a class="btn-Change J-btn-Change" data-type="3" data-id="{{tianKong.id}}" href="javascript:void(0);">换题</a>
 						</div>
 						<div class="paper-answer">
 							<span class="answer">答案说明:</span><span class="answer-contnet">{{tianKong.solution}}</span>
@@ -270,7 +338,7 @@
 	<!--end page3-填空题-->
 
 	<!--page3-简答题-->
-	{{if jianDa}}
+	{{if jianDa != ""}}
 	<div class="pagePaper">
 		<div class="pagePaper-top">
 			<h3>简答题</h3>
@@ -284,14 +352,31 @@
 							<h3  id="nav-jianDa-{{i}}">{{i+1}}、{{jianDa.questionContent}}</h3>
 							<div class="facility-value">
 								<ul>
+									{{if jianDa.difficulty == 'A'}}
+									<li class="value-active"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									{{else if jianDa.difficulty == 'B'}}
 									<li class="value-active"></li>
 									<li class="value-active"></li>
 									<li class="value"></li>
 									<li class="value"></li>
+									{{else if jianDa.difficulty == 'C'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value"></li>
+									{{else if jianDa.difficulty == 'D'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									{{/if}}
 								</ul>
 							</div>
 
-							<a class="btn-Change J-btn-Change" href="javascript:void(0);">换题</a>
+							<a class="btn-Change J-btn-Change" data-type="4" data-id="{{jianDa.id}}" href="javascript:void(0);">换题</a>
 						</div>
 						<ul class="title-selete">
 							<li>

@@ -1,5 +1,5 @@
 /**
- * 添加作业
+ * 添加试卷---作业
  */
 .addpaper {
   padding: 20px 30px;
@@ -179,7 +179,7 @@
 .addpaper #sliding-form .items .page1 .tree-checkbox {
   width: 378px;
   height: 452px;
-  overflow: auto;
+  overflow-x: hidden;
   border: 1px solid #f0f0f0;
   margin: 0 auto;
 }
@@ -260,40 +260,49 @@
 .addpaper #sliding-form .items .page3 {
   position: relative;
 }
-.addpaper #sliding-form .items .page3 .pagePaper-questions-nav {
-  width: 230px;
-  min-height: 520px;
-  background-color: #f3f3f3;
-  padding: 0px 15px;
+.addpaper #sliding-form .items .page3 .page3-box {
   overflow: hidden;
 }
-.addpaper #sliding-form .items .page3 .pagePaper-questions-nav .questions-nav-title {
+.addpaper #sliding-form .items .page3 .fixed-box {
+  float: right;
+  width: 270px;
+  top: 10px;
+}
+.addpaper #sliding-form .items .page3 .fixed-box .pagePaper-questions-nav {
+  min-height: 520px;
+  background-color: #f3f3f3;
+  overflow: hidden;
+}
+.addpaper #sliding-form .items .page3 .fixed-box .pagePaper-questions-nav .questions-nav-title {
   overflow: hidden;
   margin-bottom: 20px;
   margin-top: 20px;
+  padding: 0 16px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper-questions-nav .questions-nav-title h3 {
+.addpaper #sliding-form .items .page3 .fixed-box .pagePaper-questions-nav .questions-nav-title h3 {
   float: left;
   font-size: 16px;
   color: #333333;
 }
-.addpaper #sliding-form .items .page3 .pagePaper-questions-nav .questions-nav-title span {
+.addpaper #sliding-form .items .page3 .fixed-box .pagePaper-questions-nav .questions-nav-title span {
   float: left;
   font-size: 14px;
   color: #333333;
   margin-top: 3px;
   margin-left: 23px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper-questions-nav ul {
+.addpaper #sliding-form .items .page3 .fixed-box .pagePaper-questions-nav ul {
   overflow: hidden;
-  width: 232px;
+  width: 255px;
   margin-right: -2px;
+  margin-left: 16px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper-questions-nav ul li {
+.addpaper #sliding-form .items .page3 .fixed-box .pagePaper-questions-nav ul li {
   float: left;
   margin-left: 2px;
+  margin-bottom: 2px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper-questions-nav ul li .box-nav {
+.addpaper #sliding-form .items .page3 .fixed-box .pagePaper-questions-nav ul li .box-nav {
   vertical-align: middle;
   display: table-cell;
   *position: absolute;
@@ -303,7 +312,7 @@
   height: 38.6666666px;
   cursor: pointer;
 }
-.addpaper #sliding-form .items .page3 .pagePaper-questions-nav ul li .box-nav a {
+.addpaper #sliding-form .items .page3 .fixed-box .pagePaper-questions-nav ul li .box-nav a {
   display: block;
   width: 100%;
   height: 100%;
@@ -312,128 +321,131 @@
   text-align: center;
   line-height: 36.666666px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper-top {
+.addpaper #sliding-form .items .page3 .fixed-box .pagePaper-top {
   height: 35px;
   line-height: 35px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper-top h3 {
+.addpaper #sliding-form .items .page3 .fixed-box .pagePaper-top h3 {
   font-size: 16px;
   color: #333333;
   font-weight: 600;
 }
-.addpaper #sliding-form .items .page3 .pagePaper {
+.addpaper #sliding-form .items .page3 .paper-main {
   width: 860px;
   float: left;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper {
   width: 100%;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content {
+  width: 100%;
+}
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li {
   overflow: hidden;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box {
   padding-bottom: 40px;
   border-bottom: 1px solid #f0f0f0;
   padding-top: 20px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box.no-border-bottom {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box.no-border-bottom {
   border: none;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title {
   display: block;
   overflow: hidden;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 {
   float: left;
   display: block;
   color: #36b773;
   font-size: 16px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title.tianKong-title input {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title.tianKong-title input {
   width: auto;
   height: 22px;
   border: none;
   border-bottom: 1px solid #999999;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value {
   float: left;
   margin-top: 10px;
   margin-left: 10px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul {
   overflow: hidden;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li {
   display: block;
   float: left;
   width: 12px;
   height: 6px;
   margin-right: 2px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value-active {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value-active {
   background: #2db871;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value {
   background: #dcdcdc;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .btn-Change {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .btn-Change {
   float: right;
   cursor: pointer;
   font-size: 16px;
   color: #279ee9;
   font-weight: 600;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete {
   display: block;
   margin-left: 30px;
   margin-top: 20px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li {
   display: block;
   min-height: 40px;
   line-height: 40px;
   color: #333333;
   cursor: pointer;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box {
   overflow: hidden;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box input {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box input {
   float: left;
   width: 20px;
   height: 20px;
   margin-top: 10px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box label {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box label {
   float: right;
   width: 95%;
   font-size: 14px;
   cursor: pointer;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box {
   overflow: hidden;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box span {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box span {
   float: left;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box p {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box p {
   float: left;
   width: 800px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li:hover {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li:hover {
   background: #eafff1;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer {
   overflow: hidden;
   color: #333333;
   font-size: 16px;
   margin-top: 16px;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer {
   float: left;
   font-weight: 600;
 }
-.addpaper #sliding-form .items .page3 .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet {
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet {
   float: left;
 }
 .addpaper #sliding-form .items .btn_nav {
@@ -498,47 +510,82 @@
 }
 .page3-Change .Change-box .Change-search {
   margin-bottom: 30px;
-}
-.page3-Change .Change-box .Change-search ul {
   overflow: hidden;
 }
-.page3-Change .Change-box .Change-search ul li {
+.page3-Change .Change-box .Change-search ul.searchBox-ul {
+  overflow: hidden;
+}
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li {
   float: left;
   height: 35px;
   margin-right: 22px;
 }
-.page3-Change .Change-box .Change-search ul li select {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li select {
   float: left;
   width: 146px;
   height: 100%;
   border: 1px solid #f0f0f0;
 }
-.page3-Change .Change-box .Change-search ul li label {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li label {
   float: left;
   display: block;
   height: 100%;
   line-height: 35px;
   text-align: left;
 }
-.page3-Change .Change-box .Change-search ul li.search-difficulty-li {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-difficulty-li {
   overflow: hidden;
 }
-.page3-Change .Change-box .Change-search ul li.search-difficulty-li label {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-difficulty-li label {
   width: 40px;
 }
-.page3-Change .Change-box .Change-search ul li.search-topic-li {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-topic-li {
   overflow: hidden;
 }
-.page3-Change .Change-box .Change-search ul li.search-topic-li label {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-topic-li label {
   width: 68px;
 }
-.page3-Change .Change-box .Change-search ul li.search-so-li {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-topic-li .down-input {
+  width: 146px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #f0f0f0;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-topic-li i.close-Ztree {
+  display: none;
+  position: absolute;
+  top: 141px;
+  right: 255px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+}
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-topic-li .down-box {
+  display: none;
+  position: absolute;
+  top: 135px;
+  left: 295px;
+  width: 330px;
+  height: 450px;
+  border: 1px solid #f0f0f0;
+  z-index: 9;
+  background: #ffffff;
+  overflow: auto;
+  padding: 0px 30px;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-so-li {
   float: right;
   width: 290px;
   margin-right: 0px;
   position: relative;
 }
-.page3-Change .Change-box .Change-search ul li.search-so-li input {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-so-li input {
   width: 250px;
   margin-left: -12px;
   height: 32px;
@@ -548,7 +595,7 @@
   padding-right: 40px;
   border-radius: 2px;
 }
-.page3-Change .Change-box .Change-search ul li.search-so-li .so-box {
+.page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-so-li .so-box {
   width: 34px;
   height: 32px;
   border: none;
@@ -557,7 +604,7 @@
   background-position: 1px -4px;
   cursor: pointer;
   position: absolute;
-  top: 2px;
+  top: 1px;
   right: 2px;
 }
 .page3-Change .Change-box .Change-cont {

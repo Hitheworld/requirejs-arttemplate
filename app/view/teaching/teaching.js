@@ -19,7 +19,7 @@ define(['template',
 			  myclass,
 	          common,api) {
 
-		function createPage(page,childpage,pagenumber) {
+		function createPage(page,childpage,pageType,exampPaperId) {
 			document.title = "博学谷·院校-教师端考试中心";
 			$("#content").html(template.compile( teachingTpl)());
 			//设置导航的active
@@ -32,12 +32,13 @@ define(['template',
 				}
 			});
 
+
 			//处理本页面与子页面
-			this.TeachingRightContent = function(page,childpage,pagenumber){
+			this.TeachingRightContent = function(page,childpage,pageType,exampPaperId){
 				require( ['tplUrl/teaching/'+page+'/'+page], function (m) {
-					m.createPage(page,childpage,pagenumber);
+					m.createPage(page,childpage,pageType,exampPaperId);
 					if(childpage != undefined) {
-						m.childCreatePage(page,childpage,pagenumber);
+						m.childCreatePage(page,childpage,pageType,exampPaperId);
 					}
 				});
 			};

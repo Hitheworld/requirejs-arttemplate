@@ -184,7 +184,7 @@
                 .tree-checkbox {
                     width: 378px;
                     height: 452px;
-                    overflow: auto;
+                    overflow-x: hidden; 
                     border: 1px solid #f0f0f0;
                     margin: 0 auto;
                 }
@@ -307,6 +307,7 @@
                             li {
                                 float: left;
                                 margin-left: 2px;
+                                margin-bottom: 2px;
                                 .box-nav {
                                     vertical-align: middle;    
                                     display: table-cell;    
@@ -551,9 +552,9 @@
         .Change-search {
             margin-bottom: 30px;
             overflow: hidden;
-            ul {
+            ul.searchBox-ul {
                 overflow: hidden;
-                li {
+                li.searchBox-li {
                     float: left;
                     height: 35px;
                     margin-right: 22px;
@@ -590,6 +591,15 @@
                             background: #FFFFFF;
                             cursor: pointer;
                         }
+                        i.close-Ztree {
+                            display: none;
+                            position: absolute;
+                            top: 141px;
+                            right: 255px;
+                            font-size: 28px;
+                            cursor: pointer;
+                            z-index: 10;
+                        }
                         .down-box {
                             display: none;
                             position: absolute;
@@ -598,7 +608,7 @@
                             width: 330px;
                             height: 450px;
                             border: 1px solid #f0f0f0;
-                            z-index: 9999999;
+                            z-index: 9;
                             background: #ffffff;
                             overflow: auto;
                             padding: 0px 30px;
@@ -606,13 +616,7 @@
                             text-overflow: ellipsis;
                             white-space: nowrap;
                             overflow-x: hidden;
-                            i {
-                                position: absolute;
-                                top: 10px;
-                                right: 30px;
-                                font-size: 28px;
-                                cursor: pointer;
-                            }
+                            
                         }
                     }
                     &.search-so-li {

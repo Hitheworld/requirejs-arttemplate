@@ -27,10 +27,10 @@ define(['template',
 			common.syncRequest('bxg/user/certification', "GET", {
 				teacherId:$(".home-user-name").attr("data-id")
 			}, function (data, state) {
-				if (data.resultObject[0].indenty_status != 2) {
+				if (data.resultObject[0].indenty_status == 2) {
 					$("#teaccert").html(template.compile(successTeaccertTpl)(data));
 					$(".success-teaccert-pic img").attr("src",data.resultObject[0].certification_img);
-					$("#name").val(data.resultObject[0].name);
+					$("#name").val(data.resultObject[0].nam*e);
 					if (data.resultObject[0].sex == 0) {
 						$("#sex").text("女");
 					}else {

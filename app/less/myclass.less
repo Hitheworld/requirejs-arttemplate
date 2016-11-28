@@ -35,7 +35,13 @@
   .myClass_student_header {
     height: 38px;
     border-bottom: 1px solid #f0f0f0;
-    span {
+    border-radius: 0;
+    button{
+      height: 30px;
+      line-height: 30px;
+      background-color: #39b674;
+    }
+    span,.myClass_student_header_span1 {
       display: inline-block;
       font-size: 13px;
       border-left: 2px solid #e8e8e8;
@@ -44,6 +50,9 @@
       & + span {
         margin-left: 20px;
       }
+    }
+    .myClass_student_header_span2{
+      border-left: 2px solid #fff;
     }
     span:first-child {
       border-left: none;
@@ -80,18 +89,134 @@
       border: 1px solid #39b674;
       color: #fff;
     }
-    &+div{
-      .myClass_table {
-        margin-top: 10px;
-        margin-bottom: 40px;
-        width: 100%;
-        border: 1px solid #e6e6e6;
-        text-align: center;
-        th {
-          color: #39b674;
+  }
+  .myClass_student_header2{
+    .myClass_student_header2_dv{
+      display: inline-block;
+      span:first-child{
+        .myClass_student_header2_span1_X{
+          display: none;
         }
-        tr {
-          height: 39px;
+        &+span{
+          .myClass_student_header2_span1_X{
+            display: none;
+          }
+          &+span{
+            .myClass_student_header2_span1_X{
+              display: none;
+            }
+            &+span{
+              position: relative;
+              .myClass_student_header2_span1_X{
+                display: none;
+                position: absolute;
+                top: 10px;
+                right: 2px;
+                width: 15px;
+                height: 15px;
+                color: #fff;
+                background-color: #ff5f5d;
+                border-radius: 50%;
+                line-height: 15px;
+              }
+              &:hover{
+                .myClass_student_header2_span1_X{
+                  display: block;
+                }
+              }
+              &+span{
+                position: relative;
+                .myClass_student_header2_span1_X{
+                  display: none;
+                  position: absolute;
+                  top: 10px;
+                  right: 2px;
+                  width: 15px;
+                  height: 15px;
+                  color: #fff;
+                  background-color: #ff5f5d;
+                  border-radius: 50%;
+                  line-height: 15px;
+                }
+                &:hover{
+                  .myClass_student_header2_span1_X{
+                    display: block;
+                  }
+                }
+                &+span{
+                  position: relative;
+                  .myClass_student_header2_span1_X{
+                    display: none;
+                    position: absolute;
+                    top: 10px;
+                    right: 2px;
+                    width: 15px;
+                    height: 15px;
+                    color: #fff;
+                    background-color: #ff5f5d;
+                    border-radius: 50%;
+                    line-height: 15px;
+                  }
+                  &:hover{
+                    .myClass_student_header2_span1_X{
+                      display: block;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .myClass_student_header2_span1{
+      display: inline-block;
+      text-align: center;
+      min-width: 69px;
+      margin-right: 20px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      height: 36px;
+      background-color: #fff;
+      color: #000;
+      border: 1px solid #f1f1f1;
+      border-radius: 25%;
+      line-height: 35px;
+      &:hover{
+        background-color: #36b774;
+        border: 1px solid #39b674;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+    .myClass_student_header2_this{
+      background-color: #36b774;
+      border: 1px solid #39b674;
+      color: #fff;
+    }
+    .myClass_student_header2_span2{
+
+    }
+  }
+  div{
+    .myClass_table {
+      margin-top: 10px;
+      margin-bottom: 40px;
+      width: 100%;
+      border: 1px solid #e6e6e6;
+      text-align: center;
+      th {
+        color: #39b674;
+      }
+      tr {
+        height: 39px;
+        td:first-child{
+          text-align: left;
+          text-indent: 15px;
+          input{
+            float: left;
+            margin-left: 15px;
+          }
         }
       }
     }
@@ -154,6 +279,13 @@
   }
 }
 
+.Add_the_student_select{
+  width: 100%;
+  min-height: 36px;
+  font-size: 13px;
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+}
 .school-box {
   position: relative;
   width: 100%;
@@ -190,4 +322,13 @@
       }
     }
   }
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

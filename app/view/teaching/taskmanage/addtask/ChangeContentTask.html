@@ -1,0 +1,512 @@
+<ul class="Change-cont-title-ul">
+	<li class="Change-cont-ul-li">
+		<h1>试题名称</h1>
+	</li>
+	<li class="Change-table-topic">
+		<h1>知识点</h1>
+	</li>
+	<li class="Change-table-traits">
+		<h1>题型</h1>
+	</li>
+	<li class="Change-table-difficulty">
+		<h1>难度</h1>
+	</li>
+	<li class="Change-table-operation">
+		<h1>操作</h1>
+	</li>
+</ul>
+
+
+{{if questionType == 0}}
+
+<!--1/单选题-->
+{{each ChangeDB as danXuan i}}
+<div class="table-body">
+	<ul class="Change-cont-ul">
+		<!--试题名称-->
+		<li class="Change-cont-ul-li">
+			<div class="Change-cont-ul-li-table">
+				<input type="radio" name="subject" value="{{danXuan.id}}" id="danXuan-{{danXuan.id}}" />
+				<label for="danXuan-{{danXuan.id}}">{{danXuan.questionContent}}</label>
+			</div>
+		</li>
+		<!--end试题名称-->
+		<!--知识点-->
+		<li class="Change-table-topic">
+			{{danXuan.kpointName}}
+		</li>
+		<!--end知识点-->
+		<!--题型-->
+		<li class="Change-table-traits">
+			{{if danXuan.questionType == '0'}}
+			单选题
+			{{else if danXuan.questionType == '1'}}
+			多选题
+			{{else if danXuan.questionType == '2'}}
+			判断题
+			{{else if danXuan.questionType == '3'}}
+			填空题
+			{{else if danXuan.questionType == '4'}}
+			简答题
+			{{/if}}
+		</li>
+		<!--end题型-->
+		<!--难度-->
+		<li class="Change-table-difficulty">
+			<div class="facility-value">
+				<ul>
+					{{if danXuan.difficulty == 'A'}}
+					<li class="value-active"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					{{else if danXuan.difficulty == 'B'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					{{else if danXuan.difficulty == 'C'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value"></li>
+					{{else if danXuan.difficulty == 'D'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					{{/if}}
+				</ul>
+			</div>
+		</li>
+		<!--end难度-->
+		<!--操作-->
+		<li class="Change-table-operation">
+			<i class="fa fa-bars J-btn-toggle" aria-hidden="true"></i>
+		</li>
+		<!--end操作-->
+	</ul>
+	<div class="box">
+		<!-- 题库 -->
+		<ul class="pagePaper-content-questions">
+			<li>
+				<div class="pagePaper-content-box">
+					<div class="title">
+						<p>{{danXuan.questionContent}}</p>
+					</div>
+					<ul class="title-selete">
+						{{each danXuan.optionsList as optionsList index}}
+						<li>
+							<div class="title-selete-box">
+								<input type="radio" name="subject" id="subject{{i}}-{{index}}" />
+								<label for="subject{{i}}-{{index}}">{{optionsList}}</label>
+							</div>
+						</li>
+						{{/each}}
+					</ul>
+					<div class="paper-answer">
+						<span class="answer">答案说明:</span><span class="answer-contnet">{{danXuan.solution}}</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<!-- end题库 -->
+	</div>
+</div>
+{{/each}}
+<!--end--1/单选题-->
+
+{{else if questionType == 1}}
+
+<!--1/多选题-->
+{{each ChangeDB as duoXuan i}}
+<div class="table-body">
+	<ul class="Change-cont-ul">
+		<!--试题名称-->
+		<li class="Change-cont-ul-li">
+			<div class="Change-cont-ul-li-table">
+				<input type="radio" name="subject" value="{{duoXuan.id}}" id="duoXuan-{{danXuan.id}}" />
+				<label for="duoXuan-{{danXuan.id}}">{{duoXuan.questionContent}}</label>
+			</div>
+		</li>
+		<!--end试题名称-->
+		<!--知识点-->
+		<li class="Change-table-topic">
+			{{duoXuan.topic}}
+		</li>
+		<!--end知识点-->
+		<!--题型-->
+		<li class="Change-table-traits">
+			{{if duoXuan.questionType == '0'}}
+			单选题
+			{{else if duoXuan.questionType == '1'}}
+			多选题
+			{{else if duoXuan.questionType == '2'}}
+			判断题
+			{{else if duoXuan.questionType == '3'}}
+			填空题
+			{{else if duoXuan.questionType == '4'}}
+			简答题
+			{{/if}}
+		</li>
+		<!--end题型-->
+		<!--难度-->
+		<li class="Change-table-difficulty">
+			<div class="facility-value">
+				<ul>
+					{{if duoXuan.difficulty == 'A'}}
+					<li class="value-active"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					{{else if duoXuan.difficulty == 'B'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					{{else if duoXuan.difficulty == 'C'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value"></li>
+					{{else if duoXuan.difficulty == 'D'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					{{/if}}
+				</ul>
+			</div>
+		</li>
+		<!--end难度-->
+		<!--操作-->
+		<li class="Change-table-operation">
+			<i class="fa fa-bars J-btn-toggle" aria-hidden="true"></i>
+		</li>
+		<!--end操作-->
+	</ul>
+	<div class="box">
+		<!-- 题库 -->
+		<ul class="pagePaper-content-questions">
+			<li>
+				<div class="pagePaper-content-box">
+					<div class="title">
+						<p>{{duoXuan.questionContent}}</p>
+					</div>
+					<ul class="title-selete">
+						{{each duoXuan.optionsList as optionsList index}}
+						<li>
+							<div class="title-selete-box">
+								<input type="checkbox" name="duoXuan" id="duoXuan-{{i}}-{{index}}" />
+								<label for="duoXuan-{{i}}-{{index}}">{{optionsList}}</label>
+							</div>
+						</li>
+						{{/each}}
+					</ul>
+					<div class="paper-answer">
+						<span class="answer">答案说明:</span><span class="answer-contnet">{{duoXuan.answer}}</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<!-- end题库 -->
+	</div>
+</div>
+{{/each}}
+<!--end--1/多选题-->
+
+
+{{else if questionType == 2}}
+
+
+<!--1/判断题-->
+{{each ChangeDB as panDuan i}}
+<div class="table-body">
+	<ul class="Change-cont-ul">
+		<!--试题名称-->
+		<li class="Change-cont-ul-li">
+			<div class="Change-cont-ul-li-table">
+				<input type="radio" name="subject"  value="{{panDuan.id}}" id="panDuan-{{panDuan.id}}" />
+				<label for="panDuan-{{panDuan.id}}">{{panDuan.questionContent}}</label>
+			</div>
+		</li>
+		<!--end试题名称-->
+		<!--知识点-->
+		<li class="Change-table-topic">
+			{{panDuan.kpointName}}
+		</li>
+		<!--end知识点-->
+		<!--题型-->
+		<li class="Change-table-traits">
+			{{if panDuan.questionType == '0'}}
+			单选题
+			{{else if panDuan.questionType == '1'}}
+			多选题
+			{{else if panDuan.questionType == '2'}}
+			判断题
+			{{else if panDuan.questionType == '3'}}
+			填空题
+			{{else if panDuan.questionType == '4'}}
+			简答题
+			{{/if}}
+		</li>
+		<!--end题型-->
+		<!--难度-->
+		<li class="Change-table-difficulty">
+			<div class="facility-value">
+				<ul>
+					{{if panDuan.difficulty == 'A'}}
+					<li class="value-active"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					{{else if panDuan.difficulty == 'B'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					{{else if panDuan.difficulty == 'C'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value"></li>
+					{{else if panDuan.difficulty == 'D'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					{{/if}}
+				</ul>
+			</div>
+		</li>
+		<!--end难度-->
+		<!--操作-->
+		<li class="Change-table-operation">
+			<i class="fa fa-bars J-btn-toggle" aria-hidden="true"></i>
+		</li>
+		<!--end操作-->
+	</ul>
+	<div class="box">
+		<!-- 题库 -->
+		<ul class="pagePaper-content-questions">
+			<li>
+				<div class="pagePaper-content-box">
+					<div class="title">
+						<p>{{panDuan.questionContent}}</p>
+					</div>
+					<ul class="title-selete">
+						<li>
+							<div class="title-selete-box">
+								<input type="radio" name="subject" id="panDuan{{i}}-{{index}}-yes" />
+								<label for="panDuan{{i}}-{{index}}-yes">对</label>
+							</div>
+						</li>
+						<li>
+							<div class="title-selete-box">
+								<input type="radio" name="subject" id="panDuan{{i}}-{{index}}-no" />
+								<label for="panDuan{{i}}-{{index}}-no">错</label>
+							</div>
+						</li>
+					</ul>
+					<div class="paper-answer">
+						<span class="answer">答案说明:</span><span class="answer-contnet">{{panDuan.answer}}</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<!-- end题库 -->
+	</div>
+</div>
+{{/each}}
+<!--end--1/判断题-->
+
+
+{{else if questionType == 3}}
+
+
+
+<!--1/填空题-->
+{{each tianKong as tianKong i}}
+<div class="table-body">
+	<ul class="Change-cont-ul">
+		<!--试题名称-->
+		<li class="Change-cont-ul-li">
+			<div class="Change-cont-ul-li-table">
+				<input type="radio" name="subject"  value="{{tianKong.id}}" id="tianKong-{{tianKong.id}}" />
+				<label for="tianKong-{{tianKong.id}}">{{#tianKong.questionContent}}</label>
+			</div>
+		</li>
+		<!--end试题名称-->
+		<!--知识点-->
+		<li class="Change-table-topic">
+			{{tianKong.kpointName}}
+		</li>
+		<!--end知识点-->
+		<!--题型-->
+		<li class="Change-table-traits">
+			{{if tianKong.questionType == '0'}}
+			单选题
+			{{else if tianKong.questionType == '1'}}
+			多选题
+			{{else if tianKong.questionType == '2'}}
+			判断题
+			{{else if tianKong.questionType == '3'}}
+			填空题
+			{{else if tianKong.questionType == '4'}}
+			简答题
+			{{/if}}
+		</li>
+		<!--end题型-->
+		<!--难度-->
+		<li class="Change-table-difficulty">
+			<div class="facility-value">
+				<ul>
+					{{if tianKong.difficulty == 'A'}}
+					<li class="value-active"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					{{else if tianKong.difficulty == 'B'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					{{else if tianKong.difficulty == 'C'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value"></li>
+					{{else if tianKong.difficulty == 'D'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					{{/if}}
+				</ul>
+			</div>
+		</li>
+		<!--end难度-->
+		<!--操作-->
+		<li class="Change-table-operation">
+			<i class="fa fa-bars J-btn-toggle" aria-hidden="true"></i>
+		</li>
+		<!--end操作-->
+	</ul>
+	<div class="box">
+		<!-- 题库 -->
+		<ul class="pagePaper-content-questions">
+			<li>
+				<div class="pagePaper-content-box">
+					<div class="title">
+						<p>{{#tianKong.questionContent}}</p>
+					</div>
+					<div class="paper-answer">
+						<span class="answer">答案说明:</span><span class="answer-contnet">{{tianKong.answer}}</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<!-- end题库 -->
+	</div>
+</div>
+{{/each}}
+<!--end--1/填空题-->
+
+{{else if questionType == 4}}
+
+
+<!--1/简答题-->
+{{each ChangeDB as jianDa i}}
+<div class="table-body">
+	<ul class="Change-cont-ul">
+		<!--试题名称-->
+		<li class="Change-cont-ul-li">
+			<div class="Change-cont-ul-li-table">
+				<input type="radio" name="subject"  value="{{jianDa.id}}" id="jianDa-{{jianDa.id}}" />
+				<label for="jianDa-{{jianDa.id}}">{{jianDa.questionContent}}</label>
+			</div>
+		</li>
+		<!--end试题名称-->
+		<!--知识点-->
+		<li class="Change-table-topic">
+			{{jianDa.kpointName}}
+		</li>
+		<!--end知识点-->
+		<!--题型-->
+		<li class="Change-table-traits">
+			{{if jianDa.questionType == '0'}}
+			单选题
+			{{else if jianDa.questionType == '1'}}
+			多选题
+			{{else if jianDa.questionType == '2'}}
+			判断题
+			{{else if jianDa.questionType == '3'}}
+			填空题
+			{{else if jianDa.questionType == '4'}}
+			简答题
+			{{/if}}
+		</li>
+		<!--end题型-->
+		<!--难度-->
+		<li class="Change-table-difficulty">
+			<div class="facility-value">
+				<ul>
+					{{if jianDa.difficulty == 'A'}}
+					<li class="value-active"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					{{else if jianDa.difficulty == 'B'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					{{else if jianDa.difficulty == 'C'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value"></li>
+					{{else if jianDa.difficulty == 'D'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					{{/if}}
+				</ul>
+			</div>
+		</li>
+		<!--end难度-->
+		<!--操作-->
+		<li class="Change-table-operation">
+			<i class="fa fa-bars J-btn-toggle" aria-hidden="true"></i>
+		</li>
+		<!--end操作-->
+	</ul>
+	<div class="box">
+		<!-- 题库 -->
+		<ul class="pagePaper-content-questions">
+			<li>
+				<div class="pagePaper-content-box">
+					<div class="title">
+						<p>{{jianDa.questionContent}}</p>
+					</div>
+					<ul class="title-selete">
+						<li>
+							<div class="title-selete-box jianDa-selete-box">
+								<span>答案:</span><p>{{jianDa.answer}}</p>
+							</div>
+						</li>
+					</ul>
+					<div class="paper-answer">
+						<span class="answer">答案说明:</span><span class="answer-contnet">{{jianDa.solution}}</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<!-- end题库 -->
+	</div>
+</div>
+{{/each}}
+<!--end--1/简答题-->
+
+{{/if}}

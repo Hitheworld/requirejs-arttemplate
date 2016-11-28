@@ -32,14 +32,7 @@
      }
      .markexampapers-cont {
 
-       table.dataTable thead tr th,table.dataTable tbody tr td {
-         &.name {
-           padding-left: 10px !important;
-         }
-         &.operation {
-           padding-right: 10px !important;
-         }
-       }
+
        .dataTables_wrapper {
          .dataTables_paginate {
            margin-top: 20px;
@@ -70,7 +63,43 @@
    }
 }
 
+button{
+  a{
+    color: #fff;
+  }
+  &:hover{
+    a{
+      display: block;
+      color: #fff;
+    }
+  }
+}
 
+.myClass_table {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  width: 100%;
+  border: 1px solid #e6e6e6;
+  text-align: center;
+  th {
+    color: #39b674;
+    border: 1px solid #e6e6e6;
+  }
+  tr {
+    height: 39px;
+    td:first-child{
+      text-align: left;
+      text-indent: 15px;
+      input{
+        float: left;
+        margin-left: 15px;
+      }
+    }
+    td{
+      border: 1px solid #e6e6e6;
+    }
+  }
+}
 
 
 //空文件夹

@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
 <div class="addTestPaper">
 	<div class="addTestPaper-box">
 		<div class="addTestPaper-body">
@@ -7,38 +15,34 @@
 						<div class="item-box">
 							<label for="organizepaper-peper-difficulty">难度：</label>
 							<select id="organizepaper-peper-difficulty">
-								<option>全部</option>
-								<option>全部</option>
-								<option>全部</option>
-								<option>全部</option>
+								<option value="">全部</option>
+								<option value="A">简单</option>
+								<option value="B">一般</option>
+								<option value="C">较难</option>
+								<option value="D">难</option>
 							</select>
 						</div>
 					</li>
 				</ul>
 			</div>
-			<table id="addTestPaperTable" class="display" cellspacing="0" width="100%">
-				<thead>
-				<tr>
-					<th></th>
-					<th>试卷名称</th>
-					<th>难度</th>
-					<th>满分</th>
-					<th>时长</th>
-					<th>操作</th>
-				</tr>
-				</thead>
-			</table>
+			<div id="addTestPaperTable"></div>
+			<div id="page"></div>
 
 			<div class="addTestPaperButtom">
 				<ul>
 					<li>
-						<button type="submit" class="submit">确定</button>
+						<button type="submit" class="submit" id="transmit">确定</button>
 					</li>
 					<li>
-						<button type="button" class="cancel">取消</button>
+						<button type="button" class="cancel layui-layer-close">取消</button>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+</body>
+</html>
+

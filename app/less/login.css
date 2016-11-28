@@ -197,6 +197,268 @@ table.dataTable td.select-checkbox::after {
   position: fixed;
 }
 /* take the positioning of the sidebar, and become the start point for the sidebar positioning */
+/**
+     * ul 表格
+ */
+.table {
+  border: 1px solid #f0f0f0;
+  border-bottom: none;
+}
+.table .table-tr {
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.table .table-tr.odd {
+  background-color: #FFFFFF;
+}
+.table .table-tr.even {
+  background-color: #f2fcf7;
+}
+.table .table-tr .table-th,
+.table .table-tr .table-td {
+  float: left;
+  width: auto;
+  height: 100%;
+}
+.facility-value {
+  float: left;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.facility-value ul {
+  overflow: hidden;
+}
+.facility-value ul li {
+  display: block;
+  float: left;
+  width: 12px;
+  height: 6px;
+  margin-right: 2px;
+}
+.facility-value ul li.value-active {
+  background: #2db871;
+}
+.facility-value ul li.value {
+  background: #dcdcdc;
+}
+.fixed-box {
+  float: right;
+  width: 270px;
+  top: 10px;
+}
+.fixed-box .pagePaper-questions-nav {
+  min-height: 520px;
+  background-color: #f3f3f3;
+  overflow: hidden;
+}
+.fixed-box .pagePaper-questions-nav .questions-nav-title {
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 0 16px;
+}
+.fixed-box .pagePaper-questions-nav .questions-nav-title h3 {
+  float: left;
+  font-size: 16px;
+  color: #333333;
+}
+.fixed-box .pagePaper-questions-nav .questions-nav-title span {
+  float: left;
+  font-size: 14px;
+  color: #333333;
+  margin-top: 3px;
+  margin-left: 23px;
+}
+.fixed-box .pagePaper-questions-nav ul {
+  overflow: hidden;
+  width: 255px;
+  margin-right: -2px;
+  margin-left: 16px;
+}
+.fixed-box .pagePaper-questions-nav ul li {
+  float: left;
+  margin-left: 2px;
+  margin-bottom: 2px;
+}
+.fixed-box .pagePaper-questions-nav ul li .box-nav {
+  vertical-align: middle;
+  display: table-cell;
+  *position: absolute;
+  *top: 50%;
+  background-color: #FFFFFF;
+  width: 36.6666666px;
+  height: 38.6666666px;
+  cursor: pointer;
+}
+.fixed-box .pagePaper-questions-nav ul li .box-nav a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  color: #333333;
+  text-align: center;
+  line-height: 36.666666px;
+}
+.fixed-box .pagePaper-top {
+  height: 35px;
+  line-height: 35px;
+}
+.fixed-box .pagePaper-top h3 {
+  font-size: 16px;
+  color: #333333;
+  font-weight: 600;
+}
+.paper-main {
+  width: 882px;
+  float: left;
+}
+.paper-main .pagePaper {
+  width: 100%;
+}
+.paper-main .pagePaper .pagePaper-top {
+  overflow: hidden;
+  height: 38px;
+  line-height: 38px;
+  border-bottom: 1px #f0f0f0 solid;
+}
+.paper-main .pagePaper .pagePaper-top h3 {
+  float: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+}
+.paper-main .pagePaper .pagePaper-top .scoreBox {
+  float: right;
+  text-align: right;
+}
+.paper-main .pagePaper .pagePaper-top .scoreBox span {
+  font-size: 14px;
+  color: #333333;
+}
+.paper-main .pagePaper .pagePaper-content {
+  width: 100%;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li {
+  overflow: hidden;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-top: 20px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box.no-border-bottom {
+  border: none;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title {
+  display: block;
+  overflow: hidden;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 {
+  float: left;
+  display: block;
+  color: #36b773;
+  font-size: 16px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title.tianKong-title input {
+  width: auto;
+  height: 22px;
+  border: none;
+  border-bottom: 1px solid #999999;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul {
+  overflow: hidden;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li {
+  display: block;
+  float: left;
+  width: 12px;
+  height: 6px;
+  margin-right: 2px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value-active {
+  background: #2db871;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value {
+  background: #dcdcdc;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .btn-Change {
+  float: right;
+  cursor: pointer;
+  font-size: 16px;
+  color: #279ee9;
+  font-weight: 600;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete {
+  display: block;
+  margin-left: 25px;
+  margin-top: 20px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete img {
+  width: 200px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li {
+  display: block;
+  min-height: 40px;
+  line-height: 40px;
+  color: #333333;
+  cursor: pointer;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box {
+  overflow: hidden;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box input {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box label {
+  float: right;
+  width: 95%;
+  font-size: 14px;
+  cursor: pointer;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box {
+  overflow: hidden;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box span {
+  float: left;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box p {
+  float: left;
+  width: 800px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li:hover {
+  background: #eafff1;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer {
+  overflow: hidden;
+  color: #333333;
+  font-size: 16px;
+  margin-top: 16px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer {
+  float: left;
+  font-weight: 600;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet {
+  float: left;
+}
+.noPermissions {
+  width: 1200px;
+  height: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  color: #333333;
+}
 .myLogin {
   width: 100%;
   overflow: hidden;

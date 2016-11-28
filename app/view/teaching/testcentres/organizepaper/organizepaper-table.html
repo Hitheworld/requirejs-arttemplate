@@ -1,0 +1,93 @@
+<div class="table">
+	<ul class="table-tr">
+		<li class="table-th paperName">
+			<h1>试卷名称</h1>
+		</li>
+		<li class="table-th difficulty">
+			<h1>难度</h1>
+		</li>
+		<li class="table-th courseName">
+			<h1>关联课程</h1>
+		</li>
+		<li class="table-th hots">
+			<h1>热度（次）</h1>
+		</li>
+		<li class="table-th createTime">
+			<h1>创建时间</h1>
+		</li>
+		<li class="table-th operation">
+			<h1>操作</h1>
+		</li>
+	</ul>
+	{{each TestPager as TestPager i}}
+	<ul class="table-tr">
+		<!--试卷名称-->
+		<li class="table-td paperName">
+			{{TestPager.paperName}}
+		</li>
+		<!--end试题名称-->
+		<!--难度-->
+		<li class="table-td difficulty">
+			<div class="facility-value">
+				<ul>
+					{{if TestPager.difficulty == 'A'}}
+					<li class="value-active"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					{{else if TestPager.difficulty == 'B'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value"></li>
+					<li class="value"></li>
+					{{else if TestPager.difficulty == 'C'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value"></li>
+					{{else if TestPager.difficulty == 'D'}}
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					<li class="value-active"></li>
+					{{/if}}
+				</ul>
+			</div>
+		</li>
+		<!--end难度-->
+		<!--关联课程-->
+		<li class="table-td courseName">
+			{{TestPager.courseName}}
+		</li>
+		<!--end关联课程-->
+		<!--热度（次）-->
+		<li class="table-td hots">
+			{{TestPager.hots}}
+		</li>
+		<!--end热度（次）-->
+		<!--创建时间-->
+		<li class="table-td createTime">
+			{{TestPager.createTime}}
+		</li>
+		<!--end创建时间-->
+		<!--操作-->
+		<li class="table-td operation">
+			<div class="operation-icon">
+				<a href="#/teaching/testcentres/preview/toview/{{TestPager.id}}" title="查看">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				</a>
+				<a href="#/teaching/testcentres/addpaper/edit/{{TestPager.id}}" title="编辑">
+					<i class="fa fa-pencil" aria-hidden="true"></i>
+				</a>
+				<a href="javascript:void(0);" title="下载">
+					<i class="fa fa-download" aria-hidden="true"></i>
+				</a>
+				<a href="javascript:void(0);" class="J-delete" data-id="{{TestPager.id}}" title="删除">
+					<i class="fa fa-trash-o" aria-hidden="true"></i>
+				</a>
+			</div>
+		</li>
+		<!--end操作-->
+	</ul>
+	{{/each}}
+</div>

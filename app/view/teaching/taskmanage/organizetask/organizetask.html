@@ -1,55 +1,57 @@
-<!--组织作业-->
+<!--组织试卷-->
 <div class="organizepaper">
 	<div class="organizepaper-body">
 
 		<div class="content-title">
-			<h3>组织作业</h3>
-			<button type="button" class="layui-btn create-test-btn" onclick="javascript: location.href = '#/teaching/taskmanage/addtask';"><i class="layui-icon">&#xe61f;</i>组作业卷</button>
+			<h3>组织试卷</h3>
+			<button type="button" class="layui-btn create-test-btn" onclick="javascript: location.href = '#/teaching/taskmanage/addtask';"><i class="fa fa-list-alt" aria-hidden="true"></i>添加试卷</button>
 		</div>
 
 		<div class="content-body" id="paperHtml">
 			<div class="organizepaper-contnet">
 				<div class="organizepaper-header">
-					<ul>
-						<li>
-							<div class="item-box">
-								<label for="organizepaper-peper-difficulty">试卷难度：</label>
-								<select id="organizepaper-peper-difficulty">
-									<option>全部</option>
-									<option>全部</option>
-									<option>全部</option>
-									<option>全部</option>
-								</select>
-							</div>
-						</li>
-						<li>
-							<div class="item-box">
-								<label for="organizepaper-course-difficulty">关联课程：</label>
-								<select id="organizepaper-course-difficulty">
-									<option>全部</option>
-									<option>全部</option>
-									<option>全部</option>
-									<option>全部</option>
-								</select>
-							</div>
-						</li>
-					</ul>
+					<form id="soFrom">
+						<ul>
+							<li>
+								<div class="item-box">
+									<label for="difficulty">试卷难度：</label>
+									<select id="difficulty">
+										<option value="">全部</option>
+										<option value="A">简单</option>
+										<option value="B">一般</option>
+										<option value="C">较难</option>
+										<option value="D">难</option>
+									</select>
+								</div>
+							</li>
+							<li>
+								<div class="item-box">
+									<label for="courseId">关联课程：</label>
+									<select  id="courseId">
+										<option value="null">全部</option>
+										{{if Courses.success}}
+										{{if Courses.resultObject}}
+										{{each Courses.resultObject as Courses i}}
+										<option value="{{Courses.id}}">{{Courses.name}}</option>
+										{{/each}}
+										{{else}}
+										<option>暂无数据</option>
+										{{/if}}
+										{{else}}
+										{{Courses.errorMessage}}
+										{{/if}}
+
+									</select>
+								</div>
+							</li>
+						</ul>
+					</form>
 				</div>
 
 				{{if TestPaperDB.resultObject.lists != '' ||  TestPaperDB.resultObject.lists != undefined}}
 				<div class="organizepaper-cont">
-					<table id="organizepaperTable" class="display" cellspacing="0" width="100%">
-						<thead>
-						<tr>
-							<th>作业名称</th>
-							<th>关联课程</th>
-							<th>章</th>
-							<th>创建时间</th>
-							<th>热度（次）</th>
-							<th>操作</th>
-						</tr>
-						</thead>
-					</table>
+					<div id="table"></div>
+					<div id="page"></div>
 				</div>
 
 				{{else}}
@@ -70,4 +72,4 @@
 		</div>
 	</div>
 </div>
-<!--end组织作业-->
+<!--end组织试卷-->

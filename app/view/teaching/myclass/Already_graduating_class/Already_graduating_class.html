@@ -1,20 +1,18 @@
-{{each resultObject.information as i index}}
-
-<tr>
-
-
-    <td>{{i.approach}}</td>
-    <td>{{i.balance}}</td>
-    <td>{{i.form}}</td>
-    <td>{{i.id}}</td>
-    <td>{{i.num}}</td>
-    <td>
-        <button class="layui-btn" ><a href="#/teaching/myclass/student">管理学生</a></button>
-        <button class="layui-btn set_course">查看课程</button>
-        <button class="layui-btn Add_the_student_form_delete">删除</button></td>
+<table border="1" class="myClass_table">
+    <tr>
+        <th>班级名称</th>
+        <th>学生数量</th>
+        <th>课程数量</th>
+        <th>毕业时间</th>
+        <th>创建时间</th>
+        <th>操作</th>
+    </tr>
+    <tbody class="myClass_table_val">
 
 
-</tr>
+    </tbody>
+</table>
 
-{{/each}}
-
+<div>
+    <div id="page"></div>
+</div>

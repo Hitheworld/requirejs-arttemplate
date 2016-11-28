@@ -1,24 +1,70 @@
 <div class="myClass_student">
     <div class="myClass_student_header">
-        <span>自动化2班</span><span>创建日期：2016-09-01</span><span>毕业日期：2016-09-01</span><a
-            href="javascript:history.back(-1);">返回</a>
+        <span class="myClass_student_header_span1">{{resultObject.squad.squad_name}}</span>
+        {{if resultObject.squad.status}}
+        <span class="myClass_student_header_span1">创建日期：{{resultObject.squad.end_time}}</span>
+        <span class="myClass_student_header_span1">毕业日期：{{resultObject.squad.create_time}}</span>
+        <a href="javascript:history.back(-1);">返回</a>
+        {{else}}
+        <button class="layui-btn" id="Add_the_student">添加学生</button>
+        <button class="layui-btn">批量添加学生</button>
+        <button class="layui-btn download_student">下载学生名单</button>
+        <span class="myClass_student_header_span2">毕业日期：{{resultObject.squad.create_time}}</span>
+        <a href="javascript:history.back(-1);">返回</a>
+        {{/if}}
     </div>
+
+    {{if resultObject.squad.status}}
     <div class="myClass_student_header1">
-        <span class="myClass_student_header1_this">全部</span><span>A组</span><span>B组</span><span>C组</span>
+        <span class="myClass_student_header1_this" data-type="">全部</span>
+        {{each resultObject.grouplist}}
+        <span data-tpye="{{$value.group_name}}">
+            {{$value.group_name}}
+        </span>
+        {{/each}}
     </div>
+    {{else}}
+    <div class="myClass_student_header2">
+        <div class="myClass_student_header2_dv">
+            {{each resultObject.grouplist}}
+            <span class="myClass_student_header2_span1 SetUpTheGroup" data-type="{{$value.group_name}}" data-id="{{$value.id}}">
+                设为{{$value.group_name}}组
+                <span class="myClass_student_header2_span1_X" data-type="{{$value.group_name}}" data-id="{{$value.id}}">×</span>
+            </span>
+            {{/each}}
+        </div>
+
+        <span class="myClass_student_header2_span1" id="AddGroup">添加分组</span>
+        <span class="myClass_student_header2_span2">筛选分组</span>
+        <select id="myClass_student_header2_select">
+            <option value="">全部</option>
+            <option value="null">无分组</option>
+            {{each resultObject.grouplist}}
+                <option data-id="{{$value.id}}" value="{{$value.group_name}}">
+                    {{$value.group_name}}组
+                </option>
+            {{/each}}
+        </select>
+    </div>
+    {{/if}}
+
+
     <div>
         <table border="1" class="myClass_table">
             <tr>
-                <th>班级名称</th>
-                <th>学生数量</th>
-                <th>课程数量</th>
-                <th>毕业时间</th>
-                <th>创建时间</th>
+                <th>学生姓名</th>
+                <th>学号</th>
+                <th>分组</th>
+                <th>手机号</th>
+                <th>最新登录时间</th>
                 <th>操作</th>
             </tr>
             <tbody class="student_table_val">
 
             </tbody>
         </table>
+        <div>
+            <div id="page"></div>
+        </div>
     </div>
 </div>

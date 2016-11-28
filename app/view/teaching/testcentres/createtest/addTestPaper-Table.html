@@ -1,0 +1,100 @@
+<div class="table">
+	<ul class="table-tr">
+		<li class="table-th radio">
+			<h1></h1>
+		</li>
+		<li class="table-th paperName">
+			<h1>考试班级</h1>
+		</li>
+		<li class="table-th difficulty">
+			<h1>难度</h1>
+		</li>
+		<li class="table-th fullMarks">
+			<h1>满分</h1>
+		</li>
+		<li class="table-th length">
+			<h1>时长</h1>
+		</li>
+		<li class="table-th operation">
+			<h1>操作</h1>
+		</li>
+	</ul>
+
+	{{if TestPaperDB.success}}
+		{{if TestPaperDB.resultObject.items}}
+
+			{{each TestPager as TestPager i}}
+			<ul class="table-tr">
+				<!--考试班级-->
+				<li class="table-td radio">
+					<div class="radioBox">
+						<input type="radio" name="paperTplId" id="paper-{{TestPager.id}}" class="paperTplId" data-name="{{TestPager.paperName}}" value="{{TestPager.id}}" />
+					</div>
+				</li>
+				<label for="paper-{{TestPager.id}}">
+				<li class="table-td paperName">
+					{{TestPager.paperName}}
+				</li>
+				<!--end考试班级-->
+				<!--难度-->
+				<li class="table-td difficulty">
+					<div class="facility-value">
+						<ul>
+							{{if TestPager.difficulty == 'A'}}
+							<li class="value-active"></li>
+							<li class="value"></li>
+							<li class="value"></li>
+							<li class="value"></li>
+							{{else if TestPager.difficulty == 'B'}}
+							<li class="value-active"></li>
+							<li class="value-active"></li>
+							<li class="value"></li>
+							<li class="value"></li>
+							{{else if TestPager.difficulty == 'C'}}
+							<li class="value-active"></li>
+							<li class="value-active"></li>
+							<li class="value-active"></li>
+							<li class="value"></li>
+							{{else if TestPager.difficulty == 'D'}}
+							<li class="value-active"></li>
+							<li class="value-active"></li>
+							<li class="value-active"></li>
+							<li class="value-active"></li>
+							{{/if}}
+						</ul>
+					</div>
+				</li>
+				<!--end难度-->
+				<!--满分-->
+				<li class="table-td fullMarks">
+					{{TestPager.courseName}}
+				</li>
+				<!--end满分-->
+				<!--时长-->
+				<li class="table-td length">
+					{{TestPager.hots}}
+				</li>
+				<!--end时长-->
+				<!--操作-->
+				<li class="table-td operation">
+					<div class="operation-icon">
+						<div class="operation-icon">
+							<a href="#/teaching/testcentres/viewtest" class="J-open-see" title="查看">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</li>
+				</label>
+				<!--end操作-->
+			</ul>
+			{{/each}}
+
+		{{else}}
+			暂无数据
+		{{/if}}
+
+	{{else}}
+		{{TestPaperDB.errorMessage}}
+	{{/if}}
+</div>

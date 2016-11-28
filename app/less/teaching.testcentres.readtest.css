@@ -1,37 +1,16 @@
 /**
  * 预览试卷
  */
-.teaching {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-}
-.teaching .teachingBox {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin: 0px auto;
-}
-.teaching .teachingBox .teaching-nav {
-  display: none;
-}
-.teaching .teachingBox .teaching-tab-content {
-  margin: 0px;
-}
 .readtest {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
+  width: 100%;
   overflow: auto;
-  background-color: #FFFFFF;
+  height: auto;
+  background-color: #e6e6e6;
 }
 .readtest .readtest-box {
+  background-color: #fff;
+  width: 1200px;
+  margin: 0 auto;
   padding: 30px;
   overflow: hidden;
 }
@@ -65,7 +44,7 @@
   color: #cccccc;
 }
 .readtest .readtest-box .readtest-content {
-  width: 860px;
+  width: 1200px;
   float: left;
   overflow: hidden;
 }

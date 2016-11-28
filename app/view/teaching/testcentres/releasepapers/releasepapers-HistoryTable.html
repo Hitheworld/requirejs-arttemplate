@@ -1,0 +1,101 @@
+<div class="table">
+	<ul class="table-tr">
+		<li class="table-th testClass">
+			<h1>考试班级</h1>
+		</li>
+		<li class="table-th testPaper">
+			<h1>试卷名称</h1>
+		</li>
+		<li class="table-th startTime">
+			<h1>开始时间</h1>
+		</li>
+		<li class="table-th handNumber ">
+			<h1>总／交卷人数</h1>
+		</li>
+		<li class="table-th grouping">
+			<h1>分组</h1>状态
+		</li>
+		<li class="table-th state">
+			<h1>状态</h1>
+		</li>
+		<li class="table-th operation">
+			<h1>操作</h1>
+		</li>
+	</ul>
+	{{if HistoryExamDB.success}}
+		{{if HistoryExamDB.resultObject}}
+			{{each HistoryExam as HistoryExam i}}
+			<ul class="table-tr">
+				<!--考试班级-->
+				<li class="table-td testClass">
+					{{HistoryExam.squadName}}
+				</li>
+				<!--end试考试班级-->
+				<!--试卷名称-->
+				<li class="table-td testPaper">
+					{{HistoryExam.paperTplName}}
+				</li>
+				<!--end试卷名称-->
+				<!--开始时间-->
+				<li class="table-td startTime">
+					{{HistoryExam.startTime}}
+				</li>
+				<!--end开始时间-->
+				<!--总／交卷人数-->
+				<li class="table-td handNumber">
+					{{HistoryExam.ykCounts}}/{{HistoryExam.jjCounts}}
+				</li>
+				<!--end总／交卷人数-->
+				<!--分组-->
+				<li class="table-td grouping">
+					{{HistoryExam.groups}}
+				</li>
+				<!--end分组-->
+				<!--状态-->
+				<li class="table-td state">
+					{{HistoryExam.statusText}}{{if HistoryExam.statusText == '待批阅'}}{{HistoryExam.waitMarkCounts}}{{/if}}
+				</li>
+				<!--end状态-->
+				<!--操作-->
+				<li class="table-td operation">
+					<div class="operation-icon">
+						<div class="operation-icon">
+							<!--状态(0:未开始考试，1：考试中，2:考试结束，待批阅。3：已批阅，待发布，4：已发布)-->
+
+							<a href="javascript:void(0);" class="J-tips-del" data-id="{{HistoryExam.id}}" title="删除">
+								<i class="fa fa-trash-o" aria-hidden="true"></i>
+							</a>
+
+							{{if HistoryExam.status == 2}}
+							<a href="#/teaching/myclass/student/{{HistoryExam.squadId}}" title="批阅试卷">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+							</a>
+							{{/if}}
+
+							{{if HistoryExam.status == 3}}
+							<a href="javascript:void(0);" class="J-publish" data-id="{{HistoryExam.id}}" title="发布">
+								<i class="fa fa-toggle-right" aria-hidden="true"></i>
+							</a>
+							{{/if}}
+							{{if HistoryExam.status == 4 || HistoryExam.status == 3}}
+							<a href="#/teaching/myclass/student/{{HistoryExam.squadId}}"  title="查看成绩">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</a>
+							{{/if}}
+							<!--<a href="#/teaching/testcentres/viewtest/view/{{HistoryExam.id}}" title="查看试卷">-->
+								<!--<i class="fa fa-search" aria-hidden="true"></i>-->
+							<!--</a>-->
+
+						</div>
+					</div>
+				</li>
+				<!--end操作-->
+			</ul>
+			{{/each}}
+		{{else}}
+			暂无数据
+		{{/if}}
+	{{else}}
+		{{HistoryExamDB.errorMessage}}
+	{{/if}}
+</div>

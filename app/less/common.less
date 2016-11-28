@@ -240,3 +240,295 @@ table.dataTable td.select-checkbox{
     /* if the panel is sliding, it needs position:fixed */
 } 
 /* take the positioning of the sidebar, and become the start point for the sidebar positioning */
+
+
+/**
+     * ul 表格
+ */
+.table {
+    border: 1px solid #f0f0f0;
+    border-bottom: none;
+    .table-tr {
+        overflow: hidden;
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid #f0f0f0;
+        &.odd {
+            background-color: #FFFFFF;
+        } 
+        &.even {
+            background-color: #f2fcf7;
+        }    
+        .table-th,.table-td {
+            float: left;
+            width: auto;
+            height: 100%;
+        }   
+    }
+}
+
+
+//难度
+.facility-value {
+    float: left;
+    margin-top: 20px;
+    margin-left: 10px;
+    ul {
+        overflow: hidden;
+        li {
+            display: block;
+            float: left;
+            width: 12px;
+            height: 6px;
+            margin-right: 2px;
+            &.value-active {
+               background: #2db871;
+            }
+            &.value {
+                background: #dcdcdc;
+            }
+        }
+    }
+}
+
+
+//题库导航
+.fixed-box {
+    float: right;
+    width: 270px;
+    top: 10px;
+    .pagePaper-questions-nav {
+        min-height: 520px;
+        background-color: #f3f3f3;
+        overflow: hidden;
+        .questions-nav-title {
+            overflow: hidden;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            padding: 0 16px;
+            h3 {
+                float: left;
+                font-size: 16px;
+                color: #333333;
+            }
+            span {
+                float: left;
+                font-size: 14px;
+                color: #333333;
+                margin-top: 3px;
+                margin-left: 23px;
+            }
+        }
+        ul {
+            overflow: hidden;
+            width: 255px;
+            margin-right: -2px;
+            margin-left: 16px;
+            li {
+                float: left;
+                margin-left: 2px;
+                margin-bottom: 2px;
+                .box-nav {
+                    vertical-align: middle;    
+                    display: table-cell;    
+                    *position: absolute;    
+                    *top: 50%; 
+                    background-color: #FFFFFF;
+                    width: 36.6666666px;
+                    height: 38.6666666px;
+                    cursor: pointer;  
+                    a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        font-size: 14px;
+                        color: #333333;
+                        text-align: center;
+                        line-height: 36.666666px;
+                    }
+                }
+            }
+        }
+    }
+    .pagePaper-top {
+        height: 35px;
+        line-height: 35px;
+        h3 {
+            font-size: 16px;
+            color: #333333;
+            font-weight: 600;
+        }
+    }
+}
+
+//试卷正文
+.paper-main {
+    width: 882px;
+    float: left;
+    .pagePaper {
+        width: 100%;
+        .pagePaper-top {
+            overflow: hidden;
+            height: 38px;
+            line-height: 38px;
+            border-bottom: 1px #f0f0f0 solid;
+            h3 {
+                float: left;
+                font-size: 16px;
+                font-weight: 600;
+                color: #333333;
+            }
+            .scoreBox {
+                float: right;
+                text-align: right;
+                span {
+                    font-size: 14px;
+                    color: #333333;
+                }
+            }
+        }
+        .pagePaper-content {
+            width: 100%;
+            //题库
+            ul.pagePaper-content-questions {
+                
+                li {
+                    overflow: hidden;
+                    .pagePaper-content-box {
+                        padding-bottom: 40px;
+                        border-bottom: 1px solid #f0f0f0;
+                        padding-top: 20px;
+                        &.no-border-bottom {
+                            border: none;
+                        }
+                        .title {
+                            display: block;
+                            overflow: hidden;
+                            h3 {
+                                float: left;
+                                display: block;
+                                color: #36b773;
+                                font-size: 16px;
+                            }
+                            &.tianKong-title {
+                                input {
+                                    width: auto;
+                                    height: 22px;
+                                    border: none;
+                                    border-bottom: 1px solid #999999;
+                                }
+                            }
+                            .facility-value {
+                                float: left;
+                                margin-top: 10px;
+                                margin-left: 10px;
+                                ul {
+                                    overflow: hidden;
+                                    li {
+                                        display: block;
+                                        float: left;
+                                        width: 12px;
+                                        height: 6px;
+                                        margin-right: 2px;
+                                        &.value-active {
+                                           background: #2db871;
+                                        }
+                                        &.value {
+                                            background: #dcdcdc;
+                                        }
+                                    }
+                                }
+                            }
+                            //换题按钮
+                            .btn-Change {
+                                float: right;
+                                cursor: pointer;
+                                font-size: 16px;
+                                color: #279ee9;
+                                font-weight: 600;
+                            }
+                        }
+                         ul.title-selete {
+                            display: block;
+                            margin-left: 25px;
+                            margin-top: 20px;
+                            a {
+                                
+                            }
+                            img {
+                                width: 200px;
+                            }
+                            li {
+                                display: block;
+                                min-height: 40px;
+                                line-height: 40px;
+                                color: #333333;
+                                cursor: pointer;
+                                .title-selete-box {
+                                    overflow: hidden;
+                                    input {
+                                        float: left;
+                                        width: 20px;
+                                        height: 20px;
+                                        margin-top: 10px;
+                                    }
+                                    label {
+                                        float: right;
+                                        width: 95%;
+                                        font-size: 14px;
+                                        cursor: pointer;
+                                    }
+                                    &.jianDa-selete-box {
+                                        overflow: hidden;
+                                        span {
+                                            float: left;
+                                        }
+                                        p {
+                                            float: left;
+                                            width: 800px;
+                                        }
+                                    }
+                                }
+                                &:hover {
+                                    background: #eafff1;
+                                }
+                            }
+                        }
+                        
+                        //答案
+                        .paper-answer {
+                            overflow: hidden;
+                            color: #333333;
+                            font-size: 16px;
+                            margin-top: 16px;
+                            .answer {
+                                float: left;
+                                font-weight: 600;
+                            }
+                            .answer-contnet {
+                                float: left;
+                            }
+                        }
+                            
+                    }
+                    
+                   
+                    
+                    
+                }
+            }
+        }
+    }
+}
+                
+
+
+//没有权限防问
+.noPermissions {
+    width: 1200px;
+    height: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 30px;
+    color: #333333;
+}

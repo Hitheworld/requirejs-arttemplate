@@ -5,50 +5,30 @@
 		<button type="button" class="layui-btn create-test-btn" onclick="javascript: location.href = '#/teaching/testcentres/createtest';"><i class="layui-icon">&#xe642;</i>创建考试</button>
 		<!--end/创建考试按钮-->
 		<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+			{{if NotCarried != "" || HistoryExam != ""}}
 			<ul class="layui-tab-title">
-				<li class="layui-this">未进行的考试</li>
+				<li class="layui-this">未结束的考试</li>
 				<li>历史考试</li>
 			</ul>
 			<div class="layui-tab-content">
 				<div class="layui-tab-item layui-show">
-					<!--未进行的考试-->
-					<div class="Not-carried-teaching">
-						<table id="NotCarriedTeaching" class="display" cellspacing="0" width="100%">
-							<thead>
-							<tr>
-								<th>考试班级</th>
-								<th>试卷名称</th>
-								<th>考试时间</th>
-								<th>分组</th>
-								<th>操作</th>
-							</tr>
-							</thead>
-						</table>
-					</div>
-					<!--end/未进行的考试-->
+					<!--未结束的考试-->
+					<div class="Not-carried-teaching" id="NotCarried"></div>
+					<!--end/未结束的考试-->
+					<div id="page1"></div>
 				</div>
 				<div class="layui-tab-item">
-
 					<!--历史考试-->
-					<div class="HistoryExam-teaching">
-						<table id="HistoryExam" class="display" cellspacing="0" width="100%">
-							<thead>
-							<tr>
-								<th>考试班级</th>
-								<th>试卷名称</th>
-								<th>开始时间</th>
-								<th>总/交卷人数</th>
-								<th>分组</th>
-								<th>状态</th>
-								<th>操作</th>
-							</tr>
-							</thead>
-						</table>
-					</div>
+					<div class="HistoryExam-teaching" id="HistoryExam"></div>
 					<!--end/历史考试-->
-
+					<div id="page2"></div>
 				</div>
 			</div>
+			{{else}}
+			<div class="no-data">
+				<img src="./app/assets/images/emptyData/releasepapers-icon.png" />
+			</div>
+			{{/if}}
 		</div>
 	</div>
 </div>

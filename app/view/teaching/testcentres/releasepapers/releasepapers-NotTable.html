@@ -1,0 +1,78 @@
+<div class="table">
+	<ul class="table-tr">
+		<li class="table-th testClass">
+			<h1>考试班级</h1>
+		</li>
+		<li class="table-th testPaper">
+			<h1>试卷名称</h1>
+		</li>
+		<li class="table-th testTime">
+			<h1>考试时间</h1>
+		</li>
+		<li class="table-th grouping">
+			<h1>分组</h1>
+		</li>
+		<li class="table-th operation">
+			<h1>操作</h1>
+		</li>
+	</ul>
+	{{if NotCarriedDB.success}}
+		{{if NotCarriedDB.resultObject}}
+			{{each NotCarried as NotCarried i}}
+			<ul class="table-tr">
+				<!--考试班级-->
+				<li class="table-td testClass">
+					{{NotCarried.squadName}}
+				</li>
+				<!--end考试班级-->
+				<!--试卷名称-->
+				<li class="table-td testPaper ">
+					{{NotCarried.paperTplName}}
+				</li>
+				<!--end试卷名称-->
+				<!--考试时间-->
+				<li class="table-td testTime ">
+					{{NotCarried.startTime}}
+				</li>
+				<!--end考试时间-->
+				<!--分组-->
+				<li class="table-td grouping">
+					<span>{{NotCarried.groups}}</span>
+				</li>
+				<!--end分组-->
+				<!--操作-->
+				<li class="table-td operation">
+					<div class="operation-icon">
+						<div class="operation-icon">
+							<!--状态(0:未开始考试，1：考试中，2:考试结束，待批阅。3：已批阅，待发布，4：已发布)-->
+							{{if NotCarried.status == 0}}
+								<a href="#/teaching/testcentres/createtest/edit/{{NotCarried.id}}" class="J-open-edit" title="编辑">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+								</a>
+							{{/if}}
+							{{if NotCarried.status != 1}}
+								<a href="javascript:void(0);" class="J-tips-del" data-id="{{NotCarried.id}}" title="删除">
+									<i class="fa fa-trash-o" aria-hidden="true"></i>
+								</a>
+							{{/if}}
+								<a href="#/teaching/testcentres/viewtest/view/{{NotCarried.id}}" class="J-open-see" title="查看">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</a>
+							{{if NotCarried.status == 0}}
+								<a href="javascript:void(0);" class="J-open-start" data-id="{{NotCarried.id}}" title="立即开始">
+									<i class="fa fa-play" aria-hidden="true"></i>
+								</a>
+							{{/if}}
+						</div>
+					</div>
+				</li>
+				<!--end操作-->
+			</ul>
+			{{/each}}
+		{{else}}
+			暂无数据
+		{{/if}}
+	{{else}}
+		{{NotCarriedDB.errorMessage}}
+	{{/if}}
+</div>

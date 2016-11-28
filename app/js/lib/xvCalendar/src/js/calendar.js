@@ -47,7 +47,7 @@
             _this.gb.algin = opts.alignId ? Calendar.getId(opts.alignId) : iptDates;
             _this.gb.format = opts.format || '-';
             _this.gb.hms = (opts.hms === 'off' ? null : true);
-            _this.gb.zIndex = opts.zIndex || 9999;
+            _this.gb.zIndex = opts.zIndex || 9999999999999;
             _this.gb.trigger = opts.trigger;
             _this.limitTime(opts.min, 'minTime');
             _this.limitTime(opts.max, 'maxTime');

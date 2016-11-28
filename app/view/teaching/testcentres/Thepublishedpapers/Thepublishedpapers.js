@@ -8,20 +8,23 @@ define(['template',
         'layer',
         'text!tplUrl/teaching/testcentres/Thepublishedpapers/Thepublishedpapers.html',
         'common',
+        'laypage',
         'api',
         'json!DataTables-1.10.13/i18n/Chinese.json',
         'datatables.net',
         'jquery.validate',
         'jquery.validate.zh',
         'css!font-awesome',
+        'css!layerCss',
+        'css!layuiCss',
+        'css!laypageCss',
         'css!cssUrl/markexampapers'
     ],
     function (template,$,layui,layer,
               ThepublishedpapersTpl,
-              common,api,Chinese) {
+              common,laypage,api,Chinese) {
 
         function createPage(page,childpage,pagenumber) {
-            document.title = "博学谷·院校-教师端考试中心-发布试卷";
             //设置导航的active
             $(".home-header .home-nav .home-nav-li a").removeClass("active");
             $(".home-header .home-nav .home-nav-li a.teaching").addClass("active");
@@ -35,65 +38,67 @@ define(['template',
             $(".teaching-nav").show();
             $(".testcentres-nav").show();
 
-            var TestPaperDB = TestPaper();
-            var data = TestPaperDB.resultObject.lists;
+            var Thepublishedpapershtml = "<option value=''>全部</option>" +
+                "{{each resultObject}}" +
+                "<option data-id='{{$value.id}}'>{{$value.squadName}}</option>" +
+                "{{/each}}";
+            var Thepublishedpapershtml1 = "{{if resultObject.items.length != 0}}" +
+                "{{each resultObject.items}}" +
+                "<tr>" +
+                "<td>{{$value.squadName}}</td>" +
+                "<td>{{$value.paperTplName}}</td>" +
+                "<td>{{$value.difficulty}}</td>" +
+                "<td>{{$value.jjCounts}}</td>" +
+                "<td>" +
+                "<button class='layui-btn'><a href='#/teaching/testcentres/markthetests/{{$value.id}}'>查看</a></button>" +
+                "</td>" +
+                "</tr>" +
+                "{{/each}}" +
+                "{{else}}暂无数据" +
+                "{{/if}}";
 
-            $("#testcentresHtml").html(template.compile( ThepublishedpapersTpl)({
-                TestPaperDB: TestPaperDB
-            }));
 
-            //生成表格
-            var table = $('#markexampapersTable').DataTable({
-                data: data,  //对象数据
-                columns: [
-                    { data: 'name' },
-                    { data: 'difficulty' },
-                    { data: 'relatedCourses' },
-                    { data: 'heat' },
-                    { data: 'creationTime' },
-                    { data: "<div class='operation-icon'>" +
-                    "<a href='#/teaching/testcentres/markthetests' title='查看'>" +
-                    "<i class='fa fa-search' aria-hidden='true'></i></a></div>" }
-                ],
-                "searching": false,  //是否开启本地搜索功能
-                "lengthChange": false, //是否允许最终用户改变表格每页显示的记录数
-                "language": Chinese,   //国际化--中文
-                "lengthChange": false,   //是否允许用户改变表格每页显示的记录数
-                "pageLength": 10 ,   //改变初始的页面长度(每页显示的记录数)
-                "columnDefs": [
-                    { "width": "348px",className: "name", "targets": 0 },
-                    { "width": "153px",className: "difficulty", "targets": 1 },
-                    { "width": "164px",className: "relatedCourses", "targets": 2 },
-                    { "width": "152px",className: "heat", "targets": 3 },
-                    { "width": "200px",className: "creationTime", "targets": 4 },
-                    { "width": "auto",className: "operation", "targets": 5 },
-                    {
-                        "targets": -1,
-                        "data": null,
-                        "defaultContent": "<div class='operation-icon'>" +
-                        "<a href='#/teaching/testcentres/markthetests' title='查看'>" +
-                        "<i class='fa fa-search' aria-hidden='true'></i></a></div>"
-                    } ]
+            $("#testcentresHtml").html(ThepublishedpapersTpl);
+
+            function Thepublishedpapers(squad_id,pageNumber,pageSize){
+                common.ajaxRequest("bxg/examMark/findPublishedPage", "POST", {
+                    login_name: $(".home-user-name").attr("data-name"),
+                    squad_id:squad_id || "",
+                    pageNumber:pageNumber || 1,
+                    pageSize:pageSize
+                }, function (data) {
+                    if (data.success) {
+                        $("#markexampapersTable_tbody").html(template.compile(Thepublishedpapershtml1)(data));
+                        //显示分页
+                        laypage({
+                            cont: $('#page'), //容器。值支持id名、原生dom对象，jquery对象,
+                            pages: parseInt(data.resultObject.totalPageCount), //总页数 parseInt(data.resultObject.totalpages)
+                            curr: pageNumber || 1, //当前页
+                            skin: '#2cb82c',
+                            jump: function (obj, first) { //触发分页后的回调
+                                if (!first) { //点击跳页触发函数自身，并传递当前页：obj.curr
+                                    Thepublishedpapers(squad_id, obj.curr, pageSize);
+                                }
+                            }
+                        });
+
+                    }
+                });
+            }
+
+            common.ajaxRequest("bxg/examMark/findTeacherSquadList", "POST", {
+                teacherId: $(".home-user-name").attr("data-id")
+            }, function (data) {
+                $("#markexampapers-peper-difficulty").html(template.compile(Thepublishedpapershtml)(data)).on("change",function(){
+                    var select_this1 = $("#markexampapers-peper-difficulty option:checked");
+                    Thepublishedpapers(select_this1.attr("data-id"), 1, 9);
+                });
             });
 
-            $('#markexampapersTable tbody').on( 'click', 'button', function () {
-                var data = table.row( $(this).parents('tr') ).data();
-                alert( data[0] +"'s salary is: "+ data[ 5 ] );
-            } );
-
-
+            Thepublishedpapers("",1,1)
         }
 
-        //获取考试试卷数据
-        var TestPaper = function() {
-            return common.requestService('../app/data/testpaper.json','get', {});
-        };
 
-
-        //获取生成的考试数据
-        var GeneratedPaper = function() {
-            return common.requestService('../app/data/teaching-add-gpaper.json','get', {});
-        };
 
         return {
             createPage: createPage

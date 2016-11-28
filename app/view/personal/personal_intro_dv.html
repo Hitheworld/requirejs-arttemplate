@@ -5,7 +5,13 @@
             </form>
         <img class="personal_picModal_img" title="上传头像" src="{{resultObject[0].personal_img}}" alt="" onerror="this.src='./app/assets/images/error-user.png'" />
     </div>
-    <div class="personal_name" title="上传头像" data-id="{{resultObject[0].login_name}}">{{resultObject[0].name}}</div>
+    <div class="personal_name" title="上传头像" data-id="{{resultObject[0].login_name}}">
+        {{if resultObject[0].name}}
+        {{resultObject[0].name}}
+        {{else}}
+        博学谷用户
+        {{/if}}
+    </div>
     <div class="personal_msg">
         <div class="personal_msg_dv_1">我的积分:<span>{{resultObject[0].tot_integral}}</span></div>
         {{if resultObject[0].indenty_status == "0"}}

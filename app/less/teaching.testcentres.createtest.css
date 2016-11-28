@@ -2,11 +2,31 @@
      * 创建考试
  */
 .createtest .createtest-box .createtest-contnt {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 20px 30px;
+}
+.createtest .createtest-box .createtest-contnt .createtestTitle {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  border-bottom: #f0f0f0 1px solid;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.createtest .createtest-box .createtest-contnt .createtestTitle h1 {
+  display: block;
+  float: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+}
+.createtest .createtest-box .createtest-contnt .createtestTitle .return {
+  float: right;
+  font-size: 14px;
+  color: #999999;
 }
 .createtest .createtest-box .createtest-contnt .layui-form-item {
-  width: 500px;
+  width: 600px;
   margin: 0 auto;
   padding-bottom: 30px;
 }
@@ -17,13 +37,112 @@
   color: #FF0000;
   font-size: 16px;
 }
-.createtest .createtest-box .createtest-contnt .layui-form-item .layui-input-inline .addtest-a {
+.createtest .createtest-box .createtest-contnt .layui-form-item .layui-input-inline {
+  overflow: hidden;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .layui-input-inline .layui-input {
+  font-size: 14px;
+  color: #333333;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .width-test {
+  overflow: hidden;
+  float: left;
+  margin-right: 10px;
+  height: 38px;
+  line-height: 38px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .width-test .testName {
+  float: left;
+  max-width: 227px;
+  margin-right: 20px;
+  overflow: hidden;
+  text-align: left;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 600;
+  color: #484848;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .width-test .addtest-a {
+  float: right;
   display: block;
   height: 38px;
   line-height: 38px;
   font-size: 16px;
   color: #279ee9;
   text-decoration: underline;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .layui-input-block {
+  overflow: hidden;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .layui-input-block .send {
+  float: left;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .layui-input-block .send label {
+  width: auto;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .layui-input-block .send input[type="radio"] {
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .PacketSend {
+  display: none;
+  width: auto;
+  padding: 12px 18px;
+  border: 1px solid #f0f0f0;
+  position: relative;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .PacketSend i {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  font-size: 30px;
+  color: #f0f0f0;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .PacketSend ul {
+  overflow: hidden;
+  margin-right: -18px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .PacketSend ul li {
+  float: left;
+  margin-right: 18px;
+  overflow: hidden;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .PacketSend ul li input {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .PacketSend ul li label {
+  float: left;
+  width: auto;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .submit,
+.createtest .createtest-box .createtest-contnt .layui-form-item .primary {
+  width: 123px;
+  height: 38px;
+  line-height: 38px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .submit {
+  background-color: #36b773;
+  color: #FFFFFF;
+  border: none;
+  margin-right: 20px;
+}
+.createtest .createtest-box .createtest-contnt .layui-form-item .primary {
+  border: #f0f0f0 1px solid;
+  color: #333333;
+  background-color: #FFFFFF;
 }
 .addTestPaper {
   padding: 10px;
@@ -101,9 +220,72 @@
   line-height: 35px;
   border: #f0f0f0 1px solid;
 }
-.addTestPaper .addTestPaper-box .addTestPaper-body .dataTables_info,
-.addTestPaper .addTestPaper-box .addTestPaper-body .dataTables_paginate {
-  margin-top: 30px;
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr label {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr label:hover {
+  background-color: #269EEA;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-th.radio,
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-td.radio {
+  padding-left: 10px;
+  width: 20px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-th.radio input,
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-td.radio input {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-th.paperName,
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-td.paperName {
+  width: 335px;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-left: 10px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-th.difficulty,
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-td.difficulty {
+  width: 150px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-th.fullMarks,
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-td.fullMarks {
+  width: 130px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-th.length,
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-td.length {
+  width: 158px;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-th.operation,
+.addTestPaper .addTestPaper-box .addTestPaper-body .table .table-tr .table-td.operation {
+  width: auto;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .operation-icon {
+  overflow: hidden;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .operation-icon a {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .operation-icon a i {
+  font-size: 20px;
+  color: #72cc9d;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body .operation-icon a:hover i {
+  color: #75bfee;
+}
+.addTestPaper .addTestPaper-box .addTestPaper-body #page {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
 }
 .addTestPaper .addTestPaper-box .addTestPaper-body .addTestPaperButtom {
   margin-top: 42px;
@@ -131,6 +313,7 @@
   border: none;
 }
 .addTestPaper .addTestPaper-box .addTestPaper-body .addTestPaperButtom ul li button.cancel {
+  position: relative;
   background: #FFFFFF;
   color: #333333;
   border: 1px solid #f6f6f6;

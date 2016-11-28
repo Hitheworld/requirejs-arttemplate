@@ -32,7 +32,7 @@
 				<ul id="index-news">
 					{{if affiche.success}}
 					{{each affiche.resultObject as value i}}
-					<li><span>▶</span><a href="#/info/del/{{value.id}}" class="ellipsis" title="{{#value.content}}">{{#value.content}}</a></li>
+					<li><span>▶</span><a href="#/info/del/{{value.id}}" class="ellipsis" title="{{value.title | dataHtml:value.title}}">{{#value.title}}</a></li>
 					{{/each}}
 					{{/if}}
 				</ul>
@@ -95,7 +95,7 @@
 			<!--博问答-->
 			<div class="am-titlebar" >
 				<h2 class="am-titlebar-title ">
-					博问答
+					问答精灵
 				</h2>
 				<a class="am-titlebar-title title2" target="_blank" href="http://boxuegu.com/web/html/quiz.html">
 					我的提问
@@ -138,22 +138,26 @@
 			</div>
 			<ul id="index-TeachingResources">
 				{{if extendResource.success}}
+				{{if extendResource.resultObject}}
 				{{each extendResource.resultObject}}
-				{{if extendResource.resultObject.length}}
 				<li class="am-gallery-default">
 					<div class="index-uq-box">
-						<h3 class="am-gallery-title">
-							<a href="#/resources/del/8889">{{$value.name}}</a>
-						</h3>
-						<div class="index-uq-bottom">
-							{{$value.description}}
-						</div>
+						<a href="#/resources/del/{{$value.id}}">
+							<h3 class="am-gallery-title">
+							{{$value.name}}
+							</h3>
+							<div class="index-uq-bottom">
+								{{$value.description}}
+							</div>
+						</a>
 					</div>
 				</li>
-				{{/if}}
 				{{/each}}
 				{{else}}
-				<div class="nodata">暂无数据</div>
+					<div class="nodata">暂无数据</div>
+				{{/if}}
+				{{else}}
+					{{extendResource.errorMessage}}
 				{{/if}}
 			</ul>
 		</div>

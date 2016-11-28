@@ -161,20 +161,4 @@ requirejs([
 		$('body,html').animate({scrollTop:0},500);
 	});
 
-	//$("#home-top").click(function(){
-	//	$("html,body").animate({scrollTop :0}, 800);
-	//	return false;
-	//});
-
-	//个人中心
-	// 正式 sessionUser
-	// 本地测试  localLogin?username=351982312@qq.com
-	common.ajaxRequest('bxg/user/localLogin?username=351982312@qq.com', "GET", {}, function (data, state) {
-		var logout = api.BATHPATH +'logout';
-		$("#header-user").html(template.compile(userTpl)({
-			logout: logout,
-			user: data
-		}));
-	});
-
 });

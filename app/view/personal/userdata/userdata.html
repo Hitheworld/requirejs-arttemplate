@@ -20,7 +20,7 @@
                 <div class="cy_form_dv">
                     <div class="buer"><img src="./app/assets/images/4564.gif" alt="">手机号</div>
                     <input type="text" class="cy_form_dv_inpt" name="mobile" id="mobile" placeholder="请您填写手机号">
-                    <a href="javascript:void (0)"  class="change_phone_btn">验证手机号</a>
+                    <a href="javascript:void (0)" style="display: none">验证手机号</a>
                 </div>
                 {{else}}
                 <div class="cy_form_dv">
@@ -31,8 +31,8 @@
                 </div>
                 <div class="cy_form_dv">
                     <div class="buer"><img src="./app/assets/images/4564.gif" id="email" alt="">Email</div>
-                    <input type="text"  class="cy_form_dv_inpt" name="email" placeholder="请您填写Email">
-                    <a href="javascript:void (0)">验证邮箱</a>
+                    <input type="text"  class="cy_form_dv_inpt" name="email" placeholder="请您填写Email" readonly="readonly">
+                    <a href="javascript:void (0)"  class="change_phone_btn">验证邮箱</a>
                 </div>
                 {{/if}}
 

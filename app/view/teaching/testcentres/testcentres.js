@@ -16,7 +16,7 @@ define(['template',
 	          testcentresTpl,
 	          common,api) {
 
-		function createPage(page,childpage,pagenumber) {
+		function createPage(page,childpage,pageType,exampPaperId) {
 			document.title = "博学谷·院校-教师端考试中心";
 			$("#teachingHtml").html(template.compile( testcentresTpl)());
 			//设置导航的active
@@ -26,9 +26,9 @@ define(['template',
 			//console.log("子页面",type,'子孙页面',subtype)
 
 			//处理子页面
-			this.childCreatePage = function(page,childpage,pagenumber){
+			this.childCreatePage = function(page,childpage,pageType,exampPaperId){
 				require( ['tplUrl/teaching/'+page+'/'+childpage+'/'+childpage], function (m) {
-					m.createPage(page,childpage,pagenumber);
+					m.createPage(page,childpage,pageType,exampPaperId);
 				});
 			}
 
