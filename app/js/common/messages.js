@@ -14,9 +14,17 @@ define(['jquery', 'jquery.validate'], function ($) {
 
 		//包含字母、数字、特殊字符 --起码其中两种组合
 		$.validator.addMethod("words", function(value, element) {
-			var abce = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,20}$/;
+			//var abce = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,20}$/;
+			var abce = /^[0-9a-zA-Z._-]{6,20}$/;
 			return this.optional(element) || (abce.test(value));
-		}, "请输入包含字母、数字、特殊字符起码其中两种组合");
+		}, "请输入包含字母、数字、两种组合,最少6位,最多20");
+
+		//包含字母、数字、特殊字符 --起码其中两种组合
+		$.validator.addMethod("ABC", function(value, element) {
+			//var abce = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,20}$/;
+			var abce = /^[\u4E00-\u9FA50-9a-zA-Z._-]+$/;
+			return this.optional(element) || (abce.test(value));
+		}, "请输入正确的昵称");
 
 		// QQ号码验证
 		$.validator.addMethod("qq", function(value, element) {
@@ -61,6 +69,11 @@ define(['jquery', 'jquery.validate'], function ($) {
 			var tel = /^[0-9]{6}$/;
 			return this.optional(element) || (tel.test(value));
 		}, "请正确填写您的邮政编码");
+
+		$.validator.addMethod("dates", function(value, element) {
+			var tel = /^\d{4}[\/\-](0?[1-9]|1[012])[?\/\-](0?[1-9]|[12][0-9]|3[01])$/;
+			return this.optional(element) || (tel.test(value));
+		}, "请输入有效的日期");
 
 		$.extend($.validator.messages, {
 			required: "这是必填字段",

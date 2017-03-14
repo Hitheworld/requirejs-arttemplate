@@ -1,7 +1,7 @@
 {{if user.resultObject != ''}}
-<a class="user" href="#/user">
+<a class="user" href="javascript:void (0)">
 	<div class="home-user-box">
-		<img src="{{user.resultObject.personal_img}}" onerror="this.src='./app/assets/images/error-user.png'" />
+		<img src="{{user.resultObject.personal_img || './app/assets/images/error-user.png'}}" onerror="this.src='./app/assets/images/error-user.png'" />
 	</div>
 	<div class="home-user-name" data-id="{{user.resultObject.id}}"
 	     data-indenty_status="{{user.resultObject.indenty_status}}"

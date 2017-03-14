@@ -23,6 +23,11 @@ define(['template',
 			$(".home-header .home-nav .home-nav-li a").removeClass("active");
 			$(".home-header .home-nav .home-nav-li a.teaching").addClass("active");
 
+			//设置左则导航的active
+			$(".teaching-nav-li").removeClass("layui-this");
+			$(".teaching-nav-li.testcentres").addClass("layui-this");
+
+
 			//console.log("子页面",type,'子孙页面',subtype)
 
 			//处理子页面

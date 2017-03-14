@@ -11,12 +11,12 @@ define(['template',
 		'layer',
 		'laypage',
 		'text!tplUrl/teaching/testcentres/createtest/createtest.html',
+		'text!tplUrl/teaching/testcentres/createtest/createTestCourses.html',
 		'text!tplUrl/teaching/testcentres/createtest/addTestPaper.html',
 		'text!tplUrl/teaching/testcentres/createtest/addTestPaper-Table.html',
 		'text!tplUrl/teaching/testcentres/createtest/PacketSend.html',
 		'common',
-		'api',
-		'xvCalendar',
+		'jquery-ui-timepicker-zh-CN',
 		'jquery.validate',
 		'jquery.validate.zh',
 		'css!font-awesome',
@@ -24,10 +24,11 @@ define(['template',
 	],
 	function (template,$,layui,layer,laypage,
 	          createtestTpl,
+	          createTestCoursesTpl,
 	          addTestPaperTpl,
 	          addTestPaperTableTpl,
 	          packetSendTpl,
-	          common,api,Chinese) {
+	          common) {
 
 		function createPage(page,childpage,pageType, exampPaperId) {
 			document.title = "博学谷·院校-教师端考试中心-发布试卷";
@@ -42,13 +43,14 @@ define(['template',
 			var login_name = $(".home-user-name").data("name");//教师登录名
 			var teacherId = $(".home-user-name").data("id");//教师登录名
 
-			//查询该老师对应的课程下拉列表
-			var findTeacherCoursesDB = findTeacherCourses(teacherId);
 			//查询班级
 			var findClassDB = findClass(teacherId);
-			var squadId = '', courseId = null,difficulty = null, pageNumber = 1, pageSize = 9;
+			if( !findClassDB.success){
+				layer.alert(findClassDB.errorMessage || "服务器异常!");
+			};
+			var difficulty = '', pageNumber = 1, pageSize = 5;
 			//弹出层的试卷数据源
-			var TestPaperDB = TestPaper(login_name, difficulty, courseId, pageNumber, pageSize);
+			var TestPaperDB = "";
 
 			//修改时的数据
 			var EditLoadDB = {
@@ -67,22 +69,30 @@ define(['template',
 				}
 			}
 
-
-
 			$("#testcentresHtml").html(template.compile( createtestTpl)({
-				Courses: findTeacherCoursesDB,   //课程
 				Class:findClassDB,   //班级
 				EditLoad: EditLoadDB,   //加载的修改数据
 				pageType: pageType  //判断是否显示
 			}));
 
 			//初始化当前的分组，获取班级id
-			squadId = $("#squadId option:checked").val();
+			var squadId = $("#squadId option:checked").val();
+
+
+			//查询该老师对应的课程下拉列表
+			var findTeacherCoursesDB = findTeacherCourses(teacherId, squadId);
+			if( !findTeacherCoursesDB.success){
+				layer.alert(findTeacherCoursesDB.errorMessage || "服务器异常!");
+			};
+			$("#createTestCourses").html(template.compile( createTestCoursesTpl)({
+				Courses: findTeacherCoursesDB,   //课程
+				EditLoad: EditLoadDB,   //加载的修改数据
+				pageType: pageType  //判断是否显示
+			}));
+
 
 			//发送当前班级的分组
 			var getGroupListDB = getGroupList(squadId);
-
-
 			var groups = "";
 			if( pageType == 'edit') {
 				groups = (EditLoadDB.resultObject.groups).split(",");
@@ -94,11 +104,20 @@ define(['template',
 				groups: groups   //加载的修改数据
 			}));
 
+			//初始化当前的分组，获取班级id
+			var courseId = $("#courseId option:checked").val();
 
-			//根据下拉的班级调用显示不同的数据
+			//班级选择与课程联动
 			$("#squadId").change(function() {
-				squadId = $("#squadId option:checked").val();
-				//重发请求
+				var squadId = $("#squadId option:checked").val();
+				//查询该老师对应的课程下拉列表
+				var findTeacherCoursesDB = findTeacherCourses(teacherId, squadId);
+				$("#createTestCourses").html(template.compile( createTestCoursesTpl)({
+					Courses: findTeacherCoursesDB,   //课程
+					EditLoad: EditLoadDB,   //加载的修改数据
+					pageType: pageType  //判断是否显示
+				}));
+
 				//根据班级查询该班级的分组数据
 				getGroupListDB = getGroupList(squadId);
 				if(!getGroupListDB.success){
@@ -114,26 +133,14 @@ define(['template',
 				if( EditLoadDB.resultObject.squadId != squadId ){
 					$("input[type='checkbox']").attr("checked", false);
 				};
-
-
 			});
 
-
-
 			//日历控件---开始时间
-			var startTimeDate = {//example 1 opts
-					'targetId':'startTime',//时间写入对象的id
-					'triggerId': 'startTime',//触发事件的对象id
-					'alignId':'startTime',//日历对齐对象
-					'format':'-',//时间格式 默认'YYYY-MM-DD HH:MM:SS'
-					'hms':'on'
-				};
-			xvDate(startTimeDate);
+			$( "#startTime" ).datetimepicker({
+				timeFormat: 'HH:mm'
+			});
 
 			//分组发送交互
-			if($("input:radio[checked='checked']").is(':checked')){
-				$(".PacketSend").show();
-			};
 			$("input[type='radio']").on('click', function(){
 				if($("input:radio[value='grouping']").is(':checked')){
 					$(".PacketSend").show();
@@ -144,21 +151,108 @@ define(['template',
 				}
 			});
 
+			//判断是否有数据
+			$(".J-add-testpaper").on('click', function(){
+				var squadId = $("#squadId option:checked").val();
+				var courseId = $("#courseId option:checked").val();
+				//弹出层数据源
+				TestPaperDB = TestPaper(login_name, difficulty, courseId, pageNumber, pageSize);
+				if(!TestPaperDB.resultObject.items.length ){
+					layer.alert("没有试卷!");
+					return false;
+				}else {
+					var courseId = $("#courseId option:checked").val();
+					var courseName = $("#courseId option:checked").text();
+					if(courseId != ""){
+						var seft = $(this);
+						var index = layer.open({  //获取窗口索引
+							type: 1,
+							title: "选择试卷 " + courseName,
+							shade: [0.6, '#000'],
+							skin: 'layui-layer-rim', //加上边框
+							area: ['925px','650px'], //宽高
+							content: addTestPaperTpl
+						});
+						$("#addTestPaperTable").html(template.compile( addTestPaperTableTpl)({
+							TestPaperDB: TestPaperDB
+						}));
+						//奇偶行色
+						$(".table-tr:odd").addClass("odd");
+						$(".table-tr:even").addClass("even");
+
+						//弹出层--选择难度来选择数据
+						$("#organizepaper-peper-difficulty").change(function() {
+							var difficulty = $("#organizepaper-peper-difficulty option:checked").val() || '';
+							//重发请求
+							var TestPaperDB = TestPaper(login_name, difficulty, courseId, pageNumber, pageSize);
+							laypage({
+								cont:  $('#page'), //容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：<div id="page1"></div>
+								pages: TestPaperDB.resultObject.totalPageCount, //通过后台拿到的总页数
+								curr: 1, //当前页
+								skin: '#2cb82c', //配色方案
+								jump: function(obj, first){ //触发分页后的回调
+									//点击跳页触发函数自身，并传递当前页：obj.curr
+									//数据源
+									var TestPaperDB = TestPaper(login_name, difficulty, courseId, obj.curr, pageSize);
+									$("#addTestPaperTable").html(template.compile( addTestPaperTableTpl)({
+										TestPaperDB: TestPaperDB
+									}));
+									//奇偶行色
+									$(".table-tr:odd").addClass("odd");
+									$(".table-tr:even").addClass("even");
+
+								}
+							});
+							if(!TestPaperDB.success){
+								layer.alert(TestPaperDB.errorMessage || "服务器出错！")
+							}
+						});
+
+						/**
+						 * 给父页面传值
+						 * @constructor
+						 */
+						$('#transmit').on('click', function(){
+							//获取弹出层的试卷id和试卷名称
+							var paperTplId = $(".paperTplId:checked ").val(),
+								paperName = $(".paperTplId:checked").data('name');
+							console.log(paperTplId,paperName);
+							if(paperTplId != undefined || paperName != undefined){
+								//如果有选择试卷就修改状态
+								$("#parentIframe").html('<span class="testName"></span>');
+								seft.html('重新选择试卷');
+								parent.$('.testName').text(paperName);
+								parent.$('#paperTplId').val(paperTplId);
+								//parent.layer.tips('Look here', '#parentIframe', {time: 5000});
+								parent.layer.close(index);
+							}else {
+								layer.alert("请选择试卷");
+							}
+
+						});
+
+					}else {
+						layer.alert("课程不能为空!<br />不能创建考试!");
+						return false;
+					}
+				};
+			});
+
+
 			$("#createtestForm").validate({
 				rules : {
 					squadId : {
 						required : true
 					},
 					courseId : {
-						required : true,
-						digits: true
+						required : true
 					},
 					paperTplId : {
 						required : true
 					},
 					startTime : {
-						required : true,
-						date: true
+						required : true
+						//,date: true
 					},
 					groups : {
 						required : true
@@ -171,29 +265,18 @@ define(['template',
 					startTime : {required : '请选择设置开始时间'},
 					groups : {required : '请选择发送范围'}
 				},
-				errorElement : "p"
-			});
-
-			//保存数据
-			$("#createtestForm").on('submit', function(){
-				var squadId =  $.trim($("#squadId").val()),  //班级：
-					courseId =  $.trim($("#courseId").val()),    //课程：
-					paperTplId =  $.trim($("#paperTplId").val()),  //试卷：
-					startTime =  $.trim($("#startTime").val()),  //开始时间：
-					groups = ""; //发送对象：
-				if(pageType == 'edit'){
-					//编辑时获取分组的信息
-					$('input[name=groups]:checked').each(function(i){
-						if(0==i){
-							groups = $(this).val();
-						}else{
-							groups += (","+$(this).val());
-						}
-					});
-				}else {
-					if($('#sendgroups').is(':checked')){
-						groups = $('input[name=groups]:checked').val() || '';
-					}else {
+				errorElement : "p",
+				submitHandler: function(){
+					$('.submit').attr("disabled","disabled");//按钮不可用
+					var squadId =  $.trim($("#squadId").val()),  //班级：
+						courseId =  $.trim($("#courseId").val()),    //课程：
+						paperTplId =  $.trim($("#paperTplId").val()),  //试卷：
+						startTime =  $.trim($("#startTime").val());  //开始时间：
+						var starte = startTime.replace('/','-');
+						startTime = starte.replace('/','-');
+						groups = ""; //发送对象：
+					if(pageType == 'edit'){
+						//编辑时获取分组的信息
 						$('input[name=groups]:checked').each(function(i){
 							if(0==i){
 								groups = $(this).val();
@@ -201,159 +284,43 @@ define(['template',
 								groups += (","+$(this).val());
 							}
 						});
-					}
-				}
-				console.log("发送对象",groups);
-
-				if(login_name != '' && squadId != '' && courseId != '' && paperTplId != '' && startTime != ''){
-					var saveCreateTestDB = saveCreateTest(exampPaperId ,login_name,squadId, courseId, paperTplId,startTime , groups);
-					if(saveCreateTestDB.success){
-						var index = layer.alert("提交成功!",function(){
-							layer.close(index);
-							setTimeout(function(){
-								location.href = "#/teaching/testcentres/releasepapers";
-							},1000);
-						});
 					}else {
-						layer.alert(saveCreateTestDB.errorMessage || '服务器出错!');
-						return false; //阻止默认提交
-					}
-				}
-
-				return false; //阻止默认提交
-			});
-
-
-
-			//添加试卷
-			$(".J-add-testpaper").on('click', function(){
-				var seft = $(this);
-				var index = layer.open({  //获取窗口索引
-					type: 1,
-					title: "选择试卷 课程名称课程名称",
-					skin: 'layui-layer-rim', //加上边框
-					area: ['925px','820px'], //宽高
-					content: template.compile( addTestPaperTpl)({
-
-					}),
-					//btn: ["确定","消息"]
-				});
-
-				var LayerThickClass = new LayerThickness();
-				LayerThickClass.init(TestPaperDB);
-				/**
-				 * 弹出层对象方法
-				 * @constructor
-				 */
-				function LayerThickness(){
-					var LayerThis = this;
-
-					/**
-					 * 初始化全部方法
-					 * @param data
-					 */
-					this.init = function(data){
-						LayerThis.PageTpl(data);
-						LayerThis.ToValueOf();
-						LayerThis.Paging();
-					};
-
-					this.PageTpl = function(data){
-						//生成表格
-						var PaperDB = data.resultObject.items;
-						$("#addTestPaperTable").html(template.compile( addTestPaperTableTpl)({
-							TestPaperDB: data,
-							TestPager: PaperDB
-						}));
-						//奇偶行色
-						$(".table-tr:odd").addClass("odd");
-						$(".table-tr:even").addClass("even");
-						LayerThis.Paging();
-					};
-
-					/**
-					 * 给父页面传值
-					 * @constructor
-					 */
-					this.ToValueOf = function(){
-						$('#transmit').on('click', function(){
-							//获取弹出层的试卷id和试卷名称
-							var paperTplId = $(".paperTplId:checked ").val(),
-								paperName = $(".paperTplId:checked").data('name');
-							console.log(paperTplId,paperName);
-							if(paperTplId != undefined || paperName != undefined){
-								//如果有选择试卷就修改状态
-								$("#parentIframe").html('<span class="testName"></span>');
-								seft.html('修改试卷');
-								parent.$('.testName').text(paperName);
-								parent.$('#paperTplId').val(paperTplId);
-								//parent.layer.tips('Look here', '#parentIframe', {time: 5000});
-								parent.layer.close(index);
-							}else {
-								layer.alert("请选择试卷");
-							}
-
-						});
-					};
-
-					/**
-					 * 分页方法
-					 * @constructor
-					 */
-					this.Paging = function(){
-						laypage({
-							cont:  $('#page'), //容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：<div id="page1"></div>
-							pages: TestPaperDB.resultObject.totalPageCount, //通过后台拿到的总页数
-							curr: 1, //当前页
-							skin: '#2cb82c', //配色方案
-							jump: function(obj, first){ //触发分页后的回调
-								if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
-									//数据源
-									var TestPaperDB = TestPaper(login_name, difficulty, courseId, obj.curr, pageSize);
-									var data = TestPaperDB.resultObject.items;
-									$("#addTestPaperTable").html(template.compile( addTestPaperTableTpl)({
-										TestPaperDB: TestPaperDB,
-										TestPager: data
-									}));
-									//奇偶行色
-									$(".table-tr:odd").addClass("odd");
-									$(".table-tr:even").addClass("even");
+						if($('#sendgroups').is(':checked')){
+							groups = $('input[name=groups]:checked').val() || '';
+						}else {
+							$('input[name=groups]:checked').each(function(i){
+								if(0==i){
+									groups = $(this).val();
+								}else{
+									groups += (","+$(this).val());
 								}
-							}
-						});
+							});
+						}
 					};
-				};
 
+					if( $("#paperTplId").val() == ""){
+						layer.alert("你还没有选择试卷!")
+					};
 
-
-
-
-
-
-				//弹出层--选择难度来选择数据
-				$("#organizepaper-peper-difficulty").change(function() {
-					difficulty = $("#organizepaper-peper-difficulty option:checked").val();
-					//重发请求
-					var TestPaperDB = TestPaper(login_name, difficulty, courseId, pageNumber, pageSize);
-					//调用类中的初始化方法
-					LayerThickClass.init(TestPaperDB);
-					if(!TestPaperDB.success){
-						layer.alert(TestPaperDB.errorMessage || "服务器出错！")
-					}else {
-
+					if(login_name != '' && squadId != '' && courseId != '' && paperTplId != '' && startTime != ''){
+						var saveCreateTestDB = saveCreateTest(exampPaperId ,login_name,squadId, courseId, paperTplId,startTime , groups);
+						if(saveCreateTestDB.success){
+							var index = layer.alert("提交成功!",function(){
+								layer.close(index);
+								setTimeout(function(){
+									location.href = "#/teaching/testcentres/releasepapers";
+								},1000);
+							});
+						}else {
+							layer.alert(saveCreateTestDB.errorMessage || '服务器出错!');
+							return false; //阻止默认提交
+						}
 					}
-				});
-
-
-
-
-
+					return false; //阻止默认提交
+				}
 			});
 
-
-
-
-		}
+		};
 
 
 		//查询该老师对应的班级下拉列表
@@ -364,9 +331,10 @@ define(['template',
 		};
 
 		//查询该老师对应的课程下拉列表
-		var findTeacherCourses = function(teacherId) {
-			return common.requestService('bxg/examPaper/findTeacherCourses','get', {
-				teacherId: teacherId
+		var findTeacherCourses = function(teacherId, squadId) {
+			return common.requestService('bxg/teaching/squad/findCourse','get', {
+				teacherId: teacherId,
+				squadId:squadId
 			});
 		};
 

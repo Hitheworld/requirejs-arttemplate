@@ -24,12 +24,12 @@ define(['template',
 
 			//数据源
 
-			common.ajaxRequest('bxg/home/findAffiche', "POST", {
+			common.ajaxRequest('bxg_anon/home/findAffiche', "POST", {
 				afficheId:infoId
 			},function(data){
-				console.log(data)
 				$("#content").html(template.compile(infoDelTpl)(data));
 			});
+
 		}
 
 		//获取扩展资源资源分类数据

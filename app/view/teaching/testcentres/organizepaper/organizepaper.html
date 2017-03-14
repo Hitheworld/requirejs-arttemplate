@@ -3,8 +3,9 @@
 	<div class="organizepaper-body">
 
 		<div class="content-title">
-			<h3>组织试卷</h3>
-			<button type="button" class="layui-btn create-test-btn" onclick="javascript: location.href = '#/teaching/testcentres/addpaper';"><i class="layui-icon">&#xe61f;</i>添加试卷</button>
+			<h3>组织考试</h3>
+			<button type="button" class="layui-btn create-test-btn" onclick="javascript: location.href = '#/teaching/testcentres/addpaper';"><i class="layui-icon">&#xe61f;</i>添加考试
+			</button>
 		</div>
 
 		<div class="content-body" id="paperHtml">
@@ -14,7 +15,7 @@
 					<ul>
 						<li>
 							<div class="item-box">
-								<label for="difficulty">试卷难度：</label>
+								<label for="difficulty">考试难度：</label>
 								<select id="difficulty">
 									<option value="">全部</option>
 									<option value="A">简单</option>
@@ -28,7 +29,7 @@
 							<div class="item-box">
 								<label for="courseId">关联课程：</label>
 								<select  id="courseId">
-									<option value="null">全部</option>
+									<option value="">全部</option>
 									{{if Courses.success}}
 										{{if Courses.resultObject}}
 											{{each Courses.resultObject as Courses i}}

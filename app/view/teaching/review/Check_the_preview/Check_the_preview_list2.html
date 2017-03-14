@@ -1,0 +1,39 @@
+{{if !CTPSL.msg}}
+    {{if CTPS.length != 0}}
+        {{each CTPS as CTPS index}}
+        <div class="View_the_review_Syllabus2_content_dv" data-url="{{CTPS.squadId}}-{{CTPS.coureseId}}-{{CTPS.studentId}}">
+            <div id="View_the_review_Syllabus2_content_dv_{{index}}">
+
+            </div>
+            <p class="View_the_review_Syllabus2_content_dv_p">
+                    <span class="View_the_review_Syllabus2_content_dv_p_span1">
+                        {{CTPS.studentName}}
+                    </span>
+                    <span class="View_the_review_Syllabus2_content_dv_p_span2" title="{{CTPS.studentNo}}">
+                        学号:{{CTPS.studentNo}}
+                    </span>
+            </p>
+                <span class="View_the_review_Syllabus2_content_dv_span">
+                    {{if CTPS.lastUpdateTime}}
+                    <img src='./app/assets/images/myclass/046.png' alt=''>{{CTPS.lastUpdateTime}}
+                    {{else}}
+                    <img src='./app/assets/images/myclass/046.png' alt=''>00-00-00
+                    {{/if}}
+                </span>
+        </div>
+        {{/each}}
+    {{else}}
+<div class='Temporarily_no_data'>
+    <img src='./app/assets/images/myclass/025.png' alt='das'>
+    <p>请选择课程 ~</p>
+</div>
+    {{/if}}
+{{else}}
+<div class='Temporarily_no_data'>
+    <img src='./app/assets/images/myclass/025.png' alt='das'>
+    <p>请选择课程 ~</p>
+</div>
+{{/if}}
+
+
+

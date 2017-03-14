@@ -1,0 +1,63 @@
+{{if VPP2.success}}
+    <div class="markthetests_header">
+        <span>课程名称：{{CVD.course.name}}</span>
+        <span style="margin-left: 50px">班级：{{CVD.squad.squad_name}}</span>
+        <span style="margin-left: 50px">完成人数：<span style="color: #2cc285">{{CVD.finishedNums}}/{{CVD.totalNums}}</span></span>
+    </div>
+    {{if VPP.length != 0}}
+        <div class="View_the_review_Syllabus_content_dv">
+        {{each VPP as VPP index}}
+        {{if VPP.nodeType == 'CHAPTER'}}
+        <div class="View_the_review_Syllabus_content_dv_dv1">
+            <span>章</span>
+            <p>&nbsp;</p>
+            <b></b>
+            <div class="View_the_review_Syllabus_content_dv_dv_header">{{VPP.NAME}}</div>
+            {{if VPP.onlyShow || VPP.duration == 0}}
+            <hr>
+            {{else}}
+                <div class="View_the_review_Syllabus_content_dv_progress">
+                    <div style="width:{{VPP.progress}}%;"></div>
+                </div>
+                <div class="View_the_review_Syllabus_content_dv_dv_footer">{{VPP.progress}}%</div>
+            {{/if}}
+        </div>
+        {{else if VPP.nodeType == 'POINT'}}
+        <div class="View_the_review_Syllabus_content_dv_dv2">
+            <span>节</span>
+            <p>&nbsp;</p>
+            <div class="View_the_review_Syllabus_content_dv_one">{{VPP.NAME}}</div>
+            {{if VPP.onlyShow  || VPP.duration == 0}}
+            <hr>
+            {{else}}
+            <div class="View_the_review_Syllabus_content_dv_progress">
+                <div style="width:{{VPP.progress}}%;"></div>
+            </div>
+            <div class="View_the_review_Syllabus_content_dv_dv_footer">{{VPP.progress}}%</div>
+            {{/if}}
+        </div>
+        {{else if VPP.nodeType == ''}}
+        <div class="View_the_review_Syllabus_content_dv_dv3">
+            <p></p>
+            <div class="View_the_review_Syllabus_content_dv_one">{{VPP.NAME}}</div>
+            {{if VPP.onlyShow || VPP.duration == 0}}
+            <hr>
+            {{else}}
+            <div class="View_the_review_Syllabus_content_dv_progress">
+                <div style="width:{{VPP.progress}}%;"></div>
+            </div>
+            <div class="View_the_review_Syllabus_content_dv_dv_footer">{{VPP.progress}}%</div>
+            {{/if}}
+        </div>
+        {{/if}}
+        {{/each}}
+    </div>
+    {{else}}
+    <div class='Temporarily_no_data'>
+        <img src='./app/assets/images/myclass/025.png' alt='das'>
+        <p>请选择课程 ~</p>
+    </div>
+    {{/if}}
+{{else}}
+{{VPP2.errorMessage}}
+{{/if}}

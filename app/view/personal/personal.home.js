@@ -19,6 +19,11 @@ define(['template',
 			$("#content").html(personalHomeTpl);
 			common.ajaxRequest('bxg/user/personCenter', "GET", {teacherId:$(".home-user-name").attr("data-id")}, function (data, state) {
 				$(".personal_intro").html(template.compile(personal_intro_dvTpl)(data));
+				if (parseInt(data.resultObject[0].isMsg) > 0) {
+					$(".personal_ul>li>span").css("display","block");
+				}else {
+					$(".personal_ul>li>span").css("display","none");
+				}
 				$("#UpLoadFiletou").change(function(){
 					var filepath = $(this).val();
 					var extStart = filepath.lastIndexOf(".");

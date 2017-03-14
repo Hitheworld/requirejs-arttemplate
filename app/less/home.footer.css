@@ -1,12 +1,12 @@
 .home-footer {
   width: 100%;
-  height: 120px;
-  background-color: #5e5e5e;
+  height: 100%;
+  background-color: #303438;
 }
 .home-footer .home-footer-box {
   padding-top: 20px;
   width: 1000px;
-  height: 100%;
+  height: 122px;
   margin: 0 auto;
 }
 .home-footer .home-footer-box span {

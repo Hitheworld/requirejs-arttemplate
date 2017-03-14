@@ -1,0 +1,53 @@
+<div class="Review_management">
+    <div class="Review_management_header">
+        <span>{{resultObject.squadName}}</span>
+        <button type="button" class="layui-btn Review_management_a"><i class="layui-icon"></i>添加复习</button>
+        <a class="Review_management_return" href="#/teaching/review/reviewhome">返回</a>
+    </div>
+    <hr>
+    <div class="Review_management_dv">
+        <div class="item-box">
+            <label style="width: auto;margin-right: 5px">状态:</label>
+            <select id="Review_management_select1">
+                <option value="">全部</option>
+                <option value="0">待发布</option>
+                <option value="1">已发布</option>
+            </select>
+        </div>
+        <div class="item-box" style="margin-left: 40px">
+            <label style="width: auto;margin-right: 5px">选择课程:</label>
+            <select id="Review_management_select2">
+                {{if resultObject.courseList.length != 0}}
+                    <option value="">全部</option>
+                    {{each resultObject.courseList}}
+                    "<option value='{{$value.id}}'>{{$value.name}}</option>" +
+                    {{/each}}
+                {{else}}
+                    <option value="">全部</option>
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    <div id="paperHtml">
+        <table class="myClass_table">
+            <tr>
+                <td>复习名称</td>
+                <td>课程</td>
+                <td>知识点</td>
+                <td>创建时间</td>
+                <td>状态</td>
+                <td>操作</td>
+            </tr>
+            <tbody id="Review_managementTable_tbody">
+
+            </tbody>
+        </table>
+        <div id="Review_management_page">
+            <div id="page">
+
+            </div>
+        </div>
+
+    </div>
+    <div class='Temporarily_no_data' style="display: none"><img src='./app/assets/images/myclass/025.png' alt='das'><p>请选择课程 ~</p></div>
+</div>

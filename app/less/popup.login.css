@@ -10,6 +10,7 @@
   margin: 0 auto;
   margin-top: 57px;
   margin-bottom: 39px;
+  margin-left: 40px;
 }
 .popup-login .popup-login-prompt {
   font-size: 16px;
@@ -24,7 +25,10 @@
   top: 130px;
   right: 30px;
   font-size: 16px;
-  color: #bbbbbb;
+  color: #36b773;
+}
+.popup-login .popup-login-reg img {
+  margin-top: -3px;
 }
 .popup-login form {
   width: 420px;

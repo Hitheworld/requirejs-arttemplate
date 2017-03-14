@@ -1,0 +1,7 @@
+{{if success}}
+{{each resultObject.sort}}
+<a href="javascript:void(0);" propName="form" propValue="">{{$value}}</a>
+{{/each}}
+{{else}}
+<div class="course-list-nodata">暂无数据</div>
+{{/if}}

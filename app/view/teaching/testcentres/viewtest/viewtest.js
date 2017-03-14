@@ -29,6 +29,12 @@ define(['template',
 			$(".home-header .home-nav .home-nav-li a").removeClass("active");
 			$(".home-header .home-nav .home-nav-li a.teaching").addClass("active");
 
+			//返回时刷新
+			if (window.history && window.history.pushState) {
+				$(window).on('popstate', function () {
+					history.go(0);
+				});
+			};
 
 			//数据源
 			var ViewTestPaperDB = ViewTestPaper(exampPaperId);
@@ -37,6 +43,10 @@ define(['template',
 				layer.alert(ViewTestPaperDB.errorMessage || '服务器出错!');
 			}
 
+			template.helper('dateSing', function (date, format) {
+				var format = date.substring(10);
+				return format;
+			});
 
 			$("#app").html(template.compile( viewtestTpl)({
 				viewTest: ViewTestPaperDB
@@ -45,7 +55,9 @@ define(['template',
 				viewTest: ViewTestPaperDB,
 				danXuan: ViewTestPaperDB.resultObject.questionsByType.danxuan.questions,
 				duoXuan: ViewTestPaperDB.resultObject.questionsByType.duoxuan.questions,
-				panDuan: ViewTestPaperDB.resultObject.questionsByType.panduan.questions
+				panDuan: ViewTestPaperDB.resultObject.questionsByType.panduan.questions,
+				tianKong: ViewTestPaperDB.resultObject.questionsByType.tiankong.questions,
+				jianDa: ViewTestPaperDB.resultObject.questionsByType.jianda.questions
 			}));
 
 			//隐藏换题按钮

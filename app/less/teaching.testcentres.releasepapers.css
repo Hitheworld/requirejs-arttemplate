@@ -4,6 +4,7 @@
 }
 .releasepapers.releasepapers-tab-box .releasepapers-body {
   padding: 20px 30px;
+  min-height: 800px;
 }
 .releasepapers.releasepapers-tab-box .releasepapers-body .create-test-btn {
   width: 125px;
@@ -11,6 +12,7 @@
   line-height: 38px;
   padding: 0;
   background: #36b773;
+  font-size: 16px;
 }
 .releasepapers.releasepapers-tab-box .releasepapers-body .no-data {
   width: 100%;
@@ -30,14 +32,14 @@
   height: 58px;
   background: #FFFFFF;
   overflow: hidden;
-  font-size: 16px;
-  font-weight: 600;
 }
 .releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-title li {
   height: 59px;
   line-height: 59px;
   display: block;
   float: left;
+  font-size: 16px;
+  font-weight: 600;
 }
 .releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-title .layui-this:after {
   height: 58px !important;
@@ -65,6 +67,45 @@
 }
 .releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a:hover i {
   color: #75bfee;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a .fa-trash-o {
+  margin-right: 10px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a .icon-pic {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin-top: 15px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a .icon-view {
+  background: url('../assets/images/icons/view/view.png');
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a .icon-view:hover {
+  background: url('../assets/images/icons/view/view-hover.png');
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a .rele-deit-pic {
+  display: block;
+  width: 15px;
+  height: 18px;
+  margin-top: 14px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a .rele-deit {
+  background: url('../assets/images/icons/view/rele/rele-deit.png');
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a .rele-deit:hover {
+  background: url('../assets/images/icons/view/rele/rele-deit-hover.png');
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a .rele-start-pic {
+  display: block;
+  width: 15px;
+  height: 17px;
+  margin-top: 15px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a .rele-start {
+  background: url('../assets/images/icons/view/rele/rele-start.png');
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .operation-icon a .rele-start:hover {
+  background: url('../assets/images/icons/view/rele/rele-start-hover.png');
 }
 .releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching,
 .releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching {
@@ -106,6 +147,67 @@
 .releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .Not-carried-teaching .table .table-tr .table-td.operation {
   width: 100px;
   padding-right: 10px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item ul.completedHomework {
+  overflow: hidden;
+  margin-top: 30px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item ul.completedHomework li {
+  float: left;
+  margin-right: 20px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item ul.completedHomework li .item-box {
+  position: relative;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item ul.completedHomework li ul {
+  overflow: hidden;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item ul.completedHomework li ul li {
+  float: left;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item ul.completedHomework li label {
+  float: left;
+  display: block;
+  width: 86px;
+  height: 35px;
+  line-height: 35px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item ul.completedHomework li label.completedLabel {
+  width: 20px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item ul.completedHomework li input.completedHomeworkName {
+  width: 290px;
+  padding-right: 40px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item ul.completedHomework li .completedHomeworkSubmit {
+  cursor: pointer;
+  border: none;
+  background-color: #FFFFFF;
+  width: 40px;
+  height: 35px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  border-left: 1px solid #f0f0f0;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item ul.completedHomework li .completedHomeworkSubmit i {
+  font-size: 20px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item ul.completedHomework li select,
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item ul.completedHomework li input {
+  float: left;
+  width: 145px;
+  height: 35px;
+  line-height: 35px;
+  border: #f0f0f0 1px solid;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item ul.completedHomework li .submit {
+  cursor: pointer;
+  width: 50px;
+  height: 35px;
+  line-height: 35px;
+  background: #FFFFFF;
+  border: 1px solid #333333;
 }
 .releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-th.testClass,
 .releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .HistoryExam-teaching .table .table-tr .table-td.testClass {
@@ -156,4 +258,15 @@
   margin-top: 30px;
   margin-bottom: 30px;
   text-align: center;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .contnet-dummy {
+  width: 100%;
+  min-height: 890px;
+}
+.releasepapers.releasepapers-tab-box .releasepapers-body .layui-tab .layui-tab-content .layui-tab-item .contnet-dummy .dummy-file {
+  margin: 0 auto;
+  margin-top: 200px;
+  width: 253px;
+  height: 268px;
+  background: url("../../app/assets/images/bg/bg-dummy-file-text.png") no-repeat;
 }

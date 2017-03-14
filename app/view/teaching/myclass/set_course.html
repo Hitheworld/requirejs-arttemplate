@@ -1,29 +1,45 @@
 {{if success}}
-<table border="1" class="set_course_table">
-    <tr>
-        <th>课程名称</th>
-        <th>合作时间</th>
-        <th>逾期时间</th>
-    </tr>
-    <tbody class="set_course_table_val">
+<div style="display:block;height:235px;overflow-y: auto">
+    <table class="set_course_table" style="">
+        <thead>
+        <tr>
+            <td>课程名称</td>
+            <td>合作时间</td>
+            <td>逾期时间</td>
+        </tr>
+        </thead>
+        <tbody class="set_course_table_val">
 
 
-    {{each resultObject}}
-
-    <tr>
-        {{if $value.check_status}}
-        <td><input type="checkbox" data-id="{{$value.id}}" checked />{{$value.name}}</td>
+        {{each resultObject}}
+        {{if $value.readOnly}}
+            <tr>
+                {{if $value.check_status}}
+                <td class="set_course_table_val_td" title="{{$value.name}}"><input type="checkbox" checked  disabled/>{{$value.name}}</td>
+                {{else}}
+                <td class="set_course_table_val_td" title="{{$value.name}}"><input type="checkbox" disabled/>{{$value.name}}</td>
+                {{/if}}
+                <td>{{$value.begin_time}}</td>
+                <td>{{$value.end_time}}</td>
+            </tr>
         {{else}}
-        <td><input type="checkbox" data-id="{{$value.id}}" />{{$value.name}}</td>
+            <tr>
+                {{if $value.check_status}}
+                <td class="set_course_table_val_td" title="{{$value.name}}"><input type="checkbox" data-id="{{$value.id}}" checked />{{$value.name}}</td>
+                {{else}}
+                <td class="set_course_table_val_td" title="{{$value.name}}"><input type="checkbox" data-id="{{$value.id}}" />{{$value.name}}</td>
+                {{/if}}
+                <td>{{$value.begin_time}}</td>
+                <td>{{$value.end_time}}</td>
+            </tr>
         {{/if}}
-        <td>{{$value.begin_time}}</td>
-        <td>{{$value.end_time}}</td>
-    </tr>
-    {{/each}}
+        {{/each}}
 
 
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
+
 <button class="layui-btn set_course_btn" style="margin-bottom: 20px">确定</button>
 {{else}}
 暂无数据

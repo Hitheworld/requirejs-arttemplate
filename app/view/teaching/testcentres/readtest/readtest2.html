@@ -1,0 +1,520 @@
+{{if GeneratedPaper.resultObject}}
+<div class="readtest">
+    <div class="readtest-box">
+
+        <!--标题-->
+        <div class="viewtest-top">
+            <h1>{{GeneratedPaper.resultObject.testName}}</h1>
+            <div class="studentInfo">
+                <span style="margin-right: 20px">{{GeneratedPaper.resultObject.studentName}}</span>
+                <span style="margin-right: 20px">耗时：{{GeneratedPaper.resultObject.duration}}分钟</span>
+                <span style="margin-right: 20px">总分：{{GeneratedPaper.resultObject.testScore}}分</span>
+            </div>
+            <a href="javascript:history.back(-1);" onclick="history.go(0);" class="history_back">
+                <i class="layui-icon">&#x1006;</i>
+            </a>
+        </div>
+        <!--end标题-->
+
+        <ul class="readtest-tab-title">
+            {{if tianKong.length != 0}}
+            <li data-type="tianKongdv">填空题</li>
+            {{/if}}
+            {{if jianDa.length != 0}}
+            <li data-type="jianDadv">简答题</li>
+            {{/if}}
+            {{if danXuan.length != 0}}
+            <li data-type="danXuandv">单选题</li>
+            {{/if}}
+            {{if duoXuan.length != 0}}
+            <li data-type="duoXuandv">多选题</li>
+            {{/if}}
+            {{if panDuan.length != 0}}
+            <li data-type="panDuandv">判断题</li>
+            {{/if}}
+            <a id="history_back" href="javascript:history.back(-1);" onclick="history.go(0);" class="history_back">
+                <i class="layui-icon">&#x1006;</i>
+            </a>
+        </ul>
+        <div class="readtest-content">
+            <!--题库导航-->
+            <div class="fixed-box">
+                <div class="pagePaper-questions-nav fixed">
+                    {{if tianKong}}
+                    {{if tianKong.length != 0}}
+                    <div class="questions-nav-title">
+                        <h3>填空题</h3>
+                        <span>共{{GeneratedPaper.resultObject.tiankong.totalScore}}分</span>
+                    </div>
+                    <ul>
+                        {{each tianKong as value i}}
+                        <li>
+                            <div class="box-nav">
+                                {{if value.correct}}
+                                <a href="javascript:void(0);" data-id="tianKongdv"
+                                   onclick="setTimeout(function(){$('#nav-tianKong-{{i}}').HoverTreeScroll(500);},500);"
+                                   target="_self">{{danXuan.length+duoXuan.length+panDuan.length+i+1}}</a>
+                                {{else}}
+                                <a href="javascript:void(0);" data-id="tianKongdv"
+                                   onclick="setTimeout(function(){$('#nav-tianKong-{{i}}').HoverTreeScroll(500);},500);"
+                                   style="background-color: #ff6968;color: #fff" target="_self">{{danXuan.length+duoXuan.length+panDuan.length+i+1}}</a>
+                                {{/if}}
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{/if}}
+                    {{if jianDa}}
+                    {{if jianDa.length != 0}}
+                    <div class="questions-nav-title">
+                        <h3>简答题</h3>
+                        <span>共{{GeneratedPaper.resultObject.jianda.totalScore}}分</span>
+                    </div>
+                    <ul>
+                        {{each jianDa as value i}}
+                        <li>
+                            <div class="box-nav">
+                                {{if value.correct}}
+                                <a href="javascript:void(0);" data-id="jianDadv"
+                                   onclick="setTimeout(function(){$('#nav-jianDa-{{i}}').HoverTreeScroll(500);},500);"
+                                   target="_self">{{danXuan.length+duoXuan.length+panDuan.length+tianKong.length+i+1}}</a>
+                                {{else}}
+                                <a href="javascript:void(0);" data-id="jianDadv"
+                                   onclick="setTimeout(function(){$('#nav-jianDa-{{i}}').HoverTreeScroll(500);},500);"
+                                   style="background-color: #ff6968;color: #fff" target="_self">{{danXuan.length+duoXuan.length+panDuan.length+tianKong.length+i+1}}</a>
+                                {{/if}}
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{/if}}
+                    {{if danXuan}}
+                    {{if danXuan.length != 0}}
+                    <div class="questions-nav-title">
+                        <h3>单选题</h3>
+                        <span>共{{GeneratedPaper.resultObject.danxuan.totalScore}}分</span>
+                    </div>
+                    <ul>
+                        {{each danXuan as value i}}
+                        <li>
+                            <div class="box-nav">
+                                {{if value.correct}}
+                                <a href="javascript:void(0);" data-id="danXuandv"
+                                   onclick="setTimeout(function(){$('#nav-daiXuan-{{i}}').HoverTreeScroll(500);},500);"
+                                   target="_self">{{i+1}}</a>
+                                {{else}}
+                                <a href="javascript:void(0);" data-id="danXuandv"
+                                   onclick="setTimeout(function(){$('#nav-daiXuan-{{i}}').HoverTreeScroll(500);},500);"
+                                   style="background-color: #ff6968;color: #fff" target="_self">{{i+1}}</a>
+                                {{/if}}
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{/if}}
+                    {{if duoXuan}}
+                    {{if duoXuan.length != 0}}
+                    <div class="questions-nav-title">
+                        <h3>多选题</h3>
+                        <span>共{{GeneratedPaper.resultObject.duoxuan.totalScore}}分</span>
+                    </div>
+                    <ul>
+                        {{each duoXuan as value i}}
+                        <li>
+                            <div class="box-nav">
+                                {{if value.correct}}
+                                <a href="javascript:void(0);" data-id="duoXuandv"
+                                   onclick="setTimeout(function(){$('#nav-duoXuan-{{i}}').HoverTreeScroll(500);},500);"
+                                   target="_self">{{danXuan.length+i+1}}</a>
+                                {{else}}
+                                <a href="javascript:void(0);" data-id="duoXuandv"
+                                   onclick="setTimeout(function(){$('#nav-duoXuan-{{i}}').HoverTreeScroll(500);},500);"
+                                   style="background-color: #ff6968;color: #fff"
+                                   target="_self">{{danXuan.length+i+1}}</a>
+                                {{/if}}
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{/if}}
+                    {{if panDuan}}
+                    {{if panDuan.length != 0}}
+                    <div class="questions-nav-title">
+                        <h3>判断题</h3>
+                        <span>共{{GeneratedPaper.resultObject.panduan.totalScore}}分</span>
+                    </div>
+                    <ul>
+                        {{each panDuan as value i}}
+                        <li>
+                            <div class="box-nav">
+                                {{if value.correct}}
+                                <a href="javascript:void(0);" data-id="panDuandv"
+                                   onclick="setTimeout(function(){$('#nav-panDuan-{{i}}').HoverTreeScroll(500);},500);"
+                                   target="_self">{{danXuan.length+duoXuan.length+i+1}}</a>
+                                {{else}}
+                                <a href="javascript:void(0);" data-id="panDuandv"
+                                   onclick="setTimeout(function(){$('#nav-panDuan-{{i}}').HoverTreeScroll(500);},500);"
+                                   style="background-color: #ff6968;color: #fff" target="_self">{{danXuan.length+duoXuan.length+i+1}}</a>
+                                {{/if}}
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{/if}}
+                </div>
+            </div>
+            <!--//题库导航-->
+
+            <div class="paper-main J-pic-click">
+                <!--page3-填空题-->
+                {{if tianKong}}
+                {{if GeneratedPaper.resultObject.tiankong.qNum != 0}}
+                <div class="pagePaper" id="tianKongdv" style="display: none">
+                    <div class="pagePaper-top" style="border-bottom: none">
+                        <div class="scoreBox" style="margin: 0">
+                            <span>总分：{{GeneratedPaper.resultObject.tiankong.totalScore}} &nbsp; &nbsp; &nbsp;得分：{{GeneratedPaper.resultObject.tiankong.studentTotalScore}}分</span>
+                        </div>
+                    </div>
+                    <div class="pagePaper-content">
+                        <ul class="pagePaper-content-questions">
+                            {{each tianKong as tianKong i}}
+                            <li>
+                                <div class="pagePaper-content-box">
+                                    <div class="title tianKong-title">
+                                        <h3 id="nav-tianKong-{{i}}" style="color: #000">{{danXuan.length+duoXuan.length+panDuan.length+i+1}}、{{#tianKong.questionContent}}({{tianKong.score}}分)</h3>
+                                    </div>
+                                    <div class="paper-answer">
+                                        <span class="answer">参考答案:</span><span class="answer-contnet">{{#tianKong.answer}}</span>
+                                    </div>
+                                    <div class="paper-answer">
+                                        <span class="answer">答案说明:</span><span class="answer-contnet">{{#tianKong.solution}}</span>
+                                    </div>
+                                    <div class="paper-answer">
+                                        <img src="./app/assets/images/myclass/043.png" alt="">
+                                        <span class="answer" style="color: #39b674;line-height: 31px;float: none">教师打分:</span>
+                                        {{if tianKong.stuAnswer}}
+                                        <input type="number" class="grade" data-score="{{tianKong.score}}" data-id="{{tianKong.id}}" value="{{tianKong.stuScore}}">
+                                        {{else}}
+                                        <span style="color: red">0</span>
+                                        {{/if}}
+
+                                        <span>分</span>
+                                    </div>
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                {{/if}}
+                {{/if}}
+                <!--end page3-填空题-->
+
+                <!--page3-简答题-->
+                {{if jianDa}}
+                {{if GeneratedPaper.resultObject.jianda.qNum != 0}}
+                <div class="pagePaper" id="jianDadv" style="display: none">
+                    <div class="pagePaper-top" style="border-bottom: none">
+                        <div class="scoreBox" style="margin: 0">
+                            <span>总分：{{GeneratedPaper.resultObject.jianda.totalScore}} &nbsp; &nbsp; &nbsp;得分：{{GeneratedPaper.resultObject.jianda.studentTotalScore}}分</span>
+                        </div>
+                    </div>
+                    <div class="pagePaper-content">
+                        <ul class="pagePaper-content-questions">
+                            {{each jianDa as jianDa i}}
+                            <li>
+                                <div class="pagePaper-content-box no-border-bottom">
+                                    <div class="title">
+                                        <h3  id="nav-jianDa-{{i}}">{{danXuan.length+duoXuan.length+panDuan.length+tianKong.length+i+1}}、{{#jianDa.questionContent}}({{jianDa.score}}分)</h3>
+
+                                    </div>
+                                    {{if jianDa.stuAnswer != ''}}
+                                    <div class="paper-answer">
+                                        <span class="answer">学员答案:</span><span class="answer-contnet answer-contnet-dv">{{jianDa.stuAnswer}}</span>
+                                    </div>
+                                    {{/if}}
+                                    <div class="paper-answer">
+                                        <span class="answer" style="display: block;float: none">参考答案:</span><span class="answer-contnet" style="float: none;margin: 0;display: block">{{#jianDa.answer}}</span>
+                                    </div>
+                                    <div class="paper-answer">
+                                        <img src="./app/assets/images/myclass/043.png" alt="">
+                                        <span class="answer" style="color: #39b674;line-height: 31px;float: none">教师打分:</span>
+                                        {{if jianDa.stuAnswer}}
+                                        <input type="number" class="grade" data-score="{{jianDa.score}}" data-id="{{jianDa.id}}" value="{{jianDa.stuScore}}">
+                                        {{else}}
+                                        <span style="color: red">0</span>
+                                        {{/if}}
+                                        <span>分</span>
+                                    </div>
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                {{/if}}
+                {{/if}}
+                <!--end page3-简答题-->
+
+                <!--page3-单选题-->
+                {{if danXuan}}
+                {{if GeneratedPaper.resultObject.danxuan.qNum != 0}}
+                <div class="pagePaper" id="danXuandv" style="display: none">
+                    <div class="pagePaper-top" style="border-bottom: none">
+                        <div class="scoreBox" style="margin: 0">
+                            <span>总分：{{GeneratedPaper.resultObject.danxuan.totalScore}} &nbsp; &nbsp; &nbsp;得分：{{GeneratedPaper.resultObject.danxuan.studentTotalScore}}分</span>
+                        </div>
+                    </div>
+                    <div class="pagePaper-content">
+                        <ul class="pagePaper-content-questions">
+                            {{each danXuan as danXuan i}}
+                            <li>
+                                <div class="pagePaper-content-box">
+                                    <div class="title">
+                                        <h3 id="nav-daiXuan-{{i}}">{{i+1}}、{{#danXuan.questionContent}}({{danXuan.score}}分)</h3>
+                                    </div>
+                                    <ul class="title-selete">
+                                        {{each danXuan.questionOptionList as options index}}
+                                        <li>
+                                            <div class="title-selete-box">
+                                                <input type="radio" name="subject" id="danXuan{{i}}-{{index}}{{i}}"
+                                                       style="display: none"/>
+                                                {{if options.isSelcted && options.isTrue}}
+                                                <label for="danXuan{{i}}-{{index}}{{i}}" style="color: #2cb82c">{{options.text}}&nbsp;<img
+                                                        style="width: 15px;height:15px;"
+                                                        src='./app/assets/images/myclass/033.png' alt=''></label>
+                                                {{else}}
+                                                {{if options.isSelcted && !options.isTrue}}
+                                                <label for="danXuan{{i}}-{{index}}{{i}}" style="color: red">{{options.text}}&nbsp;<img
+                                                        style="width: 15px;height:15px;"
+                                                        src='./app/assets/images/myclass/032.png' alt=''></label>
+                                                {{else}}
+                                                <label for="danXuan{{i}}-{{index}}{{i}}">{{options.text}}</label>
+                                                {{/if}}
+                                                {{/if}}
+
+
+                                            </div>
+                                            {{if danXuan.optionsPictureList != ''}}
+                                            {{if danXuan.optionsPictureList[index]}}
+                                                <img class="J-boxer" src="{{danXuan.optionsPictureList[index]}}"/>
+                                            {{/if}}
+                                            {{/if}}
+                                        </li>
+                                        {{/each}}
+                                    </ul>
+                                    <div class="paper-answer">
+                                        <span class="answer">参考答案:</span><span
+                                            class="answer-contnet">{{#danXuan.answer}}</span>
+                                    </div>
+                                    <div class="paper-answer">
+                                        <span class="answer">答案说明:</span><span class="answer-contnet">{{#danXuan.solution}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                {{/if}}
+                {{/if}}
+                <!--end page3-单选题-->
+
+                <!--page3-多选题-->
+                {{if duoXuan}}
+                {{if GeneratedPaper.resultObject.duoxuan.qNum != 0}}
+                <div class="pagePaper" id="duoXuandv" style="display: none">
+                    <div class="pagePaper-top" style="border-bottom: none">
+                        <div class="scoreBox" style="margin: 0">
+                            <span>总分：{{GeneratedPaper.resultObject.duoxuan.totalScore}} &nbsp; &nbsp; &nbsp;得分：{{GeneratedPaper.resultObject.duoxuan.studentTotalScore}}分</span>
+                        </div>
+                    </div>
+                    <div class="pagePaper-content">
+                        <ul class="pagePaper-content-questions">
+                            {{each duoXuan as duoXuan i}}
+                            <li>
+                                <div class="pagePaper-content-box">
+                                    <div class="title">
+                                        <h3 id="nav-duoXuan-{{i}}">{{danXuan.length+i+1}}、{{#duoXuan.questionContent}}({{duoXuan.score}}分)</h3>
+                                    </div>
+                                    <ul class="title-selete">
+                                        {{each duoXuan.questionOptionList as options index}}
+                                        <li>
+                                            <div class="title-selete-box">
+                                                <input type="checkbox" name="subject" id="duoXuan{{i}}-{{index}}{{i}}"
+                                                       style="display: none"/>
+                                                {{if options.isSelcted && options.isTrue}}
+                                                <label for="duoXuan{{i}}-{{index}}{{i}}" style="color: #2cb82c">{{options.text}}&nbsp;<img
+                                                        style="width: 15px;height:15px;"
+                                                        src='./app/assets/images/myclass/033.png' alt=''></label>
+                                                {{else}}
+                                                {{if options.isSelcted && !options.isTrue}}
+                                                <label for="duoXuan{{i}}-{{index}}{{i}}" style="color: red">{{options.text}}&nbsp;<img
+                                                        style="width: 15px;height:15px;"
+                                                        src='./app/assets/images/myclass/032.png' alt=''></label>
+                                                {{else}}
+                                                <label for="duoXuan{{i}}-{{index}}{{i}}">{{options.text}}</label>
+                                                {{/if}}
+                                                {{/if}}
+                                            </div>
+                                            {{if duoXuan.optionsPictureList != ''}}
+                                            {{if duoXuan.optionsPictureList[index]}}
+                                                <img class="J-boxer" src="{{duoXuan.optionsPictureList[index]}}"/>
+                                            {{/if}}
+                                            {{/if}}
+                                        </li>
+                                        {{/each}}
+                                    </ul>
+                                    <div class="paper-answer">
+                                        <span class="answer">参考答案:</span><span
+                                            class="answer-contnet">{{#duoXuan.answer}}</span>
+                                    </div>
+                                    <div class="paper-answer">
+                                        <span class="answer">答案说明:</span><span class="answer-contnet">{{#duoXuan.solution}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                {{/if}}
+                {{/if}}
+                <!--end page3-多选题-->
+
+                <!--page3-判断题-->
+                {{if panDuan}}
+                {{if GeneratedPaper.resultObject.panduan.qNum != 0}}
+                <div class="pagePaper" id="panDuandv" style="display: none">
+                    <div class="pagePaper-top" style="border-bottom: none">
+                        <div class="scoreBox" style="margin: 0">
+                            <span>总分：{{GeneratedPaper.resultObject.panduan.totalScore}} &nbsp; &nbsp; &nbsp;得分：{{GeneratedPaper.resultObject.panduan.studentTotalScore}}分</span>
+                        </div>
+                    </div>
+                    <div class="pagePaper-content">
+                        <ul class="pagePaper-content-questions">
+                            {{each panDuan as panDuan i}}
+                            <li>
+                                <div class="pagePaper-content-box">
+                                    <div class="title">
+                                        <h3 id="nav-panDuan-{{i}}">{{danXuan.length+duoXuan.length+i+1}}、{{#panDuan.questionContent}}({{panDuan.score}}分)</h3>
+                                    </div>
+                                    <ul class="title-selete">
+                                        {{if panDuan.correct}}
+                                        {{if panDuan.stuAnswer == '错'}}
+                                        <li>
+                                            <div class="title-selete-box">
+                                                <input type="radio" name="subject" id="panDuan{{i}}-{{index}}{{i}}-yes"
+                                                       style="display: none"/>
+                                                <label for="panDuan{{i}}-{{index}}{{i}}-yes">对</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="title-selete-box">
+                                                <input type="radio" name="subject" id="panDuan{{i}}-{{index}}{{i}}-no"
+                                                       style="display: none"/>
+                                                <label for="panDuan{{i}}-{{index}}{{i}}-no"
+                                                       style="color: #00aa00">错&nbsp;<img style="width: 15px;height:15px;" src='./app/assets/images/myclass/033.png' alt=''></label>
+                                            </div>
+                                        </li>
+                                        {{else if panDuan.stuAnswer == '对'}}
+                                        <li>
+                                            <div class="title-selete-box">
+                                                <input type="radio" name="subject" id="panDuan{{i}}-{{index}}{{i}}-yes"
+                                                       style="display: none"/>
+                                                <label for="panDuan{{i}}-{{index}}{{i}}-yes" style="color: #00aa00">对&nbsp;<img style="width: 15px;height:15px;" src='./app/assets/images/myclass/033.png' alt=''></label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="title-selete-box">
+                                                <input type="radio" name="subject" id="panDuan{{i}}-{{index}}{{i}}-no"
+                                                       style="display: none"/>
+                                                <label for="panDuan{{i}}-{{index}}{{i}}-no">错</label>
+                                            </div>
+                                        </li>
+                                        {{/if}}
+                                        {{else}}
+                                        {{if panDuan.stuAnswer == '错'}}
+                                        <li>
+                                            <div class="title-selete-box">
+                                                <input type="radio" name="subject" id="panDuan{{i}}-{{index}}{{i}}-yes"
+                                                       style="display: none"/>
+                                                <label for="panDuan{{i}}-{{index}}{{i}}-yes">对</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="title-selete-box">
+                                                <input type="radio" name="subject" id="panDuan{{i}}-{{index}}{{i}}-no"
+                                                       style="display: none"/>
+                                                <label for="panDuan{{i}}-{{index}}{{i}}-no" style="color: red">错&nbsp;<img style="width: 15px;height:15px;" src='./app/assets/images/myclass/032.png' alt=''></label>
+                                            </div>
+                                        </li>
+                                        {{else if panDuan.stuAnswer == '对'}}
+                                        <li>
+                                            <div class="title-selete-box">
+                                                <input type="radio" name="subject" id="panDuan{{i}}-{{index}}{{i}}-yes"
+                                                       style="display: none"/>
+                                                <label for="panDuan{{i}}-{{index}}{{i}}-yes" style="color: red">对&nbsp;<img style="width: 15px;height:15px;" src='./app/assets/images/myclass/032.png' alt=''></label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="title-selete-box">
+                                                <input type="radio" name="subject" id="panDuan{{i}}-{{index}}{{i}}-no"
+                                                       style="display: none"/>
+                                                <label for="panDuan{{i}}-{{index}}{{i}}-no">错</label>
+                                            </div>
+                                        </li>
+                                        {{else}}
+                                        <li>
+                                            <div class="title-selete-box">
+                                                <input type="radio" name="subject" id="panDuan{{i}}-{{index}}{{i}}-yes"
+                                                       style="display: none"/>
+                                                <label for="panDuan{{i}}-{{index}}{{i}}-yes">对</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="title-selete-box">
+                                                <input type="radio" name="subject" id="panDuan{{i}}-{{index}}{{i}}-no"
+                                                       style="display: none"/>
+                                                <label for="panDuan{{i}}-{{index}}{{i}}-no">错</label>
+                                            </div>
+                                        </li>
+                                        {{/if}}
+                                        {{/if}}
+
+                                    </ul>
+                                    <div class="paper-answer">
+                                        <span class="answer">参考答案:</span><span
+                                            class="answer-contnet">{{#panDuan.answer}}</span>
+                                    </div>
+                                    <div class="paper-answer">
+                                        <span class="answer">答案说明:</span><span class="answer-contnet">{{#panDuan.solution}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                {{/if}}
+                {{/if}}
+                <!--end page3-判断题-->
+            </div>
+        </div>
+
+
+        <div class="readtest-btn">
+            <button class="layui-btn nextbit">完成批阅，下一位同学</button>
+            <a href="javascript:void (0)" class="layui-btn history_back" style="color: #fff">返回列表</a>
+            <p>还剩{{GeneratedPaper.resultObject.noMarkCount}}位学生未批阅</p>
+        </div>
+    </div>
+</div>
+{{else}}
+暂无数据
+{{/if}}

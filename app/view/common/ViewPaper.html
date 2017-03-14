@@ -10,7 +10,7 @@
 			{{each danXuan as value i}}
 			<li>
 				<div class="box-nav">
-					<a href="javascript:$('#nav-daiXuan-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+					<a href="javascript:void(0);" onclick="$('#nav-daiXuan-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
 				</div>
 			</li>
 			{{/each}}
@@ -25,7 +25,7 @@
 			{{each duoXuan as value i}}
 			<li>
 				<div class="box-nav">
-					<a href="javascript:$('#nav-duoXuan-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+					<a href="javascript:void(0);" onclick="$('#nav-duoXuan-{{i}}').HoverTreeScroll(1000);" target="_self">{{danXuan.length+i+1}}</a>
 				</div>
 			</li>
 			{{/each}}
@@ -40,7 +40,7 @@
 			{{each panDuan as value i}}
 			<li>
 				<div class="box-nav">
-					<a href="javascript:$('#nav-panDuan-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+					<a href="javascript:void(0);" onclick="$('#nav-panDuan-{{i}}').HoverTreeScroll(1000);" target="_self">{{danXuan.length+duoXuan.length+i+1}}</a>
 				</div>
 			</li>
 			{{/each}}
@@ -55,7 +55,7 @@
 			{{each tianKong as value i}}
 			<li>
 				<div class="box-nav">
-					<a href="javascript:$('#nav-tianKong-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+					<a href="javascript:void(0);" onclick="$('#nav-tianKong-{{i}}').HoverTreeScroll(1000);" target="_self">{{danXuan.length+duoXuan.length+panDuan.length+i+1}}</a>
 				</div>
 			</li>
 			{{/each}}
@@ -70,7 +70,7 @@
 			{{each jianDa as value i}}
 			<li>
 				<div class="box-nav">
-					<a href="javascript:$('#nav-jianDa-{{i}}').HoverTreeScroll(1000);" target="_self">{{i+1}}</a>
+					<a href="javascript:void(0);" onclick="$('#nav-jianDa-{{i}}').HoverTreeScroll(1000);" target="_self">{{danXuan.length+duoXuan.length+panDuan.length+tianKong.length+i+1}}</a>
 				</div>
 			</li>
 			{{/each}}
@@ -96,7 +96,7 @@
 				<li>
 					<div class="pagePaper-content-box">
 						<div class="title">
-							<h3 id="nav-daiXuan-{{i}}">{{i+1}}、{{#danXuan.questionContent}}</h3>
+							<h3 id="nav-daiXuan-{{i}}">{{i+1}}、<div class="cont-text">{{#danXuan.questionContent}}</div></h3>
 							<div class="facility-value">
 								<ul>
 									{{if danXuan.difficulty == 'A'}}
@@ -133,15 +133,16 @@
 									<label for="danXuan{{i}}-{{index}}{{i}}">{{options}}</label>
 								</div>
 								{{if danXuan.optionsPictureArr[index]}}
-								<a class="J-boxer" href="{{danXuan.optionsPictureArr[index]}}">
 									<img class="J-boxer" src="{{danXuan.optionsPictureArr[index]}}" />
-								</a>
 								{{/if}}
 							</li>
 							{{/each}}
 						</ul>
 						<div class="paper-answer">
-							<span class="answer">答案说明:</span><span class="answer-contnet">{{danXuan.answer}}</span>
+							<span class="answer">参考答案:</span><span class="answer-contnet">{{danXuan.answer}}</span>
+						</div>
+						<div class="paper-answer">
+							<span class="answer">答案说明:</span><span class="answer-contnet">{{#danXuan.solution}}</span>
 						</div>
 					</div>
 				</li>
@@ -167,7 +168,7 @@
 				<li>
 					<div class="pagePaper-content-box">
 						<div class="title">
-							<h3 id="nav-duoXuan-{{i}}">{{i+1}}、{{duoXuan.questionContent}}</h3>
+							<h3 id="nav-duoXuan-{{i}}">{{danXuan.length+i+1}}、<div class="cont-text">{{#duoXuan.questionContent}}</div></h3>
 							<div class="facility-value">
 								<ul>
 									{{if duoXuan.difficulty == 'A'}}
@@ -197,22 +198,23 @@
 							<a class="btn-Change J-btn-Change"  data-type="1" data-id="{{duoXuan.id}}" href="javascript:void(0);">换题</a>
 						</div>
 						<ul class="title-selete">
-							{{each duoXuan.options as options index  || duoXuan.optionsPictureList as pic}}
+							{{each duoXuan.optionsArr as options index}}
 							<li>
 								<div class="title-selete-box">
 									<input type="checkbox" name="subject" id="duoXuan{{i}}-{{index}}{{i}}" />
 									<label for="duoXuan{{i}}-{{index}}{{i}}">{{options}}</label>
 								</div>
 								{{if duoXuan.optionsPictureArr[index]}}
-								<a class="J-boxer" href="{{duoXuan.optionsPictureArr[index]}}">
 									<img class="J-boxer" src="{{duoXuan.optionsPictureArr[index]}}" />
-								</a>
 								{{/if}}
 							</li>
 							{{/each}}
 						</ul>
 						<div class="paper-answer">
-							<span class="answer">答案说明:</span><span class="answer-contnet">{{duoXuan.answer}}</span>
+							<span class="answer">参考答案:</span><span class="answer-contnet">{{duoXuan.answer}}</span>
+						</div>
+						<div class="paper-answer">
+							<span class="answer">答案说明:</span><span class="answer-contnet">{{#duoXuan.solution}}</span>
 						</div>
 					</div>
 				</li>
@@ -238,7 +240,7 @@
 				<li>
 					<div class="pagePaper-content-box">
 						<div class="title">
-							<h3  id="nav-panDuan-{{i}}">{{i+1}}、{{panDuan.questionContent}}</h3>
+							<h3  id="nav-panDuan-{{i}}">{{danXuan.length+duoXuan.length+i+1}}、<div class="cont-text">{{#panDuan.questionContent}}</div></h3>
 							<div class="facility-value">
 								<ul>
 									{{if panDuan.difficulty == 'A'}}
@@ -282,7 +284,10 @@
 							</li>
 						</ul>
 						<div class="paper-answer">
-							<span class="answer">答案说明:</span><span class="answer-contnet">{{panDuan.answer}}</span>
+							<span class="answer">参考答案:</span><span class="answer-contnet">{{panDuan.answer}}</span>
+						</div>
+						<div class="paper-answer">
+							<span class="answer">答案说明:</span><span class="answer-contnet">{{#panDuan.solution}}</span>
 						</div>
 					</div>
 				</li>
@@ -292,6 +297,125 @@
 	</div>
 	{{/if}}
 	<!--end page3-判断题-->
+
+
+	<!--page3-填空题-->
+	{{if viewTest.resultObject.questionsByType.tiankong.questions != ''}}
+	<div class="pagePaper">
+		<div class="pagePaper-top">
+			<h3>填空题</h3>
+			<div class="scoreBox">
+				<span>共{{viewTest.resultObject.questionsByType.tiankong.totalNums}}题 &nbsp; &nbsp; &nbsp;满分：{{viewTest.resultObject.questionsByType.tiankong.totalScore}}分</span>
+			</div>
+		</div>
+		<div class="pagePaper-content">
+			<ul class="pagePaper-content-questions">
+				{{each tianKong as tianKong i}}
+				<li>
+					<div class="pagePaper-content-box">
+						<div class="title tianKong-title">
+							<h3  id="nav-tianKong-{{i}}">{{danXuan.length+duoXuan.length+panDuan.length+i+1}}、<div class="cont-text">{{#tianKong.questionContent}}</div></h3>
+							<div class="facility-value">
+								<ul>
+									{{if tianKong.difficulty == 'A'}}
+									<li class="value-active"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									{{else if tianKong.difficulty == 'B'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									{{else if tianKong.difficulty == 'C'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value"></li>
+									{{else if tianKong.difficulty == 'D'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									{{/if}}
+								</ul>
+							</div>
+
+							<a class="btn-Change J-btn-Change" data-type="3" data-id="{{tianKong.id}}" href="javascript:void(0);">换题</a>
+						</div>
+						<div class="paper-answer">
+							<span class="answer">参考答案:</span><span class="answer-contnet">{{#tianKong.answer}}</span>
+						</div>
+						<div class="paper-answer">
+							<span class="answer">答案说明:</span><span class="answer-contnet">{{#tianKong.solution}}</span>
+						</div>
+					</div>
+				</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+	{{/if}}
+	<!--end page3-填空题-->
+
+	<!--page3-简答题-->
+	{{if viewTest.resultObject.questionsByType.jianda.questions != ''}}
+	<div class="pagePaper">
+		<div class="pagePaper-top">
+			<h3>简答题</h3>
+			<div class="scoreBox">
+				<span>共{{viewTest.resultObject.questionsByType.jianda.totalNums}}题 &nbsp; &nbsp; &nbsp;满分：{{viewTest.resultObject.questionsByType.jianda.totalScore}}分</span>
+			</div>
+		</div>
+		<div class="pagePaper-content">
+			<ul class="pagePaper-content-questions">
+				{{each jianDa as jianDa i}}
+				<li>
+					<div class="pagePaper-content-box no-border-bottom">
+						<div class="title">
+							<h3  id="nav-jianDa-{{i}}">{{danXuan.length+duoXuan.length+panDuan.length+tianKong.length+i+1}}、<div class="cont-text">{{#jianDa.questionContent}}</div></h3>
+							<div class="facility-value">
+								<ul>
+									{{if jianDa.difficulty == 'A'}}
+									<li class="value-active"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									{{else if jianDa.difficulty == 'B'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value"></li>
+									<li class="value"></li>
+									{{else if jianDa.difficulty == 'C'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value"></li>
+									{{else if jianDa.difficulty == 'D'}}
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									<li class="value-active"></li>
+									{{/if}}
+								</ul>
+							</div>
+
+							<a class="btn-Change J-btn-Change" data-type="4" data-id="{{jianDa.id}}" href="javascript:void(0);">换题</a>
+						</div>
+						<div class="paper-answer">
+							<span class="answer">参考答案:</span><span class="answer-contnet">{{#jianDa.answer}}</span>
+						</div>
+						<div class="paper-answer">
+							<span class="answer">答案说明:</span><span class="answer-contnet">{{#jianDa.solution}}</span>
+						</div>
+					</div>
+				</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+	{{/if}}
+	<!--end page3-简答题-->
 
 	<!-- end题库 -->
 

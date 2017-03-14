@@ -1,5 +1,6 @@
 .infoDel {
   background-color: #f6f6f6;
+  min-height: 800px;
 }
 .infoDel .infoDel-box {
   width: 1200px;
@@ -36,11 +37,17 @@
 .infoDel .infoDel-box .infoDel_content .infoDel_content_p2 span:first-child {
   margin-left: 0;
 }
-.infoDel .infoDel-box .infoDel_content div {
+.infoDel .infoDel-box .infoDel_content .infoDel-cont {
+  padding: 0px 184px;
+}
+.infoDel .infoDel-box .infoDel_content .infoDel-cont div {
   width: 100%;
 }
-.infoDel .infoDel-box .infoDel_content div img {
+.infoDel .infoDel-box .infoDel_content .infoDel-cont div img {
   width: 100%;
   height: 499px;
   margin: 20px auto;
+}
+.infoDel .infoDel-box .infoDel_content .infoDel-cont p {
+  word-wrap: break-word;
 }

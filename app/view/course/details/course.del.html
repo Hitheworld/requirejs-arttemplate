@@ -1,0 +1,264 @@
+<div id="main" class="course-del">
+
+	<div class="course-del-nav">
+		<div class="nav">
+			<span class="layui-breadcrumb" lay-separator="|" style="visibility: visible;">
+				 <a href="#/home">首页<span>&gt;</span></a>
+				 <a href="#/course/b/1">课程中心<span>&gt;</span></a>
+				 <a id="course-del-name">{{courseDetail.resultObject[0].name}}</a>
+			</span>
+		</div>
+	</div>
+
+	<div class="course-del-top">
+		<div class="course-del-box" id="course-del-info">
+
+			<!--左边-->
+			{{if courseDetail.resultObject[0].vedio == undefined || courseDetail.resultObject[0].vedio == ''}}
+			<a href="javascript:void(0);">
+				<img class="course-del-pic" src="{{courseDetail.resultObject[0].photo}}" onerror="this.src='./app/assets/images/error-pic.png'" />
+			</a>
+			{{else}}
+			<div class="course-del-video">
+				<div class="video-div J-btn-video"></div>
+				<embed src="./app/assets/videoplayer/ckplayer.swf"
+				       flashVars="f={{courseDetail.resultObject[0].vedio}}&p=0" quality="high" width="100%"
+				       height="100%" align="middle" allowScriptAccess="always" allowFullscreen="false"
+				       type="application/x-shockwave-flash"></embed>
+			</div>
+			{{/if}}
+			<!--end左边-->
+
+			<!--右边-->
+			<div class="course-del-info">
+				<div class="course-del-title">
+					<h3>{{courseDetail.resultObject[0].name}}</h3>
+					<a href="javascript:void(0);" class="J-btn-fx btn-fx">分享</a>
+					<!-- JiaThis Button BEGIN -->
+					<div class="jiathis_style_32x32 fx-box">
+						<a class="jiathis_button_weixin"></a>
+						<a class="jiathis_button_xiaoyou"></a>
+						<a class="jiathis_button_cqq"></a>
+						<a class="jiathis_button_tsina"></a>
+						<a class="jiathis_button_qzone"></a>
+						<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+					</div>
+					<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+					<!-- JiaThis Button END -->
+				</div>
+
+
+				<span class="course-del-book">书号：{{courseDetail.resultObject[0].book_number}}</span>
+				<span class="solid">|</span>
+				<span class="course-del-page">页码：{{courseDetail.resultObject[0].page_number}}页</span>
+				<span class="solid">|</span>
+				<span class="course-del-people">出版社：<span class="text-p">{{courseDetail.resultObject[0].press}}</span></span>
+
+				<div class="course-del-cont">
+					<p class="ellipsis">{{courseDetail.resultObject[0].discription}}</p>
+				</div>
+				<div class="course-del-button-box">
+					<button class="layui-btn buttom-margin-left course-del-resource" onclick="javascript:
+									{{if courseDetail.resultObject[0].url}}
+										window.open('{{resource_url}}{{courseDetail.resultObject[0].url}}');
+									{{else}}
+										layer.alert('没有配套资源!',{icon: 5});
+									{{/if}}
+			">查看配套资源</button>
+								<div class="b-box">
+									{{if teacher != undefined}}
+
+											{{if teacherJoinStatus.resultObject == -1}}
+												<button class="layui-btn course-del-cooperation J-btn-popup left-btn">立即合作</button>
+											{{else if teacherJoinStatus.resultObject == 0}} <!--  0 没有教师用户  --没有登录 -->
+												<button class="layui-btn course-del-cooperation J-btn-popup left-btn">立即合作</button>
+											{{else if teacherJoinStatus.resultObject == 1}} <!--  1; //非认证教师 -->
+												<button class="layui-btn course-del-cooperation J-btn-popup left-btn">立即合作</button>
+											{{else if teacherJoinStatus.resultObject == 2}}  <!--  2; //认证待审核教师 -->
+												<button class="layui-btn course-del-cooperation J-btn-popup left-btn">立即合作</button>
+											{{else if teacherJoinStatus.resultObject == 3}}  <!--  3; //已认证 -->
+												<span id="addtypehtml" class="left-btn"><button class="layui-btn course-del-cooperation J-btn-popup"  id="addTeacherToCourse">立即合作</button></span>
+											{{else if teacherJoinStatus.resultObject == 4}}  <!--  4; //合作待审核 -->
+												<span class="left-btn">正在审核中…<div class="link"></div></span>
+											{{else if teacherJoinStatus.resultObject == 5}}  <!--  5; //已认证且合作成功 -->
+												<button type="button" class="layui-btn left-btn" onclick="
+												{{if courseDetail.resultObject[0].resource_url}}
+													javascript:location.href = '{{courseDetail.resultObject[0].resource_url}}';
+												{{else}}
+												    layer.alert('没有配套资源!',{icon: 5});
+												{{/if}}">下载课程资源</button>
+											{{else}}
+												<button class="layui-btn course-del-cooperation J-btn-popup left-btn">立即合作</button>
+											{{/if}}
+
+									{{else}}
+										<button class="layui-btn notLogged  J-btn-popup">立即合作</button>
+									{{/if}}
+
+									<!--申请样书-->
+									{{if StatusDB.success}}
+										{{if StatusDB.resultObject == 0}}
+										<div class="resourcesDel-button-box">
+											<a class="btn-resources J-apply-resource" href="javascript:;">申请样书</a>
+										</div>
+										{{else if StatusDB.resultObject == 1}}
+										<div class="resourcesDel-button-box">
+											<a class="btn-resources J-apply-resource" href="javascript:;">申请样书</a>
+										</div>
+										{{else if StatusDB.resultObject == 3}}
+										<div class="resourcesDel-button-box">
+											<a class="btn-resources J-apply-resource" href="javascript:;">申请样书</a>
+										</div>
+										{{else if StatusDB.resultObject == 2}}
+										<!--申请中的-->
+										<div class="resourcesDel-button-box">
+											<a class="btn-resources J-apply-resource" href="javascript:;">正在审核</a>
+										</div>
+										<!--end申请中的-->
+										{{else}}
+										不可用
+										{{/if}}
+									{{/if}}
+									<!--end申请样书-->
+
+									<span class="course-del-people"> <span class="color-text">{{courseDetail.resultObject[0].seq}}</span>院校正在使用</span>
+								</div>
+
+
+
+				</div>
+			</div>
+			<!--end右边-->
+
+
+		</div>
+
+
+		<div class="course-del-foot">
+			<div class="course-del-tab">
+
+				<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+					<ul class="layui-tab-title">
+						<li class="layui-this">课程简介</li>
+						<li>课程大纲</li>
+					</ul>
+					<div class="layui-tab-content" id="course-del-tab">
+
+						{{if courseDetail.success}}
+						<div class="layui-tab-item layui-show">
+							{{#courseDetail.resultObject[0].brief_introduction}}
+						</div>
+						<div class="layui-tab-item">
+							{{#courseDetail.resultObject[0].outline}}
+						</div>
+						{{else}}
+						<div class="course-list-nodata">暂无数据</div>
+						{{/if}}
+
+					</div>
+				</div>
+
+
+			</div>
+
+
+
+			<div class="course-del-left">
+				<!-- 博学谷介绍 -->
+				<div class="course-delcont-left">
+					<div class="introduce-bg"></div>
+					<div class="course-titlebar" >
+						<div class="course-box"></div>
+						<h2 class="course-titlebar-title">
+							博学谷介绍
+						</h2>
+					</div>
+
+					<div class="course-delcont-left-cont">
+						<p>使用博学谷院校2.0教学平台，您可以随意浏览我们丰富的教学资源，这其中包括30多本原创IT类大学教材，以及教材配套所有教学资源，其中包括教学设计、教学案例、配套教学视频，教学PPT，以及配套测试题库。</p>
+					</div>
+
+				</div>
+				<!-- /博学谷介绍 -->
+
+
+				<!-- 资源共享 -->
+				<div class="course-delcont-left">
+					<div class="course-share-bg"></div>
+					<div class="course-titlebar" >
+						<div class="course-box"></div>
+						<h2 class="course-titlebar-title">
+							资源共享
+						</h2>
+					</div>
+
+					<div class="course-delcont-left-cont">
+						<p>高校IT教师资源共享群<br />QQ：332638059<br />入群即免费享有<span class="color">3</span>大特权：<br /><span class="color">技术干货、技术答疑、园丁红包 </span>
+						</p>
+					</div>
+
+				</div>
+				<!-- /资源共享 -->
+
+				<!-- 相关课程 -->
+				{{if relationCourseList.success}}
+				{{if relationCourseList.resultObject != ''}}
+				<div class="course-delcont-left">
+					<div class="course-titlebar" >
+						<div class="course-box"></div>
+						<h2 class="course-titlebar-title">
+							相关课程
+						</h2>
+					</div>
+
+					<div class="course-delcont-left-cont">
+
+						<div class="course-del-relevant-body">
+							<div class="course-del-relevant">
+
+								<div class="course-del-relevant-prev"></div>
+								<div class="course-del-lists-box" style="
+									{{if relationCourseList.resultObject.length == 1}}
+										height: 248px;
+									{{else if relationCourseList.resultObject.length == 2}}
+										height: 500px;
+									{{/if}}
+								">
+									<div  class="course-del-lists">
+										<ul id="course-del-items">
+											{{each relationCourseList.resultObject}}
+											<li>
+												<a href="#/course/del/b/{{$value.id}}">
+													<div class="course-del-relevant-box">
+														<div class="course-del-pic">
+															<img src="{{$value.photo}}" onerror="this.src='./app/assets/images/error-user.png'"  />
+														</div>
+														<div class="course-del-cont">
+															<h3>{{$value.name}}</h3>
+														</div>
+													</div>
+												</a>
+											</li>
+											{{/each}}
+										</ul>
+									</div>
+								</div>
+								<div class="course-del-relevant-next"></div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+				{{/if}}
+				{{else}}
+				{{errorMessage}}
+				{{/if}}
+				<!-- /相关课程 -->
+
+			</div>
+
+
+		</div>
+	</div>
+</div>

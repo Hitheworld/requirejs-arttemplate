@@ -4,6 +4,7 @@ define(['template',
 		'layui',
 		'text!tplUrl/signin/signin.html',
 		'text!tplUrl/signin/register_popup.html',
+		'text!tplUrl/signin/registration_protocol.html',
 		'common',
 		'api',
 		'jquery.validate',
@@ -13,19 +14,29 @@ define(['template',
 		'css!layuiCss',
 		'css!cssUrl/signin'
 	],
-	function (template,$,layer,layui,loginTpl,register_popup,common,api) {
+	function (template,$,layer,layui,loginTpl,register_popup,registration_protocol,
+			  common,api) {
 
 		function createPage() {
 
 
 			//验证码
 			var CodeDB = checkCode();
-			$("#content").html(template.compile( loginTpl)());
+			$("#app").html(template.compile( loginTpl)());
 			$(".myRegister").html(template.compile( register_popup)({
 				checkCode: CodeDB
 			}));
 
-
+			$(".registration_protocol_alert").click(function(){
+				layer.open({
+					type: 1,
+					title: '欢迎你来到博学谷云课堂（www.boxuegu.com）',
+					area: ['580px', '648px'], //宽高
+					shade:0.6,
+					shadeClose: false,//开启遮罩关闭
+					content: registration_protocol
+				});
+			});
 			//检验
 			var  login_name = $.trim($("#register_name").val()),
 				nick_name = $.trim($("#username").val()),
@@ -42,7 +53,7 @@ define(['template',
 					},
 					password : {
 						required : true,
-						minlength: 8,
+						minlength: 6,
 						words: true
 					},
 					verification:{
@@ -83,7 +94,7 @@ define(['template',
 			//			//if ($(".register_message1").attr("data-type") == "yes") {
 			//			//	return true;
 			//			//}
-			//			common.ajaxRequest("bxg/user/isExists","POST",{login_name:$.trim(iPhone.val())},function(data){
+			//			common.ajaxRequest("bxg_anon/user/isExists","POST",{login_name:$.trim(iPhone.val())},function(data){
 			//				if (!data.resultObject) {
 			//					$(".register_message1").attr("data-type","yes").text("手机号正确").css({color:"#68c04a"});
 			//					return true;
@@ -110,7 +121,7 @@ define(['template',
 			//		} else {
 			//			if(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($.trim(email_check.val()))) {
 			//				$(".register_message1").attr("data-type", "yes").text("");
-			//				common.ajaxRequest("bxg/user/isExists","POST",{login_name:$.trim(email_check.val())},function(data){
+			//				common.ajaxRequest("bxg_anon/user/isExists","POST",{login_name:$.trim(email_check.val())},function(data){
 			//					if (!data.resultObject) {
 			//						$(".register_message1").attr("data-type","yes").text("邮箱正确").css({color:"#68c04a"});
 			//						return true;
@@ -144,7 +155,7 @@ define(['template',
 							if (!isExistsLoginNameDB.resultObject ) {
 								$('p[name="isname"]').html("该手机可以注册").css("color","#44bd7d").show();
 							}else {
-								$('p[name="isname"]').html("该手机已经注册").show();
+								$('p[name="isname"]').html("该手机已经注册").css("color","#FF0000").show();
 							}
 						}else {
 							$('p[name="isname"]').html("请输入正确的手机号").css("color","#FF0000").show();
@@ -170,7 +181,7 @@ define(['template',
 							if (!isExistsLoginNameDB.resultObject ) {
 								$('p[name="isname"]').html("该邮箱可以注册").css("color","#44bd7d").show();
 							}else {
-								$('p[name="isname"]').html("该邮箱已经注册").show();
+								$('p[name="isname"]').html("该邮箱已经注册").css("color","#FF0000").show();
 							}
 
 						}else {
@@ -191,30 +202,37 @@ define(['template',
 					$(".verification_ipt").html("<input type='text' class='verification' name='verification' id='verification_cu' placeholder='请输入验证码'>" +
 						"<span class='verification_intended layui-btn'>发送验证码</span><span class='verification_intended2' style='display:none; '></span>");
 					isEmailName();
-					$(".verification_intended").click(function(){
+					$(".verification_intended").unbind().click(function(){
 						if (/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($.trim($("#register_name").val()))) {
-							common.ajaxRequest('bxg/common/checkEmail','POST', {
-								email:  $.trim($("#register_name").val())
-							},function(data){
-								if (data.success){
-									$("#popup_login_dv_checkEmail").val(data.resultObject)
-								}
-							});
-							var wait=10;
-							$(this).css("display","none");
-							$(".verification_intended2").css("display","block").html(wait);
-							timeOut();
-							function timeOut(){
-								if(wait==0){
-									$(".verification_intended").css("display","block");
-									$(".verification_intended2").css("display","none");
-								}else{
-									setTimeout(function(){
-										wait--;
-										$(".verification_intended2").html(wait);
+							var isExistsLoginNameDB = isExistsLoginName($.trim($("#register_name").val()));
+							if (!isExistsLoginNameDB.resultObject) {
+								common.ajaxRequest('bxg_anon/common/checkEmail','POST', {
+									email:  $.trim($("#register_name").val())
+								},function(data){
+									if (data.success){
+										$("#popup_login_dv_checkEmail").val(data.resultObject);
+										var wait=90;
+										$(this).css("display","none");
+										$(".verification_intended2").css("display","block").html(wait+"秒");
 										timeOut();
-									},1000)
-								}
+										function timeOut(){
+											if(wait==0){
+												$(".verification_intended").css("display","block");
+												$(".verification_intended2").css("display","none");
+											}else{
+												setTimeout(function(){
+													wait--;
+													$(".verification_intended2").html(wait+"秒");
+													timeOut();
+												},1000)
+											}
+										}
+									}else {
+										layer.msg(data.errorMessage, {icon: 5});
+									}
+								});
+							}else {
+								layer.msg('该邮箱已经注册', {icon: 5});
 							}
 						} else {
 							layer.msg('请输入正确的邮箱', {icon: 5});
@@ -223,9 +241,49 @@ define(['template',
 					});
 				//手机
 				} else {
-					$(".verification_ipt").html("");
-					$(".verification_ipt + p").css("display","none");
+					//$(".verification_ipt").html("");
+					//$(".verification_ipt + p").css("display","none");
+
+
+
+					$(".verification_ipt").html("<input type='text' class='verification' name='verification' id='verification_cu' placeholder='请输入验证码'>" +
+						"<span class='verification_intended layui-btn'>发送验证码</span><span class='verification_intended2' style='display:none; '></span>");
 					isPhoneName();
+					$(".verification_intended").click(function(){
+						if (/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/.test($.trim($("#register_name").val()))) {
+							var isExistsLoginNameDB = isExistsLoginName($.trim($("#register_name").val()));
+							if (!isExistsLoginNameDB.resultObject) {
+								common.ajaxRequest('bxg_anon/common/checkMobile','POST', {
+									mobile:  $.trim($("#register_name").val())
+								},function(data){
+									if (data.success){
+										$("#popup_login_dv_checkEmail").val(data.resultObject);
+										var wait=90;
+										$(this).css("display","none");
+										$(".verification_intended2").css("display","block").html(wait+"秒");
+										timeOut();
+										function timeOut(){
+											if(wait==0){
+												$(".verification_intended").css("display","block");
+												$(".verification_intended2").css("display","none");
+											}else{
+												setTimeout(function(){
+													wait--;
+													$(".verification_intended2").html(wait+"秒");
+													timeOut();
+												},1000)
+											}
+										}
+									}
+								});
+							}else {
+								layer.msg('该手机已经注册', {icon: 5});
+							}
+						} else {
+							layer.msg('请输入正确的手机', {icon: 5});
+						}
+
+					});
 				}
 			});
 
@@ -252,13 +310,19 @@ define(['template',
 							layer.msg('验证码错误', {icon: 5});
 						}
 					} else if (/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/.test($.trim($("#register_name").val()))){
-						var signinDB = SigninPost(login_name, nick_name, password);
-						if ( signinDB.success) {
-							window.location.href="#/RegisterSuccess";
-						} else {
-							layer.alert("手机号错误");
-							return false; //阻止表单默认提交
+						if (verification_cu == $("#popup_login_dv_checkEmail").val()){
+							var signinDB = SigninPost(login_name, nick_name, password);
+							if ( signinDB.success) {
+								history.go(0);
+								window.location.href="#/RegisterSuccess";
+							} else {
+								layer.alert("手机号错误");
+								return false; //阻止表单默认提交
+							}
+						}else {
+							layer.msg('验证码错误', {icon: 5});
 						}
+
 					}else {
 						return false;
 					}
@@ -275,7 +339,7 @@ define(['template',
 
 		//申请注册
 		var SigninPost = function(login_name, nick_name, password ) {
-			return common.requestService('bxg/user/regist','post', {
+			return common.requestService('bxg_anon/user/regist','post', {
 				login_name:  login_name,
 				nick_name: nick_name,
 				password: password
@@ -285,7 +349,7 @@ define(['template',
 
 		//判断手机号或者邮箱号是否重复
 		var isExistsLoginName = function( login_name ) {
-			return common.requestService('bxg/user/isExists','post', {
+			return common.requestService('bxg_anon/user/isExists','post', {
 				login_name:  login_name
 			});
 		};
@@ -293,7 +357,7 @@ define(['template',
 
 		//验证码
 		var checkCode = function() {
-			return  'bxg/common/checkCode';
+			return  'bxg_anon/common/checkCode';
 		};
 
 

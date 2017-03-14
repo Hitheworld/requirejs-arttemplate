@@ -63,50 +63,58 @@ define(['template',
 			//奇偶行色
 			$(".table-tr:odd").addClass("odd");
 			$(".table-tr:even").addClass("even");
-			page();
 
-			//删除
-			$(".J-delete").on('click', function(){
-				var examepaperId =  $(this).data("id");
-				layer.confirm('确定要删除此考试试卷么？', {
-					btn: ['确定','取消'] //按钮
-				}, function(){
-					var deleteDB = DeletePaper(examepaperId);
-					if(deleteDB.success){
-						layer.msg(deleteDB.resultObject.message, {icon: 1} , function(){
+
+			interaction();
+			function interaction(){
+				//删除
+				$(".J-delete").on('click', function(){
+					var examepaperId =  $(this).data("id");
+					layer.confirm('确定要删除此考试试卷么？', {
+						shade: [0.6, '#000'],
+						btn: ['确定','取消'] //按钮
+					}, function(){
+						var deleteDB = DeletePaper(examepaperId);
+						if(deleteDB.success){
+							layer.msg(deleteDB.resultObject.message, {icon: 1} , function(){
+								//刷新操作
+								history.go(0);
+							});
 							//刷新操作
-							history.go(0);
-						});
-						//刷新操作
-					}else {
-						layer.alert(deleteDB.errorMessage);
-					}
-				}, function(){
-					layer.msg("你已取消操作", {icon: 2});
+						}else {
+							layer.alert(deleteDB.errorMessage);
+						}
+					}, function(){
+						layer.msg("你已取消操作", {icon: 2});
+					});
 				});
-			});
 
-			//难度选择  --- 课程选择
-			$("#difficulty,#courseId").change(function() {
-				difficulty = $("#difficulty option:checked").val();
-				courseId = $("#courseId option:checked").val();
-				//数据源
-				var TestPaperDB = TestPaper(login_name, difficulty, courseId, pageNumber, pageSize);
-				var data = TestPaperDB.resultObject.items;
-				$("#table").html(template.compile( tableTpl)({
-					TestPaperDB: TestPaperDB,
-					TestPager: data
-				}));
-				//奇偶行色
-				$(".table-tr:odd").addClass("odd");
-				$(".table-tr:even").addClass("even");
-				page();
-			});
+				//难度选择  --- 课程选择
+				$("#difficulty,#courseId").change(function() {
+					difficulty = $("#difficulty option:checked").val();
+					courseId = $("#courseId option:checked").val();
+					//数据源
+					var TestPaperDB = TestPaper(login_name, difficulty, courseId, pageNumber, pageSize);
+					var data = TestPaperDB.resultObject.items;
+					$("#table").html(template.compile( tableTpl)({
+						TestPaperDB: TestPaperDB,
+						TestPager: data
+					}));
+					//奇偶行色
+					$(".table-tr:odd").addClass("odd");
+					$(".table-tr:even").addClass("even");
+					page(TestPaperDB.resultObject.totalPageCount);
+					return false;
+				});
+				return false;
+			}
 
-			function page(){
+
+			page(TestPaperDB.resultObject.totalPageCount);
+			function page(totalPageCount){
 				laypage({
 					cont:  $('#page'), //容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：<div id="page1"></div>
-					pages: TestPaperDB.resultObject.totalPageCount, //通过后台拿到的总页数
+					pages: totalPageCount, //通过后台拿到的总页数
 					curr: 1, //当前页
 					skin: '#2cb82c', //配色方案
 					jump: function(obj, first){ //触发分页后的回调
@@ -121,6 +129,7 @@ define(['template',
 							//奇偶行色
 							$(".table-tr:odd").addClass("odd");
 							$(".table-tr:even").addClass("even");
+							interaction();
 						}
 					}
 				});
@@ -144,7 +153,7 @@ define(['template',
 
 		//查询该老师对应的课程下拉列表
 		var findTeacherCourses = function(teacherId) {
-			return common.requestService('bxg/examPaper/findTeacherCourses','get', {
+			return common.requestService('bxg/examPaper/findExampaperAllCourses','get', {
 				teacherId: teacherId
 			});
 		};

@@ -7,6 +7,7 @@ define(['template',
 		'layer',
 		'laypage',
 		'text!tplUrl/info/infoLists/infoLists.html',
+
 		'common',
 		'api',
 		'radialIndicator',
@@ -18,6 +19,8 @@ define(['template',
 
 		function createPage(pagenumber) {
 			document.title = "博学谷·院校-教师端扩展资源";
+
+
 			//数据源
 			$("#content").html(infoListsTpl);
 			//设置导航的active
@@ -25,31 +28,54 @@ define(['template',
 			//$(".home-header .home-nav .home-nav-li a.course").addClass("active");
 			
 			var indicatorCont = "{{each resultObject}}" +
-				"<a href='#/info/del/{{$value.id}}'>" +
+				"<a href='#/info/del/{{$value.id}}' data-id='{{$value.id}}' target='_blank'>" +
 				"<div><img src='{{$value.image_url}}' alt=''>" +
 				"<p><span>▶</span><span>{{$value.title}}</span>" +
 				"</p></div></a>" +
 				"{{/each}}";
 			
 			var infolists = "{{each resultObject.data}}" +
-				"<li><div class='infoLists-item'>" +
-				"<a href='#/info/del/{{$value.id}}'>" +
-				"<div class='infoLists-pic'><img src='{{$value.image_url}}' /></div>" +
-				"<div class='infoLists-cont'><p>{{$value.title | dataHtml:$value.title}}</p><p>{{$value.content | dataHtml:$value.content}}</p>" +
+				"<li><div class='infoLists-item' data-id='{{$value.id}}'>" +
+				"<a href='#/info/del/{{$value.id}}' data-id='{{$value.id}}' target='_blank'>" +
+				"<div class='infoLists-pic'>" +
+				"{{if $value.image_url}}"+
+				"<img src='{{$value.image_url}}' alt='' />" +
+				"{{else}}"+
+				"<img src='' alt=''/>" +
+				"{{/if}}"+
+				"</div>" +
+				"<div class='infoLists-cont'><p>{{$value.title | dataHtml:$value.title}}</p>" +
+				"<p title='{{$value.content | dataHtml:$value.content}}'>{{$value.content | dataHtml:$value.content}}</p>" +
 				"<div class='infoLists-footer'><span>{{$value.create_time}}</span>" +
-				"<span>浏览:{{$value.page_view}}</span><span>小编:{{$value.author}}</span> </div> </div> </a></div></li>" +
+				"<span>浏览:{{$value.page_view}}</span><span>小编:{{$value.author}}</span> </div> </div> </a></div>" +
+				"</li>" +
 				"{{/each}}";
 
 
 
+
 			function afficheList (page) {
-				common.syncRequest('bxg/home/afficheList', "POST", {
+				common.ajaxRequest('bxg_anon/home/afficheList', "POST", {
 					pageNumber:page,
 					pageSize:5
 				},function(data){
 					if (data.resultObject.data.length != 0) {
+						template.helper('dataHtml', function (date, format) {
+							format = date.replace(/<[^>]+>/g,"");
+							if (format == "" || format == null || format == undefined){
+								return format = "";
+							}
+							return format;
+						});
 						$(".infoLists-contnet ul").append(template.compile(infolists)(data));
-						$("#infoLists_btn_g").attr("data-page",parseInt(page)+(1))
+						$("#infoLists_btn_g").attr("data-page",parseInt(page)+(1));
+						$(".infoLists-item a").unbind().on("click",function(){
+							var _this = $(this);
+							common.ajaxRequest("bxg_anon/home/updateAffiche","POST",{
+								afficheId:_this.attr("data-id")
+							},function(con){
+							})
+						})
 					} else {
 						layer.alert("没有更多了！")
 					}
@@ -63,9 +89,23 @@ define(['template',
 				afficheList($("#infoLists_btn_g").attr("data-page"));
 			});
 
-			common.ajaxRequest('bxg/home/hotAfficheList', "POST", {},function(data){
-				console.log(data+"--");
+			common.ajaxRequest('bxg_anon/home/hotAfficheList', "POST", {},function(data){
+				template.helper('dataHtml', function (date, format) {
+					format = date.replace(/<[^>]+>/g,"");
+					if (format == "" || format == null || format == undefined){
+						return format = "";
+					}
+					return format;
+				});
 				$(".indicatorContainer_dv").html(template.compile(indicatorCont)(data));
+				$(".indicatorContainer_dv a").on("click",function(){
+					var _this = $(this);
+					common.ajaxRequest("bxg_anon/home/updateAffiche","POST",{
+						afficheId:_this.attr("data-id")
+					},function(con){
+
+					})
+				})
 			});
 
 			//判断是否显示分页
@@ -89,17 +129,6 @@ define(['template',
 
 
 		}
-
-		//获取扩展资源资源分类数据
-		var resourcesNavs = function() {
-			return common.requestService('../app/data/resourcesNav.json','get', {});
-		};
-
-		//获取扩展资源列表数据
-		var resourcesLists = function(curr,sort,style) {
-			return common.requestService('../app/data/resourcesList.json','get', {});
-		};
-
 
 		return {
 			createPage: createPage

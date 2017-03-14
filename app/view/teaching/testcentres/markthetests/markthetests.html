@@ -1,35 +1,46 @@
+{{if resultObject}}
 <div class="markthetests">
     <div class="markthetests_header">
         <span>{{resultObject.examPaperName}}</span>
         <span>班级：{{resultObject.squadName}}</span>
-        <span>考试时间：{{resultObject.startTime}}</span>
-        <a href="javascript:history.back(-1);">返回</a>
+        <span style="border-left: none">考试时间：{{resultObject.startTime}}</span>
+        <a href="javascript:history.back(-1);" class="markthetests_header_span_a">返回</a>
     </div>
     <div class="markthetests_header1">
-        <button class="layui-btn">批量发布成绩</button><button class="layui-btn">下载学生成绩</button>
+        <a href="javascript:void (0)" class="layui-btn Batch_release">批量发布成绩</a>
+        <a class="layui-btn" id="Download_the_student_test_paper" data-id="{{resultObject.examId}}" href="javascript:void(0)">下载学生试卷</a>
         <div class="item-box">
-            <label for="markexampapers-peper-difficulty">班级</label>
+            <label for="markexampapers-peper-difficulty" style="width: auto;margin-right: 5px">状态</label>
             <select id="markexampapers-peper-difficulty">
                 <option value="">全部</option>
+                {{if resultObject.status == 4}}
+                {{else}}
                 <option value="2">待批阅</option>
                 <option value="3">待发布</option>
+                {{/if}}
                 <option value="0">未交卷</option>
                 <option value="4">已发布</option>
             </select>
         </div>
-        <span>交卷人数：<span>{{resultObject.ykCounts}}/{{resultObject.jjCounts}}</span></span><span>已批阅人数：<span>{{resultObject.markedCounts}}</span></span>
+        <span>交卷人数：<span style="margin-left: 5px">{{resultObject.ykCounts}}/{{resultObject.jjCounts}}</span></span>
+        <span>已批阅人数：<span style="margin-left: 5px">{{resultObject.markedCounts}}</span></span>
     </div>
     <div id="paperHtml">
         <div class="markexampapers-cont">
             <table id="markexampapersTable" class="display myClass_table" cellspacing="0" width="100%">
                 <tr>
-                    <th>姓名</th>
-                    <th>交卷时间</th>
-                    <th>耗时</th>
-                    <th>分数</th>
-                    <th>分组</th>
-                    <th>状态</th>
-                    <th>操作</th>
+                    <td>姓名</td>
+                    <td>交卷时间</td>
+                    <td>耗时</td>
+                    <td>分数
+                        <span id="markexampapersTable_sort" data-type="">
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </span>
+                    </td>
+                    <td>分组</td>
+                    <td>状态</td>
+                    <td>操作</td>
                 </tr>
                 <tbody id="markexampapersTable_tbody">
 
@@ -44,3 +55,7 @@
 
     </div>
 </div>
+
+{{else}}
+暂无数据
+{{/if}}

@@ -1,10 +1,10 @@
-<div class="myClass">
+<div class="myClass" style="padding: 10px 30px 10px 30px">
     <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-        <ul class="layui-tab-title">
-            <li class="layui-this"><a href="#/teaching/testcentres/markexampapers">待发布试卷</a></li>
-            <li><a href="#/teaching/testcentres/Thepublishedpapers">已发布试卷</a></li>
+        <ul class="layui-tab-title markexampapers_title">
+            <li class="layui-this"><a href="#/teaching/testcentres/markexampapers">待发布考试</a></li>
+            <li><a href="#/teaching/testcentres/Thepublishedpapers">已发布考试</a></li>
         </ul>
-        <div class="layui-tab-content">
+        <div class="layui-tab-content" style="padding:0;">
             <div class="markexampapers-contnet">
                 <div class="markexampapers-header">
                     <ul>
@@ -30,15 +30,15 @@
                 </div>
                 <div id="paperHtml">
                     <div class="markexampapers-cont">
-                        <table id="markexampapersTable" class="display myClass_table" cellspacing="0" width="100%">
+                        <table id="markexampapersTable" class="display myClass_table" cellspacing="0" width="100%" style="margin-top: 0">
                             <tr>
-                                <th>考试班级</th>
-                                <th>试卷名称</th>
-                                <th>难易度</th>
-                                <th>总/交卷人数</th>
-                                <th>待批阅</th>
-                                <th>状态</th>
-                                <th>操作</th>
+                                <td>班级</td>
+                                <td>考试名称</td>
+                                <td>难易度</td>
+                                <td>总/交卷人数</td>
+                                <td>待批阅</td>
+                                <td>状态</td>
+                                <td>操作</td>
                             </tr>
                             <tbody id="markexampapersTable_tbody">
 
@@ -51,6 +51,7 @@
                         </div>
                     </div>
                 </div>
+                <div class='Temporarily_no_data' style="display: none"><img src='./app/assets/images/myclass/025.png' alt='das'><p>去创建考试吧 ~</p></div>
             </div>
         </div>
     </div>

@@ -1,12 +1,12 @@
 /**
-     * 组织试卷
+ * 组织试卷
  */
 .organizepaper {
     width: 100%;
     background-color: #FFFFFF;
     .organizepaper-body {
         padding: 20px 30px;
-        
+        min-height: 800px; 
         //标题区
         .content-title {
             padding-bottom: 20px;
@@ -32,6 +32,7 @@
                 font-size: 14px;
                 color: #FFFFFF;
                 background-color: #36b773;
+                font-size: 16px;
             }
         }
         
@@ -85,6 +86,10 @@
                                 }
                                 &.courseName {
                                     width: 164px; 
+                                    word-wrap: normal;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    overflow: hidden;
                                 }
                                 &.hots {
                                     width: 152px;
@@ -109,13 +114,53 @@
                             text-align: center;
                             i {
                                 font-size: 20px;
-                                color: #999999;
+                                color: #72cc9d;
                             }
                             &:hover {
                                 i {
-                                    color: #36b773;
+                                    color: #75bfee;
+                                }
+                            
+                            }
+                            .icon-pic {
+                                display: block;
+                                width: 18px;
+                                height: 18px;
+                                margin-top: 16px;
+                            }
+                            .icon-view{
+                                background: url('../assets/images/icons/view/view.png');
+                                &:hover {
+                                    background: url('../assets/images/icons/view/view-hover.png');
                                 }
                             }
+                            
+                            .icon-pic-down {
+                                display: block;
+                                width: 17px; 
+                                height: 15px;
+                                margin-top: 16px;
+                            } 
+                            .icon-down {
+                                background: url('../assets/images/icons/view/down.png');
+                                &:hover {
+                                    background: url('../assets/images/icons/view/down-hover.png');
+                                } 
+                            }
+                            
+                            .icon-pic-pen {
+                                display: block;
+                                width: 17px; 
+                                height: 17px;
+                                margin-top: 16px;
+                            }
+                            .icon-pen {
+                                background: url('../assets/images/icons/view/pen.png');
+                                &:hover {
+                                    background: url('../assets/images/icons/view/pen-hover.png');
+                                } 
+                            }
+                            
                         }
                     }
                     

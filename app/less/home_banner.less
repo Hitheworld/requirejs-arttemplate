@@ -1,8 +1,7 @@
 .cy_banner {
   width: 1200px;
   margin: 0 auto;
-  margin-top: 30px;
-  overflow: hidden;
+  overflow: hidden; 
   .cy_show {
     width: 830px;
     height: 400px;
@@ -11,32 +10,35 @@
     position: relative;
     .cy_prev {
       position: absolute;
+      display: none;
+      //background: pink;
       top: 50%;
       left: 0;
-      width: 25px;
-      height: 50px;
+      width: 48px;
+      height: 79px;
       z-index: 3;
       cursor: pointer;
-      background: url("../assets/images/next.png") no-repeat;
+      background: url("../assets/images/banner-left.png") no-repeat;
       background-size: 100% 100%;
-      margin-top: -25px;
+      margin-top: -48px;
       &:hover {
-        opacity: .7;
+        background: url("../assets/images/hover-left.png") no-repeat;
       }
     }
     .cy_next {
       position: absolute;
       top: 50%;
+      display: none;
       right: 0;
-      width: 25px;
-      height: 50px;
+      width: 48px;
+      height: 79px;
       z-index: 22;
       cursor: pointer;
-      background: url("../assets/images/pre.png") no-repeat;
+      background: url("../assets/images/banner-right.png") no-repeat;
       background-size: 100% 100%;
-      margin-top: -25px;
+      margin-top: -48px;
       &:hover {
-        opacity: .7;
+        background: url("../assets/images/hover-right.png") no-repeat;
       }
     }
     .cy_cont {
@@ -69,13 +71,15 @@
           width: 12px;
           height: 12px;
           float: left;
-          background: #ffffff;
+          //background: #ffffff;
+          background:rgba(0,0,0,0.1);
           cursor: pointer;
           margin-left: 10px;
           border-radius: 50px;
         }
         .cy_circle-cur {
-          background: #68c04a;
+          //background: #68c04a;
+          background: #ffffff;
         }
         li:first-child {
           margin-left: 0;
@@ -85,36 +89,38 @@
   }
   .cy_banner_right {
     width: 340px;
-    height: 400px;
+    //height: 400px;
     float: right;
     overflow: hidden;
-    background-color: #fafafa;
+    background-color: #fff;
     .cy_News_h {
       overflow: hidden;
-      height: 20px;
       margin-top: 30px;
+
       span {
         float: left;
         margin: 0;
         border-left: 4px solid #36b773;
         text-indent: 30px;
-        line-height: 20px;
+        line-height: 30px;
         font-weight: bold;
+        font-size: 20px;
       }
       a {
         float: right;
         margin-right: 30px;
         color: #ccc;
         font-size: 14px;
+        line-height: 30px;
         &:hover {
-          text-decoration: underline;
+         //color: #333333;
+          color: #0c0c0c;
         }
       }
     }
     .cy_News {
-      margin-bottom: 28px;
       min-height: 174px;
-      max-height: 174px;
+      height: 206px;
       overflow: hidden;
       ul {
         margin-top: 30px;
@@ -157,27 +163,30 @@
       background-color: #fff;
     }
     .cy_News_r {
-      background-color: #fafafa;
+      background-color: #fff;
       padding: 24px 30px 24px 30px;
       a {
         display: inline-block;
         background-color: #dddddd;
         width: 45%;
-        height: 40px;
+        height: 50px;
         font-size: 16px;
         text-align: center;
-        line-height: 40px;
+        line-height: 50px;
         color: #fff;
-        &:hover {
-          opacity: .8;
-        }
       }
-      .cy_News_r_a1 {
+      .cy_News_r_a1{
         background-color: #36b773;
+        &:hover {
+          background-color: #2ba565;
+      }
       }
       .cy_News_r_a2 {
         margin-left: 20px;
         background-color: #279ee9;
+        &:hover {
+          background-color: #1b88cd;
+        }
       }
     }
   }
@@ -186,10 +195,8 @@
 .cy_banner2 {
   width: 1200px;
   margin: 0 auto;
-  margin-bottom: 20px;
   overflow: hidden;
   .am-titlebar {
-
     overflow: hidden;
     border-bottom: 1px solid #f0f0f0;
     .am-titlebar-title, .am-titlebar-nav {
@@ -204,42 +211,49 @@
     }
     .am-titlebar-nav {
       float: right;
+
       a {
         font-size: 14px;
         color: #bbbbbb;
+        //&:hover{
+        //  color: #333333;
+        //}
       }
     }
   }
   .cy_banner2_banner_prev {
     float: left;
-    margin-top: 80px;
-    width: 20px;
-    height: 22px;
+    margin-top: 50px;
+    width: 10px;
+    height: 20px;
     z-index: 3;
     cursor: pointer;
     color: #000;
-    margin-right: 20px;
+    margin-left: 20px;
+    background: url("../assets/images/lefts.png") no-repeat;
+    background-size: 100% 100%;
     &:hover{
-      background-color: #ededed;
+      background: url("../assets/images/hover-lefts.png") no-repeat;
     }
   }
   .cy_banner2_banner_next {
     float: left;
-    margin-top: 80px;
-    width: 20px;
-    height: 22px;
+    margin-top: 50px;
+    width: 10px;
+    height: 20px;
     z-index: 22;
     cursor: pointer;
     color: #000;
-    margin-left: 20px;
+    margin-right: 20px;
+    background: url("../assets/images/rights.png") no-repeat;
+    background-size: 100% 100%;
     &:hover{
-      background-color: #ededed;
+      background: url("../assets/images/hover-rights.png") no-repeat;
     }
   }
   .cy_banner2_banner {
     width: 750px;
     float: left;
-    margin-top: 30px;
     position: relative;
     overflow: hidden;
     .cy_banner2_banner_cont {
@@ -249,30 +263,31 @@
       position: relative;
       ul {
         li:first-child {
-          margin: 0
+          margin: 0;
         }
         li {
           float: left;
           width: 150px;
           height: 132px;
-          background-color: #f6f6f6;
           position: relative;
+
           p {
             padding: 0;
             margin: 0
           }
+
           .cy_banner2_banner_cont_p1 {
             display: block;
             width: 55px;
             height: 55px;
-            border: 1px solid #000;
+            //border: 1px solid #000;
             border-radius: 50px;
             margin: 0 auto;
             margin-top: 25px;
           }
           .cy_banner2_banner_cont_p2 {
             width: 100%;
-            height: 20px;
+            height:15px;
             font-size: 14px;
             color: #333;
             text-align: center;
@@ -280,13 +295,15 @@
           }
           .cy_banner2_banner_cont_p3{
             position: absolute;
-            top: 0;
-            right: -10px;
+            top: 40px;
+            right: -20px;
             width: 20px;
             height: 132px;
             background-color: #fff;
+
           }
         }
+
       }
       ul > li+li+li+li+li{
         .cy_banner2_banner_cont_p3{
@@ -300,10 +317,27 @@
     width: 350px;
     height: 132px;
     float: right;
-    margin-top: 30px;
     text-align: center;
     background-color: #d6d6d6;
     cursor: pointer;
     line-height: 60px;
+    .cy_banner2_a1{
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .cy_banner2_a2{
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+    &:hover{
+      .cy_banner2_a1{
+        display: none;
+      }
+      .cy_banner2_a2{
+        display: block;
+      }
+    }
   }
 }

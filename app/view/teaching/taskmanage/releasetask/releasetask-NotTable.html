@@ -1,0 +1,90 @@
+<div class="table">
+	<ul class="table-tr">
+		<li class="table-th testClass">
+			<h1>练习班级</h1>
+		</li>
+		<li class="table-th testPaper">
+			<h1>试卷名称</h1>
+		</li>
+		<li class="table-th testTime">
+			<h1>练习结束时间</h1>
+		</li>
+		<li class="table-th grouping">
+			<h1>分组</h1>
+		</li>
+		<li class="table-th operation">
+			<h1>操作</h1>
+		</li>
+	</ul>
+	{{if NotCarriedDB.success}}
+		{{if NotCarriedDB.resultObject.items != ''}}
+			{{each NotCarried as NotCarried i}}
+			<ul class="table-tr">
+				<!--考试班级-->
+				<li class="table-td testClass" title="{{NotCarried.squadName}}">
+					{{NotCarried.squadName}}
+				</li>
+				<!--end考试班级-->
+				<!--试卷名称-->
+				<li class="table-td testPaper" title="{{NotCarried.homeworkTplName}}">
+					{{NotCarried.homeworkTplName}}
+				</li>
+				<!--end试卷名称-->
+				<!--作业结束时间-->
+				<input type="hidden" class="createTime" value="{{NotCarried.createTime}}" /> <!-- 结束时间 -->
+				<li class="table-td testTime ">
+					{{NotCarried.endTime}}
+				</li>
+				<!--end作业结束时间-->
+				<!--分组-->
+				<li class="table-td grouping">
+					{{if NotCarried.groups != ''}} {{NotCarried.groups}} {{else}} 全班 {{/if}}
+				</li>
+				<!--end分组-->
+				<!--操作-->
+				<li class="table-td operation">
+					<div class="operation-icon">
+						<div class="operation-icon">
+							<!--状态(0:未开始考试，1：考试中，2:考试结束，待批阅。3：已批阅，待发布，4：已发布)-->
+							{{if NotCarried.status == 0}}
+								<a href="#/teaching/taskmanage/createtask/edit/{{NotCarried.id}}" class="J-open-edit" title="编辑">
+									<i class="rele-deit-pic rele-deit"></i>
+								</a>
+							{{/if}}
+							{{if NotCarried.status == 1}}
+							<a href="#/teaching/taskmanage/createtask/updateEndTime/{{NotCarried.id}}" class="J-open-edit" title="修改结束时间">
+								<i class="rele-deit-pic rele-deit"></i>
+							</a>
+							{{/if}}
+							{{if NotCarried.status != 1}}
+								<a href="javascript:void(0);" class="J-tips-del" data-id="{{NotCarried.id}}" title="删除">
+									<i class="fa fa-trash-o" aria-hidden="true"></i>
+								</a>
+							{{/if}}
+							{{if NotCarried.status != 0}}
+								<a href="#/teaching/taskmanage/ViewStudent/view/{{NotCarried.id}}" class="J-open-see" title="查看学员">
+									<i class="rele-view-pic rele-view"></i>
+								</a>
+							{{/if}}
+							{{if NotCarried.status == 0}}
+								<a href="javascript:void(0);" class="J-publish" data-id="{{NotCarried.id}}" title="发布">
+									<i class="rele-start-pic rele-start"></i>
+								</a>
+							{{/if}}
+						</div>
+					</div>
+				</li>
+				<!--end操作-->
+			</ul>
+			{{/each}}
+		{{else}}
+			<!--空文件-->
+			<div class="no-data">
+				<img src="./app/assets/images/emptyData/releasetask-icon.png" />
+			</div>
+			<!--end空文件-->
+		{{/if}}
+	{{else}}
+		{{NotCarriedDB.errorMessage}}
+	{{/if}}
+</div>

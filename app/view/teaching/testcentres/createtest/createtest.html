@@ -30,27 +30,15 @@
 
 				<div class="layui-form-item">
 					<label class="layui-form-label"><span class="major">*</span>选择课程</label>
-					<div class="layui-input-inline">
-						<select name="city" id="courseId" name="courseId" class="layui-input">
-							{{if Courses.success}}
-								{{if Courses.resultObject != ''}}
-									{{each Courses.resultObject as TeacherCourses i}}
-									<option value="{{TeacherCourses.id}}"  {{if EditLoad.resultObject}}{{if TeacherCourses.id == EditLoad.resultObject.courseId}}selected="selected" {{/if}}{{/if}} >{{TeacherCourses.name}}</option>
-									{{/each}}
-								{{else}}
-									<option>无数据</option>
-								{{/if}}
-							{{else}}
-								{{Courses.errorMessage}}
-							{{/if}}
-						</select>
+					<div class="layui-input-inline" id="createTestCourses">
+
 					</div>
 				</div>
 
 				<div class="layui-form-item item-testName">
 					<label class="layui-form-label"><span class="major">*</span>设置试卷</label>
 					<div class="width-test">
-						<input type="hidden" name="paperTplId" id="paperTplId" {{if EditLoad.resultObject}} value="{{EditLoad.resultObject.id}}" {{/if}} />
+						<input type="hidden" name="paperTplId" id="paperTplId" {{if EditLoad.resultObject}} value="{{EditLoad.resultObject.paperTplId}}" {{/if}} />
 						<span id="parentIframe">
 							{{if pageType}}
 								{{if EditLoad.resultObject}}
@@ -59,7 +47,7 @@
 							{{/if}}
 						</span>
 						{{if EditLoad.resultObject}}
-							<a href="javascript:void(0);" class="addtest-a J-add-testpaper">修改试卷</a>
+							<a href="javascript:void(0);" class="addtest-a J-add-testpaper">选择试卷</a>
 						{{else}}
 							<a href="javascript:void(0);" class="addtest-a J-add-testpaper">添加试卷</a>
 						{{/if}}
@@ -80,11 +68,11 @@
 
 					<div class="layui-input-block">
 						<div class="send">
-							<input type="radio" name="send" id="sendgroups" value=""{{if pageType != 'edit'}} checked="checked" {{/if}} {{if EditLoad.resultObject}} {{if groups == ''}} checked="checked" {{/if}}{{/if}} />
+							<input type="radio" name="send" id="sendgroups" value=""{{if pageType != 'edit'}} checked="checked" {{/if}} {{if EditLoad.resultObject}} {{if EditLoad.resultObject.groups == ''}} checked="checked" {{/if}}{{/if}} />
 							<label class="layui-form-label">发送给全班</label>
 						</div>
 						<div class="send">
-							<input type="radio" name="send" value="grouping" {{if EditLoad.resultObject}} {{if groups != ''}} checked="checked" {{/if}}{{/if}} />
+							<input type="radio" name="send" value="grouping" {{if EditLoad.resultObject}} {{if EditLoad.resultObject.groups != ''}} checked="checked" {{/if}}{{/if}} />
 							<label class="layui-form-label">分组发送</label>
 						</div>
 					</div>

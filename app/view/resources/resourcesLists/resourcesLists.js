@@ -21,8 +21,8 @@ define(['template',
 		function createPage(pagenumber) {
 			document.title = "博学谷·院校-教师端扩展资源";
 			//设置导航的active
-			//$(".home-header .home-nav .home-nav-li a").removeClass("active");
-			//$(".home-header .home-nav .home-nav-li a.course").addClass("active");
+			$(".home-header .home-nav .home-nav-li a").removeClass("active");
+			$(".home-header .home-nav .home-nav-li a.teacrise").addClass("active");
 			var type= null,
 				seq = null;
 
@@ -122,12 +122,12 @@ define(['template',
 
 		//获取扩展资源资源分类数据
 		var resourcesNavs = function() {
-			return common.requestService('bxg/home/typeList','get', {});
+			return common.requestService('bxg_anon/home/typeList','get', {});
 		};
 
 		//获取扩展资源列表数据
 		var resourcesLists = function(type,seq,pageNumber,pageSize) {
-			return common.requestService('bxg/home/extendResourceList','post', {
+			return common.requestService('bxg_anon/home/extendResourceList','post', {
 				type: type,
 				seq : seq,
 				pageNumber: pageNumber,

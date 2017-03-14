@@ -11,10 +11,13 @@
     background-color: #fff;
     width: 1200px;
     margin:  0 auto;
-    padding: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     overflow: hidden;
 
     .viewtest-top {
+      padding-left: 30px;
+      padding-right: 30px;
       position: relative;
       overflow: hidden;
       h1 {
@@ -23,6 +26,7 @@
         font-weight: 600;
       }
       .studentInfo {
+        overflow: hidden;
         span {
           float: left;
           display: block;
@@ -45,9 +49,48 @@
         }
       }
     }
-
+    .readtest-tab-title{
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      border-top: 1px solid #e5e5e5;
+      background-color: #ffffff;
+      box-shadow: 0 1px 0 #ccc;
+      li{
+        float: left;
+        width: 63px;
+        height: 52px;
+        border-bottom: 3px solid #fff;
+        text-align: center;
+        line-height: 53px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        margin-right: 37px;
+        &:hover{
+          color: #36b773;
+        }
+      }
+      .readtest-tab-title-this{
+        color: #36b773;
+        border-bottom: 3px solid #36b773;
+      }
+      .history_back{
+        display: none;
+        float: right;
+        width: 30px;
+        height: 30px;
+        margin-top: 10px;
+        margin-right: 10px;
+        i{
+          font-size: 30px;
+          color: #ccc;
+        }
+      }
+    }
     .readtest-content {
-      width: 1200px;
+      width: 1140px;
+      padding: 30px;
       float: left;
       overflow: hidden;
       .readtest-content_header {
@@ -120,30 +163,40 @@
     .readtest-btn{
       width: 860px;
       float: left;
-      margin-top: 60px;
+      margin-left: 30px;
       p{
         margin-top: 10px;
         font-size: 14px;
         color: #656565;
       }
-      button{border-radius: 0}
+      button,a{border-radius: 0}
       button:first-child{
         background-color: #36b774;
-        &+button{
+        &+a{
           background-color: #269eea;
           margin-left: 21px;
         }
       }
     }
 
+    .grade{
+      border: 1px solid #39b674;
+      width: 85px;
+      height:29px;
+      -moz-appearance:textfield;
+    }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
     //导航内容
     .pagePaper-questions-nav {
-      width: 230px;
       min-height: 520px;
       background-color: #f3f3f3;
-      padding: 0 15px;
       overflow: hidden;
-      float: right;
+      padding-bottom: 20px;
       .questions-nav-title {
         overflow: hidden;
         margin-bottom: 20px;
@@ -163,7 +216,7 @@
       }
       ul {
         overflow: hidden;
-        width: 232px;
+        width: 255px;
         margin-right: -2px;
         li {
           float: left;
@@ -192,4 +245,7 @@
     }
 
   }
+}
+.title-selete-box > label{
+  float: left!important;
 }

@@ -1,11 +1,15 @@
 <div class="myClass">
     <div class="myclass_btn">
-        <button class="layui-btn" id="Create_a_class">创建班级</button>
-        <button class="layui-btn" id="Add_the_student">添加学生</button>
-        <button class="layui-btn" id="To_import_the_students">批量导入学生</button>
+        <button class="layui-btn" id="open_a_class"><img src="./app/assets/images/myclass/009.png" alt="">创建/关联班级</button>
+        <button class="layui-btn" id="Add_the_student"><img src="./app/assets/images/myclass/021.png" alt="">添加学生</button>
+        <button class="layui-btn" id="To_import_the_students"><img src="./app/assets/images/myclass/015.png" alt="">批量导入学生</button>
+        <div class="open_a_class">
+            <button class="layui-btn Create_a_class">创建班级 </button>
+            <button class="layui-btn relevance_class">关联班级 </button>
+        </div>
     </div>
     <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-        <ul class="layui-tab-title">
+        <ul class="layui-tab-title myClass_title">
             <li class="layui-this"><a href="#/teaching/myclass/Reading_class">在读班级</a></li>
             <li><a href="#/teaching/myclass/Already_graduating_class">已毕业班级</a></li>
         </ul>

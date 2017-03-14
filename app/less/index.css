@@ -1,7 +1,6 @@
 html,
 body {
   width: 100%;
-  height: 100%;
   position: absolute;
   padding: 0;
   margin: 0;
@@ -27,6 +26,8 @@ a {
 }
 #content {
   overflow: hidden;
+  min-height: 800px;
+  position: relative;
 }
 .am-titlebar {
   overflow: hidden;
@@ -51,7 +52,7 @@ a {
   color: #bbbbbb;
 }
 .am-titlebar .am-titlebar-nav a:hover {
-  color: #29AE21;
+  color: #333333;
 }
 .font {
   width: auto;
@@ -73,7 +74,7 @@ a {
   margin-right: -2.3em;
 }
 .error {
-  font-size: 16px;
+  font-size: 12px;
   color: #FF0000;
 }
 .course-del-nav {
@@ -83,7 +84,7 @@ a {
 .course-del-nav .nav {
   width: 1200px;
   background-color: #ffffff;
-  margin: 20px auto 0;
+  margin: 21px auto 0;
 }
 .course-del-nav .nav .layui-breadcrumb a,
 .course-del-nav .nav .layui-breadcrumb a span {
@@ -102,6 +103,7 @@ a {
   padding: 0 15px !important;
   height: 40px !important;
   line-height: 40px !important;
+  background: #FFFFFF;
 }
 table.dataTable thead tr th {
   border-bottom: none !important;
@@ -224,7 +226,7 @@ table.dataTable td.select-checkbox::after {
 }
 .facility-value {
   float: left;
-  margin-top: 20px;
+  margin-top: 8px;
   margin-left: 10px;
 }
 .facility-value ul {
@@ -252,6 +254,7 @@ table.dataTable td.select-checkbox::after {
   min-height: 520px;
   background-color: #f3f3f3;
   overflow: hidden;
+  padding-bottom: 20px;
 }
 .fixed-box .pagePaper-questions-nav .questions-nav-title {
   overflow: hidden;
@@ -311,7 +314,8 @@ table.dataTable td.select-checkbox::after {
   font-weight: 600;
 }
 .paper-main {
-  width: 882px;
+  width: 860px;
+  min-height: 600px;
   float: left;
 }
 .paper-main .pagePaper {
@@ -322,6 +326,8 @@ table.dataTable td.select-checkbox::after {
   height: 38px;
   line-height: 38px;
   border-bottom: 1px #f0f0f0 solid;
+  cursor: pointer;
+  text-indent: 5px;
 }
 .paper-main .pagePaper .pagePaper-top h3 {
   float: left;
@@ -330,12 +336,24 @@ table.dataTable td.select-checkbox::after {
   color: #333333;
 }
 .paper-main .pagePaper .pagePaper-top .scoreBox {
-  float: right;
+  float: left;
+  margin-left: 20px;
   text-align: right;
 }
 .paper-main .pagePaper .pagePaper-top .scoreBox span {
   font-size: 14px;
   color: #333333;
+}
+.paper-main .pagePaper .pagePaper-top img {
+  float: right;
+  margin-top: 11px;
+  margin-right: 10px;
+}
+.paper-main .pagePaper .pagePaper-top.pagePaper-top-true {
+  background-color: #f3fbfb;
+}
+.paper-main .pagePaper .pagePaper-top.pagePaper-top-false {
+  background-color: #e7f7ed;
 }
 .paper-main .pagePaper .pagePaper-content {
   width: 100%;
@@ -355,11 +373,41 @@ table.dataTable td.select-checkbox::after {
   display: block;
   overflow: hidden;
 }
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title p {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .pagePaper-content-box-span {
+  display: inline-block;
+  min-width: 50px;
+  overflow: hidden;
+  border-bottom: 1px solid;
+  margin-left: 4px;
+  margin-right: 4px;
+  color: #36b773;
+}
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 {
   float: left;
   display: block;
+  width: 85%;
   color: #36b773;
   font-size: 16px;
+  word-wrap: break-word;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 .head-title {
+  float: left;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 .cont-text {
+  float: left;
+  word-wrap: break-word;
+  word-break: break-all;
+  max-width: 780px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 .cont-text img {
+  width: 200px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 img {
+  width: 200px;
 }
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title.tianKong-title input {
   width: auto;
@@ -367,33 +415,14 @@ table.dataTable td.select-checkbox::after {
   border: none;
   border-bottom: 1px solid #999999;
 }
-.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value {
-  float: left;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul {
-  overflow: hidden;
-}
-.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li {
-  display: block;
-  float: left;
-  width: 12px;
-  height: 6px;
-  margin-right: 2px;
-}
-.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value-active {
-  background: #2db871;
-}
-.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value {
-  background: #dcdcdc;
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-totalScore {
+  line-height: 22px;
 }
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .btn-Change {
   float: right;
   cursor: pointer;
   font-size: 16px;
   color: #279ee9;
-  font-weight: 600;
 }
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete {
   display: block;
@@ -424,6 +453,8 @@ table.dataTable td.select-checkbox::after {
   width: 95%;
   font-size: 14px;
   cursor: pointer;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box {
   overflow: hidden;
@@ -441,15 +472,43 @@ table.dataTable td.select-checkbox::after {
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer {
   overflow: hidden;
   color: #333333;
-  font-size: 16px;
   margin-top: 16px;
+  margin-left: 20px;
 }
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer {
   float: left;
+  font-size: 15px;
   font-weight: 600;
+  line-height: 20px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer img {
+  width: 200px;
 }
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet {
+  float: right;
+  font-size: 14px;
+  line-height: 20px;
+  margin-left: 10px;
+  width: 745px;
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet img {
+  width: 200px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet-dv {
+  clear: left;
   float: left;
+  height: 200px;
+  width: 99%;
+  overflow: auto;
+  margin-left: 0;
+  display: block;
+  border: 1px solid #dfdfdf;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet-dv img {
+  width: 200px;
 }
 .noPermissions {
   width: 1200px;
@@ -458,6 +517,87 @@ table.dataTable td.select-checkbox::after {
   text-align: center;
   font-size: 30px;
   color: #333333;
+}
+.popup-successful {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+.popup-successful .title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 20px;
+  color: #333333;
+}
+.popup-successful .cont {
+  margin-top: 68px;
+}
+.popup-successful .cont .success-title {
+  overflow: hidden;
+  width: 244px;
+  margin: 0 auto;
+}
+.popup-successful .cont .success-title h1 {
+  float: left;
+  color: #333333;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+.popup-successful .cont .success-title .icon {
+  float: left;
+  width: 28px;
+  height: 28px;
+}
+.popup-successful .cont p {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+.popup-successful .success-btn,
+.popup-successful .btn-box {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+}
+.popup-successful .success-btn {
+  width: 148px;
+  margin-left: -74px;
+  color: #FFFFFF;
+  background-color: #36b773;
+}
+.popup-successful .btn-box {
+  width: 316px;
+  margin-left: -158px;
+  overflow: hidden;
+}
+.popup-successful .btn-box .prove-btn,
+.popup-successful .btn-box .close-btn {
+  width: 148px;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+  font-size: 18px;
+  text-align: center;
+}
+.popup-successful .btn-box .prove-btn {
+  float: left;
+  color: #FFFFFF;
+  background-color: #36b773;
+}
+.popup-successful .btn-box .close-btn {
+  float: right;
+  color: #333333;
+  background-color: #FFFFFF;
+  border: #f6f6f6 1px solid;
 }
 .home-header {
   width: 100%;
@@ -483,8 +623,8 @@ table.dataTable td.select-checkbox::after {
 }
 .home-header .home-header-box .home-logo a img {
   float: left;
-  width: 190px;
-  height: 31px;
+  width: 154px;
+  height: 32px;
   margin-top: 13px;
 }
 .home-header .home-header-box .home-nav {
@@ -501,20 +641,29 @@ table.dataTable td.select-checkbox::after {
 }
 .home-header .home-header-box .home-nav .home-nav-li a {
   display: block;
+  background-color: #fff;
   border: none;
   color: #666;
   width: 100%;
   height: 100%;
+  position: relative;
   text-align: center;
 }
 .home-header .home-header-box .home-nav .home-nav-li a:hover,
 .home-header .home-header-box .home-nav .home-nav-li a.active {
   color: #36b773;
 }
+.home-header .home-header-box .home-nav .home-nav-li a .jiao {
+  margin-left: 10px;
+  margin-top: 10px;
+}
 .home-header .home-header-box .home-nav .home-nav-li:hover a {
   color: #36b773;
 }
 .home-header .home-header-box .home-nav .home-nav-li:hover .home-li-nav2 {
+  display: block;
+}
+.home-header .home-header-box .home-nav .home-nav-li:hover .home-li-nav2 .home-li-nav2box {
   display: block;
 }
 .home-header .home-header-box .home-nav .home-nav-li .home-li-nav2 {
@@ -527,13 +676,13 @@ table.dataTable td.select-checkbox::after {
   z-index: 9999;
 }
 .home-header .home-header-box .home-nav .home-nav-li .home-li-nav2 .home-li-nav2box {
+  display: none;
   margin-top: 10px;
   padding-bottom: 10px;
   padding-top: 10px;
   background-color: #FFFFFF;
-  box-shadow: 0px 0px 1px #000;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1,Direction=135, Color='#000000')";
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000');
+  -moz-box-shadow: 0 0 8px #333333;
+  -webkit-box-shadow: 0 0 8px #333333;
 }
 .home-header .home-header-box .home-nav .home-nav-li .home-li-nav2 .home-li-nav2box .home-nav2-li {
   width: 100%;
@@ -647,7 +796,7 @@ table.dataTable td.select-checkbox::after {
   position: fixed;
   left: 50%;
   margin-left: 605px;
-  bottom: 50px;
+  bottom: 232px;
   width: 34px;
   text-align: center;
   z-index: 2000;
@@ -657,7 +806,7 @@ table.dataTable td.select-checkbox::after {
   width: 33px;
   height: 33px;
   padding: 13.5px;
-  font-size: 16px;
+  font-size: 14px;
   background-color: #ffffff;
   text-align: center;
   color: #666;
@@ -691,7 +840,6 @@ table.dataTable td.select-checkbox::after {
 .cy_banner {
   width: 1200px;
   margin: 0 auto;
-  margin-top: 30px;
   overflow: hidden;
 }
 .cy_banner .cy_show {
@@ -703,33 +851,35 @@ table.dataTable td.select-checkbox::after {
 }
 .cy_banner .cy_show .cy_prev {
   position: absolute;
+  display: none;
   top: 50%;
   left: 0;
-  width: 25px;
-  height: 50px;
+  width: 48px;
+  height: 79px;
   z-index: 3;
   cursor: pointer;
-  background: url("../assets/images/next.png") no-repeat;
+  background: url("../assets/images/banner-left.png") no-repeat;
   background-size: 100% 100%;
-  margin-top: -25px;
+  margin-top: -48px;
 }
 .cy_banner .cy_show .cy_prev:hover {
-  opacity: .7;
+  background: url("../assets/images/hover-left.png") no-repeat;
 }
 .cy_banner .cy_show .cy_next {
   position: absolute;
   top: 50%;
+  display: none;
   right: 0;
-  width: 25px;
-  height: 50px;
+  width: 48px;
+  height: 79px;
   z-index: 22;
   cursor: pointer;
-  background: url("../assets/images/pre.png") no-repeat;
+  background: url("../assets/images/banner-right.png") no-repeat;
   background-size: 100% 100%;
-  margin-top: -25px;
+  margin-top: -48px;
 }
 .cy_banner .cy_show .cy_next:hover {
-  opacity: .7;
+  background: url("../assets/images/hover-right.png") no-repeat;
 }
 .cy_banner .cy_show .cy_cont {
   width: 10000px;
@@ -763,27 +913,25 @@ table.dataTable td.select-checkbox::after {
   width: 12px;
   height: 12px;
   float: left;
-  background: #ffffff;
+  background: rgba(0, 0, 0, 0.1);
   cursor: pointer;
   margin-left: 10px;
   border-radius: 50px;
 }
 .cy_banner .cy_show .cy_show_container .cy_circle .cy_circle-cur {
-  background: #68c04a;
+  background: #ffffff;
 }
 .cy_banner .cy_show .cy_show_container .cy_circle li:first-child {
   margin-left: 0;
 }
 .cy_banner .cy_banner_right {
   width: 340px;
-  height: 400px;
   float: right;
   overflow: hidden;
-  background-color: #fafafa;
+  background-color: #fff;
 }
 .cy_banner .cy_banner_right .cy_News_h {
   overflow: hidden;
-  height: 20px;
   margin-top: 30px;
 }
 .cy_banner .cy_banner_right .cy_News_h span {
@@ -791,22 +939,23 @@ table.dataTable td.select-checkbox::after {
   margin: 0;
   border-left: 4px solid #36b773;
   text-indent: 30px;
-  line-height: 20px;
+  line-height: 30px;
   font-weight: bold;
+  font-size: 20px;
 }
 .cy_banner .cy_banner_right .cy_News_h a {
   float: right;
   margin-right: 30px;
   color: #ccc;
   font-size: 14px;
+  line-height: 30px;
 }
 .cy_banner .cy_banner_right .cy_News_h a:hover {
-  text-decoration: underline;
+  color: #0c0c0c;
 }
 .cy_banner .cy_banner_right .cy_News {
-  margin-bottom: 28px;
   min-height: 174px;
-  max-height: 174px;
+  height: 206px;
   overflow: hidden;
 }
 .cy_banner .cy_banner_right .cy_News ul {
@@ -848,33 +997,35 @@ table.dataTable td.select-checkbox::after {
   background-color: #fff;
 }
 .cy_banner .cy_banner_right .cy_News_r {
-  background-color: #fafafa;
+  background-color: #fff;
   padding: 24px 30px 24px 30px;
 }
 .cy_banner .cy_banner_right .cy_News_r a {
   display: inline-block;
   background-color: #dddddd;
   width: 45%;
-  height: 40px;
+  height: 50px;
   font-size: 16px;
   text-align: center;
-  line-height: 40px;
+  line-height: 50px;
   color: #fff;
-}
-.cy_banner .cy_banner_right .cy_News_r a:hover {
-  opacity: .8;
 }
 .cy_banner .cy_banner_right .cy_News_r .cy_News_r_a1 {
   background-color: #36b773;
+}
+.cy_banner .cy_banner_right .cy_News_r .cy_News_r_a1:hover {
+  background-color: #2ba565;
 }
 .cy_banner .cy_banner_right .cy_News_r .cy_News_r_a2 {
   margin-left: 20px;
   background-color: #279ee9;
 }
+.cy_banner .cy_banner_right .cy_News_r .cy_News_r_a2:hover {
+  background-color: #1b88cd;
+}
 .cy_banner2 {
   width: 1200px;
   margin: 0 auto;
-  margin-bottom: 20px;
   overflow: hidden;
 }
 .cy_banner2 .am-titlebar {
@@ -901,34 +1052,37 @@ table.dataTable td.select-checkbox::after {
 }
 .cy_banner2 .cy_banner2_banner_prev {
   float: left;
-  margin-top: 80px;
-  width: 20px;
-  height: 22px;
+  margin-top: 50px;
+  width: 10px;
+  height: 20px;
   z-index: 3;
   cursor: pointer;
   color: #000;
-  margin-right: 20px;
+  margin-left: 20px;
+  background: url("../assets/images/lefts.png") no-repeat;
+  background-size: 100% 100%;
 }
 .cy_banner2 .cy_banner2_banner_prev:hover {
-  background-color: #ededed;
+  background: url("../assets/images/hover-lefts.png") no-repeat;
 }
 .cy_banner2 .cy_banner2_banner_next {
   float: left;
-  margin-top: 80px;
-  width: 20px;
-  height: 22px;
+  margin-top: 50px;
+  width: 10px;
+  height: 20px;
   z-index: 22;
   cursor: pointer;
   color: #000;
-  margin-left: 20px;
+  margin-right: 20px;
+  background: url("../assets/images/rights.png") no-repeat;
+  background-size: 100% 100%;
 }
 .cy_banner2 .cy_banner2_banner_next:hover {
-  background-color: #ededed;
+  background: url("../assets/images/hover-rights.png") no-repeat;
 }
 .cy_banner2 .cy_banner2_banner {
   width: 750px;
   float: left;
-  margin-top: 30px;
   position: relative;
   overflow: hidden;
 }
@@ -945,7 +1099,6 @@ table.dataTable td.select-checkbox::after {
   float: left;
   width: 150px;
   height: 132px;
-  background-color: #f6f6f6;
   position: relative;
 }
 .cy_banner2 .cy_banner2_banner .cy_banner2_banner_cont ul li p {
@@ -956,14 +1109,13 @@ table.dataTable td.select-checkbox::after {
   display: block;
   width: 55px;
   height: 55px;
-  border: 1px solid #000;
   border-radius: 50px;
   margin: 0 auto;
   margin-top: 25px;
 }
 .cy_banner2 .cy_banner2_banner .cy_banner2_banner_cont ul li .cy_banner2_banner_cont_p2 {
   width: 100%;
-  height: 20px;
+  height: 15px;
   font-size: 14px;
   color: #333;
   text-align: center;
@@ -971,8 +1123,8 @@ table.dataTable td.select-checkbox::after {
 }
 .cy_banner2 .cy_banner2_banner .cy_banner2_banner_cont ul li .cy_banner2_banner_cont_p3 {
   position: absolute;
-  top: 0;
-  right: -10px;
+  top: 40px;
+  right: -20px;
   width: 20px;
   height: 132px;
   background-color: #fff;
@@ -985,11 +1137,26 @@ table.dataTable td.select-checkbox::after {
   width: 350px;
   height: 132px;
   float: right;
-  margin-top: 30px;
   text-align: center;
   background-color: #d6d6d6;
   cursor: pointer;
   line-height: 60px;
+}
+.cy_banner2 .cy_banner2_r .cy_banner2_a1 {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cy_banner2 .cy_banner2_r .cy_banner2_a2 {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.cy_banner2 .cy_banner2_r:hover .cy_banner2_a1 {
+  display: none;
+}
+.cy_banner2 .cy_banner2_r:hover .cy_banner2_a2 {
+  display: block;
 }
 .index-course {
   width: 1200px;
@@ -997,6 +1164,7 @@ table.dataTable td.select-checkbox::after {
 }
 .index-course .am-titlebar {
   margin-top: 50px;
+  border: none;
 }
 .index-course .index-course-lists {
   width: 1230px;
@@ -1005,23 +1173,36 @@ table.dataTable td.select-checkbox::after {
   overflow: hidden;
 }
 .index-course .index-course-lists ul li {
-  width: 20%;
-  margin-top: 30px;
+  width: 25%;
   float: left;
+  margin-bottom: 30px;
 }
 .index-course .index-course-lists ul li .am-gallery-item {
-  width: 216px;
-  height: 270px;
-  border-bottom: 1px solid #f1f1f1;
+  width: 277px;
+  height: 255px;
+  background: #FFFFFF;
+  overflow: hidden;
 }
 .index-course .index-course-lists ul li .am-gallery-item a {
-  width: 100%;
-  height: 100%;
+  width: 99%;
+  height: 99%;
+  border: 1px solid #f0f0f0;
   display: block;
 }
-.index-course .index-course-lists ul li .am-gallery-item a img {
+.index-course .index-course-lists ul li .am-gallery-item a .home-pic {
   width: 100%;
-  height: 140px;
+  height: 179px;
+  overflow: hidden;
+}
+.index-course .index-course-lists ul li .am-gallery-item a .home-pic img {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  transition: all ease-in-out 0.5s;
+  transform-origin: center;
 }
 .index-course .index-course-lists ul li .am-gallery-item a h3 {
   display: block;
@@ -1039,18 +1220,16 @@ table.dataTable td.select-checkbox::after {
   overflow: hidden;
   text-align: center;
 }
-.index-course .index-course-lists ul li .am-gallery-item a .am-gallery-desc {
-  text-align: center;
-  font-size: 14px;
-  height: 48px;
-  line-height: 24px;
-  color: #999999;
-  overflow: hidden;
-}
 .index-course .index-course-lists ul li .am-gallery-item a:hover {
-  box-shadow: 0px 0px 15px rgba(45, 50, 22, 0.2);
+  box-shadow: 2px 2px 20px rgba(45, 50, 22, 0.2);
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#000000')";
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+.index-course .index-course-lists ul li:hover .am-gallery-item a img {
+  transform: scale(1.2);
+}
+.index-course .index-course-lists ul li:hover .am-gallery-title {
+  color: #36b773 !important;
 }
 .index-course .course-list-nodata {
   text-align: center;
@@ -1083,7 +1262,9 @@ table.dataTable td.select-checkbox::after {
 }
 .index-sk-and-assert .index-qa ul li {
   display: block;
+  padding: 0 18px;
   overflow: hidden;
+  background: #ffffff;
   border-bottom: 1px solid #f1f1f1;
 }
 .index-sk-and-assert .index-qa ul li a {
@@ -1119,6 +1300,9 @@ table.dataTable td.select-checkbox::after {
 .index-sk-and-assert .index-qa ul li .index-qa-list .index-qa-top .index-answer {
   padding-right: 10px;
 }
+.index-sk-and-assert .index-qa ul li .index-qa-list .index-qa-top .index-qa-title {
+  color: #36B773;
+}
 .index-sk-and-assert .index-qa ul li .index-qa-list .index-qa-cont {
   margin-top: 10px;
   font-size: 14px;
@@ -1132,7 +1316,7 @@ table.dataTable td.select-checkbox::after {
 .index-sk-and-assert .index-uq {
   float: right;
   width: 350px;
-  background: #fafafa;
+  background: #FFFFFF;
   margin-top: 20px;
   padding-top: 30px;
 }
@@ -1175,7 +1359,7 @@ table.dataTable td.select-checkbox::after {
 .index-sk-and-assert .index-uq ul li .index-uq-box a:hover .index-uq-bottom {
   color: #36B773;
 }
-.index-sk-and-assert .index-uq ul li .index-uq-box h3 {
+.index-sk-and-assert .index-uq ul li .index-uq-box .am-gallery-title {
   display: block;
   font-size: 16px;
   font-weight: 100;
@@ -1200,13 +1384,13 @@ table.dataTable td.select-checkbox::after {
 }
 .home-footer {
   width: 100%;
-  height: 120px;
-  background-color: #5e5e5e;
+  height: 100%;
+  background-color: #303438;
 }
 .home-footer .home-footer-box {
   padding-top: 20px;
   width: 1000px;
-  height: 100%;
+  height: 122px;
   margin: 0 auto;
 }
 .home-footer .home-footer-box span {
@@ -1257,4 +1441,82 @@ table.dataTable td.select-checkbox::after {
   width: 1000px;
   overflow: hidden;
   margin: 20px auto;
+}
+.home-main {
+  background: #f7f7f7;
+  padding-top: 30px;
+}
+button:hover a {
+  display: block;
+}
+.myClass_table {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  text-align: left;
+  font-size: 14px;
+}
+.myClass_table .banji {
+  font-weight: bold;
+}
+.myClass_table .myClass_table_tr {
+  margin-top: 20px;
+  background-color: #f2fcf7!important;
+}
+.myClass_table tr {
+  height: 50px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.myClass_table tr td:first-child {
+  text-align: left;
+  text-indent: 15px;
+}
+.myClass_table tr td:first-child input {
+  float: left;
+  margin-left: 15px;
+}
+.myClass_table tr td:last-child {
+  width: 120px;
+}
+.myClass_table tr td a:hover {
+  cursor: pointer;
+}
+.Temporarily_no_data {
+  width: 100%;
+  min-height: 500px;
+}
+.Temporarily_no_data img {
+  text-align: center;
+  display: block;
+  margin: 120px auto;
+  margin-bottom: 0;
+}
+.Temporarily_no_data p {
+  margin-top: 30px;
+  font-size: 18px;
+  color: #999;
+  text-align: center;
+}
+#page {
+  margin-top: 60px;
+  text-align: center;
+}
+.operation-icon {
+  overflow: hidden;
+}
+.operation-icon a {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+.operation-icon a i {
+  font-size: 20px;
+  color: #72cc9d;
+}
+.operation-icon a:hover i {
+  color: #75bfee;
 }

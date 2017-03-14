@@ -1,0 +1,148 @@
+/**
+ * 预习/复习 
+ */
+.reviewhome {
+  width: 100%;
+  background-color: #FFFFFF;
+}
+.reviewhome .reviewhome-body {
+  padding: 20px 30px;
+  min-height: 800px;
+}
+.reviewhome .reviewhome-body .content-title {
+  padding-bottom: 20px;
+  margin-top: 20px;
+  overflow: hidden;
+  border-bottom: 1px solid #f0f0f0;
+}
+.reviewhome .reviewhome-body .content-title h3 {
+  float: left;
+  display: block;
+  height: 100%;
+  font-weight: 600;
+  height: 38px;
+  line-height: 38px;
+  font-size: 16px;
+  color: #333333;
+  margin-right: 27px;
+}
+.reviewhome .reviewhome-body .content-title button {
+  float: left;
+  height: 38px;
+  line-height: 38px;
+  font-size: 14px;
+  color: #FFFFFF;
+  background-color: #36b773;
+  font-size: 16px;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-header {
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-header ul {
+  overflow: hidden;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-header ul li {
+  float: left;
+  margin-right: 20px;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-header ul li .item-box label {
+  float: left;
+  display: block;
+  width: 86px;
+  height: 35px;
+  line-height: 35px;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-header ul li .item-box select {
+  float: left;
+  width: 145px;
+  height: 35px;
+  line-height: 35px;
+  border: #f0f0f0 1px solid;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .table .table-tr .table-th.squadName,
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .table .table-tr .table-td.squadName {
+  width: 278px;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-left: 10px;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .table .table-tr .table-th.stuCount,
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .table .table-tr .table-td.stuCount {
+  width: 263px;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .table .table-tr .table-th.courseCount,
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .table .table-tr .table-td.courseCount {
+  width: 255px;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .table .table-tr .table-th.reviewCount,
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .table .table-tr .table-td.reviewCount {
+  width: 255px;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .table .table-tr .table-th.operation,
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .table .table-tr .table-td.operation {
+  width: auto;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .operation-icon {
+  overflow: hidden;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .operation-icon a {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 100%;
+  text-align: center;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .operation-icon a i {
+  font-size: 20px;
+  color: #36b773;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .operation-icon a:hover i {
+  color: #36b773;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .operation-icon a .icon-editor-pic {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+  vertical-align: top;
+  margin-top: 15px;
+  width: 13px;
+  height: 18px;
+  background: url('../assets/images/icons/reviewhome-edit-pic.png') no-repeat;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .operation-icon a .icon-editor-pic:hover {
+  background: url('../assets/images/icons/reviewhome-edit-pic-avite.png') no-repeat;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .operation-icon a .icon-pic {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin-top: 16px;
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .operation-icon a .icon-view {
+  background: url('../assets/images/icons/view/view.png');
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont .operation-icon a .icon-view:hover {
+  background: url('../assets/images/icons/view/view-hover.png');
+}
+.reviewhome .reviewhome-body .content-body .reviewhome-contnet .reviewhome-cont #page {
+  margin-top: 60px;
+  text-align: center;
+}
+.reviewhome .reviewhome-body .content-body .contnet-dummy {
+  width: 100%;
+  min-height: 890px;
+}
+.reviewhome .reviewhome-body .content-body .contnet-dummy .dummy-file {
+  margin: 0 auto;
+  margin-top: 200px;
+  width: 253px;
+  height: 268px;
+  background: url("../../app/assets/images/bg/bg-dummy-file.png") no-repeat;
+}

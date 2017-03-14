@@ -3,7 +3,7 @@
 
 {{each resultObject.items as i index}}
 <div class="myquestion_content_dv">
-    <a href="http://www.boxuegu.com/web/qusDetail/{{i.id}}" target="_blank">
+    <a href="https://www.boxuegu.com/web/qusDetail/{{i.id}}" target="_blank">
         <p class="myquestion_content_dv_p1">
             <span class="myquestion_content_dv_p1_span1">来自学科:</span>
         <span class="myquestion_content_dv_p1_span2">
@@ -27,7 +27,10 @@
 
 
 {{else}}
-暂无数据
+<div class="Temporarily_no_data">
+    <img src="./app/assets/images/image1.png" alt="">
+    <p>暂无提问</p>
+</div>
 {{/if}}
 
 

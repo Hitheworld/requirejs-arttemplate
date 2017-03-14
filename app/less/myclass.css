@@ -4,70 +4,124 @@
   background-color: #fff;
   min-height: 800px;
 }
+.myClass a {
+  cursor: pointer;
+  margin: 0 5px 0 5px;
+}
+.myClass .myclass_btn,
+.myClass .myClass_student_header {
+  position: relative;
+}
+.myClass .myclass_btn > button,
+.myClass .myClass_student_header > button {
+  position: relative;
+  background-color: #39b674;
+  margin-right: 20px;
+  z-index: 0;
+}
+.myClass .myclass_btn > button img,
+.myClass .myClass_student_header > button img {
+  margin-top: -3px;
+  margin-right: 7px;
+}
+.myClass .myclass_btn .open_a_class,
+.myClass .myClass_student_header .open_a_class {
+  display: none;
+  position: absolute;
+  top: 43px;
+  box-shadow: 0 0 10px #ccc;
+  left: 0;
+  width: 135px;
+  height: 76px;
+  opacity: 1;
+  z-index: 555;
+  background-color: #ffffff;
+}
+.myClass .myclass_btn .open_a_class button,
+.myClass .myClass_student_header .open_a_class button {
+  color: #333333;
+  margin-left: 0;
+  background-color: #fff;
+  width: 100%;
+  display: block;
+  border-radius: 0;
+  z-index: 999;
+}
+.myClass .myclass_btn .open_a_class button:hover,
+.myClass .myClass_student_header .open_a_class button:hover {
+  color: #00aa00;
+}
 .myClass .layui-tab-content {
   padding: 0;
 }
-.myClass .layui-tab-content .myClass_table {
-  margin-top: 10px;
-  margin-bottom: 40px;
-  width: 100%;
-  border: 1px solid #e6e6e6;
-  text-align: center;
+.myClass .layui-tab {
+  margin: 0px;
 }
-.myClass .layui-tab-content .myClass_table th {
-  color: #39b674;
+.myClass .myClass_title {
+  height: 16px;
+  line-height: 16px;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
-.myClass .layui-tab-content .myClass_table tr {
-  height: 39px;
+.myClass .myClass_title li {
+  margin-right: 78px;
 }
-.layui-tab-title li:hover a {
+.myClass .myClass_title .layui-this:after {
+  height: 16px;
+  top: 20px;
+}
+.myClass .myClass_title li {
+  line-height: 16px;
+}
+.myClass .myClass_title li:hover a {
   display: block;
 }
 .myClass_student .myClass_student_header {
-  height: 38px;
-  border-bottom: 1px solid #f0f0f0;
+  overflow: hidden;
   border-radius: 0;
 }
-.myClass_student .myClass_student_header button {
-  height: 30px;
-  line-height: 30px;
-  background-color: #39b674;
-}
-.myClass_student .myClass_student_header span,
-.myClass_student .myClass_student_header .myClass_student_header_span1 {
+.myClass_student .myClass_student_header .title_1 span,
+.myClass_student .myClass_student_header .title_1 .myClass_student_header_span1 {
   display: inline-block;
   font-size: 13px;
   border-left: 2px solid #e8e8e8;
   text-indent: 20px;
   color: #6f6f6f;
 }
-.myClass_student .myClass_student_header span + span,
-.myClass_student .myClass_student_header .myClass_student_header_span1 + span {
+.myClass_student .myClass_student_header .title_1 span + span,
+.myClass_student .myClass_student_header .title_1 .myClass_student_header_span1 + span {
   margin-left: 20px;
 }
-.myClass_student .myClass_student_header .myClass_student_header_span2 {
+.myClass_student .myClass_student_header .title_1 .myClass_student_header_span2 {
   border-left: 2px solid #fff;
 }
-.myClass_student .myClass_student_header span:first-child {
+.myClass_student .myClass_student_header .title_1 span:first-child {
   border-left: none;
   text-indent: 0;
   color: #2f2f2f;
 }
-.myClass_student .myClass_student_header a {
+.myClass_student .myClass_student_header .title_1 a {
   float: right;
+}
+.myClass_student .myClass_student_header .button_3 {
+  margin-top: 20px;
+}
+.myClass_student .myClass_student_header .button_3 button {
+  height: 38px;
+  line-height: 38px;
+  background-color: #39b674;
+  border-radius: 0;
 }
 .myClass_student .myClass_student_header1 span {
   display: inline-block;
   text-align: center;
-  min-width: 69px;
+  min-width: 71px;
   margin-right: 20px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  height: 36px;
+  margin-top: 10px;
+  height: 38px;
   background-color: #fff;
   color: #000;
   border: 1px solid #f1f1f1;
-  border-radius: 25%;
   line-height: 35px;
 }
 .myClass_student .myClass_student_header1 span:hover {
@@ -83,6 +137,7 @@
 }
 .myClass_student .myClass_student_header2 .myClass_student_header2_dv {
   display: inline-block;
+  float: left;
 }
 .myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child .myClass_student_header2_span1_X {
   display: none;
@@ -99,7 +154,7 @@
 .myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span + span + span .myClass_student_header2_span1_X {
   display: none;
   position: absolute;
-  top: 10px;
+  top: -8px;
   right: 2px;
   width: 15px;
   height: 15px;
@@ -117,7 +172,7 @@
 .myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span + span + span + span .myClass_student_header2_span1_X {
   display: none;
   position: absolute;
-  top: 10px;
+  top: -8px;
   right: 2px;
   width: 15px;
   height: 15px;
@@ -135,7 +190,7 @@
 .myClass_student .myClass_student_header2 .myClass_student_header2_dv span:first-child + span + span + span + span + span .myClass_student_header2_span1_X {
   display: none;
   position: absolute;
-  top: 10px;
+  top: -8px;
   right: 2px;
   width: 15px;
   height: 15px;
@@ -148,23 +203,19 @@
   display: block;
 }
 .myClass_student .myClass_student_header2 .myClass_student_header2_span1 {
-  display: inline-block;
+  float: left;
   text-align: center;
   min-width: 69px;
   margin-right: 20px;
   margin-top: 30px;
   margin-bottom: 30px;
-  height: 36px;
+  height: 15px;
   background-color: #fff;
   color: #000;
-  border: 1px solid #f1f1f1;
-  border-radius: 25%;
-  line-height: 35px;
+  border-right: 1px solid #eee;
 }
 .myClass_student .myClass_student_header2 .myClass_student_header2_span1:hover {
-  background-color: #36b774;
-  border: 1px solid #39b674;
-  color: #fff;
+  color: #359ce6;
   cursor: pointer;
 }
 .myClass_student .myClass_student_header2 .myClass_student_header2_this {
@@ -172,26 +223,17 @@
   border: 1px solid #39b674;
   color: #fff;
 }
-.myClass_student div .myClass_table {
-  margin-top: 10px;
-  margin-bottom: 40px;
-  width: 100%;
-  border: 1px solid #e6e6e6;
-  text-align: center;
-}
-.myClass_student div .myClass_table th {
-  color: #39b674;
-}
-.myClass_student div .myClass_table tr {
-  height: 39px;
-}
-.myClass_student div .myClass_table tr td:first-child {
-  text-align: left;
-  text-indent: 15px;
-}
-.myClass_student div .myClass_table tr td:first-child input {
+.myClass_student .myClass_student_header2 .myClass_student_header2_span2 {
   float: left;
-  margin-left: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.myClass_student #myClass_student_header2_select {
+  width: 149px;
+  height: 35px;
+  margin-left: 5px;
+  float: left;
+  margin-top: 20px;
 }
 #Create_a_class_form {
   width: 421px;
@@ -210,6 +252,10 @@
   width: 100%;
   background-color: #36b774;
 }
+#Add_the_student_form .layui-input-block select {
+  height: 36px;
+  line-height: 36px;
+}
 #To_import_the_students_form {
   margin-top: 28px;
   margin-right: 79px;
@@ -222,11 +268,232 @@
   width: 100%;
   background-color: #36b774;
 }
+#relevance_class_form .teaccert-form-item {
+  margin-top: 20px;
+  width: 100%;
+  min-height: 50px;
+  position: relative;
+}
+#relevance_class_form .teaccert-form-item .layui-form-label {
+  width: 100px;
+}
+#relevance_class_form .teaccert-form-item .teaccert-major {
+  margin-left: 0px;
+  float: left;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-btn {
+  margin-left: 130px;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .layui-form-select {
+  width: 230px;
+  float: left;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box input {
+  width: 230px;
+  font-size: 14px;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .error {
+  display: block;
+  margin-left: 22px;
+  margin-top: 5px;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box input[type=checkbox],
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box input[type=radio] {
+  display: block !important;
+  width: 20px !important;
+  height: 20px;
+  border: 1px solid #e4e4e4;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .radio-box {
+  height: 36px;
+  line-height: 36px;
+  float: left;
+  margin-right: 20px;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .radio-box input {
+  float: left;
+  margin-right: 5px;
+  margin-top: 10px;
+  border: none;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .radio-box .error {
+  float: left;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .teaccert-form-label {
+  float: left;
+  width: 90px;
+  text-align: right;
+  line-height: 50px;
+  color: #333;
+  font-size: 13px;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .teaccert-form-inpt {
+  float: left;
+  width: 305px;
+  margin-left: 10px;
+  height: 48px;
+  line-height: 36px;
+  border: 1px solid #ccc;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 13px;
+  color: #999;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .school-box {
+  position: relative;
+  width: 100%;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .school-box .college_name_dv {
+  display: none;
+  margin-left: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .school-box .college_name_dv .school-selete {
+  overflow: auto;
+  z-index: 9999;
+  width: 230px;
+  max-height: 240px;
+  font-size: 16px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ccc;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#cccccc')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc');
+  z-index: 20;
+  font-size: 13px;
+  color: #333333;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .school-box .college_name_dv .school-selete li {
+  display: block;
+  padding: 5px 10px;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .school-box .college_name_dv .school-selete li:hover {
+  color: #fff;
+  background-color: #00aa00;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .layui-input-block {
+  width: 513px;
+  max-height: 75px;
+  border: 1px solid #ebebeb;
+  background-color: #fafafa;
+  padding: 13px 20px;
+  margin: 0px;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .layui-input-block .div-ul {
+  overflow: hidden;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .layui-input-block .div-ul .li {
+  float: left;
+  width: 33.3333%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .layui-input-block .div-ul .li input {
+  float: left;
+  margin-right: 5px;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .layui-input-block .div-ul .li label {
+  float: left;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .layui-input-block .div-ul .li .layui-form-checkbox {
+  float: left;
+  height: 25px;
+  line-height: 21px;
+  padding-right: 23px;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .layui-input-block .div-ul .li .layui-form-checkbox span {
+  display: none;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .layui-input-block .div-ul .li .layui-form-checkbox i {
+  right: 18px;
+  width: 15px;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .layui-input-block .div-ul .li label {
+  width: 109px;
+  display: block;
+  float: left;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: left;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .open-box {
+  padding: 0px 20px;
+  height: 26px;
+  line-height: 26px;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .open-box .title-open {
+  float: right;
+  width: auto;
+  cursor: pointer;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .teaccert-form-item-box-other-box {
+  background-color: #FFF;
+  border: none;
+}
+#relevance_class_form .teaccert-form-item .teaccert-form-item-box .teaccert-form-item-box-other-box .title-other {
+  width: auto;
+  padding-left: 0px;
+  margin-left: -20px;
+}
+#relevance_class_form .college_name_dv {
+  display: none;
+  margin-left: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+#relevance_class_form .college_name_dv .school-selete {
+  z-index: 9999;
+  overflow: auto;
+  width: 230px;
+  max-height: 240px;
+  font-size: 16px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ccc;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#cccccc')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc');
+  z-index: 20;
+  font-size: 13px;
+  color: #333333;
+}
+#relevance_class_form .college_name_dv .school-selete li {
+  display: block;
+  padding: 5px 10px;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#relevance_class_form .college_name_dv .school-selete li:hover {
+  color: #fff;
+  background-color: #00aa00;
+}
+#relevance_class_form .layui-input-block .layui-btn {
+  width: 100%;
+  background-color: #36b774;
+}
 .set_course_table {
   margin: 30px auto;
   width: 420px;
   border: 1px solid #fff;
-  text-align: center;
+}
+.set_course_table thead {
+  font-weight: bold;
 }
 .set_course_table th {
   color: #39b674;
@@ -237,15 +504,25 @@
 .set_course_table td input[type=checkbox] {
   float: left;
 }
-.set_course_table + button {
+.set_course_btn {
   display: block;
-  width: 420px;
+  width: 297px;
   background-color: #39b674;
+  font-size: 16px;
   margin: 0 auto;
 }
 .Add_the_student_select {
   width: 100%;
-  min-height: 36px;
+  font-size: 13px;
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+}
+.join_the_class_select1,
+.join_the_class_select2 {
+  display: block!important;
+  padding-left: 10px;
+  height: 36px;
+  width: 100%;
   font-size: 13px;
   border: 1px solid #e6e6e6;
   border-radius: 2px;
@@ -255,14 +532,13 @@
   width: 100%;
 }
 .school-box .school-selete {
-  display: none;
+  overflow: auto;
   position: absolute;
-  top: 42px;
+  top: 38px;
+  max-height: 246px;
   left: 0;
   z-index: 9999;
-  overflow-y: scroll;
   width: 311px;
-  height: 240px;
   font-size: 16px;
   background-color: #fff;
   box-shadow: 0 0 10px #ccc;
@@ -290,4 +566,44 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+.set_course_table_val tr .set_course_table_val_td {
+  max-width: 260px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.Add_the_student_form_style .layui-layer-content {
+  overflow: visible;
+}
+.join_the_class {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.join_the_class .join_the_class_table_val tr:hover {
+  cursor: pointer;
+  opacity: .9;
+}
+.join_the_class .join_the_class_table_val input[type=radio] {
+  margin-top: 4px;
+}
+.join_the_class .join_the_class_div {
+  margin: 0 auto;
+  width: 400px;
+  overflow: hidden;
+}
+.join_the_class .join_the_class_div button {
+  height: 38px;
+  line-height: 38px;
+  background-color: #39b674;
+  width: 175px;
+  float: left;
+}
+.join_the_class .join_the_class_div button + button {
+  width: 200px;
+  float: right;
+}
+#page1,
+#page2 {
+  text-align: center;
 }

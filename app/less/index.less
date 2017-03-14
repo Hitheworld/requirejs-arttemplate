@@ -2,13 +2,105 @@
 @import "home.header.less";
 @import "home_banner.less";
 @import "index.course.less";
-@import "home.footer.less";
- 
- 
-//404
-@import "error.404.less";
-
-
-//合作详情
-@import "Cooperate.less";
+@import "home.footer.less";      
+       
               
+//404         
+@import "error.404.less";    
+     
+                      
+//合作详情                 
+@import "Cooperate.less";   
+
+//首页背景色    
+.home-main {
+    background: #f7f7f7;
+    padding-top: 30px;          
+} 
+ 
+button{         
+  &:hover{  
+    a{display: block} 
+  }     
+}
+.myClass_table {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  text-align: left;
+  font-size: 14px;
+  .banji{
+    font-weight: bold;
+  }
+  .myClass_table_tr{
+     margin-top: 20px;
+    background-color: #f2fcf7!important;
+    //font-weight: bold;
+  }
+  tr {
+    height: 50px;
+    border-bottom: 1px solid #f0f0f0;
+    td:first-child{
+      text-align: left;
+      text-indent: 15px;
+      input{
+        float: left;
+        margin-left: 15px;
+      }
+    }
+    td:last-child{
+      //background: pink;
+      width: 120px;
+      //text-align: center;
+    }
+    td{
+      a:hover{
+        cursor: pointer;
+      }
+    }
+  }
+}
+.Temporarily_no_data{
+  width: 100%;
+  min-height: 500px;
+  img{
+    text-align: center;
+    display: block;
+    margin: 120px auto;
+    margin-bottom: 0;
+  }
+  p{
+    margin-top: 30px;
+    font-size: 18px;
+    color: #999;
+    text-align: center;
+  }
+}
+#page {
+  margin-top: 60px;
+  text-align: center;
+}
+
+//icon
+.operation-icon {
+  overflow: hidden;
+  a {
+    display: block;
+    float: left;
+    width: 25px;
+    height: 100%;
+    text-align: center;
+    cursor: pointer;
+    i {
+      font-size: 20px;
+      color: #72cc9d;
+    }
+    &:hover {
+      i {
+        color: #75bfee;
+      }
+    }
+  }
+}
+                

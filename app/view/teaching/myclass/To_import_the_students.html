@@ -1,27 +1,32 @@
-<form class="layui-form" id="To_import_the_students_form">
-    <div class="layui-form-item">
-        <label class="layui-form-label">班级</label>
+<form id="To_import_the_students_form" method="post" enctype="multipart/form-data">
+    <!--<div class="layui-form-item">-->
+        <!--<label class="layui-form-label">班级</label>-->
+        <!--<div class="layui-input-block">-->
+            <!--<select style="width: 100%;height:36px;" id="To_import_the_students_select" required>-->
+
+            <!--</select>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="layui-form-item" id="To_import_the_students_sc">
+        <label class="layui-form-label">上传</label>
         <div class="layui-input-block">
-            <select required lay-verify="required">
-                <option value=""></option>
-                <option value="0">北京</option>
-                <option value="1">上海</option>
-                <option value="2">广州</option>
-                <option value="3">深圳</option>
-                <option value="4">杭州</option>
-            </select>
+            <input type="file" name="UpLoadFile" id="UpLoadFile" style="line-height: 36px"/>
+        </div>
+    </div>
+    <div class="layui-form-item" id="To_import_the_students_xz">
+        <label class="layui-form-label">下载</label>
+        <div class="layui-input-block">
+            <a href="javascript:void (0)" style="line-height: 36px" class="download_template">下载批量导入模板</a>
         </div>
     </div>
     <div class="layui-form-item">
-        
-        <div class="layui-input-block">
-            <a href="javascript:void (0)" class="download_template">下载批量导入模板</a>
+        <div class="layui-input-block" style="min-height: 0">
+            <div id="To_import_the_students_err" style="color: red;display: none"></div>
         </div>
     </div>
     <div class="layui-form-item">
-        <div class="layui-input-block" style="margin-left: 52px">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
-            <button type="reset" class="layui-btn layui-btn-primary" style="display: none">重置</button>
+        <div class="layui-input-block">
+            <button class="layui-btn" type="submit">立即提交</button>
         </div>
     </div>
 

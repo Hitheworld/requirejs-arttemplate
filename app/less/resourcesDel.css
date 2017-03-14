@@ -41,6 +41,10 @@
   color: #36b773;
   text-decoration: underline;
   cursor: pointer;
+  display: block;
+  width: 35px;
+  height: 40px;
+  text-align: right;
 }
 .resourcesDel .resourcesDel-top .resourcesDel-box .resourcesDel-info .resourcesDel-title .fx-box {
   display: none;
@@ -219,6 +223,10 @@
   background: #36b773;
   float: left;
 }
+.resourcesDel .resourcesDel-foot .resourcesDel-del-claim-record .index-uq .am-titlebar .am-titlebar-title {
+  width: 225px;
+  overflow: hidden;
+}
 .resourcesDel .resourcesDel-foot .resourcesDel-del-claim-record .index-uq .am-titlebar .am-titlebar-nav {
   margin-right: 30px;
 }
@@ -317,7 +325,7 @@
   overflow: hidden;
 }
 .ApplyResource .ApplyResource-box .ApplyResource-body .layui-form-item .layui-input-inline .disabled-text {
-  width: 224px;
+  width: 100%;
   background-color: #f1f1f1;
 }
 .ApplyResource .ApplyResource-box .ApplyResource-body .layui-form-item .layui-input-inline .btn-add,
@@ -404,4 +412,5 @@
   float: right;
   background-color: #FFFFFF;
   color: #333333;
+  position: relative;
 }

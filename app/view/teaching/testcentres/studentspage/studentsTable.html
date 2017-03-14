@@ -1,0 +1,37 @@
+{{if studentsTable.resultObject.items.length != 0}}
+	{{each studentsTable.resultObject.items}}
+	<tr>
+		<td>{{$value.studentName}}</td>
+		<td>{{$value.jjTime}}</td>
+		<td>{{$value.durationStr}}</td>
+		<td>{{$value.score}}</td>
+		<td>{{$value.groupName}}</td>
+		<td>
+			<!--
+			else if $value.status == '4'
+			已发布-->
+			{{if $value.status == '2'}}
+			待批阅
+			{{else if $value.status == '3'}}
+			待发布
+			{{else if $value.status == '0' || $value.status == '1' || $value.status == '5'}}
+			未交卷
+			{{/if}}
+		</td>
+		<td>
+			{{if $value.status == '2'}}
+				<a title='批阅考试' href='#/teaching/testcentres/readtest/{{$value.examId}}/{{$value.studentId}}'><img src='./app/assets/images/myclass/030.png' alt=''></a>
+			{{else if $value.status == '3'}}
+				<a class='issue' title='发布' data-id='{{$value.studentId}}'><img src='./app/assets/images/myclass/031.png' alt=''></a>
+				<a title='修改' href='#/teaching/testcentres/readtest/{{$value.examId}}/{{$value.studentId}}'><img src='./app/assets/images/myclass/030.png' alt=''></a>
+			{{else if $value.status == '4'}}
+				<a title='查看' href='#/teaching/testcentres/lookreadtest/{{$value.examId}}/{{$value.studentId}}'><img src='./app/assets/images/myclass/029.png' alt=''></a>
+			{{else if $value.status == '0'}}--{{else if $value.status == '1'}}
+			--
+			{{/if}}
+		</td>
+	</tr>
+	{{/each}}
+{{else}}
+	暂无数据
+{{/if}}

@@ -1,66 +1,73 @@
 <div class="viewtest">
 	<div class="viewtest-box">
 		<div class="viewtest-content">
+			{{if viewTest.success}}
+				{{if viewTest.resultObject != ''}}
+					<!--标题-->
+					<div class="viewtest-top">
+						<h1>{{viewTest.resultObject.paperTplName}}</h1>
+						<a href="javascript:window.location.href='#/teaching/testcentres/releasepapers';history.go(0);">
+							<i class="layui-icon">&#x1006;</i>
+						</a>
+					</div>
+					<!--end标题-->
 
-			<!--标题-->
-			<div class="viewtest-top">
-				<h1>{{viewTest.resultObject.paperTplName}}</h1>
-				<a href="#/teaching/testcentres/releasepapers">
-					<i class="layui-icon">&#x1006;</i>
-				</a>
-			</div>
-			<!--end标题-->
 
-
-			<!--头部-->
-			<div class="viewtest-header">
-				<ul>
-					<li>
-						<span class="title">班级名称</span><span class="cont blue">{{viewTest.resultObject.squad.squadName}}</span>
-					</li>
-					<li>
-						<span class="line">|</span>
-					</li>
-					<li>
-						<span class="title">班级人数</span><span class="cont">{{viewTest.resultObject.squad.studentTotalNum}}人</span>
-					</li>
-					<li>
-						<span class="line">|</span>
-					</li>
-					<li>
-						<span class="title gules">交卷人数</span><span class="cont gules">{{viewTest.resultObject.squad.squadName}}人</span>
-					</li>
-				</ul>
-				<ul>
-					<li>
-						<span class="title">考试时间</span><span class="cont">{{viewTest.resultObject.paperTplCreateTime}}</span>
-					</li>
-					<li>
-						<span class="line">|</span>
-					</li>
-					<li>
-						<span class="title">试卷分数</span><span class="cont">{{viewTest.resultObject.totalScore}}分</span>
-					</li>
-					<li>
-						<span class="line">|</span>
-					</li>
-					<li>
-						<span class="title">试卷难易</span><span class="cont">{{viewTest.resultObject.difficultyText}}</span>
-					</li>
-				</ul>
-				<ul>
-					<li>
-						<span class="title">试卷关联课程</span><span class="cont">{{viewTest.resultObject.course.name}}</span>
-					</li>
-					<li>
-						<span class="line">|</span>
-					</li>
-					<li>
-						<span class="title">章</span><span class="cont examRange">{{viewTest.resultObject.examRange}}</span>
-					</li>
-				</ul>
-			</div>
-			<!--end头部-->
+					<!--头部-->
+					<div class="viewtest-header">
+						<ul>
+							<li>
+								<span class="title">班级名称</span><span class="cont blue">{{viewTest.resultObject.squad.squadName}}</span>
+							</li>
+							<li>
+								<span class="line">|</span>
+							</li>
+							<li>
+								<span class="title">班级人数</span><span class="cont">{{viewTest.resultObject.squad.studentTotalNum}}人</span>
+							</li>
+							<li>
+								<span class="line">|</span>
+							</li>
+							<li>
+								<span class="title gules">交卷人数</span><span class="cont gules">{{viewTest.resultObject.jjCounts}}人</span>
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<span class="title">考试时间</span><span class="cont">{{viewTest.resultObject.startTime}}-{{viewTest.resultObject.endTime | dateSing:viewTest.resultObject.endTime}}&nbsp;&nbsp;共{{viewTest.resultObject.duration}}分钟</span>
+							</li>
+							<li>
+								<span class="line">|</span>
+							</li>
+							<li>
+								<span class="title">考试分数</span><span class="cont">{{viewTest.resultObject.totalScore}}分</span>
+							</li>
+							<li>
+								<span class="line">|</span>
+							</li>
+							<li>
+								<span class="title">考试难易</span><span class="cont">{{viewTest.resultObject.difficultyText}}</span>
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<span class="title">考试关联课程</span><span class="cont">{{viewTest.resultObject.course.name}}</span>
+							</li>
+							<li>
+								<span class="line">|</span>
+							</li>
+							<li>
+								<span class="title">章</span><span class="cont examRange">{{viewTest.resultObject.examRange}}</span>
+							</li>
+						</ul>
+					</div>
+					<!--end头部-->
+				{{else}}
+					暂无数据
+				{{/if}}
+			{{else}}
+				{{viewTest.errorMessage || "服务器异常!"}}
+			{{/if}}
 
 			<!--试卷内容-->
 			<div id="paper"></div>

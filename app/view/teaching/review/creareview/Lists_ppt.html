@@ -1,0 +1,14 @@
+<!--PPT-->
+{{if Lists.success}}
+	{{if Lists.resultObject.items != ''}}
+		{{each Lists.resultObject.items as item i}}
+			<li>
+				<a href="javascript:void(0);" data-kpid="{{kpointId}}" data-url="{{item.url}}" class="J-view-ppt" title="{{item.title}}">{{item.title}}</a>
+			</li>
+		{{/each}}
+	{{else}}
+		暂无数据
+	{{/if}}
+{{/if}}
+
+<!--http://o.officeweb365.com/p/pv.aspx?PowerPointView=ReadingView&WOPISrc=http%3A%2F%2Fow365%2Fwopi%2Ffiles%2F%40%2Fwopi%3FvId%3DlAIdWJvvqr7zOqZ49IRc_w%3D%3D&bs=b2ZmaWNld2ViMzY1LmNvbS44MFzmipXotYTorqHliJLnu5@orqHkuI7nrqHnkIbvvIjljZfkuqzlj5HlsZXmlLnpnanorqHliJLmipXotYTlpITvvIkucHB0eA==&token=pLLW_reB0pVXEODc88NDqeYaLDikhozf&cancopy=-->

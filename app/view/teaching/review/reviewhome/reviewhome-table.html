@@ -1,0 +1,55 @@
+<div class="table">
+	<ul class="table-tr">
+		<li class="table-th squadName">
+			<h1>班级名称</h1>
+		</li>
+		<li class="table-th stuCount">
+			<h1>学生数量</h1>
+		</li>
+		<li class="table-th courseCount">
+			<h1>课程数量</h1>
+		</li>
+		<li class="table-th reviewCount">
+			<h1>复习待发布</h1>
+		</li>
+		<li class="table-th operation">
+			<h1>操作</h1>
+		</li>
+	</ul>
+	{{each lists as item i}}
+	<ul class="table-tr">
+		<!--试卷名称-->
+		<li class="table-td squadName" title="{{item.squadName}}">
+			{{item.squadName}}
+		</li>
+		<!--end试题名称-->
+		<!--学生数量-->
+		<li class="table-td stuCount">
+			{{item.stuCount}}
+		</li>
+		<!--end学生数量-->
+		<!--课程数量-->
+		<li class="table-td courseCount"  title="{{item.courseCount}}">
+			{{item.courseCount}}
+		</li>
+		<!--end课程数量-->
+		<!--复习待发布-->
+		<li class="table-td reviewCount">
+			{{item.reviewCount}}
+		</li>
+		<!--end复习待发布-->
+		<!--操作-->
+		<li class="table-td operation">
+			<div class="operation-icon">
+				<a href="#/teaching/review/Check_the_preview/{{item.squadId}}" title="查看预习">
+					<i class="icon-pic icon-view"></i>
+				</a>
+				<a href="#/teaching/review/Review_management/{{item.squadId}}" title="复习管理">
+					<i class="icon-editor-pic"></i>
+				</a>
+			</div>
+		</li>
+		<!--end操作-->
+	</ul>
+	{{/each}}
+</div>

@@ -11,11 +11,11 @@
 		<label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">性别：</label>
 		<div class="layui-input-block teaccert-form-item-box">
 			<div class="radio-box">
-				<input type="radio" name="sex" value="1" title="男" checked>
+				<input type="radio" name="sex" value="1" title="男" checked id="sex1">
 				<label>男</label>
 			</div>
 			<div class="radio-box">
-				<input type="radio" name="sex" value="0" title="女">
+				<input type="radio" name="sex" value="0" title="女" id="sex0">
 				<label>女</label>
 			</div>
 		</div>
@@ -25,13 +25,16 @@
 		<div class="layui-input-block teaccert-form-item-box">
 			<div class="school-box">
 				<input type="hidden" name="college_id" id="college_id">
-				<input type="text" name="college_name" id="college_name" required  class="layui-input school J-school J-school1" />
-				<ul class="school-selete school-selete school-selete1" id="school-selete1">
-					<li>四川大家1</li>
-					<li>四川大家2</li>
-					<li>四川大家3</li>
-					<li>四川大家砝4</li>
-				</ul>
+				<input type="text" name="college_name" id="college_name" readonly  class="layui-input school J-school J-school1" />
+				<div class="college_name_dv college_name_dv1">
+					<input type="text" id="college_name2" class="layui-input" />
+					<ul class="school-selete school-selete1" id="school-selete1">
+						<li>四川大家1</li>
+						<li>四川大家2</li>
+						<li>四川大家3</li>
+						<li>四川大家砝4</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -41,40 +44,33 @@
 			<div class="school-box">
 				<input type="hidden" name="id" id="teacher_id">
 				<input type="hidden" name="department_id" id="department_id">
-				<input type="text" name="department_name" id="department_name" required  class="layui-input school J-school J-school2" />
-				<ul class="school-selete school-selete school-selete2">
+				<input type="text" name="department_name" id="department_name" readonly  class="layui-input school J-school J-school2" />
+				<div class="college_name_dv college_name_dv2">
+					<input type="text" id="department_name2" class="layui-input" />
+					<ul class="school-selete school-selete school-selete2">
+						<li>四川大家1</li>
+						<li>四川大家2</li>
+						<li>四川大家3</li>
+						<li>四川大家砝4</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="layui-form-item teaccert-form-item">
+		<label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">所教专业：</label>
+		<div class="layui-input-block teaccert-form-item-box">
+			<input type="text" name="subject" id="subject" readonly class="layui-input  school J-school J-school3" />
+			<div class="college_name_dv college_name_dv3">
+				<input type="text" id="subject2" class="layui-input" />
+				<ul class="school-selete school-selete school-selete3">
 					<li>四川大家1</li>
 					<li>四川大家2</li>
 					<li>四川大家3</li>
 					<li>四川大家砝4</li>
 				</ul>
 			</div>
-		</div>
-	</div>
-	<div class="layui-form-item teaccert-form-item">
-		<label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">所教专业：</label>
-		<div class="teaccert-form-item-box teaccert-major">
-			<input type="text" name="subject" id="subject" class="layui-input" />
-			<!--<div class="layui-input-block">-->
-				<!--<div class="div-ul">-->
-					<!--<div class="li">-->
-						<!--<input type="checkbox" /><label>北京航天航空大学</label>-->
-					<!--</div>-->
-					<!--<div class="li">-->
-						<!--<input type="checkbox" /><label>程力学与航天航...</label>-->
-					<!--</div>-->
-					<!--<div id="view"></div>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class="layui-input-block open-box">-->
-				<!--<label class="layui-form-label title-open" id="J-open-major">展开</label>-->
-			<!--</div>-->
-
-			<!--<div class="layui-input-block teaccert-form-item-box-other-box">-->
-				<!--<label class="layui-form-label title-other">其它：</label>-->
-				<!--<input type="text" name="post" class="layui-input" />-->
-			<!--</div>-->
-
 		</div>
 
 	</div>
@@ -84,11 +80,11 @@
 			<input type="text" name="job_title" id="job_title" class="layui-input" />
 		</div>
 	</div>
-	<input type="hidden" name="certification_img" id="UpLoadFile_hidden">
 	<div style="height: 225px;width: 100%"></div>
 
 	<div class="layui-form-item teaccert-form-item">
 		<div class="layui-input-block teaccert-form-btn">
+			<input type="text" name="certification_img" id="UpLoadFile_hidden">
 			<button class="layui-btn" id="teaccert-submit"  type="submit">立即提交</button>
 		</div>
 	</div>
@@ -98,10 +94,11 @@
 		<label class="layui-form-label" style="width: 100px"><img src="./app/assets/images/4564.gif" alt="">上传照片：</label>
 		<div class="teaccert-form-item-box upload-box">
 			<div class="site-demo-upload">
-				<img id="LAY_demo_upload" src="http://img4.cache.netease.com/photo/0003/2016-10-15/C3DCSNQG00AJ0003.jpg" />
 				<div class="site-demo-upbar">
 					<form id="Myform" method="post" enctype="multipart/form-data">
-						<input required class="layui-upload-file {required : true,required : '请上传图片'}" name="c" id="UpLoadFile" type="file" />
+						<input class="layui-upload-file" name="c" id="UpLoadFile" type="file" />
+						<img id="LAY_demo_upload" src="./app/assets/images/user/success-teaccert-pic.png" style="height: 210px">
+						<!--<p>上传教师资格证照片</p>-->
 					</form>
 				</div>
 			</div>

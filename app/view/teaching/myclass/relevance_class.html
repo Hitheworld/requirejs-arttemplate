@@ -1,0 +1,53 @@
+<form class="layui-form" id="relevance_class_form">
+    <div class="layui-form-item teaccert-form-item">
+        <label class="layui-form-label">所在学校：</label>
+        <div class="layui-input-block teaccert-form-item-box">
+            <input type="hidden" name="college_id" id="college_id">
+            <input type="hidden" name="pageNumber" value="1">
+            <input type="hidden" name="pageSize" value="10">
+            <input type="text" class="layui-input valid" readonly="" id="pattern2" value="豆腐干豆腐">
+        </div>
+    </div>
+    <div class="layui-form-item teaccert-form-item">
+        <label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">所在院系：</label>
+        <div class="layui-input-block teaccert-form-item-box">
+            <div class="school-box">
+                <input type="hidden" name="id" id="teacher_id">
+                <input type="hidden" name="department_id" id="department_id">
+                <input type="text" name="department_name" id="department_name" readonly  class="layui-input school J-school J-school2" />
+                <div class="college_name_dv college_name_dv2">
+                    <input type="text" id="department_name2" class="layui-input" />
+                    <ul class="school-selete school-selete school-selete2">
+                        <li>四川大家1</li>
+                        <li>四川大家2</li>
+                        <li>四川大家3</li>
+                        <li>四川大家砝4</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item teaccert-form-item">
+        <label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">所教专业：</label>
+        <div class="layui-input-block teaccert-form-item-box">
+            <input type="hidden" name="subject_id" id="subject_id">
+            <input type="text" name="subject" id="subject" readonly class="layui-input  school J-school J-school3" />
+            <div class="college_name_dv college_name_dv3">
+                <input type="text" id="subject2" class="layui-input" />
+                <ul class="school-selete school-selete school-selete3">
+                    <li>四川大家1</li>
+                    <li>四川大家2</li>
+                    <li>四川大家3</li>
+                    <li>四川大家砝4</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block" style="margin-left: 52px;margin-right: 52px">
+            <button class="layui-btn" type="submit">下一步</button>
+        </div>
+    </div>
+</form>

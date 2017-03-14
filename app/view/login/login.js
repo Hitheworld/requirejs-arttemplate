@@ -18,22 +18,34 @@ define(['template',
 
         function createPage() {
             //$("#content").html(loginTpl);
-            $("#content").html(loginTpl);
+            $("#app").html(loginTpl);
             $(".myLogin").html(login_popup);
 
             //表单检验
             $("#popup_login_form").validate({
             	rules : {
-                    username : {
-                        required : true
-                    },
+                    username : {required : true},
                     password : {required : true}
             	},
             	messages : {
             		username : {required : '请输入用户名'},
                     password : {required : '请输入密码'}
             	},
-            	errorElement : "span"
+            	errorElement : "span"//,
+	            //submitHandler: function(){
+		         //   var username = $("#username").val();
+		         //   var password = $("#password").val();
+		         //   var LoginDB = Login(username, password);
+		         //   //var errorHTML = '<div class="error">{{LoginDB.errorMessage}}</div>';
+		         //   if(LoginDB.success){
+			     //       history.go(0); //刷新当面页
+			     //       window.location.href = "index.html?"+Math.random()+"#/home";
+		         //   }else {
+			     //       layer.alert("用户名或密码错误!")
+			     //       return false;
+		         //   }
+		         //   return false;
+	            //}
             });
 
 	        //判断是否重复--手机号或者邮箱
@@ -112,8 +124,8 @@ define(['template',
                             success: function(data,status,xhr,$form){
                                 //console.log("success",data,status,xhr,$form);
                                 if(data.success){
-                                    history.go(0);
                                     window.location.href = "#/home";
+                                    history.go(0);
                                 }else {
                                     layer.msg('请输入正确的账号和密码', {icon: 5});
                                 }
@@ -132,6 +144,13 @@ define(['template',
                 return false; //阻止表单默认提交
             });
         }
+
+	    var Login = function( username,password) {
+		    return common.requestService('login','POST', {
+			    username: username,
+			    password: password
+		    });
+	    };
 
         return {
             createPage: createPage

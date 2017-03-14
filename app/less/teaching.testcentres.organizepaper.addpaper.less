@@ -26,7 +26,9 @@
         }
     } 
     #sliding-form {
-        margin: 20px auto;
+        margin: 0px auto;
+        margin-top: 30px;
+        margin-bottom: 40px;
         max-width: @page-width;
         overflow: hidden;
         position: relative;
@@ -51,6 +53,7 @@
                     text-align: center;
                     font-size: 0px;
                     margin: 0 auto;
+                    font-style: normal;
                 }
                 &.active,&.ac {
                     i {
@@ -98,7 +101,7 @@
                     }
                 }
                 .title {
-                    margin-top: 10px;
+                    margin-top: 20px;
                     text-align: center;
                 }
             }
@@ -116,8 +119,8 @@
                     width: @page-pagePaper;
                     margin: 0 auto;
                     .fieldset-header {
-                        height: 85px;
-                        line-height: 85px;
+                        margin-top: 40px;
+                        margin-bottom: 30px;
                         overflow: hidden;
                         h2 {
                             display: block;
@@ -130,19 +133,38 @@
                             display: block;
                             float: left;
                             margin-left: 20px;
+                            #residualtalScore {
+                                margin: 0px;
+                            }
                         }
                     }
                     ul.addpaper-ul {
                         border-bottom: 1px solid #f0f0f0;
-                        margin-bottom: 20px;
                         li.error-li {
                             margin-bottom: 20px;
-                            p {
-                                margin-left: 110px;
+                            position: relative;
+                            .error {
+                                margin-left: 80px;
+                                margin-top: -10px; 
+                            }
+                            .number-right {
+                                position: absolute;
+                                left: 154px;
                             }
                         }
                         li.addpaper-ul-li {
                             display: block;
+                            .important {
+                                color: #FF0000;
+                                margin-right: 10px;
+                            }
+                            .layui-form-label {
+                                padding: 9px 0px;
+                                width: 73px;
+                            }
+                            .layui-input-block {
+                                margin-left: 82px;
+                            }
                             .addpaper-form-item {
                                 select {
                                     display: block;
@@ -157,11 +179,12 @@
                                 }
                                 //分数
                                 .paperwhenlong, .testScores {
-                                    width: 88px;
+                                    width: 115px;
                                     float: left;
                                 }
                                 .testScores-label {
                                     text-align: left;
+                                    padding-left: 10px;
                                 }
                             }
                             
@@ -182,17 +205,15 @@
                     }
                 }
                 .tree-checkbox {
-                    width: 378px;
+                    width: 415px;
                     height: 452px;
                     overflow-x: hidden; 
                     border: 1px solid #f0f0f0;
-                    margin: 0 auto;
                 }
             }
             .page2 {
                 li.error-li {
                     margin-bottom: 20px;
-                    overflow: hidden;
                     p {
                         float: left;
                         margin-left: 72px;
@@ -363,6 +384,14 @@
                                         .title {
                                             display: block;
                                             overflow: hidden;
+                                            img {
+                                                width: 200px;
+                                            }
+                                            .pagePaper-content-box-span{
+                                                display: inline-block;
+                                                min-width: 50px;
+                                                border-bottom: 1px solid;
+                                            }
                                             h3 {
                                                 float: left;
                                                 display: block;
@@ -452,14 +481,29 @@
                                         .paper-answer {
                                             overflow: hidden;
                                             color: #333333;
-                                            font-size: 16px;
                                             margin-top: 16px;
                                             .answer {
                                                 float: left;
                                                 font-weight: 600;
+                                                line-height: 20px;
+                                                font-size: 16px;
+                                            }
+                                            .answer-contnet-dv{
+                                                float: left;
+                                                clear: left;
+                                                margin-left: 0;
+                                                display: block;
+                                                border: 1px solid #dfdfdf;
                                             }
                                             .answer-contnet {
-                                                float: left;
+                                                float: right;
+                                                font-size: 16px;
+                                                line-height: 20px;
+                                                margin-left: 10px;
+                                                width: 760px;
+                                                overflow: hidden;
+                                                word-wrap: break-word;
+                                                word-break: break-all;
                                             }
                                         }
                                             
@@ -476,11 +520,30 @@
                 
             }
             
+            
+            // 每三页底部按钮组--
+            .end-btn-box {
+                height: 90px;
+            }
+            .page3-btn-box {
+                position: absolute;
+                width: 890px;
+                margin: 0 auto;
+                padding: 20px 0px;
+                background: #FFFFFF;
+                margin-left: -30px;
+                .btn_nav { 
+                    margin-top: 0px;
+                }
+            }
+            
+            
             //底部按钮下一步
             .btn_nav {
 //              width: @page-pagePaper;
                 width: 505px;
-                margin: 20px auto;
+                margin: 0 auto;
+                margin-top: 60px;
                 overflow: hidden;
                 .btn-page-next,.btn-page-sub {
                     cursor: pointer;
@@ -620,7 +683,7 @@
                         }
                     }
                     &.search-so-li {
-                        float: right;
+                        float: left;
                         width: 290px;
                         margin-right: 0px;
                         position: relative;
@@ -652,7 +715,7 @@
         }
         .Change-cont {
             width: 100%;
-            min-height: 420px;
+            min-height: 300px;
             //标题区
             .Change-cont-title-ul {
                 overflow: hidden;
@@ -660,10 +723,11 @@
                 line-height: 50px;
                 display: block;
                 background-color: #f2fcf7;
-                padding: 0px 20px; 
+                padding: 0px 10px; 
                 li {
                     float: left;
                     text-align: left;
+                    height: 100%;
                     h1 {
                         font-size: 14px;
                         font-weight: 600;
@@ -702,7 +766,7 @@
                     height: 50px;
                     line-height: 50px;
                     display: block;
-                    padding: 0px 20px; 
+                    padding: 0px 10px; 
                     &.odd {
                         background-color: #f2fcf7;
                     } 
@@ -714,6 +778,7 @@
                         text-align: left;
                         position: relative;
                         width: 100%;
+                        height: 100%;
                         &.Change-cont-ul-li {
                             width: 360px;
                             .Change-cont-ul-li-table {
@@ -722,7 +787,7 @@
                                 input {
                                     float: left;
                                     margin-top: 20px;
-                                    
+                                    margin-right: 10px;
                                 }
                                 label {
                                     float: left;
@@ -730,8 +795,12 @@
                                     text-overflow: ellipsis;
                                     white-space: nowrap;
                                     overflow: hidden;
-                                    width: 345px;
+                                    width: 325px;
                                     height: 50px;
+                                    img {
+                                        width: 10px;
+                                        height: 10px;
+                                    }
                                 }
                             }
                         }
@@ -799,8 +868,12 @@
                                 overflow: hidden;
                                 p {
                                     font-size: 16px;
-                                    height: 35px;
                                     line-height: 35px;
+                                    word-wrap:break-word;
+                                    word-break:break-all; 
+                                    img {
+                                        width: 200px;
+                                    }
                                     input {
                                         width: auto;
                                         height: 22px;
@@ -808,6 +881,11 @@
                                         background-color: none;
                                         border-bottom: 1px solid #999999;
                                                                         }
+                                }
+                                .pagePaper-content-box-span{
+                                    display: inline-block;
+                                    min-width: 50px;
+                                    border-bottom: 1px solid;
                                 }
                             }
                             ul.title-selete {
@@ -826,6 +904,11 @@
                                             float: left;
                                             width: 96%;
                                             cursor: pointer;
+                                            word-wrap:break-word;
+                                            word-break:break-all; 
+                                            img {
+                                                width: 200px;
+                                            }
                                        }
                                        //简答
                                        &.jianDa-selete-box {
@@ -834,7 +917,8 @@
                                                float: left;
                                            }
                                            p {
-                                               
+                                               word-wrap:break-word;
+                                               word-break:break-all;
                                            }
                                        }
                                    }
@@ -844,15 +928,33 @@
                                }  
                             }
                             .paper-answer {
-                                height: 35px;
                                 line-height: 35px;
                                 overflow: hidden;
+                                img {
+                                    width: 200px;
+                                }
                                 .answer {
                                     color: #36b773;
                                     float: left;
+                                    line-height: 20px;
+                                    font-size: 16px;
+                                }
+                                .answer-contnet-dv{
+                                    float: left;
+                                    clear: left;
+                                    margin-left: 0;
+                                    display: block;
+                                    border: 1px solid #dfdfdf;
                                 }
                                 .answer-contnet {
-                                    float: left;
+                                    float: right;
+                                    font-size: 16px;
+                                    line-height: 20px;
+                                    margin-left: 10px;
+                                    width: 740px;
+                                    overflow: hidden;
+                                    word-wrap: break-word;
+                                    word-break: break-all;
                                 }
                             }
                         }
@@ -871,18 +973,26 @@
         //按钮组
         .Change-footer {
             margin-top: 40px;
+            overflow: hidden;
             .btn-box {
                 float: right;
                 width: auto;
+                width: 198px;
+                overflow: hidden;
                 .buttom-submit {
+                    float: left;
+                    width: 92px;
                     background-color: #36b773;
                     color: #FFFFFF;
                     border: 1px solid #36b773;
                 }
                 .buttom-cancel {
+                    width: 92px;
+                    float: right;
                     background-color: #FFFFFF;
                     color: #333333;
                     border: 1px solid #f6f6f6;
+                    position: relative;
                 }
             }
             

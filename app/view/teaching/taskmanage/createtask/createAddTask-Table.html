@@ -1,0 +1,61 @@
+<div class="table">
+	<ul class="table-tr">
+		<li class="table-th radio">
+			<h1></h1>
+		</li>
+		<li class="table-th taskName">
+			<h1>作业卷名称</h1>
+		</li>
+		<li class="table-th createTime">
+			<h1>创建时间</h1>
+		</li>
+		<li class="table-th operation">
+			<h1>操作</h1>
+		</li>
+	</ul>
+
+	{{if TestPaperDB.success}}
+		{{if TestPaperDB.resultObject.items}}
+
+			{{each TestPager as TestPager i}}
+			<ul class="table-tr">
+
+				<li class="table-td radio">
+					<div class="radioBox">
+						<input type="radio" name="paperTplId" id="paper-{{TestPager.id}}" class="paperTplId" data-name="{{TestPager.name}}" value="{{TestPager.id}}" />
+					</div>
+				</li>
+				<label for="paper-{{TestPager.id}}">
+				<!--作业卷名称-->
+				<li class="table-td taskName">
+					{{TestPager.name}}
+				</li>
+				<!--end作业卷名称-->
+				<!--创建时间-->
+				<li class="table-td createTime">
+					{{TestPager.createTime}}
+				</li>
+				<!--end创建时间-->
+				<!--操作-->
+				<li class="table-td operation">
+					<div class="operation-icon">
+						<div class="operation-icon">
+							<a target="_blank" href="#/teaching/taskmanage/taskview/toview/{{TestPager.id}}" class="J-open-see" title="查看">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</li>
+				</label>
+				<!--end操作-->
+			</ul>
+			{{/each}}
+
+		{{else}}
+			暂无数据
+		{{/if}}
+
+	{{else}}
+		{{TestPaperDB.errorMessage}}
+	{{/if}}
+</div>

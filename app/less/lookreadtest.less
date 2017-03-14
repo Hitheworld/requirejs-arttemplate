@@ -24,30 +24,64 @@
 }
 
 .readtest {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
+  width: 100%;
   overflow: auto;
-  background-color: #FFFFFF;
+  height: auto;
+  background-color: #e6e6e6;
   .readtest-box {
+    background-color: #fff;
+    width: 1200px;
+    margin:  0 auto;
     padding: 30px;
     overflow: hidden;
-
     .viewtest-top {
       position: relative;
       overflow: hidden;
-      div{
-        width: 30%;
+      h1 {
+        font-size: 24px;
+        color: #333333;
+        font-weight: 600;
+        text-align: left;
+      }
+      .studentInfo {
+        margin-top: 20px;
+        text-align: left;
+        span {
+          float: left;
+          display: block;
+          height: 65px;
+          line-height: 65px;
+          font-size: 18px;
+          color: #333333;
+        }
+      }
+      a {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 30px;
+        height: 30px;
+        display: block;
+        i {
+          font-size: 30px;
+          color: #cccccc;
+        }
+      }
+      .indicatorContainer{
+        width: 26%;
+        clear: left;
         float: left;
+        margin-top: 34px;
         div{
           width: 150px;
-          height: 150px
+          height: 150px;
+          margin-left: 76px;
         }
         p{
           clear: left;
-          text-indent: 50px;
+          font-size: 14px;
+          text-align: center;
+          color: #36b773;
         }
       }
       table{
@@ -62,12 +96,29 @@
         }
         tr {
           height: 39px;
+          td{
+            text-align: center!important;
+            span{
+              margin-left: 5px;
+              border: 1px solid #333;
+              padding: 0 5px 0 5px;
+              color: #333;
+              visibility:hidden;
+            }
+            &:hover{
+              span{
+                visibility: visible;
+              }
+            }
+          }
         }
       }
     }
 
+
+
     .readtest-content {
-      width: 860px;
+      width: 1200px;
       float: left;
       overflow: hidden;
 
@@ -115,60 +166,68 @@
       }
     }
 
-    //导航内容
-    .pagePaper-questions-nav {
-      width: 230px;
-      min-height: 520px;
-      background-color: #f3f3f3;
-      padding: 0 15px;
-      overflow: hidden;
-      float: right;
-      .questions-nav-title {
-        overflow: hidden;
-        margin-bottom: 20px;
-        margin-top: 20px;
-        h3 {
-          float: left;
-          font-size: 16px;
-          color: #333333;
-        }
-        span {
-          float: left;
+
+
+  }
+}
+
+.title-selete-box{
+  label{
+    float: left!important;
+  }
+}
+
+//导航内容
+.pagePaper-questions-nav {
+  width: 230px;
+  min-height: 520px;
+  background-color: #f3f3f3;
+  padding: 0 15px;
+  overflow: hidden;
+  float: right;
+  .questions-nav-title {
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    h3 {
+      float: left;
+      font-size: 16px;
+      color: #333333;
+    }
+    span {
+      float: left;
+      font-size: 14px;
+      color: #333333;
+      margin-top: 3px;
+      margin-left: 23px;
+    }
+  }
+  ul {
+    overflow: hidden;
+    width: 232px;
+    margin-right: -2px;
+    li {
+      float: left;
+      margin-left: 2px;
+      .box-nav {
+        vertical-align: middle;
+        display: table-cell;
+        *position: absolute;
+        *top: 50%;
+        background-color: #FFFFFF;
+        width: 36.6666666px;
+        height: 38.6666666px;
+        cursor: pointer;
+        a {
+          display: block;
+          width: 100%;
+          height: 100%;
           font-size: 14px;
           color: #333333;
-          margin-top: 3px;
-          margin-left: 23px;
-        }
-      }
-      ul {
-        overflow: hidden;
-        width: 232px;
-        margin-right: -2px;
-        li {
-          float: left;
-          margin-left: 2px;
-          .box-nav {
-            vertical-align: middle;
-            display: table-cell;
-            *position: absolute;
-            *top: 50%;
-            background-color: #FFFFFF;
-            width: 36.6666666px;
-            height: 38.6666666px;
-            cursor: pointer;
-            a {
-              display: block;
-              width: 100%;
-              height: 100%;
-              font-size: 14px;
-              color: #333333;
-              text-align: center;
-              line-height: 36.666666px;
-            }
-          }
+          text-align: center;
+          line-height: 36.666666px;
         }
       }
     }
-
   }
 }

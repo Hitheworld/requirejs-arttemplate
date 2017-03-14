@@ -1,4 +1,11 @@
-define(['jquery','api'], function ($,apiUrl) {
+define(['jquery','layer','api','viewer'], function ($,layer,apiUrl) {
+	
+	$( document ).ajaxSend(function( event, jqxhr, settings ) {
+		var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2
+		settings.layerIndex = index;
+	}).ajaxComplete(function( event, xhr, settings ) {
+		 layer.close(settings.layerIndex); 
+	});
 
 	var excommon = {};
 	
@@ -96,10 +103,11 @@ define(['jquery','api'], function ($,apiUrl) {
 			url: apiUrl.BATHPATH + url,
 			type: types || 'get',
 			data: param,
-			success: function (msg) {
-				result = msg;
+			success: function (data) {
+				result = data;
+				isJumpToLogin(data);
 				if (callback) {
-					callback(msg);
+					callback(data);
 				}
 			},
 			error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -119,10 +127,11 @@ define(['jquery','api'], function ($,apiUrl) {
 			url: url,
 			type: types || 'get',
 			data: param,
-			success: function (msg) {
-				result = msg;
+			success: function (data) {
+				result = data;
+				isJumpToLogin(data);
 				if (callback) {
-					callback(msg);
+					callback(data);
 				}
 			},
 			error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -139,6 +148,7 @@ define(['jquery','api'], function ($,apiUrl) {
 	 * @param datas
 	 */
 	function sessionValidate(datas) {
+		isJumpToLogin(datas);
 	    if (Object.prototype.toString.call(datas) === "[object String]") {
 	        if (datas.indexOf("<!DOCTYPE>") > -1 || datas.indexOf("<!doctype html>") > -1) {//ssion失效自动刷新页面
 	            window.location.reload();
@@ -194,6 +204,7 @@ define(['jquery','api'], function ($,apiUrl) {
 	    }
 	    $("." + NextClass).on("click", function () {
 	        index_banner_nextscroll();
+			clearInterval(cy_add);
 	    });
 	    $("." + PrevClass).on("click", function () {
 	        clearInterval(cy_add);
@@ -209,10 +220,24 @@ define(['jquery','api'], function ($,apiUrl) {
 	                circle()
 	            }
 	        });
-	        cy_add = setInterval(function(){
-	            index_banner_nextscroll()
-	        },num);
+	        //cy_add = setInterval(function(){
+	        //    index_banner_nextscroll()
+	        //},num);
 	    });
+		$(".cy_show").hover(function(){
+			clearInterval(cy_add);
+			$(".cy_prev,.cy_next").css("display","block")
+		},function(){
+			clearInterval(cy_add);
+			$(".cy_prev,.cy_next").css("display","none");
+			//setTimeout(function(){
+			//	index_banner_nextscroll()
+			//},3000)
+			cy_add = setInterval(function(){
+				index_banner_nextscroll()
+			},num);
+
+		});
 	    if (!isnull(circleClass)){
 	        $("."+circleClass+" li:eq(0)").addClass("cy_circle-cur");
 	        var animateEnd = 1;
@@ -267,9 +292,9 @@ define(['jquery','api'], function ($,apiUrl) {
 	                    })
 	                }
 	            }
-	            cy_add = setInterval(function(){
-	                index_banner_nextscroll()
-	            },num)
+	            //cy_add = setInterval(function(){
+	            //    index_banner_nextscroll()
+	            //},num)
 	        });
 	    }
 	    cy_add = setInterval(function(){
@@ -386,9 +411,157 @@ define(['jquery','api'], function ($,apiUrl) {
 	        index_banner_nextscroll()
 	    },num);
 	}
+
+
+	/**
+	 * 上下轮播
+	 * @param data
+	 */
+	var bannerNum;
+	function UpDownShuffling(BannerClass,PrevClass,NextClass,circleClass,num) {
+		function UpDown_banner_nextscroll() {
+			clearInterval(bannerNum);
+			var vcon = $("." + BannerClass);
+			var offset = ($("." + BannerClass + " li").width()) * -1;
+			vcon.stop().animate({
+				top: offset
+			}, "slow", function () {
+				var firstItem = $("." + BannerClass + " ul li").first();
+				vcon.find("ul").append(firstItem);
+				$(this).css("top", "0px");
+				if (!isnull(circleClass)){
+					circle()
+				}
+			});
+			bannerNum = setInterval(function(){
+				UpDown_banner_nextscroll()
+			},num);
+		}
+		function circle() {
+			var currentItem = $("."+BannerClass+" ul li").first();
+			var currentIndex = currentItem.attr("index");
+			$("."+circleClass+" li").removeClass("cy_circle-cur");
+			$("."+circleClass+" li").eq(currentIndex).addClass("cy_circle-cur");
+		}
+		$("." + NextClass).on("click", function () {
+			UpDown_banner_nextscroll();
+		});
+		$("." + PrevClass).on("click", function () {
+			clearInterval(bannerNum);
+			var vcon = $("." + BannerClass);
+			var offset = ($("." + BannerClass + " li").width() * -1);
+			var lastItem = $("." + BannerClass + " ul li").last();
+			vcon.find("ul").prepend(lastItem);
+			vcon.css("top", offset);
+			vcon.animate({
+				top: "0px"
+			}, "slow", function () {
+				if (!isnull(circleClass)){
+					circle()
+				}
+			});
+			bannerNum = setInterval(function(){
+				UpDown_banner_nextscroll()
+			},num);
+		});
+		if (!isnull(circleClass)){
+			$("."+circleClass+" li:eq(0)").addClass("cy_circle-cur");
+			var animateEnd = 1;
+			$("."+circleClass+" li").click(function () {
+				clearInterval(bannerNum);
+				if (animateEnd == 0) {
+					return
+				}
+				$(this).addClass("cy_circle-cur").siblings().removeClass("cy_circle-cur");
+				var nextindex = $(this).index();
+				var currentindex = $("."+BannerClass+" li").first().attr("index");
+				var curr = $("."+BannerClass+" li").first().clone();
+				if (nextindex > currentindex) {
+					for (var i = 0; i < nextindex - currentindex; i++) {
+						var firstItem = $("."+BannerClass+" li").first();
+						$("."+BannerClass+" ul").append(firstItem)
+					}
+					$("."+BannerClass+" ul").prepend(curr);
+					var offset = ($("."+BannerClass+" li").width()) * -1;
+					if (animateEnd == 1) {
+						animateEnd = 0;
+						$("."+BannerClass).stop().animate({
+							top: offset
+						}, "slow", function () {
+							$("."+BannerClass+" ul li").first().remove();
+							$("."+BannerClass+"").css("top", "0px");
+							if (!isnull(circleClass)){
+								circle()
+							}
+							animateEnd = 1
+						})
+					}
+				} else {
+					var curt = $("."+BannerClass+" li").last().clone();
+					for (var i = 0; i < currentindex - nextindex; i++) {
+						var lastItem = $("."+BannerClass+" li").last();
+						$("."+BannerClass+" ul").prepend(lastItem)
+					}
+					$("."+BannerClass+" ul").append(curt);
+					var offset = ($("."+BannerClass+" li").width()) * -1;
+					$("."+BannerClass+"").css("top", offset);
+					if (animateEnd == 1) {
+						animateEnd = 0;
+						$("."+BannerClass).stop().animate({
+							top: "0px"
+						}, "slow", function () {
+							$("."+BannerClass+" ul li").last().remove();
+							if (!isnull(circleClass)){
+								circle()
+							}
+							animateEnd = 1
+						})
+					}
+				}
+				bannerNum = setInterval(function(){
+					UpDown_banner_nextscroll()
+				},num)
+			});
+		}
+		bannerNum = setInterval(function(){
+			UpDown_banner_nextscroll()
+		},num);
+	}
+
+
+	//是否跳转到登录页面
+	function isJumpToLogin(data){
+		if(isJson(data)){
+			if(!data.success && data.resultObject == 'needLogin'){
+				window.location.href='index.html#/login';
+			}
+		}
+	}
 	
+	function isJson(obj){
+		var isjson = typeof(obj) == "object" && Object.prototype.toString.call(obj).toLowerCase() == "[object object]" && !obj.length; 
+		return isjson;
+	}
+
+
+	/**
+	 * 图片放大功能
+	 * @param _this
+	 */
+	function initImageViewer(_this) {
+		_this.viewer({
+			navbar: false,
+			toolbar: false,
+			transition: false,
+			minZoomRatio: 0.05,//最小可以缩小到5%
+			maxZoomRatio: 5//最大可以放大到500%
+		});
+	}
+
+
 
 	return {
+		initImageViewer: initImageViewer,
 		ajaxRequest: ajaxRequest,
 		TextajaxRequest: TextajaxRequest,
 		syncRequest: syncRequest,
@@ -397,7 +570,8 @@ define(['jquery','api'], function ($,apiUrl) {
 		sessionValidate: sessionValidate,
 		isnull: isnull,
 		index_banner: index_banner,
-		index_banner2: index_banner2
+		index_banner2: index_banner2,
+		UpDownShuffling: UpDownShuffling
 	}
 
 });

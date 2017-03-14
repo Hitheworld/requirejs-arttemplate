@@ -10,6 +10,7 @@ define(['template',
 		'laypage',
 		'api',
 		'xvCalendar',
+		'jquery-ui-timepicker-zh-CN',
 		'css!cssUrl/personal'
 ],
 	function (template,$,mypointsTpl,poinst_1Tpl,poinst_2Tpl,myTableTpl,common,layer,layui,laypage,api) {
@@ -64,7 +65,8 @@ define(['template',
 					pageNumber:pageNumber,
 					pageSize:pageSize
 				}, function (data, state) {
-					$(".myTable").html( template.compile(myTableTpl)(data))
+					$(".myTable").html( template.compile(myTableTpl)(data));
+					$(".myClass_table tr:even").addClass("myClass_table_tr");
 					if(data.success){
 						//显示分页
 						laypage({

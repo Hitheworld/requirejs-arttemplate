@@ -9,6 +9,7 @@ define(['template',
 		'text!tplUrl/resources/resourcesDel/resourcesDel.html',
 		'text!tplUrl/resources/resourcesDel/ApplyResource.html',
 		'text!tplUrl/common/login/popup.login.html',
+		'text!tplUrl/course/details/popup.faill.html',
 		'popupLogin',
 		'common',
 		'api',
@@ -24,6 +25,7 @@ define(['template',
 	          resourcesDelTpl,
 	          ApplyResourceTpl,
 			  popupLoginTpl,
+			  faillTpl,
 		      popupLogin,
 	          common,api) {
 
@@ -51,10 +53,22 @@ define(['template',
 				ClaimRecordDB: resourcesDelClaimRecordDB,
 				StatusDB: StatusDB
 			}));
+			//截取字符串
+			$('.ellipsis').each(function(){
+				var maxwidth= 110;
+				if($(this).text().length>maxwidth){
+					$(this).text($(this).text().substring(0,maxwidth));
+					$(this).html($(this).html()+'...');
+				}
+			});
 
 			//分享按钮
-			$(".J-btn-fx").on('click', function(){
-				$(".fx-box").toggle();
+			$(".J-btn-fx").on('mouseover', function(){
+				$(".fx-box").show();
+			});
+
+			$(".fx-box").on('mouseleave', function(){
+				$(".fx-box").hide();
 			});
 
 			//...的处理
@@ -65,7 +79,6 @@ define(['template',
 			//		$(this).html($(this).html()+'...');
 			//	}
 			//});
-
 			//登录
 			$(".J-apply-resource").on('click', function(){
 				if(StatusDB.resultObject != undefined &&  StatusDB.resultObject == 0){
@@ -78,8 +91,15 @@ define(['template',
 					});
 					//加载弹窗登录js文件;
 					popupLogin.popupLogin();
-				} else if (StatusDB.resultObject == 2) {
-
+				} else if (StatusDB.resultObject == 1) {  //非认证教师去认证
+					//页面层
+					layer.open({
+						type: 1,
+						title: false,
+						skin: 'layui-layer-rim', //加上边框
+						area:['500px', '250px'], //宽高
+						content: faillTpl
+					});
 				} else if (StatusDB.resultObject == 3) {
 					//申请
 					addResource();
@@ -210,26 +230,24 @@ define(['template',
 							required : "请填写申请理由"
 						}
 					},
-					errorElement : "p"
-				});
-
-				$('#ApplyResourceForm').on("submit",function() {
-					var number = $("#number").val(),   //申请数量
-						province,  //地址---省
-						city,   //地址---市
-						area,   //地址---区
-						address = $("#address").val(),   //地址---详细地址
-						postalcode = $("#postalcode").val(),  //编码
-						consigneeName = $("#consigneeName").val(),  //收货人
-						phone = $("#phone").val(),   //手机号
-						reason = $("#reason").val();  //申请理由
+					errorElement : "p",
+					submitHandler: function(){
+						var number = $("#number").val(),   //申请数量
+							province,  //地址---省
+							city,   //地址---市
+							area,   //地址---区
+							address = $("#address").val(),   //地址---详细地址
+							postalcode = $("#postalcode").val(),  //编码
+							consigneeName = $("#consigneeName").val(),  //收货人
+							phone = $("#phone").val(),   //手机号
+							reason = $("#reason").val();  //申请理由
 
 
 						province = $("#province option:checked").val();  //地址---省
 						city = $("#city option:checked").val();   //地址---市
-						area = $("#area option:checked").val();   //地址---区
-
-						if (number != '' && province != '' && city != '' && area!= ''&& address!= ''&& postalcode!= ''
+						area = $("#area option:checked").val() || "";   //地址---区
+						var mail_address = (province + city + area + address).toString();
+						if (number != '' && mail_address != ''&& postalcode!= ''
 							&& consigneeName!= ''&& phone!= ''&& reason!= ''
 						){
 							var mail_address = (province + city + area + address).toString();
@@ -252,8 +270,11 @@ define(['template',
 						};
 
 
-					return false; //阻止表单默认提交
+						return false; //阻止表单默认提交
+					}
 				});
+
+
 
 
 			};
@@ -264,7 +285,7 @@ define(['template',
 
 		//获取扩展资源详情数据
 		var resourcesDel = function(resourceId ) {
-			return common.requestService('bxg/home/detailExtendResource','get', {
+			return common.requestService('bxg_anon/home/detailExtendResource','get', {
 				resourceId: resourceId
 			});
 		};
@@ -272,7 +293,7 @@ define(['template',
 
 		//获取扩展资源申请资源数据
 		var resourcesDelClaimRecord = function(resourceId ) {
-			return common.requestService('bxg/home/teacherApply','get', {
+			return common.requestService('bxg_anon/home/teacherApply','get', {
 				resourceId: resourceId
 			});
 		};
@@ -280,7 +301,7 @@ define(['template',
 
 		//获取判断扩展资源的状态
 		var resourcesDelCheckApplyStatus = function(resourceId ) {
-			return common.requestService('bxg/home/checkApplyStatus','get', {
+			return common.requestService('bxg_anon/home/checkApplyStatus','get', {
 				resourceId: resourceId
 			});
 		};

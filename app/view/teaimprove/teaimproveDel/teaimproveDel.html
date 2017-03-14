@@ -1,0 +1,112 @@
+<div id="main" class="course-del">
+    <div class="course-del-nav">
+        <div class="nav">
+			<span class="layui-breadcrumb" lay-separator="|" style="visibility: visible;">
+				 <a href="#/teaimprove/1">教学提升<span>&gt;</span></a>
+                <a id="course-del-name" style="color: #333!important;">{{viewDetail.resultObject.name}}</a>
+			</span>
+        </div>
+    </div>
+
+    <div class="course-del-top">
+        <div class="course-del-box" id="course-del-info">
+
+            <!--左边-->
+            <a href="javascript:void(0);">
+                <img class="course-del-pic" src="{{viewDetail.resultObject.image}}"
+                     onerror="this.src='./app/assets/images/error-pic.png'"/>
+            </a>
+            <!--end左边-->
+
+            <!--右边-->
+            <div class="course-del-info">
+                <div class="course-del-title">
+                    <h3>{{viewDetail.resultObject.name}}</h3>
+                    <a href="javascript:void(0);" class="J-btn-fx btn-fx">分享</a>
+                    <!-- JiaThis Button BEGIN -->
+                    <div class="jiathis_style_32x32 fx-box">
+                        <a class="jiathis_button_weixin"></a>
+                        <a class="jiathis_button_xiaoyou"></a>
+                        <a class="jiathis_button_cqq"></a>
+                        <a class="jiathis_button_tsina"></a>
+                        <a class="jiathis_button_qzone"></a>
+                        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis"
+                           target="_blank"></a>
+                    </div>
+                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                    <!-- JiaThis Button END -->
+                </div>
+
+                <div class="course-del-cont" style="margin-bottom: 0">
+                    <p class="ellipsis">{{viewDetail.resultObject.description}}</p>
+                </div>
+                <div class="course-del-cont-span">
+                    <span><img src="./app/assets/images/myclass/045.png" alt="">更新时间:{{viewDetail.resultObject.createTime}}</span><span><img src="./app/assets/images/myclass/044.png" alt="">{{viewDetail.resultObject.downloadNumber}}人学习</span>
+                </div>
+                <div class="course-del-button-box2">
+                    <div class="b-box">
+                        <button class="layui-btn course-del-button-box2-download">下载视频</button>
+                    </div>
+                </div>
+            </div>
+            <!--end右边-->
+
+
+        </div>
+
+        <div class="course-del-foot">
+            <div class="course-del-tab">
+
+                <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">课程简介</li>
+                    </ul>
+                    <div class="layui-tab-content" id="course-del-tab" style="word-wrap: break-word;">
+
+                        {{if viewDetail.success}}
+                        <div class="layui-tab-item layui-show">
+                            {{#viewDetail.resultObject.introduction}}
+                        </div>
+                        {{else}}
+                        <div class="course-list-nodata">暂无数据</div>
+                        {{/if}}
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <!--推荐课程-->
+            <div class="course-del-left">
+                <div class="course-delcont-left">
+                    <div class="course-titlebar">
+                        <div class="course-box"></div>
+                        <h2 class="course-titlebar-title">
+                            推荐课程
+                        </h2>
+                    </div>
+                    {{if viewDetail.resultObject.tjs.length != 0}}
+                        {{each viewDetail.resultObject.tjs}}
+                            <div class="course-delcont-left-cont">
+                                <a href="#/teaimprove/del/{{$value.id}}">
+                                    <img class="course-delcont-left-cont-img" src="{{$value.image}}" alt="">
+                                    <div class="course-delcont-left-cont_dv">
+                                        <span class="course-delcont-left-cont-div-span1">{{$value.name}}</span>
+                                        <span class="course-delcont-left-cont-div-span2"><img
+                                                src="./app/assets/images/myclass/044.png"
+                                                alt="">{{$value.downloadNumber}}</span>
+                                    </div>
+                                </a>
+                            </div>
+                        {{/each}}
+                    {{else}}
+                    <div class='Temporarily_no_data'><img src='./app/assets/images/myclass/047.png' alt='das'><p>课程更新中 ~</p></div>
+                    {{/if}}
+                </div>
+            </div>
+            <!--/推荐课程-->
+        </div>
+    </div>
+</div>

@@ -1,86 +1,127 @@
 /**
- * 发布作业
+     * 发布作业
  */
-.organizepaper {
+.releasepapers.releasepapers-tab-box {
     width: 100%;
     background-color: #FFFFFF;
-    .organizepaper-body {
+    .releasepapers-body {
         padding: 20px 30px;
-        
-        //标题区
-        .content-title {
-            padding-bottom: 20px;
-            margin-top: 20px;
-            overflow: hidden;
-            border-bottom: 1px solid #f0f0f0;
-            h3 {
-                float: left;
-                display: block;
-                height: 100%;
-                font-size: 16px;
-                font-weight: 600;
-                height: 38px;
-                line-height: 38px;
-                font-size: 16px;
-                color: #333333;
-                margin-right: 27px;
-            }
-            button {
-                float: left;
-                height: 38px;
-                line-height: 38px;
-                font-size: 14px;
-                color: #FFFFFF;
-            }
+        min-height: 800px;
+        //创建班级按钮
+        .create-test-btn {
+            width: 125px; 
+            height: 38px;
+            line-height: 38px;
+            padding: 0;
+            background: #36b773;
+            font-size: 16px;
         }
-        
-        //内容区
-        .content-body {
-            .organizepaper-contnet {
-                .organizepaper-header {
-                    padding-bottom: 30px;
-                    padding-top: 30px;
-                    border-bottom: 1px solid #f0f0f0;
-                    ul {
+        //无数据
+        .no-data {
+            width: 100%;
+            text-align: center;
+            margin-top: 220px;
+            margin-bottom: 280px;
+            img {
+                width: 135px;
+                height: 165px;
+            } 
+        }
+        .layui-tab {
+            overflow: hidden;
+            .layui-tab-title { 
+                padding-left: 0px;
+                height: 58px;
+                background: #FFFFFF;
+                overflow: hidden;
+                li {
+                    height: 59px;
+                    line-height: 59px;
+                    display: block;
+                    float: left;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+                .layui-this {
+                    &:after { 
+                        height: 58px !important;
+                        border: none;
+                        border-bottom: solid 2px #2DB871;
+                        height: 50px;
+                    }
+                }
+            }
+            .layui-tab-content {
+                padding: 0px;
+                .layui-tab-item {
+                     
+                    //待完成作业
+                    ul.stayHomework,ul.completedHomework {
                         overflow: hidden;
+                        margin-top: 30px;
                         li {
                             float: left;
                             margin-right: 20px;
                             .item-box {
-                                label {
+                                position: relative;
+                            }
+                            .item-time {
+                                width: 470px;
+                            }
+                            //开始时间与结束时间
+                            ul {
+                                overflow: hidden;
+                                li {
                                     float: left;
-                                    display: block;
-                                    width: 86px;
-                                    height: 35px;
-                                    line-height: 35px;
+                                   
                                 }
-                                select {
-                                    float: left;
-                                    width: 145px;
-                                    height: 35px;
-                                    line-height: 35px;
-                                    border: #f0f0f0 1px solid;
+                            }
+                            label {
+                                float: left;
+                                display: block;
+                                width: 46px;
+                                height: 35px;
+                                line-height: 35px;
+                            }
+                            .label-t6 {
+                                width: 75px;
+                            }
+                            label.completedLabel {
+                                width: 20px;
+                            }
+                            input.completedHomeworkName {
+                                width: 290px;
+                                padding-right: 40px;
+                            }
+                            .completedHomeworkSubmit {
+                                cursor: pointer;
+                                border: none;
+                                background-color: #FFFFFF;
+                                width: 40px;
+                                height: 35px;
+                                position: absolute;
+                                top: 1px;
+                                right: 1px;
+                                border-left: 1px solid #f0f0f0;
+                                i {
+                                    font-size: 20px;
                                 }
+                            }
+                            select,input {
+                                float: left;
+                                width: 145px;
+                                height: 35px;
+                                line-height: 35px;
+                                border: #f0f0f0 1px solid;
+                            }
+                            &.e-end-li {
+                                margin-right: 0px;
                             }
                         }
                     }
-                }
-                .organizepaper-cont {
                     
-                    table.dataTable thead tr th,table.dataTable tbody tr td {
-                        &.name {
-                            padding-left: 10px !important;
-                        }
-                        &.operation {
-                            padding-right: 10px !important;
-                        }
-                    }
-                    .dataTables_wrapper {
-                        .dataTables_paginate {
-                            margin-top: 20px;
-                        }
-                    }
-                    
+                    //未进行考试
+                     //icon
                     .operation-icon {
                         overflow: hidden;
                         a {
@@ -89,34 +130,178 @@
                             width: 25px;
                             height: 100%;
                             text-align: center;
+                            cursor: pointer;
                             i {
                                 font-size: 20px;
-                                color: #999999;
+                                color: #72cc9d;
                             }
                             &:hover {
                                 i {
-                                    color: #36b773;
+                                    color: #75bfee;
+                                }
+                            
+                            }
+                            .fa-trash-o {
+                                margin-top: 15px;
+                                margin-left: 10px;
+                            }
+                            .icon-pic {
+                                display: block;
+                                width: 18px;
+                                height: 18px;
+                                margin-top: 16px;
+                            }
+                            .icon-view{
+                                background: url('../assets/images/icons/view/view.png');
+                                &:hover {
+                                    background: url('../assets/images/icons/view/view-hover.png');
+                                }
+                            }
+                            .rele-deit-pic {
+                                display: block;
+                                width: 15px;
+                                height: 18px;
+                                margin-top: 16px;
+                            }
+                            .rele-deit {
+                                background: url('../assets/images/icons/view/rele/rele-deit.png');
+                                &:hover {
+                                    background: url('../assets/images/icons/view/rele/rele-deit-hover.png');
+                                }
+                            }
+                            .rele-view-pic {
+                                display: block;
+                                width: 22px;
+                                height: 12px;
+                                margin-top: 20px;
+                                margin-left: 8px;
+                            }
+                            .rele-view {
+                                background: url('../assets/images/icons/view/rele/rele-view.png');
+                                &:hover {
+                                    background: url('../assets/images/icons/view/rele/rele-view-hover.png');
+                                }
+                            }
+                            .rele-start-pic {
+                                display: block;
+                                width: 15px;
+                                height: 17px;
+                                margin-left: 20px;
+                                margin-top: 17px;
+                            }
+                            .rele-start {
+                                background: url('../assets/images/icons/view/rele/rele-start.png');
+                                &:hover {
+                                    background: url('../assets/images/icons/view/rele/rele-start-hover.png');
                                 }
                             }
                         }
                     }
+                    .Not-carried-teaching ,.HistoryExam-teaching {
+                        margin-top: 30px;
+                    }
+                    .Not-carried-teaching {
+                        
+                        //表格尺寸 
+                       .table {
+                            .table-tr {  
+                                .table-th,.table-td {
+                                    &.testClass {
+                                        width: 230px;
+                                        word-wrap: normal;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        padding-left: 10px;
+                                        padding-right: 10px;
+                                    }
+                                    &.testPaper {
+                                        width: 365px;
+                                        word-wrap: normal;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        padding-right: 10px;
+                                    }
+                                    &.testTime {
+                                        width: 280px; 
+                                    } 
+                                    &.grouping {
+                                        width: 110px;
+                                        word-wrap: normal;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        padding-right: 10px;
+                                    }
+                                    &.operation {
+                                        width: 100px;
+                                        padding-right: 10px;
+                                    }
+                                }   
+                            }
+                        }
+                        
+                       
+                    }
+                    //end未进行考试
+                    
+                    .HistoryExam-teaching {
+                        //表格尺寸 
+                       .table {
+                            .table-tr {  
+                                .table-th,.table-td {
+                                    &.testClass {
+                                        width: 185px;
+                                        word-wrap: normal;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        padding-left: 10px;
+                                        padding-right: 10px;
+                                    }
+                                    &.testPaper {
+                                        width: 220px;
+                                        word-wrap: normal;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        padding-right: 10px;
+                                    }
+                                    &.startTime {
+                                        width: 220px; 
+                                        padding-right: 10px;
+                                    }
+                                    &.handNumber {
+                                        width: 120px;
+                                        padding-right: 10px;
+                                    }
+                                    &.grouping {
+                                        width: 85px;
+                                        padding-right: 10px;
+                                    }
+                                    &.state {
+                                        width: 116px;
+                                        padding-right: 10px;
+                                    }
+                                    &.operation {
+                                        width: 100px;
+                                        padding-right: 10px;
+                                    }
+                                }   
+                            }
+                        }
+                    }
+                    
+                    #page1,#page2 {
+                        margin-top: 30px;
+                        margin-bottom: 30px;
+                        text-align: center;
+                    }
+                    
                 }
-                
             }
-            
-            //空文件夹
-            .contnet-dummy {
-                width: 100%;
-                min-height: 890px;
-                .dummy-file {
-                    margin: 0 auto;
-                    margin-top: 200px;
-                    width: 253px;
-                    height: 268px;
-                    background: url("../../app/assets/images/bg/bg-dummy-file.png") no-repeat;
-                }
-            }
-            
         }
     }
 }
+//结束考试管理tab

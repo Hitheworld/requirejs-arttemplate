@@ -1,7 +1,6 @@
 html,
 body {
   width: 100%;
-  height: 100%;
   position: absolute;
   padding: 0;
   margin: 0;
@@ -27,6 +26,8 @@ a {
 }
 #content {
   overflow: hidden;
+  min-height: 800px;
+  position: relative;
 }
 .am-titlebar {
   overflow: hidden;
@@ -51,7 +52,7 @@ a {
   color: #bbbbbb;
 }
 .am-titlebar .am-titlebar-nav a:hover {
-  color: #29AE21;
+  color: #333333;
 }
 .font {
   width: auto;
@@ -73,7 +74,7 @@ a {
   margin-right: -2.3em;
 }
 .error {
-  font-size: 16px;
+  font-size: 12px;
   color: #FF0000;
 }
 .course-del-nav {
@@ -83,7 +84,7 @@ a {
 .course-del-nav .nav {
   width: 1200px;
   background-color: #ffffff;
-  margin: 20px auto 0;
+  margin: 21px auto 0;
 }
 .course-del-nav .nav .layui-breadcrumb a,
 .course-del-nav .nav .layui-breadcrumb a span {
@@ -102,6 +103,7 @@ a {
   padding: 0 15px !important;
   height: 40px !important;
   line-height: 40px !important;
+  background: #FFFFFF;
 }
 table.dataTable thead tr th {
   border-bottom: none !important;
@@ -224,7 +226,7 @@ table.dataTable td.select-checkbox::after {
 }
 .facility-value {
   float: left;
-  margin-top: 20px;
+  margin-top: 8px;
   margin-left: 10px;
 }
 .facility-value ul {
@@ -252,6 +254,7 @@ table.dataTable td.select-checkbox::after {
   min-height: 520px;
   background-color: #f3f3f3;
   overflow: hidden;
+  padding-bottom: 20px;
 }
 .fixed-box .pagePaper-questions-nav .questions-nav-title {
   overflow: hidden;
@@ -311,7 +314,8 @@ table.dataTable td.select-checkbox::after {
   font-weight: 600;
 }
 .paper-main {
-  width: 882px;
+  width: 860px;
+  min-height: 600px;
   float: left;
 }
 .paper-main .pagePaper {
@@ -322,6 +326,8 @@ table.dataTable td.select-checkbox::after {
   height: 38px;
   line-height: 38px;
   border-bottom: 1px #f0f0f0 solid;
+  cursor: pointer;
+  text-indent: 5px;
 }
 .paper-main .pagePaper .pagePaper-top h3 {
   float: left;
@@ -330,12 +336,24 @@ table.dataTable td.select-checkbox::after {
   color: #333333;
 }
 .paper-main .pagePaper .pagePaper-top .scoreBox {
-  float: right;
+  float: left;
+  margin-left: 20px;
   text-align: right;
 }
 .paper-main .pagePaper .pagePaper-top .scoreBox span {
   font-size: 14px;
   color: #333333;
+}
+.paper-main .pagePaper .pagePaper-top img {
+  float: right;
+  margin-top: 11px;
+  margin-right: 10px;
+}
+.paper-main .pagePaper .pagePaper-top.pagePaper-top-true {
+  background-color: #f3fbfb;
+}
+.paper-main .pagePaper .pagePaper-top.pagePaper-top-false {
+  background-color: #e7f7ed;
 }
 .paper-main .pagePaper .pagePaper-content {
   width: 100%;
@@ -355,11 +373,41 @@ table.dataTable td.select-checkbox::after {
   display: block;
   overflow: hidden;
 }
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title p {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .pagePaper-content-box-span {
+  display: inline-block;
+  min-width: 50px;
+  overflow: hidden;
+  border-bottom: 1px solid;
+  margin-left: 4px;
+  margin-right: 4px;
+  color: #36b773;
+}
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 {
   float: left;
   display: block;
+  width: 85%;
   color: #36b773;
   font-size: 16px;
+  word-wrap: break-word;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 .head-title {
+  float: left;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 .cont-text {
+  float: left;
+  word-wrap: break-word;
+  word-break: break-all;
+  max-width: 780px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 .cont-text img {
+  width: 200px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 img {
+  width: 200px;
 }
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title.tianKong-title input {
   width: auto;
@@ -367,33 +415,14 @@ table.dataTable td.select-checkbox::after {
   border: none;
   border-bottom: 1px solid #999999;
 }
-.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value {
-  float: left;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul {
-  overflow: hidden;
-}
-.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li {
-  display: block;
-  float: left;
-  width: 12px;
-  height: 6px;
-  margin-right: 2px;
-}
-.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value-active {
-  background: #2db871;
-}
-.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-value ul li.value {
-  background: #dcdcdc;
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .facility-totalScore {
+  line-height: 22px;
 }
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .btn-Change {
   float: right;
   cursor: pointer;
   font-size: 16px;
   color: #279ee9;
-  font-weight: 600;
 }
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete {
   display: block;
@@ -424,6 +453,8 @@ table.dataTable td.select-checkbox::after {
   width: 95%;
   font-size: 14px;
   cursor: pointer;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box {
   overflow: hidden;
@@ -441,15 +472,43 @@ table.dataTable td.select-checkbox::after {
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer {
   overflow: hidden;
   color: #333333;
-  font-size: 16px;
   margin-top: 16px;
+  margin-left: 20px;
 }
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer {
   float: left;
+  font-size: 15px;
   font-weight: 600;
+  line-height: 20px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer img {
+  width: 200px;
 }
 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet {
+  float: right;
+  font-size: 14px;
+  line-height: 20px;
+  margin-left: 10px;
+  width: 745px;
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet img {
+  width: 200px;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet-dv {
+  clear: left;
   float: left;
+  height: 200px;
+  width: 99%;
+  overflow: auto;
+  margin-left: 0;
+  display: block;
+  border: 1px solid #dfdfdf;
+}
+.paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet-dv img {
+  width: 200px;
 }
 .noPermissions {
   width: 1200px;
@@ -458,6 +517,112 @@ table.dataTable td.select-checkbox::after {
   text-align: center;
   font-size: 30px;
   color: #333333;
+}
+.popup-successful {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+.popup-successful .title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 20px;
+  color: #333333;
+}
+.popup-successful .cont {
+  margin-top: 68px;
+}
+.popup-successful .cont .success-title {
+  overflow: hidden;
+  width: 244px;
+  margin: 0 auto;
+}
+.popup-successful .cont .success-title h1 {
+  float: left;
+  color: #333333;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+.popup-successful .cont .success-title .icon {
+  float: left;
+  width: 28px;
+  height: 28px;
+}
+.popup-successful .cont p {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+.popup-successful .success-btn,
+.popup-successful .btn-box {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+}
+.popup-successful .success-btn {
+  width: 148px;
+  margin-left: -74px;
+  color: #FFFFFF;
+  background-color: #36b773;
+}
+.popup-successful .btn-box {
+  width: 316px;
+  margin-left: -158px;
+  overflow: hidden;
+}
+.popup-successful .btn-box .prove-btn,
+.popup-successful .btn-box .close-btn {
+  width: 148px;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+  font-size: 18px;
+  text-align: center;
+}
+.popup-successful .btn-box .prove-btn {
+  float: left;
+  color: #FFFFFF;
+  background-color: #36b773;
+}
+.popup-successful .btn-box .close-btn {
+  float: right;
+  color: #333333;
+  background-color: #FFFFFF;
+  border: #f6f6f6 1px solid;
+}
+.loginBg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: #f6f6f6;
+  overflow: hidden;
+  min-height: 980px;
+}
+.loginBg .login-body {
+  position: absolute;
+  left: 50%;
+  width: 1920px;
+  height: 100%;
+  margin: 0 auto;
+}
+.loginBg .login-body .login-box {
+  position: absolute;
+  left: -960px;
+  width: 100%;
+  height: 100%;
 }
 .myRegister {
   width: 100%;
@@ -468,7 +633,15 @@ table.dataTable td.select-checkbox::after {
   left: 0px;
   right: 0px;
   background: #fff;
-  background: url("../assets/images/login.jpg") no-repeat;
+  background: url("../assets/images/login.png") no-repeat;
+}
+.myRegister .home_a {
+  position: absolute;
+  left: 860px;
+  top: 105px;
+  width: 200px;
+  opacity: 0.5;
+  height: 45px;
 }
 .myRegister .popup_login {
   width: 490px;
@@ -577,4 +750,21 @@ table.dataTable td.select-checkbox::after {
 }
 .myRegister .popup_login .popup_login_dv .popup_login_dv_mm span a {
   color: #36b773;
+}
+.registration_protocol p {
+  font-size: 14px;
+  color: #333;
+}
+.registration_protocol h2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin: 25px 0;
+}
+.registration_protocol .registration_protocol_p {
+  margin-top: 12px;
+}
+.registration_protocol .registration_protocol_p .indent {
+  display: block;
+  margin-top: 5px;
 }

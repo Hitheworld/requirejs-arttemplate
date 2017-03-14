@@ -21,9 +21,9 @@
 	</ul>
 
 	{{if TestPaperDB.success}}
-		{{if TestPaperDB.resultObject.items}}
+		{{if TestPaperDB.resultObject.totalPageCount != 0 }}
 
-			{{each TestPager as TestPager i}}
+			{{each TestPaperDB.resultObject.items as TestPager i}}
 			<ul class="table-tr">
 				<!--考试班级-->
 				<li class="table-td radio">
@@ -67,19 +67,19 @@
 				<!--end难度-->
 				<!--满分-->
 				<li class="table-td fullMarks">
-					{{TestPager.courseName}}
+					{{TestPager.totalScore}}
 				</li>
 				<!--end满分-->
 				<!--时长-->
 				<li class="table-td length">
-					{{TestPager.hots}}
+					{{TestPager.duration}}
 				</li>
 				<!--end时长-->
 				<!--操作-->
 				<li class="table-td operation">
 					<div class="operation-icon">
 						<div class="operation-icon">
-							<a href="#/teaching/testcentres/viewtest" class="J-open-see" title="查看">
+							<a target="_blank" href="#/teaching/testcentres/preview/view/{{TestPager.id}}" class="J-open-see" title="查看">
 								<i class="fa fa-search" aria-hidden="true"></i>
 							</a>
 						</div>

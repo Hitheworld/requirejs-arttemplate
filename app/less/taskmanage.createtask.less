@@ -1,14 +1,37 @@
 /**
- * 创建作业
+ * 布置作业 
  */
-
 .createtest {
+    min-height: 600px; 
     .createtest-box {
         .createtest-contnt {
-            padding-top: 30px;
-            padding-bottom: 30px;
+            padding: 20px 30px;
+            
+            .createtestTitle {
+                width: 100%;
+                height: 36px;
+                line-height: 36px;
+                border-bottom: #f0f0f0 1px solid;
+                padding-bottom: 20px;
+                margin-bottom: 30px;
+                overflow: hidden;
+                h1 {
+                    display: block;
+                    float: left;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #333333;
+                }
+                .return {
+                    float: right;
+                    font-size: 14px;
+                    color: #999999;
+                }
+            }
+            
+            
             .layui-form-item {
-                width: 500px;
+                width: 600px;
                 margin: 0 auto;
                 padding-bottom: 30px;
                 .layui-form-label {
@@ -18,8 +41,38 @@
                         font-size: 16px;
                     }
                 }
+                &.item-testName {
+                    
+                }
                 .layui-input-inline {
+                    overflow: hidden;
+                  
+                    .layui-input {
+                        font-size: 14px;
+                        color: #333333;
+                    }
+                }
+                .width-test {
+                    overflow: hidden;
+                    float: left;
+                    margin-right: 10px;
+                    height: 38px;
+                    line-height: 38px;
+                    .testName {
+                        float: left;
+                        max-width: 227px;
+                        margin-right: 20px;
+                        overflow: hidden;
+                        text-align: left;
+                        word-wrap: normal;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #484848;
+                    }
                     .addtest-a {
+                        float: right;
                         display: block;
                         height: 38px;
                         line-height: 38px;
@@ -28,18 +81,265 @@
                         text-decoration: underline;
                     }
                 }
+                .layui-input-block {
+                    overflow: hidden;
+                    //发送的样式
+                    .send {
+                        float: left;
+                        label {
+                            width: auto;
+                        }
+                        input[type="radio"] {
+                            margin-top: 10px;
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                  
+                }
+                
+                //分组发送的内容
+                .PacketSend {
+                    display: none;
+                    width: auto;
+                    padding: 12px 18px;
+                    border: 1px solid #f0f0f0;
+                    position: relative;
+                    i {
+                        position: absolute;
+                        top: -20px;
+                        left: 50%;
+                        font-size: 30px;
+                        color: #f0f0f0;
+                    }
+                    ul {
+                        overflow: hidden;
+                        margin-right: -18px;
+                        li {
+                            float: left;
+                            margin-right: 18px;
+                            overflow: hidden;
+                            input {
+                                float: left;
+                                width: 20px;
+                                height: 20px;
+                                margin-right: 8px;
+                            }
+                            label {
+                                float: left;
+                                width: auto;
+                                width: 20px;
+                                height: 20px;
+                                line-height: 20px;
+                                text-align: center;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+                
+                //保存的按钮
+                .submit, .primary {
+                    width: 123px;
+                    height: 38px;
+                    line-height: 38px;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+                .submit {
+                    background-color: #36b773;
+                    color: #FFFFFF;
+                    border: none;
+                    margin-right: 20px;
+                }
+                .primary {
+                    border: #f0f0f0 1px solid;
+                    color: #333333;
+                    background-color: #FFFFFF;
+                }
+                
             }
         }
     }
 }
-
-
-
 //弹出层
 .addTestPaper {
+    padding: 10px;
     .addTestPaper-box {
+        .addTestPaper-box-header {
+            height: 35px;
+            line-height: 35px;
+            div {
+                position: relative;
+                height: 100%;
+                float: left;
+                width: 216px;
+                label {
+                    float: left;
+                    height: 100%;
+                }
+                p {
+                    float: left;
+                    width: 144px;
+                    height: 33px;
+                    border: 1px solid #e0e0e0;
+                }
+                .addTestPaper-box-header-div {
+                    position: absolute;
+                    top: 34px;
+                    left: 0;
+                    width: 150%;
+                    height: 50px;
+                    border: 1px solid #e0e0e0;
+                    display: block;
+                    z-index: 6;
+                    background-color: #f0f0f0;
+                }
+            }
+            .addTestPaper-box-header-date {
+                input {
+                    width: 88px;
+                    height: 100%;
+                    border: 1px solid #e0e0e0;
+                }
+                & + span {
+                    margin-left: 20px;
+                    input {
+                        width: 248px;
+                        border: 1px solid #e0e0e0;
+                        height: 100%;
+                    }
+                }
+            }
+        }
         .addTestPaper-body {
-            padding: 10px20px;
+            padding: 10px 20px;
+            .organizepaper-header {
+                padding-bottom: 30px;
+                padding-top: 30px;
+                border-bottom: 1px solid #f0f0f0;
+                ul {
+                    overflow: hidden;
+                    li {
+                        float: left;
+                        margin-right: 20px;
+                        label {
+                            float: left;
+                            display: block;
+                            width: 86px;
+                            height: 35px;
+                            line-height: 35px;
+                        }
+                        select {
+                            float: left;
+                            width: 145px;
+                            height: 35px;
+                            line-height: 35px;
+                            border: #f0f0f0 1px solid;
+                        }
+                    }
+                }
+            }
+            //表格
+            .table {
+                .table-tr {
+                    label {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        &:hover {
+                            background-color: #269EEA;
+                        }
+                    }
+                    .table-th,
+                    .table-td {
+                        &.radio {
+                            padding-left: 10px;
+                            width: 20px;
+                            input {
+                                width: 16px;
+                                height: 16px;
+                                margin-right: 5px;
+                            }
+                        }
+                        &.taskName {
+                            width: 370px; 
+                            word-wrap: normal;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            padding-left: 10px;
+                        }
+                        &.createTime {
+                            width: 390px;
+                        }
+                        &.operation {
+                            width: auto;
+                        }
+                    }
+                }
+            }
+            
+            
+            //icon
+            .operation-icon {
+                overflow: hidden;
+                a {
+                    display: block;
+                    float: left;
+                    width: 25px;
+                    height: 100%;
+                    text-align: center;
+                    cursor: pointer;
+                    i {
+                        font-size: 20px;
+                        color: #72cc9d;
+                    }
+                    &:hover {
+                    i {
+                        color: #75bfee;
+                    }
+                }
+                }
+            }
+            
+            #page {
+                margin-top: 40px;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            
+            .addTestPaperButtom {
+                margin-top: 42px;
+                overflow: hidden;
+                ul {
+                    float: right;
+                    overflow: hidden;
+                    margin-right: -20px;
+                    li {
+                        float: left;
+                        margin-right: 20px;
+                        button {
+                            width: 92px;
+                            height: 38px;
+                            line-height: 38px;
+                            font-size: 16px;
+                            cursor: pointer;
+                            &.submit {
+                                background: #2db871;
+                                color: #FFFFFF;
+                                border: none;
+                            }
+                            &.cancel {
+                                position: relative;
+                                background: #FFFFFF;
+                                color: #333333;
+                                border: 1px solid #f6f6f6;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

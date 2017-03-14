@@ -1,0 +1,409 @@
+.tbo {
+  position: relative;
+}
+.tbo .tbohu {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  height: 3263px;
+}
+.tbo .tbohu .tangbohu {
+  position: absolute;
+  left: 50%;
+  top: auto;
+  border: medium none;
+  padding: 0px;
+  margin: 0px;
+}
+.tbo .tbohu .tangbohu .tangbohu-bg {
+  position: absolute;
+  top: 0px;
+  border: medium none;
+  padding: 0px;
+  left: -958.5px;
+}
+.tbo .tbohu .tangbohu .tangbohu-bg .tangbohu-bg-body {
+  width: 1917px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-image: url('../assets/images/tangbohu/tangbohu-bg.png');
+  height: 3263px;
+  overflow: hidden;
+}
+.tbo .tbohu .tangbohu .contnet {
+  width: 1200px;
+  margin: 0 auto;
+}
+.tbo .tbohu .tangbohu .contnet .window1 {
+  overflow: hidden;
+  margin-top: 133px;
+  height: 431px;
+}
+.tbo .tbohu .tangbohu .contnet .window1 .window1-pic {
+  float: left;
+  margin-left: 20px;
+  background-image: url('../assets/images/tangbohu/tangbohu-1.png');
+  background-repeat: no-repeat;
+  width: 586px;
+  height: 100%;
+}
+.tbo .tbohu .tangbohu .contnet .window1 .window1-text {
+  position: relative;
+  float: right;
+  overflow: hidden;
+  margin-right: 33px;
+  width: 423px;
+  height: 100%;
+}
+.tbo .tbohu .tangbohu .contnet .window1 .window1-text .title {
+  overflow: hidden;
+  float: left;
+  margin-top: 102px;
+}
+.tbo .tbohu .tangbohu .contnet .window1 .window1-text .title .logo {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.tbo .tbohu .tangbohu .contnet .window1 .window1-text .title .logo .window1-icon {
+  float: left;
+  width: 65px;
+  height: 53px;
+  background-image: url('../assets/images/tangbohu/tangbohu-nav-1.png');
+  margin-right: 20px;
+}
+.tbo .tbohu .tangbohu .contnet .window1 .window1-text .title .logo .window1-title {
+  float: left;
+  font-size: 50px;
+  font-family: "微软雅黑";
+  font-weight: 400;
+  color: #FFFFFF;
+}
+.tbo .tbohu .tangbohu .contnet .window1 .window1-text .title span {
+  display: block;
+  width: 100%;
+  font-size: 30px;
+  font-family: "微软雅黑";
+  color: #FFFFFF;
+}
+.tbo .tbohu .tangbohu .contnet .window1 .window1-text .window1-btn {
+  overflow: hidden;
+  width: 100%;
+  position: absolute;
+  top: 250px;
+  left: 0;
+}
+.tbo .tbohu .tangbohu .contnet .window1 .window1-text .window1-btn .download-btn,
+.tbo .tbohu .tangbohu .contnet .window1 .window1-text .window1-btn .service-btn {
+  width: 200px;
+  height: 62px;
+  line-height: 62px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "微软雅黑";
+  text-align: center;
+  color: #FFFFFF;
+}
+.tbo .tbohu .tangbohu .contnet .window1 .window1-text .window1-btn .download-btn {
+  float: left;
+  background-color: #03cd80;
+}
+.tbo .tbohu .tangbohu .contnet .window1 .window1-text .window1-btn .download-btn:hover {
+  background-color: #06b874;
+}
+.tbo .tbohu .tangbohu .contnet .window1 .window1-text .window1-btn .service-btn {
+  float: right;
+  background-color: #e98f00;
+}
+.tbo .tbohu .tangbohu .contnet .window1 .window1-text .window1-btn .service-btn:hover {
+  background-color: #d88606;
+}
+.tbo .tbohu .tangbohu .contnet .window2 {
+  width: 100%;
+  height: 428px;
+  margin-top: 177px;
+  overflow: hidden;
+}
+.tbo .tbohu .tangbohu .contnet .window2 .window2-text {
+  float: left;
+  margin-left: 55px;
+  margin-top: 104px;
+}
+.tbo .tbohu .tangbohu .contnet .window2 .window2-text .title {
+  overflow: hidden;
+  width: 100%;
+}
+.tbo .tbohu .tangbohu .contnet .window2 .window2-text .title h1 {
+  font-size: 50px;
+  color: #333333;
+  text-align: center;
+  margin-bottom: 23px;
+}
+.tbo .tbohu .tangbohu .contnet .window2 .window2-text .title span {
+  display: block;
+  width: 100%;
+  font-size: 23px;
+  color: #333333;
+  text-align: center;
+}
+.tbo .tbohu .tangbohu .contnet .window2 .window2-text .nav-icon {
+  display: block;
+  width: 100%;
+  height: 85px;
+  margin-left: 17px;
+  margin-top: 50px;
+}
+.tbo .tbohu .tangbohu .contnet .window2 .window2-text .nav-icon li {
+  display: block;
+  float: left;
+  margin-right: 80px;
+  background-repeat: no-repeat;
+}
+.tbo .tbohu .tangbohu .contnet .window2 .window2-text .nav-icon li.nav-icon1 {
+  width: 60px;
+  height: 81px;
+  background-image: url('../assets/images/tangbohu/tangbohu-nav-2-1.png');
+}
+.tbo .tbohu .tangbohu .contnet .window2 .window2-text .nav-icon li.nav-icon2 {
+  width: 65px;
+  height: 84px;
+  background-image: url('../assets/images/tangbohu/tangbohu-nav-2-2.png');
+}
+.tbo .tbohu .tangbohu .contnet .window2 .window2-text .nav-icon li.nav-icon3 {
+  width: 48px;
+  height: 85px;
+  background-image: url('../assets/images/tangbohu/tangbohu-nav-2-3.png');
+}
+.tbo .tbohu .tangbohu .contnet .window2 .window2-pic {
+  float: right;
+  margin-right: 32px;
+  width: 527px;
+  height: 100%;
+  background-image: url('../assets/images/tangbohu/tangbohu-2.png');
+}
+.tbo .tbohu .tangbohu .contnet .window3 {
+  width: 100%;
+  height: 508px;
+  margin-top: 177px;
+  overflow: hidden;
+}
+.tbo .tbohu .tangbohu .contnet .window3 .window3-pic {
+  float: left;
+  position: relative;
+  overflow: hidden;
+  margin-right: 32px;
+  width: 610px;
+  height: 100%;
+}
+.tbo .tbohu .tangbohu .contnet .window3 .window3-pic .window3-pic-left {
+  width: 537px;
+  height: 424px;
+  background-image: url('../assets/images/tangbohu/tangbohu-3-1.png');
+  margin-top: 33px;
+}
+.tbo .tbohu .tangbohu .contnet .window3 .window3-pic .window3-pic-right {
+  width: 267px;
+  height: 506px;
+  background-image: url('../assets/images/tangbohu/tangbohu-3-2.png');
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.tbo .tbohu .tangbohu .contnet .window3 .window3-text {
+  float: right;
+  margin-left: 55px;
+  margin-top: 139px;
+}
+.tbo .tbohu .tangbohu .contnet .window3 .window3-text .title {
+  overflow: hidden;
+  width: 100%;
+}
+.tbo .tbohu .tangbohu .contnet .window3 .window3-text .title h1 {
+  font-size: 50px;
+  color: #333333;
+  text-align: center;
+  margin-bottom: 47px;
+}
+.tbo .tbohu .tangbohu .contnet .window3 .window3-text .title span {
+  display: block;
+  width: 100%;
+  font-size: 23px;
+  color: #333333;
+  text-align: center;
+}
+.tbo .tbohu .tangbohu .contnet .window3 .window3-text .nav-icon {
+  display: block;
+  width: 100%;
+  height: 85px;
+  margin-left: 17px;
+  margin-top: 50px;
+}
+.tbo .tbohu .tangbohu .contnet .window3 .window3-text .nav-icon li {
+  display: block;
+  float: left;
+  margin-right: 20px;
+  background-repeat: no-repeat;
+}
+.tbo .tbohu .tangbohu .contnet .window3 .window3-text .nav-icon li.nav-icon1 {
+  width: 127px;
+  height: 79px;
+  background-image: url('../assets/images/tangbohu/tangbohu-nav-3-1.png');
+}
+.tbo .tbohu .tangbohu .contnet .window3 .window3-text .nav-icon li.nav-icon2 {
+  width: 127px;
+  height: 79px;
+  background-image: url('../assets/images/tangbohu/tangbohu-nav-3-2.png');
+}
+.tbo .tbohu .tangbohu .contnet .window3 .window3-text .nav-icon li.nav-icon3 {
+  width: 127px;
+  height: 79px;
+  background-image: url('../assets/images/tangbohu/tangbohu-nav-3-3.png');
+}
+.tbo .tbohu .tangbohu .contnet .window4 {
+  width: 100%;
+  height: 442px;
+  margin-top: 177px;
+  overflow: hidden;
+}
+.tbo .tbohu .tangbohu .contnet .window4 .window4-text {
+  float: left;
+  margin-left: 55px;
+  margin-top: 104px;
+}
+.tbo .tbohu .tangbohu .contnet .window4 .window4-text .title {
+  overflow: hidden;
+  width: 100%;
+}
+.tbo .tbohu .tangbohu .contnet .window4 .window4-text .title h1 {
+  font-size: 50px;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 23px;
+}
+.tbo .tbohu .tangbohu .contnet .window4 .window4-text .title span {
+  display: block;
+  width: 100%;
+  font-size: 23px;
+  color: #FFFFFF;
+  text-align: center;
+}
+.tbo .tbohu .tangbohu .contnet .window4 .window4-text .nav-icon {
+  display: block;
+  width: 100%;
+  height: 85px;
+  margin-left: 17px;
+  margin-top: 50px;
+}
+.tbo .tbohu .tangbohu .contnet .window4 .window4-text .nav-icon li {
+  display: block;
+  float: left;
+  margin-right: 80px;
+  background-repeat: no-repeat;
+}
+.tbo .tbohu .tangbohu .contnet .window4 .window4-text .nav-icon li.nav-icon1 {
+  width: 79px;
+  height: 86px;
+  background-image: url('../assets/images/tangbohu/tangbohu-nav-4-1.png');
+}
+.tbo .tbohu .tangbohu .contnet .window4 .window4-text .nav-icon li.nav-icon2 {
+  width: 81px;
+  height: 86px;
+  background-image: url('../assets/images/tangbohu/tangbohu-nav-4-2.png');
+}
+.tbo .tbohu .tangbohu .contnet .window4 .window4-text .nav-icon li.nav-icon3 {
+  width: 81px;
+  height: 86px;
+  background-image: url('../assets/images/tangbohu/tangbohu-nav-4-3.png');
+}
+.tbo .tbohu .tangbohu .contnet .window4 .window4-pic {
+  float: right;
+  margin-right: 32px;
+  width: 607px;
+  height: 100%;
+  position: relative;
+}
+.tbo .tbohu .tangbohu .contnet .window4 .window4-pic .window4-box {
+  width: 531px;
+  height: 428px;
+  background-image: url('../assets/images/tangbohu/tangbohu-4.png');
+  margin-left: 53px;
+}
+.tbo .tbohu .tangbohu .contnet .window4 .window4-pic .window4-glass {
+  width: 201px;
+  height: 201px;
+  background-image: url('../assets/images/tangbohu/tangbohu-4-1.png');
+  position: absolute;
+  bottom: 68px;
+  left: 0px;
+}
+.tbo .tbohu .tangbohu .contnet .window4 .window4-pic .window4-login {
+  width: 196px;
+  height: 198px;
+  background-image: url('../assets/images/tangbohu/tangbohu-4-2.png');
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+.tbo .tbohu .tangbohu .contnet .window5 {
+  width: 100%;
+  height: 428px;
+  margin-top: 177px;
+  overflow: hidden;
+}
+.tbo .tbohu .tangbohu .contnet .window5 .window5-pic {
+  float: left;
+  margin-right: 32px;
+  width: 527px;
+  height: 100%;
+  background-image: url('../assets/images/tangbohu/tangbohu-5.png');
+}
+.tbo .tbohu .tangbohu .contnet .window5 .window5-text {
+  float: right;
+  margin-left: 55px;
+  margin-top: 104px;
+}
+.tbo .tbohu .tangbohu .contnet .window5 .window5-text .title {
+  overflow: hidden;
+  width: 100%;
+}
+.tbo .tbohu .tangbohu .contnet .window5 .window5-text .title h1 {
+  font-size: 50px;
+  color: #333333;
+  text-align: center;
+  margin-bottom: 23px;
+}
+.tbo .tbohu .tangbohu .contnet .window5 .window5-text .title span {
+  display: block;
+  width: 100%;
+  font-size: 23px;
+  color: #333333;
+  text-align: center;
+}
+.tbo .tbohu .tangbohu .contnet .window5 .window5-text .nav-icon {
+  display: block;
+  width: 100%;
+  height: 85px;
+  margin-left: 17px;
+  margin-top: 50px;
+}
+.tbo .tbohu .tangbohu .contnet .window5 .window5-text .nav-icon li {
+  display: block;
+  float: left;
+  margin-right: 60px;
+  background-repeat: no-repeat;
+}
+.tbo .tbohu .tangbohu .contnet .window5 .window5-text .nav-icon li.nav-icon1 {
+  width: 80px;
+  height: 85px;
+  background-image: url('../assets/images/tangbohu/tangbohu-nav-5-1.png');
+}
+.tbo .tbohu .tangbohu .contnet .window5 .window5-text .nav-icon li.nav-icon2 {
+  width: 77px;
+  height: 86px;
+  background-image: url('../assets/images/tangbohu/tangbohu-nav-5-2.png');
+}
+.tbo .tbohu .tangbohu .contnet .window5 .window5-text .nav-icon li.nav-icon3 {
+  width: 80px;
+  height: 86px;
+  background-image: url('../assets/images/tangbohu/tangbohu-nav-5-3.png');
+}

@@ -35,6 +35,9 @@
 .testcentres.testcentres-tab-box .testcentres-nav .testcentres-tab-title li.testcentres-this a {
   color: #FFFFFF;
 }
+.testcentres.testcentres-tab-box .testcentres-nav .testcentres-tab-title.testcentres-tab-title2 {
+  width: 260px;
+}
 .testcentres.testcentres-tab-box .testcentres-tab-content {
   background-color: #FFFFFF;
 }

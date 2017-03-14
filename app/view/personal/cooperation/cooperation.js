@@ -17,7 +17,7 @@ define(['template',
                     $(this).attr("class","personal_this")
                 }
             });
-            $("#personal").html(cooperateTpl);
+            $("#personal").html(cooperationTpl);
             //$(".layui-tab-content").html(cooperateTpl);
         }
 

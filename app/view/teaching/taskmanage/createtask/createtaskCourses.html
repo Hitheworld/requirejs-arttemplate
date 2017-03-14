@@ -1,0 +1,13 @@
+<select name="courseId" id="courseId" class="layui-input">
+	{{if Courses.success}}
+		{{if Courses.resultObject != ''}}
+			{{each Courses.resultObject as TeacherCourses i}}
+			<option value="{{TeacherCourses.id}}"  {{if EditLoad.resultObject}}{{if TeacherCourses.id == EditLoad.resultObject.courseId}}selected="selected" {{/if}}{{/if}} >{{TeacherCourses.name}}</option>
+			{{/each}}
+		{{else}}
+			<option value="">无数据</option>
+		{{/if}}
+	{{else}}
+	{{Courses.errorMessage}}
+	{{/if}}
+</select>

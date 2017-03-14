@@ -5,18 +5,6 @@
             <input type="hidden" name="id" id="Create_a_class_id">
             <input type="text" name="squad_name" placeholder="请输入班级名称"  class="layui-input" id="squad_name">
         </div>
-        <div class="layui-input-block">
-            创建成功后不可修改
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">毕业时间:</label>
-        <div class="layui-input-block">
-            <input type="text" name="end_time" placeholder="请输入毕业时间" class="layui-input" id="start" />
-        </div>
-        <div class="layui-input-block">
-            班级实际毕业时间，非课程结束时间
-        </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">所属院系:</label>
@@ -40,6 +28,30 @@
 
                 </ul>
             </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">年级:</label>
+        <div class="layui-input-block">
+            <select class="join_the_class_select1" name="grade">
+                <option value="">请选择</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">学历:</label>
+        <div class="layui-input-block">
+            <select class="join_the_class_select2" name="education">
+                <option value="">请选择</option>
+                <option value="2">本科</option>
+                <option value="1">专科</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><img src="./app/assets/images/4564.gif" alt="">毕业时间:</label>
+        <div class="layui-input-block">
+            <input type="text" name="end_time" readonly placeholder="请输入毕业时间" class="layui-input" id="start" />
         </div>
     </div>
     <div class="layui-form-item">

@@ -1,0 +1,12 @@
+<!--音频-->
+{{if Lists.success}}
+	{{if Lists.resultObject.items != ''}}
+		{{each Lists.resultObject.items as item i}}
+			<li>
+				<a href="javascript:void(0);" data-url="{{item.url}}"  data-kpid="{{kpointId}}" class="J-view-audio" title="{{item.title}}">{{item.title}}</a>
+			</li>
+		{{/each}}
+	{{else}}
+		暂无数据
+	{{/if}}
+{{/if}}

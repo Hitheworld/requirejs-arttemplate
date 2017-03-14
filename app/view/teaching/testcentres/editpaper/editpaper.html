@@ -1,0 +1,78 @@
+<div class="editpaper">
+	<div class="editpaper-box">
+		<form id="editPaperForm">
+			<div class="addpaperTitle">
+				<h1>编辑试卷</h1>
+				<a href="#/teaching/testcentres/organizepaper" class="return">返回</a>
+			</div>
+			<div class="editpaper-home">
+				<!--<div class="home-title">测试基本信息</div>-->
+				<div class="home-box">
+					<ul class="e-ul1">
+						<li class="editpaper-li">
+							<label class="ce"><div class="de-end"></div>考试基本信息</label>
+						</li>
+						<li class="editpaper-li">
+							<label class="ce">考试名称:</label>
+							<div class="e-input">
+								<input type="text" class="paperName" name="" value="{{GeneratedPaper.resultObject.testName}}" />
+							</div>
+						</li>
+					</ul>
+					<ul class="e-ul2">
+						<li class="editpaper-li">
+							<label>考试时长:&nbsp;&nbsp;<span class="e-color">{{GeneratedPaper.resultObject.duration}}分钟</span></label>
+						</li>
+						<li class="editpaper-li">
+							<label>考试分数:&nbsp;&nbsp;<span class="e-color">{{GeneratedPaper.resultObject.testScore}}分</span></label>
+						</li>
+						<li class="editpaper-li">
+							<label>
+								<span class="e-title">考试难度:&nbsp;&nbsp;</span>
+								<span class="e-diff">
+								<!--难度-->
+								<div class="facility-value" style="margin-top: 23px; margin-left: 0px;">
+									<ul>
+										{{if GeneratedPaper.resultObject.testDifficulty == 'A'}}
+										<li class="value-active"></li>
+										<li class="value"></li>
+										<li class="value"></li>
+										<li class="value"></li>
+										{{else if GeneratedPaper.resultObject.testDifficulty == 'B'}}
+										<li class="value-active"></li>
+										<li class="value-active"></li>
+										<li class="value"></li>
+										<li class="value"></li>
+										{{else if GeneratedPaper.resultObject.testDifficulty == 'C'}}
+										<li class="value-active"></li>
+										<li class="value-active"></li>
+										<li class="value-active"></li>
+										<li class="value"></li>
+										{{else if GeneratedPaper.resultObject.testDifficulty == 'D'}}
+										<li class="value-active"></li>
+										<li class="value-active"></li>
+										<li class="value-active"></li>
+										<li class="value-active"></li>
+										{{/if}}
+									</ul>
+								</div>
+							<!--end难度-->
+							</span>
+							</label>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="home-top">
+				<!--<span><div class="de-end"></div>更换试题</span>-->
+			</div>
+			<div class="page3-box" id="page3"></div>
+
+			<div class="end-btn-box"></div>
+			<div class="btn_nav J-edit-fixed-btn">
+				<button type="submit" class="but-edit">保存</button>
+			</div>
+		</form>
+	</div>
+</div>

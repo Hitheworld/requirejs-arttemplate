@@ -1,0 +1,49 @@
+<div class="Check_the_preview">
+    <div class="Check_the_preview_header">
+        <span>
+            {{CTPC.squadName}}
+        </span>
+        <div class="item-box">
+            <label style="width: auto;margin-right: 5px">
+            选择课程:
+            </label>
+            <select id="Check_the_preview_select">
+                <option value="">请选择</option>
+                {{each CTPClIST}}
+                    <option value="{{$value.id}}">{{$value.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <a href="#/teaching/review/reviewhome">
+            返回
+        </a>
+    </div>
+    <hr>
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="margin-top: 20px">
+        <ul class="layui-tab-title myClass_title">
+            <li class="layui-this">课程进度</li>
+            <li>学生进度</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <div class="View_the_review_Syllabus_content">
+                    <div class='Temporarily_no_data'>
+                        <img src='./app/assets/images/myclass/025.png' alt='das'>
+                        <p>请选择课程 ~</p>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-tab-item">
+                <div class="View_the_review_Syllabus2_content">
+                    <div class='Temporarily_no_data'>
+                        <img src='./app/assets/images/myclass/025.png' alt='das'>
+                        <p>请选择课程 ~</p>
+                    </div>
+                </div>
+                <div>
+                    <div id="page"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

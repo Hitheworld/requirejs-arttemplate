@@ -1,0 +1,66 @@
+<div class="teb">
+	<div class="tb-hoem">
+		预报名表
+	</div>
+	<div class="tb-box">
+		<form id="ToSignupForm">
+			<ul>
+				<li>
+					<label><span class="important">*</span>真实姓名:</label>
+					<input type="text" name="name" class="SignupName" value="{{user.resultObject.name}}" />
+				</li>
+				<li class="error"><p for="name" class="error" style="display: none;"></p></li>
+				<li>
+					<label><span class="important">*</span>研修方向:</label>
+					<select name="subject" class="SignupType">
+						<option value="ios">iOS</option>
+						<option value="android">Android</option>
+						<option value="java EE">JavaEE</option>
+						<option value=".Net">.Net</option>
+						<option value="PHP">PHP</option>
+						<option value="C++">C++</option>
+						<option value="大数据">大数据</option>
+						<option value="网页平面UI">网页平面UI</option>
+						<option value="电子商务">电子商务</option>
+						<option value="Web前端">Web前端</option>
+					</select>
+				</li>
+				<li class="error"><p for="subject" class="error" style="display: none;"></p></li>
+				<li>
+					<label><span class="important">*</span>联系手机:</label>
+					<input name="mobile" type="text" class="SignupPhone" value="{{user.resultObject.mobile}}" />
+				</li>
+				<li class="error"><p for="mobile" class="error" style="display: none;"></p></li>
+				<li class="college-li">
+					<label><span class="important">*</span>所在学校:</label>
+					<input type="text" name="collegeName" class="collegeName SignupSoole" id="collegeName" value="{{user.resultObject.college_name}}" />
+
+					<!--学校显示区域-->
+					<div class="college-box">
+						<ul id="J-college" class="college">
+						</ul>
+					</div>
+					<!--end学校显示区域-->
+
+				</li>
+				<li class="error"><p for="collegeName" class="error" style="display: none;"></p></li>
+				<li>
+					<label><span class="important">*</span>邮箱:</label>
+					<input type="text" name="email" class="SignupEmail" value="{{user.resultObject.email}}" />
+				</li>
+				<li class="error"><p for="email" class="error" style="display: none;"></p></li>
+				<li>
+					<label>&nbsp;职务:</label>
+					<input type="text" name="position" class="SignupDuty" value="{{user.resultObject.job_title}}" />
+				</li>
+				<li class="error"><p for="position" class="error" style="display: none;"></p></li>
+				<li>
+					<p>温馨提示：请保持手机畅通，咨询老师将为您提供专属的一对一预购服务。</p>
+				</li>
+				<li>
+					<button type="submit" class="te-submit">提交</button>
+				</li>
+			</ul>
+		</form>
+	</div>
+</div>

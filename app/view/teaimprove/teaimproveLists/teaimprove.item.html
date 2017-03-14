@@ -1,0 +1,30 @@
+{{if item.success}}
+	{{if item.resultObject.items != ''}}
+		{{each item.resultObject.items}}
+		<li>
+			<a class="a-item" target="_blank" href="#/teaimprove/del/{{$value.id}}">
+				<div class="course-item">
+					<div class="course-pic">
+						<img src="{{$value.image}}" alt="{{$value.name}}" onerror="this.src='./app/assets/images/error-pic.png'" />
+					</div>
+					<h3 title="{{$value.name}}">{{$value.name}}</h3>
+					<div class="title-bottom">
+						<div class="t-bottom-left">
+							<span class="icon"></span><span class="text">{{$value.downloadNumber}}人学习</span>
+						</div>
+						<div class="t-bottom-right">
+							<span class="text-btn">开始学习</span>
+						</div>
+					</div>
+				</div>
+			</a>
+		</li>
+		{{/each}}
+	{{else}}
+		<div class="course-list-nodata">暂无数据</div>
+	{{/if}}
+
+{{else}}
+	<div class="course-list-nodata">暂无数据</div>
+	<div class="error">{{item.errorMessage}}</div>
+{{/if}}

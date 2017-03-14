@@ -1,0 +1,155 @@
+.editpaper {
+  width: 1200px;
+  margin: 0 auto;
+}
+.editpaper .editpaper-box {
+  padding: 20px 30px;
+}
+.editpaper .addpaperTitle {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  border-bottom: #f0f0f0 1px solid;
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+.editpaper .addpaperTitle h1 {
+  display: block;
+  float: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+}
+.editpaper .addpaperTitle .return {
+  float: right;
+  font-size: 14px;
+  color: #999999;
+}
+.editpaper .editpaper-box .editpaper-home {
+  border-bottom: 1px solid #f0f0f0;
+}
+.editpaper .editpaper-box .editpaper-home .home-title {
+  font-size: 18px;
+  font-weight: 600;
+  height: 32px;
+  line-height: 32px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.editpaper .editpaper-box .editpaper-home .home-box {
+  width: 1142px;
+  margin: 0 auto;
+  margin-top: 24px;
+  height: 75px;
+  background: #f8f8f8;
+  position: relative;
+}
+.editpaper .editpaper-box .editpaper-home .home-box ul.e-ul1 {
+  margin-left: 10px;
+  float: left;
+  width: 650px;
+  overflow: hidden;
+}
+.editpaper .editpaper-box .editpaper-home .home-box ul.e-ul1 li.editpaper-li {
+  float: left;
+  line-height: 75px;
+  height: 75px;
+  overflow: hidden;
+  margin-right: 45px;
+  margin-bottom: 20px;
+}
+.editpaper .editpaper-box .editpaper-home .home-box ul.e-ul1 li.editpaper-li .de-end {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+}
+.editpaper .editpaper-box .editpaper-home .home-box ul.e-ul1 li.editpaper-li label {
+  float: left;
+  height: 75px;
+  line-height: 75px;
+  font-size: 16px;
+}
+.editpaper .editpaper-box .editpaper-home .home-box ul.e-ul1 li.editpaper-li .e-input {
+  float: left;
+}
+.editpaper .editpaper-box .editpaper-home .home-box ul.e-ul1 li.editpaper-li .paperName {
+  height: 30px;
+  line-height: 30px;
+  width: 340px;
+  margin-left: 10px;
+}
+.editpaper .editpaper-box .editpaper-home .home-box .e-ul2 {
+  float: left;
+  overflow: hidden;
+}
+.editpaper .editpaper-box .editpaper-home .home-box .e-ul2 li.editpaper-li {
+  float: left;
+  margin-right: 12px;
+}
+.editpaper .editpaper-box .editpaper-home .home-box .e-ul2 li.editpaper-li .e-color {
+  color: #279ee9;
+}
+.editpaper .editpaper-box .editpaper-home .home-box .e-ul2 li.editpaper-li label {
+  height: 75px;
+  line-height: 75px;
+  font-size: 16px;
+}
+.editpaper .editpaper-box .editpaper-home .home-box .e-ul2 li.editpaper-li .e-title {
+  display: block;
+  float: left;
+}
+.editpaper .editpaper-box .editpaper-home .home-box .e-ul2 li.editpaper-li .e-diff {
+  display: block;
+  float: left;
+  margin-top: 13px;
+}
+.editpaper .editpaper-box .editpaper-home .home-box .e-ul2 li.editpaper-li .e-diff .facility-value ul li.value-active {
+  background: #279ee9;
+}
+.editpaper .editpaper-box .home-top {
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 600;
+  text-align: left;
+  position: relative;
+}
+.editpaper .editpaper-box .home-top .de-end {
+  position: absolute;
+  top: 30px;
+}
+.editpaper .editpaper-box .de-end {
+  width: 7px;
+  height: 7px;
+  background: #dcdcdc;
+}
+.editpaper .editpaper-box .page3-box {
+  overflow: hidden;
+}
+.editpaper .editpaper-box .end-btn-box {
+  height: 90px;
+}
+.editpaper .editpaper-box .btn_nav {
+  position: absolute;
+  width: 890px;
+  margin: 0 auto;
+  margin-left: -30px;
+  overflow: hidden;
+  bottom: 0px;
+  background: #ffffff;
+  padding: 20px 0px;
+}
+.editpaper .editpaper-box .btn_nav .but-edit {
+  cursor: pointer;
+  width: 550px;
+  border: none;
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  color: #FFFFFF;
+  background: #2db871;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}

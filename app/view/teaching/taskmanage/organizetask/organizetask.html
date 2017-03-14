@@ -1,34 +1,22 @@
 <!--组织试卷-->
-<div class="organizepaper">
-	<div class="organizepaper-body">
+<div class="organizetask">
+	<div class="organizetask-body">
 
 		<div class="content-title">
-			<h3>组织试卷</h3>
-			<button type="button" class="layui-btn create-test-btn" onclick="javascript: location.href = '#/teaching/taskmanage/addtask';"><i class="fa fa-list-alt" aria-hidden="true"></i>添加试卷</button>
+			<h3>组织练习</h3>
+			<button type="button" class="layui-btn create-test-btn" onclick="javascript: location.href = '#/teaching/taskmanage/addtask';"><i class="fa fa-list-alt" aria-hidden="true"></i>组练习卷</button>
 		</div>
 
 		<div class="content-body" id="paperHtml">
-			<div class="organizepaper-contnet">
-				<div class="organizepaper-header">
+			<div class="organizetask-contnet">
+				<div class="organizetask-header">
 					<form id="soFrom">
 						<ul>
 							<li>
 								<div class="item-box">
-									<label for="difficulty">试卷难度：</label>
-									<select id="difficulty">
-										<option value="">全部</option>
-										<option value="A">简单</option>
-										<option value="B">一般</option>
-										<option value="C">较难</option>
-										<option value="D">难</option>
-									</select>
-								</div>
-							</li>
-							<li>
-								<div class="item-box">
-									<label for="courseId">关联课程：</label>
+									<label for="courseId">课程名称：</label>
 									<select  id="courseId">
-										<option value="null">全部</option>
+										<option value="">全部</option>
 										{{if Courses.success}}
 										{{if Courses.resultObject}}
 										{{each Courses.resultObject as Courses i}}
@@ -49,15 +37,15 @@
 				</div>
 
 				{{if TestPaperDB.resultObject.lists != '' ||  TestPaperDB.resultObject.lists != undefined}}
-				<div class="organizepaper-cont">
+				<div class="organizetask-cont">
 					<div id="table"></div>
 					<div id="page"></div>
 				</div>
 
 				{{else}}
 				<!--空文件-->
-				<div class="contnet-dummy">
-					<div class="dummy-file"></div>
+				<div class="no-data">
+					<img src="./app/assets/images/emptyData/releasepapers-icon.png" />
 				</div>
 				<!--end空文件-->
 				{{/if}}

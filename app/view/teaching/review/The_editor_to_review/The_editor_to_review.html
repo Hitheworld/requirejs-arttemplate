@@ -1,0 +1,107 @@
+<div class="creareview">
+    <div class="creareview-box">
+        <div class="creareview-contnt">
+
+            <div class="creareviewTitle">
+                <h1>编辑复习</h1>
+                <a href="#/teaching/review/reviewhome" class="return">返回</a>
+            </div>
+
+            <form id="createtestForm">
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span class="major">*</span>复习名称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="reviewName" id="reviewName" class="layui-input" value="{{if EditLoad.resultObject}}{{EditLoad.resultObject.startTime}}{{/if}}" />
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span class="major">*</span>选择班级</label>
+                    <div class="layui-input-inline">
+                        <select name="squadId" id="squadId" class="layui-input">
+                            {{if Class.success}}
+                            {{if Class.resultObject != ''}}
+                            {{each Class.resultObject as Class i}}
+                            <option value="{{Class.id}}"{{if EditLoad.resultObject}} {{if Class.id == EditLoad.resultObject.squadId}}selected="selected" {{/if}} {{/if}}>{{Class.squad_name}}</option>
+                            {{/each}}
+                            {{else}}
+                            <option>无数据</option>
+                            {{/if}}
+                            {{else}}
+                            {{Class.errorMessage}}
+                            {{/if}}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span class="major">*</span>选择课程</label>
+                    <div class="layui-input-inline" id="createTestCourses">
+
+                    </div>
+                </div>
+
+                <div class="layui-form-item item-testName">
+                    <label class="layui-form-label"><span class="major">*</span>选择知识点</label>
+                    <div class="width-test">
+                        <input type="hidden" name="paperTplId" id="paperTplId" {{if EditLoad.resultObject}} value="{{EditLoad.resultObject.paperTplId}}" {{/if}} />
+						<span id="parentIframe">
+							{{if pageType}}
+								{{if EditLoad.resultObject}}
+								<span class="testName">{{EditLoad.resultObject.paperTplName}}</span>
+								{{/if}}
+							{{/if}}
+						</span>
+                        {{if EditLoad.resultObject}}
+                        <a href="javascript:void(0);" class="creareview-a J-toggle">选择知识点</a>
+                        {{else}}
+                        <a href="javascript:void(0);" class="creareview-a J-toggle">选择知识点</a>
+                        {{/if}}
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">
+                        <p for="paperTplId" class="error" style="display: none;"></p>
+                    </div>
+                </div>
+
+
+
+                <div class="review-box">
+
+                    <!--知识点-->
+                    <div class="review-left">
+                        <div class="review-title">
+                            <h3>选择知识点</h3>
+                        </div>
+                        <div class="bg">
+                            <div class="ztree" id="J-ztree"></div>
+                        </div>
+                    </div>
+                    <!--end 知识点-->
+
+                    <!--知识点下的资源-->
+                    <div class="review-right">
+                        <div class="review-title">
+                            <h3>知识点下的资源</h3>
+                        </div>
+                        <div class="bg" id="resourcesDom">
+                        </div>
+
+
+                    </div>
+                    <!--end 知识点下的资源-->
+
+                </div>
+
+                <div class="layui-form-item">
+                    <input type="hidden" value="" name="publish" id="publish" />
+                    <div class="layui-input-block btn-box">
+                        <button type="button" style="display: block;margin: auto"  onclick="$('#publish').val(0);$('#createtestForm').submit();"  class="save">保存</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

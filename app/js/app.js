@@ -8,8 +8,14 @@ require.config({
 		'font-awesome':'./font-awesome-4.7.0/css/font-awesome.min',
 		'jquery':'./jquery-1.12.4.min',
 		'json2':'./json2',
+		'audiojs' : './audiojs/audiojs/audio.min',
 		'xvCalendar':'./xvCalendar/src/js/calendar',
 		'xvCalendarCss':'./xvCalendar/src/css/calendar',
+		'jquery-ui-timepicker': './jquery-ui-timepicker/js/jquery-ui-1.10.4.custom.min',
+		'jquery.ui.datepicker-zh-CN': './jquery-ui-timepicker/js/jquery.ui.datepicker-zh-CN',
+		'jquery-ui-timepicker-addon': './jquery-ui-timepicker/js/jquery-ui-timepicker-addon',
+		'jquery-ui-timepicker-zh-CN': './jquery-ui-timepicker/js/jquery-ui-timepicker-zh-CN',
+		'jquery-ui-timepicker-css': './jquery-ui-timepicker/css/jquery-ui',
 		'datatables.net': './DataTables-1.10.13/media/js/jquery.dataTables.min',
 		'dataTables.select': './DataTables-1.10.13/media/js/dataTables.select.min',
 		'dataTables.selectCss': './DataTables-1.10.13/media/css/select.dataTables.min',
@@ -27,6 +33,8 @@ require.config({
 		'portamento': './portamento.js-v1.1.1/portamento-min',
 		'jquery.hovertreescroll': './jquery.hovertreescroll',
 		'jquery.fs.boxer': './boxer/jquery.fs.boxer.min',
+		'viewer': './imageviewer/viewer.min',
+		'viewerCss': './imageviewer/viewer.min',
 		'boxerCss': './boxer/jquery.fs.boxer',
 		'jquery.ztree': './zTree_v3/js/jquery.ztree.all.min',
 		'jquery.ztree.zTreeStyle': './zTree_v3/css/zTreeStyle/zTreeStyle',
@@ -71,7 +79,8 @@ require.config({
 		'popupLoginCss': '../../less/popup.login',
 		'tplUrl': '../../view',
 		'cssUrl': '../../less',
-		'api': '../common/ServiceConfig'
+		'api': '../common/ServiceConfig',
+		'index': '../common/index'
 	},
 	shim: {
 		'route' : {
@@ -88,7 +97,10 @@ require.config({
 			deps: ['jquery','css!layuiCss'],
 			exports:'parse'//exports的值为jqueryPlaceholder提供的 对外接口的名称
 		},
-		'ckplayer': ['jquery'],
+		'ckplayer': {
+			deps: ['jquery'],
+			exports:'CKobject'
+		},
 		'datatables.net': ['jquery','css!datatables.net.Css','shCore','css!shCore'],
 		'dataTables.select': ['jquery','css!dataTables.selectCss'],
 		'jquery-cookie': ['jquery'],
@@ -96,6 +108,18 @@ require.config({
 		'xvCalendar':{
 			deps: ['jquery','css!xvCalendarCss'],
 			exports:'xvDate'
+		},
+		'jquery-ui-timepicker-zh-CN': {
+			deps: ['jquery','jquery-ui-timepicker','jquery.ui.datepicker-zh-CN','jquery-ui-timepicker-addon','css!jquery-ui-timepicker-css'],
+			exports:'datetimepicker'
+		},
+		'audiojs': {
+			deps: ['jquery'],
+			exports:'audiojs'
+		},
+		'viewer': {
+			deps: ['jquery','css!viewerCss'],
+			exports:'viewer'
 		},
 		'jquery.hovertreescroll': ['jquery'],
 		'jquery.fs.boxer': ['jquery','css!boxerCss'],
@@ -137,14 +161,13 @@ requirejs([
 	'template',
 	'common',
 	'api',
-	'text!tplUrl/index/index.html',
 	'text!tplUrl/index/user.header.html',
 	'css!cssUrl/normalize',
 	'css!cssUrl/index'
-],function(route,$,template,common,api,indexTpl,userTpl){
+],function(route,$,template,common,api,userTpl){
 	//开始路由文件的执行
 	route.Route();
-	$("#app").html(indexTpl);
+
 	//返回头部
 	$(window).scroll(function(){
 		var sc=$(window).scrollTop();
@@ -160,5 +183,24 @@ requirejs([
 		var sc=$(window).scrollTop();
 		$('body,html').animate({scrollTop:0},500);
 	});
+
+
+	/**
+	 * 禁用ctrl+滚轮，防止页面放大缩小
+	 * @param e
+	 */
+	var scrollFunc=function(e){
+		e=e || window.event;
+		if(e.wheelDelta && event.ctrlKey){//IE/Opera/Chrome
+			event.returnValue=false;
+		}else if(e.detail){//Firefox
+			event.returnValue=false;
+		}
+	}
+	/*注册事件*/
+	if(document.addEventListener){
+		document.addEventListener('DOMMouseScroll',scrollFunc,false);
+	}//W3C
+	window.onmousewheel=document.onmousewheel=scrollFunc;//IE/Opera/Chrome/Safari
 
 });

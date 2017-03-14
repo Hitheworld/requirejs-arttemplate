@@ -2,71 +2,90 @@
 	<div class="createtest-box">
 		<div class="createtest-contnt">
 
-			<div class="createtest-contnt-header">
-				<a href="javascript:history.back(-1);" style="float: right">返回</a>
+			<div class="createtestTitle">
+				<h1>布置练习</h1>
+				<a href="#/teaching/taskmanage/releasetask" class="return">返回</a>
 			</div>
-			<form id="createtest" id="createtestForm">
+
+			<form id="createtestForm">
 
 				<div class="layui-form-item">
 					<label class="layui-form-label"><span class="major">*</span>选择班级</label>
 					<div class="layui-input-inline">
-						<select name="city"  class="layui-input">
-							<option value=""></option>
-							<option value="0">北京</option>
-							<option value="1">上海</option>
-							<option value="2">广州</option>
-							<option value="3">深圳</option>
-							<option value="4">杭州</option>
+						<select name="squadId" id="squadId" class="layui-input">
+							{{if Class.success}}
+								{{if Class.resultObject != ''}}
+								{{each Class.resultObject as Class i}}
+								<option value="{{Class.id}}"{{if EditLoad.resultObject}} {{if Class.id == EditLoad.resultObject.squadId}}selected="selected" {{/if}} {{/if}}>{{Class.squad_name}}</option>
+								{{/each}}
+								{{else}}
+								<option>无数据</option>
+								{{/if}}
+							{{else}}
+								{{Class.errorMessage}}
+							{{/if}}
 						</select>
 					</div>
-					<div class="layui-form-mid layui-word-aux">辅助文字</div>
 				</div>
 
 				<div class="layui-form-item">
 					<label class="layui-form-label"><span class="major">*</span>选择课程</label>
-					<div class="layui-input-inline">
-						<select name="city"  class="layui-input">
-							<option value=""></option>
-							<option value="0">北京</option>
-							<option value="1">上海</option>
-							<option value="2">广州</option>
-							<option value="3">深圳</option>
-							<option value="4">杭州</option>
-						</select>
+					<div class="layui-input-inline"  id="createtaskCourses">
 					</div>
-					<div class="layui-form-mid layui-word-aux">辅助文字</div>
+				</div>
+
+				<div class="layui-form-item item-testName">
+					<label class="layui-form-label"><span class="major">*</span>设置练习</label>
+					<div class="width-test">
+						<input type="hidden" name="paperTplId" id="paperTplId" {{if EditLoad.resultObject}} value="{{EditLoad.resultObject.homeworkTplId}}" {{/if}} />
+						<span id="parentIframe">
+							{{if pageType}}
+								{{if EditLoad.resultObject}}
+								<span class="testName">{{EditLoad.resultObject.homeworkTplName}}</span>
+								{{/if}}
+							{{/if}}
+						</span>
+						{{if EditLoad.resultObject}}
+							<a href="javascript:void(0);" class="addtest-a J-add-testpaper">选择练习卷</a>
+						{{else}}
+							<a href="javascript:void(0);" class="addtest-a J-add-testpaper">添加练习</a>
+						{{/if}}
+					</div>
+					<div class="layui-form-mid layui-word-aux">
+						<p for="paperTplId" class="error" style="display: none;"></p>
+					</div>
 				</div>
 
 				<div class="layui-form-item">
-					<label class="layui-form-label"><span class="major">*</span>设置试卷</label>
+					<label class="layui-form-label"><span class="major">*</span>设置结束时间</label>
 					<div class="layui-input-inline">
-						<a href="javascript:void(0);" class="addtest-a J-add-testpaper">添加试卷</a>
+						<input type="text" name="startTime" id="startTime" class="layui-input Wdate" value="{{if EditLoad.resultObject}}{{EditLoad.resultObject.endTime}}{{/if}}" />
 					</div>
-					<div class="layui-form-mid layui-word-aux">辅助文字</div>
-				</div>
-
-				<div class="layui-form-item">
-					<label class="layui-form-label"><span class="major">*</span>设置开始时间</label>
-					<div class="layui-input-inline">
-						<input type="text" name="text" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
-					</div>
-					<div class="layui-form-mid layui-word-aux">辅助文字</div>
 				</div>
 
 				<div class="layui-form-item">
 
 					<div class="layui-input-block">
-						<input type="radio" name="sex" value="男" title="男">
-						<label class="layui-form-label">发送给全班</label>
-						<input type="radio" name="sex" value="女" title="女" checked>
-						<label class="layui-form-label">分组发送</label>
+						<div class="send">
+							<input type="radio" name="send" id="sendgroups" value="" {{if EditLoad.resultObject}} {{if EditLoad.resultObject.groups == ''}} checked="checked" {{/if}}{{/if}} />
+							<label class="layui-form-label">发送给全班</label>
+						</div>
+						<div class="send">
+							<input type="radio" name="send" value="grouping" class="sendList" {{if EditLoad.resultObject}} {{if EditLoad.resultObject.groups != ''}} checked="checked" {{/if}}{{/if}} />
+							<label class="layui-form-label">分组发送</label>
+						</div>
 					</div>
+					<!--分组-->
+					<div id="PacketSend"></div>
+					<p for="groups" class="error" style="display: none;"></p>
+					<!--分组-->
 				</div>
+				<input type="hidden" value="" name="publish" id="publish" />
 
 				<div class="layui-form-item">
 					<div class="layui-input-block">
-						<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
-						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						<button type="button" onclick="$('#publish').val(1);$('#createtestForm').submit();" class="submit">发布</button>
+						<button type="button" onclick="$('#publish').val(0);$('#createtestForm').submit();" class="primary">保存</button>
 					</div>
 				</div>
 

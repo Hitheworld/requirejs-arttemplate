@@ -29,7 +29,7 @@
     }
 
 
-    //function to get current color in case of 
+    //function to get current color in case of
     function getCurrentColor(curPer, bottomVal, topVal, bottomColor, topColor) {
         var rgbAryTop = topColor.indexOf('#') != -1 ? hexToRgb(topColor) : topColor.match(/\d+/g),
             rgbAryBottom = bottomColor.indexOf('#') != -1 ? hexToRgb(bottomColor) : bottomColor.match(/\d+/g),
@@ -108,7 +108,7 @@
 
         this.ctx = canElm.getContext('2d'); //get 2d canvas context
 
-        //add intial value 
+        //add intial value
         this.current_value = indOption.initValue || indOption.minValue || 0;
 
     }
@@ -156,7 +156,7 @@
             }
 
             val = parseInt(val);
-            
+
             var ctx = this.ctx,
                 indOption = this.indOption,
                 curColor = indOption.barColor,
@@ -234,7 +234,7 @@
                 back = val < counter;
 
             //clear interval function if already started
-            if (this.intvFunc) clearInterval(this.intvFunc); 
+            if (this.intvFunc) clearInterval(this.intvFunc);
 
             this.intvFunc = setInterval(function () {
 
@@ -297,7 +297,7 @@
         maxValue: 100, //maximum value
         initValue: 0 //define initial value of indicator
     };
-    
+
     window.radialIndicator = radialIndicator;
 
     //add as a jquery plugin

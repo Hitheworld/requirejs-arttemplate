@@ -1,0 +1,14 @@
+<!--图片-->
+{{if Lists.success}}
+	{{if Lists.resultObject.items != ''}}
+		{{each Lists.resultObject.items as item i}}
+			<li>
+				<a href="javascript:void(0);" data-kpid="{{kpointId}}" data-url="{{item.url}}" class="J-click-pic">
+					<img src="{{item.url}}" alt="{{item.title}}" />
+				</a>
+			</li>
+		{{/each}}
+	{{else}}
+		暂无数据
+	{{/if}}
+{{/if}}

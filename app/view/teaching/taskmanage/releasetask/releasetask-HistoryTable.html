@@ -1,0 +1,108 @@
+<div class="table">
+	<ul class="table-tr">
+		<li class="table-th testClass">
+			<h1>班级</h1>
+		</li>
+		<li class="table-th testPaper">
+			<h1>练习名称</h1>
+		</li>
+		<li class="table-th startTime">
+			<h1>练习时间</h1>
+		</li>
+		<li class="table-th handNumber ">
+			<h1>正确率</h1>
+		</li>
+		<li class="table-th grouping">
+			<h1>分组</h1>
+		</li>
+		<li class="table-th state">
+			<h1>总/交卷人数</h1>
+		</li>
+		<li class="table-th operation">
+			<h1>操作</h1>
+		</li>
+	</ul>
+	{{if HistoryExamDB.success}}
+		{{if HistoryExamDB.resultObject.items != ''}}
+			{{each HistoryExam as HistoryExam i}}
+			<ul class="table-tr">
+				<!--班级-->
+				<li class="table-td testClass" title="{{HistoryExam.squadName}}">
+					{{HistoryExam.squadName}}
+				</li>
+				<!--end班级-->
+				<!--作业名称-->
+				<li class="table-td testPaper" title="{{HistoryExam.homeworkTplName}}">
+					{{HistoryExam.homeworkTplName}}
+				</li>
+				<!--end作业名称-->
+				<!--作业时间-->
+				<li class="table-td startTime">
+					{{HistoryExam.endTime}}
+				</li>
+				<!--end作业时间-->
+				<!--正确率-->
+				<li class="table-td handNumber">
+					{{if HistoryExam.correctPercent}}{{HistoryExam.correctPercent}} {{else}} 0{{/if}}%
+				</li>
+				<!--end正确率-->
+				<!--分组-->
+				<li class="table-td grouping">
+					{{if HistoryExam.groups != ''}} {{HistoryExam.groups}} {{else}} 全班 {{/if}}
+				</li>
+				<!--end分组-->
+				<!--总/交卷人数-->
+				<li class="table-td state">
+					{{HistoryExam.ykCounts}}/{{HistoryExam.jjCounts}}
+				</li>
+				<!--end总/交卷人数-->
+				<!--操作-->
+				<li class="table-td operation">
+					<div class="operation-icon">
+						<div class="operation-icon">
+							<!--状态(0:未开始考试，1：考试中，2:考试结束，待批阅。3：已批阅，待发布，4：已发布)-->
+
+
+							{{if HistoryExam.status == 2}}
+							<a href="#/teaching/taskmanage/ViewStudent/view/{{HistoryExam.id}}" title="查看练习卷">
+								<i class="icon-pic icon-view"></i>
+							</a>
+							{{/if}}
+
+							{{if HistoryExam.status == 3}}
+							<a href="javascript:void(0);" class="J-publish" data-id="{{HistoryExam.id}}" title="发布">
+								<i class="fa fa-toggle-right" aria-hidden="true"></i>
+							</a>
+							{{/if}}
+							{{if HistoryExam.status == 4 || HistoryExam.status == 3}}
+							<a href="#/teaching/taskmanage/ViewStudent/view/{{HistoryExam.id}}"  title="查看学生练习">
+								<i class="icon-pic icon-view"></i>
+							</a>
+							{{/if}}
+
+
+							<a href="javascript:void(0);" class="J-tips-del" data-id="{{HistoryExam.id}}" title="删除">
+								<i class="fa fa-trash-o" aria-hidden="true"></i>
+							</a>
+
+							<!--<a href="#/teaching/testcentres/viewtest/view/{{HistoryExam.id}}" title="查看试卷">-->
+								<!--<i class="fa fa-search" aria-hidden="true"></i>-->
+							<!--</a>-->
+
+						</div>
+					</div>
+				</li>
+				<!--end操作-->
+			</ul>
+			{{/each}}
+		{{else}}
+			<!--空文件-->
+			<div class="no-data">
+				<img src="./app/assets/images/emptyData/releasetask-icon.png" />
+			</div>
+			<!--end空文件-->
+		{{/if}}
+	{{else}}
+		{{HistoryExamDB.errorMessage}}
+	{{/if}}
+</div>

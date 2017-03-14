@@ -1,23 +1,36 @@
 {{if success}}
     {{if resultObject.lists.length != 0}}
         {{each resultObject.lists as i index}}
-        <div>
+        <div class="mynews_content_dv">
             {{if i.isRead}}
             {{else}}
             <span class="unread">●</span>
             {{/if}}
             <input type="checkbox" data-id="{{i.id}}">
-            <span class="mynews_content_title">系统消息</span>
-            {{if i.isRead}}
-            <span class="mynews_content_span" style="color: #737373" data-id="{{i.id}}" data-content="{{i.content}}">{{i.title}}</span>
+            {{if i.source_type == 5 && i.type == 6}}
+            <span class="mynews_content_title" style="color: #36b774;">申请消息</span>
             {{else}}
-            <span class="mynews_content_span" data-id="{{i.id}}" data-content="{{i.content}}">{{i.title}}</span>
+            <span class="mynews_content_title">系统消息</span>
+            {{/if}}
+
+            {{if i.source_type == 5 && i.type == 6}}
+                {{if i.isRead}}
+                     <span class="mynews_content_span1" title="{{i.title}}" style="color: #737373" data-id="{{i.id}}" data-content="{{i.content}}">{{i.title}}</span>
+                {{else}}
+                    <span class="mynews_content_span2" title="{{i.title}}" style="color: #737373" data-id="{{i.id}}" data-content="{{i.content}}">{{i.title}}</span>
+                    <span class="mynews_content_span3" data-id="{{i.id}}">查看教师信息</span>
+            {{/if}}
+            {{else}}
+                <span class="mynews_content_span1" title="{{i.title}}" style="color: #737373" data-id="{{i.id}}" data-content="{{i.content}}">{{i.title}}</span>
             {{/if}}
             <span class="mynews_content_time">{{i.create_time}}</span>
         </div>
         {{/each}}
     {{else}}
-    暂无数据
+    <div class="Temporarily_no_data">
+        <img src="./app/assets/images/image1.png" alt="">
+        <p>暂无消息</p>
+    </div>
     {{/if}}
 {{else}}
     {{errorMessage}}

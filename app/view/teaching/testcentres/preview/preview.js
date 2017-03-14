@@ -8,9 +8,8 @@ define(['template',
 		'layui',
 		'layer',
 		'text!tplUrl/teaching/testcentres/preview/preview.html',
-		'text!tplUrl/common/paper.html',
+		'text!tplUrl/teaching/testcentres/preview/paper.html',
 		'common',
-		'api',
 		'jquery.hovertreescroll',
 		'portamento',
 		'jquery.fs.boxer',
@@ -20,10 +19,17 @@ define(['template',
 	function (template,$,layui,layer,
 	          previewrTpl,
 	          paperTpl,
-	          common,api) {
+	          common) {
 
 		function createPage(page,childpage,pageType, exampPaperId) {
 			document.title = "博学谷·院校-教师端考试中心-查看试卷";
+
+			//返回时刷新
+			if (window.history && window.history.pushState) {
+				$(window).on('popstate', function () {
+					history.go(0);
+				});
+			};
 
 			//数据源
 			var GeneratedPaperDB = GeneratedPaper(exampPaperId);
@@ -49,19 +55,15 @@ define(['template',
 			$(".btn-Change").hide();
 
 			//处理试卷中的图片
-			$('.J-pic-click .J-boxer').boxer({
-				requestKey: 'abc123'
-			});
-			$('.J-pic-click img').boxer({
-				requestKey: 'abc123'
-			});
+			common.initImageViewer($('.pagePaper-content'));
+
 
 			//题库导航
 			var t = $('.fixed').offset().top;
 			var mh = $('.paper-main').height();
 			var fh = $('.fixed').height();
 			$(window).scroll(function(e){
-				s = $(document).scrollTop();
+				var s = $(document).scrollTop();
 				if(s > t - 10){
 					$('.fixed').css({'position':'fixed','top':'10px'});
 					if(s + fh > mh){

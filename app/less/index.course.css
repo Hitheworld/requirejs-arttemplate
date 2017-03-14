@@ -4,6 +4,7 @@
 }
 .index-course .am-titlebar {
   margin-top: 50px;
+  border: none;
 }
 .index-course .index-course-lists {
   width: 1230px;
@@ -12,23 +13,36 @@
   overflow: hidden;
 }
 .index-course .index-course-lists ul li {
-  width: 20%;
-  margin-top: 30px;
+  width: 25%;
   float: left;
+  margin-bottom: 30px;
 }
 .index-course .index-course-lists ul li .am-gallery-item {
-  width: 216px;
-  height: 270px;
-  border-bottom: 1px solid #f1f1f1;
+  width: 277px;
+  height: 255px;
+  background: #FFFFFF;
+  overflow: hidden;
 }
 .index-course .index-course-lists ul li .am-gallery-item a {
-  width: 100%;
-  height: 100%;
+  width: 99%;
+  height: 99%;
+  border: 1px solid #f0f0f0;
   display: block;
 }
-.index-course .index-course-lists ul li .am-gallery-item a img {
+.index-course .index-course-lists ul li .am-gallery-item a .home-pic {
   width: 100%;
-  height: 140px;
+  height: 179px;
+  overflow: hidden;
+}
+.index-course .index-course-lists ul li .am-gallery-item a .home-pic img {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  transition: all ease-in-out 0.5s;
+  transform-origin: center;
 }
 .index-course .index-course-lists ul li .am-gallery-item a h3 {
   display: block;
@@ -46,18 +60,16 @@
   overflow: hidden;
   text-align: center;
 }
-.index-course .index-course-lists ul li .am-gallery-item a .am-gallery-desc {
-  text-align: center;
-  font-size: 14px;
-  height: 48px;
-  line-height: 24px;
-  color: #999999;
-  overflow: hidden;
-}
 .index-course .index-course-lists ul li .am-gallery-item a:hover {
-  box-shadow: 0px 0px 15px rgba(45, 50, 22, 0.2);
+  box-shadow: 2px 2px 20px rgba(45, 50, 22, 0.2);
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#000000')";
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+.index-course .index-course-lists ul li:hover .am-gallery-item a img {
+  transform: scale(1.2);
+}
+.index-course .index-course-lists ul li:hover .am-gallery-title {
+  color: #36b773 !important;
 }
 .index-course .course-list-nodata {
   text-align: center;
@@ -67,8 +79,8 @@
   width: 1200px;
   margin: 0 auto;
   overflow: hidden;
+  /**/
 }
-/**/
 .index-sk-and-assert .index-qa {
   float: left;
   width: 800px;
@@ -90,7 +102,9 @@
 }
 .index-sk-and-assert .index-qa ul li {
   display: block;
+  padding: 0 18px;
   overflow: hidden;
+  background: #ffffff;
   border-bottom: 1px solid #f1f1f1;
 }
 .index-sk-and-assert .index-qa ul li a {
@@ -126,6 +140,9 @@
 .index-sk-and-assert .index-qa ul li .index-qa-list .index-qa-top .index-answer {
   padding-right: 10px;
 }
+.index-sk-and-assert .index-qa ul li .index-qa-list .index-qa-top .index-qa-title {
+  color: #36B773;
+}
 .index-sk-and-assert .index-qa ul li .index-qa-list .index-qa-cont {
   margin-top: 10px;
   font-size: 14px;
@@ -139,7 +156,7 @@
 .index-sk-and-assert .index-uq {
   float: right;
   width: 350px;
-  background: #fafafa;
+  background: #FFFFFF;
   margin-top: 20px;
   padding-top: 30px;
 }
@@ -182,7 +199,7 @@
 .index-sk-and-assert .index-uq ul li .index-uq-box a:hover .index-uq-bottom {
   color: #36B773;
 }
-.index-sk-and-assert .index-uq ul li .index-uq-box h3 {
+.index-sk-and-assert .index-uq ul li .index-uq-box .am-gallery-title {
   display: block;
   font-size: 16px;
   font-weight: 100;
@@ -205,4 +222,3 @@
   white-space: nowrap;
   overflow: hidden;
 }
-/*# sourceMappingURL=index.course.css.map */

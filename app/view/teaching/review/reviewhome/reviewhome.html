@@ -1,0 +1,36 @@
+<!--组织试卷-->
+<div class="reviewhome">
+	<div class="reviewhome-body">
+
+		<div class="content-title">
+			<h3>预习/复习</h3>
+			<button type="button" class="layui-btn create-test-btn" onclick="javascript: location.href = '#/teaching/review/creareview';"><i class="layui-icon">&#xe61f;</i>添加复习</button>
+		</div>
+
+		<div class="content-body" id="paperHtml">
+			<div class="reviewhome-contnet">
+				{{if PRDB.resultObject.lists != '' ||  TestPaperDB.resultObject.lists != undefined}}
+				<div class="reviewhome-cont">
+					<div id="table"></div>
+					<div id="page"></div>
+				</div>
+
+				{{else}}
+				<!--空文件-->
+				<div class="contnet-dummy">
+					<div class="dummy-file"></div>
+				</div>
+				<!--end空文件-->
+				{{/if}}
+
+			</div>
+
+
+
+
+
+
+		</div>
+	</div>
+</div>
+<!--end组织试卷-->

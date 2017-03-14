@@ -1,5 +1,5 @@
 /**
-     * 组织试卷
+ * 组织试卷
  */
 .organizepaper {
   width: 100%;
@@ -7,6 +7,7 @@
 }
 .organizepaper .organizepaper-body {
   padding: 20px 30px;
+  min-height: 800px;
 }
 .organizepaper .organizepaper-body .content-title {
   padding-bottom: 20px;
@@ -32,6 +33,7 @@
   font-size: 14px;
   color: #FFFFFF;
   background-color: #36b773;
+  font-size: 16px;
 }
 .organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-header {
   padding-bottom: 30px;
@@ -74,6 +76,10 @@
 .organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-th.courseName,
 .organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-td.courseName {
   width: 164px;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-th.hots,
 .organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .table .table-tr .table-td.hots {
@@ -99,10 +105,46 @@
 }
 .organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .operation-icon a i {
   font-size: 20px;
-  color: #999999;
+  color: #72cc9d;
 }
 .organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .operation-icon a:hover i {
-  color: #36b773;
+  color: #75bfee;
+}
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .operation-icon a .icon-pic {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin-top: 16px;
+}
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .operation-icon a .icon-view {
+  background: url('../assets/images/icons/view/view.png');
+}
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .operation-icon a .icon-view:hover {
+  background: url('../assets/images/icons/view/view-hover.png');
+}
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .operation-icon a .icon-pic-down {
+  display: block;
+  width: 17px;
+  height: 15px;
+  margin-top: 16px;
+}
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .operation-icon a .icon-down {
+  background: url('../assets/images/icons/view/down.png');
+}
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .operation-icon a .icon-down:hover {
+  background: url('../assets/images/icons/view/down-hover.png');
+}
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .operation-icon a .icon-pic-pen {
+  display: block;
+  width: 17px;
+  height: 17px;
+  margin-top: 16px;
+}
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .operation-icon a .icon-pen {
+  background: url('../assets/images/icons/view/pen.png');
+}
+.organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont .operation-icon a .icon-pen:hover {
+  background: url('../assets/images/icons/view/pen-hover.png');
 }
 .organizepaper .organizepaper-body .content-body .organizepaper-contnet .organizepaper-cont #page {
   margin-top: 60px;

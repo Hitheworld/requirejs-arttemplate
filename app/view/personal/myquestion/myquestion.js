@@ -41,13 +41,13 @@ define(['template',
 				$(".my_open ul").css("display", "none");
 				switch ($(this).attr("data-tpye")) {
 					case "1":
-						AddMyQuestion($(this).attr("data-tpye"), 1, 1);
+						AddMyQuestion($(this).attr("data-tpye"), 1, 10);
 						break;
 					case "2":
-						AddMyQuestion($(this).attr("data-tpye"), 1, 1);
+						AddMyQuestion($(this).attr("data-tpye"), 1, 10);
 						break;
 					default:
-						AddMyQuestion($(this).attr("data-tpye"), 1, 1);
+						AddMyQuestion($(this).attr("data-tpye"), 1, 10);
 				}
 			});
 
@@ -59,8 +59,13 @@ define(['template',
 					status: type,
 					pageNumber: curr || 1,
 					pageSize: pageSize,
-					loginName:15510698513
+					loginName:$(".home-user-name").attr("data-name")
 				}, function (data, state) {
+					if (data.resultObject.items.length == 0) {
+						$('#page').css("display","none")
+					}else {
+						$('#page').css("display","block")
+					}
 					$(".myquestion_content").html(template.compile(myquestion_content)(data));
 					if(data.success){
 						//显示分页
@@ -79,7 +84,7 @@ define(['template',
 				});
 			}
 
-			AddMyQuestion("2", 1, 1);
+			AddMyQuestion("2", 1, 10);
 
 		}
 

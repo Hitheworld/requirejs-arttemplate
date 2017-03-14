@@ -14,9 +14,9 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label"><span class="major">*</span>申请数量：</label>
 					<div class="layui-input-inline">
-						<button class="btn-add J-add">+</button>
-						<input type="text" name="number" id="number" class="layui-input btn-input" value="1" />
-						<button class="btn-min J-min">-</button>
+						<button type="button" class="btn-add J-add">+</button>
+						<input type="text" name="number" id="number" class="layui-input btn-input" maxlength="3" value="1" />
+						<button type="button" class="btn-min J-min">-</button>
 					</div>
 				</div>
 				<p for="number" class="error" style="display: none;"></p>
@@ -86,7 +86,7 @@
 				<div class="layui-form-item">
 					<div class="layui-input-block box-btn-block">
 						<button type="submit" class="layui-btn ApplyResource-btn submit-btn">立即提交</button>
-						<button type="reset" class="layui-btn layui-btn-primary ApplyResource-btn primary-btn">重置</button>
+						<button type="reset" class="layui-btn layui-layer-close layui-btn-primary ApplyResource-btn primary-btn">取消</button>
 					</div>
 				</div>
 

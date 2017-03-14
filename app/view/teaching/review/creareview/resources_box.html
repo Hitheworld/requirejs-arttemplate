@@ -1,0 +1,91 @@
+
+<!--资源列表-->
+<div class="tab-dom-{{kpointId}}">
+	<div class="nav-box">
+		<div class="nav-bn"></div>
+		<div class="nav-text">
+			<h3>{{name}}</h3>
+		</div>
+	</div>
+	<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+		<ul class="layui-tab-title tab-title-{{kpointId}}">
+			<li class="layui-this" data-type="0" data-kpid="{{kpointId}}">视频</li>
+			<li data-type="2" data-kpid="{{kpointId}}">PPT</li>
+			<li data-type="1" data-kpid="{{kpointId}}">音频</li>
+			<li data-type="3" data-kpid="{{kpointId}}">教案</li>
+			<li data-type="4" data-kpid="{{kpointId}}">图片</li>
+			<li data-type="7" data-kpid="{{kpointId}}">常见问题</li>
+		</ul>
+
+		<div class="layui-tab-content">
+			<!--视频-->
+			<div class="layui-tab-item layui-show">
+				<div class="item-box">
+					<ul class="item-ul video video-view-{{kpointId}}">
+
+					</ul>
+					<div class="more video-page{{kpointId}}"></div>
+				</div>
+			</div>
+			<!--end 视频-->
+
+			<!--PPT-->
+			<div class="layui-tab-item">
+				<div class="item-box">
+					<ul class="item-ul ppt ppt-view-{{kpointId}}">
+
+					</ul>
+					<div class="more ppt-page{{kpointId}}"></div>
+				</div>
+			</div>
+			<!--end PPT-->
+
+			<!--音频-->
+			<div class="layui-tab-item">
+				<div class="item-box">
+					<ul class="item-ul audio audio-view-{{kpointId}}">
+
+					</ul>
+					<div class="more audio-page{{kpointId}}"></div>
+				</div>
+			</div>
+			<!--end 音频-->
+
+			<!--教案-->
+			<div class="layui-tab-item">
+				<div class="item-box">
+					<ul class="item-ul plan plan-view-{{kpointId}}">
+
+					</ul>
+					<div class="more plan-page{{kpointId}}"></div>
+				</div>
+			</div>
+			<!--end 教案-->
+
+			<!--图片-->
+			<div class="layui-tab-item">
+				<div class="item-box">
+					<ul class="item-ul picture picture-view-{{kpointId}}">
+
+					</ul>
+					<div class="more picture-page{{kpointId}}"></div>
+				</div>
+
+			</div>
+			<!--end 图片-->
+
+			<!--常见问题-->
+			<div class="layui-tab-item">
+				<div class="item-box">
+					<ul class="item-ul problem problem-view-{{kpointId}}">
+
+					</ul>
+					<div class="more problem-page{{kpointId}}"></div>
+				</div>
+
+			</div>
+			<!--end 常见问题-->
+		</div>
+	</div>
+	<!--end 资源列表-->
+</div>

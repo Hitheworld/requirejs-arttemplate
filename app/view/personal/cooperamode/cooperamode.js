@@ -18,9 +18,15 @@ define(['template',
 					$(this).attr("class","personal_this")
 				}
 			});
+			function Cooperamode_div_space1(){
+				$(".cooperamode1 .Cooperamode_div:eq(3),.cooperamode1 .Cooperamode_div:eq(7)").css("margin-right","0px")
+			}
+			function Cooperamode_div_space2(){
+				$(".cooperamode2 .Cooperamode_div:eq(3),.cooperamode2 .Cooperamode_div:eq(7)").css("margin-right","0px")
+			}
 			var teacherId =  $(".home-user-name").attr("data-id");
-			var waitCourseData = waitCourse(teacherId,1,6);
-			var passCourseData = passCourse(teacherId,1,6);
+			var waitCourseData = waitCourse(teacherId,1,8);
+			var passCourseData = passCourse(teacherId,1,8);
 
 
 			$("#personal").html(template.compile(cooperamodeTpl)());
@@ -28,10 +34,12 @@ define(['template',
 				waitCourse: waitCourseData,
 				waitData: waitCourseData.resultObject.items
 			}));
+			Cooperamode_div_space1();
 			$("#pageHtml2").html(template.compile(cooperamode2)({
 				passCourse:passCourseData,
 				passData: passCourseData.resultObject.items
 			}));
+			Cooperamode_div_space2();
 			$(".layui-tab-title li").on("click",function(e){
 				var eve = e || window.event;
 				if ($(eve.target).text() == "正在审核的课程"){
@@ -54,11 +62,12 @@ define(['template',
 					skin: '#2cb82c', //配色方案
 					jump: function(obj, first){ //触发分页后的回调
 						if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
-							waitCourseData = waitCourse(teacherId,obj.curr,6);
+							waitCourseData = waitCourse(teacherId,obj.curr,8);
 							$("#pageHtml1").html(template.compile(cooperamode1)({
 								waitCourse: waitCourseData,
 								waitData: waitCourseData.resultObject.items
 							}));
+							Cooperamode_div_space1();
 						}
 					}
 				});
@@ -74,11 +83,12 @@ define(['template',
 					skin: '#2cb82c', //配色方案
 					jump: function(obj, first){ //触发分页后的回调
 						if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
-							passCourseData = passCourse(teacherId,obj.curr,6);
+							passCourseData = passCourse(teacherId,obj.curr,8);
 							$("#pageHtml2").html(template.compile(cooperamode2)({
 								passCourse:passCourseData,
 								passData: passCourseData.resultObject.items
 							}));
+							Cooperamode_div_space2();
 						}
 					}
 				});

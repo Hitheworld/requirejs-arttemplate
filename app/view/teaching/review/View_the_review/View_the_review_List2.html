@@ -1,0 +1,42 @@
+{{if CTP.success}}
+    <div class="markthetests_header">
+        <span>课程名称：{{CVD.course.name}}</span>
+        <span style="margin-left: 50px">班级：{{CVD.squad.squad_name}}</span>
+        <span style="margin-left: 50px">完成人数：<span style="color: #2cc285">{{CVD.finishedNums}}/{{CVD.totalNums}}</span></span>
+    </div>
+    {{if CTPS.length != 0}}
+    <div class="markthetests_content">
+        {{each CTPS as CTPS index}}
+        <div class="View_the_review_Syllabus2_content_dv">
+            <div id="View_the_review_Syllabus2_content_dv_{{index}}">
+
+            </div>
+            <p class="View_the_review_Syllabus2_content_dv_p">
+                        <span class="View_the_review_Syllabus2_content_dv_p_span1">
+                            {{CTPS.NAME}}
+                        </span>
+                        <span class="View_the_review_Syllabus2_content_dv_p_span2" title="{{CTPS.studentNo}}">
+                            学号:{{CTPS.studentNo}}
+                        </span>
+            </p>
+                    <span class="View_the_review_Syllabus2_content_dv_span" title="{{CTPS.lastUpdateTime}}">
+                        {{if CTPS.lastUpdateTime}}
+                        <img src='./app/assets/images/myclass/046.png' alt=''>{{CTPS.lastUpdateTime}}
+                        {{else}}
+                        <img src='./app/assets/images/myclass/046.png' alt=''>00-00-00
+                        {{/if}}
+                    </span>
+        </div>
+        {{/each}}
+    {{else}}
+    </div>
+    <div class='Temporarily_no_data'>
+        <img src='./app/assets/images/myclass/025.png' alt='das'>
+        <p>请选择课程 ~</p>
+    </div>
+    {{/if}}
+{{else}}
+{{CTP.errorMessage}}
+{{/if}}
+
+

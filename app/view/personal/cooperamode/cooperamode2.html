@@ -2,15 +2,25 @@
 {{if passData != ''}}
 {{each passData}}
 <div class="Cooperamode_div">
+    {{if $value.dated}}
+    <div class="Cooperamode_div_yu">已逾期</div>
+    {{else}}
+
+    {{/if}}
     <a href="#/course/del/b/{{$value.course_id}}" target="_blank" data-id="{{$value.course_id}}">
-        <img src="{{$value.photo}}" alt="photo"  onerror="this.src='./app/assets/images/error-user.png'">
-        <p class="Cooperamode_div_p1">{{$value.name}}</p>
-        <p class="Cooperamode_div_p3">查看课程</p>
+        <img src="{{$value.photo}}" alt="photo"  onerror="this.src='./app/assets/images/error-pic.png'">
+        <p class="Cooperamode_div_p1" title="{{$value.name}}">{{$value.name}}</p>
+        <!--<p class="Cooperamode_div_p3">查看课程</p>-->
+        <p class="Cooperamode_div_p4">合作时间：{{$value.begin_time}}</p>
+        <p class="Cooperamode_div_p5">逾期时间：{{$value.end_time}}</p>
     </a>
 </div>
 {{/each}}
 {{else}}
-<div class="course-list-nodata">暂无数据</div>
+<div class="Temporarily_no_data">
+    <img src="./app/assets/images/image1.png" alt="">
+    <p>暂无课程</p>
+</div>
 {{/if}}
 {{else}}
 <div class="error">{{item.errorMessage}}</div>

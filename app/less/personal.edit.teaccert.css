@@ -77,15 +77,19 @@
   position: relative;
   width: 100%;
 }
-.teaccert-lessform-content .teaccert-form-item .teaccert-form-item-box .school-box .school-selete {
+.teaccert-lessform-content .teaccert-form-item .teaccert-form-item-box .school-box .college_name_dv {
   display: none;
+  margin-left: 20px;
   position: absolute;
-  top: 42px;
-  left: 21px;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.teaccert-lessform-content .teaccert-form-item .teaccert-form-item-box .school-box .college_name_dv .school-selete {
   z-index: 9999;
   overflow-y: scroll;
   width: 230px;
-  height: 240px;
+  max-height: 240px;
   font-size: 16px;
   background-color: #fff;
   box-shadow: 0 0 10px #ccc;
@@ -95,16 +99,20 @@
   font-size: 13px;
   color: #333333;
 }
-.teaccert-lessform-content .teaccert-form-item .teaccert-form-item-box .school-box .school-selete li {
+.teaccert-lessform-content .teaccert-form-item .teaccert-form-item-box .school-box .college_name_dv .school-selete li {
   display: block;
   padding: 5px 10px;
   height: 30px;
   line-height: 30px;
   border-bottom: 1px solid #f0f0f0;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.teaccert-lessform-content .teaccert-form-item .teaccert-form-item-box .school-box .school-selete li:hover {
-  color: #2DB871;
+.teaccert-lessform-content .teaccert-form-item .teaccert-form-item-box .school-box .college_name_dv .school-selete li:hover {
+  color: #fff;
+  background-color: #00aa00;
 }
 .teaccert-lessform-content .teaccert-form-item .teaccert-form-item-box .layui-input-block {
   width: 513px;
@@ -235,4 +243,44 @@
 .upload-box .error {
   display: none;
   float: right;
+}
+.college_name_dv {
+  display: none;
+  margin-left: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.college_name_dv .school-selete {
+  z-index: 9999;
+  overflow-y: scroll;
+  width: 230px;
+  max-height: 240px;
+  font-size: 16px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ccc;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#cccccc')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc');
+  z-index: 20;
+  font-size: 13px;
+  color: #333333;
+}
+.college_name_dv .school-selete li {
+  display: block;
+  padding: 5px 10px;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.college_name_dv .school-selete li:hover {
+  color: #fff;
+  background-color: #00aa00;
+}
+#UpLoadFile_hidden {
+  display: none;
 }

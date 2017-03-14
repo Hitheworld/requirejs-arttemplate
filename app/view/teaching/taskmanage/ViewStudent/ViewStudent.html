@@ -1,60 +1,59 @@
 <div class="markthetests">
     <div class="markthetests_header">
-        <span>计算机考试二级Java模拟试题一</span>
-        <span>班级：自动化1班</span>
-        <span>考试时间：2016-10-26 13:00-15:00</span>
+        <span>{{resultObject.homeworkTplName}}</span>
+        <span>班级：{{resultObject.squad.squadName}}</span>
+        <span>练习截止时间：{{resultObject.endTime}}</span>
         <a href="javascript:history.back(-1);">返回</a>
     </div>
     <div class="markthetests_header1">
-        <span>交卷人数：<span>30/28</span></span>
-        <div class="item-box">
-            <label for="markexampapers-peper-difficulty">状态</label>
+        <span>交卷人数：<span>{{resultObject.ykCounts}}/{{resultObject.jjCounts}}</span></span>
+        <div class="item-box" style="margin-left: 20px">
+            <label for="markexampapers-peper-difficulty" style="width: auto;margin-right: 5px">状态</label>
             <select id="markexampapers-peper-difficulty">
-                <option>全部</option>
-                <option>全部</option>
-                <option>全部</option>
-                <option>全部</option>
+                <option value="">全部</option>
+                {{if resultObject.status == 2}}
+                <option value="2">已完成</option>
+                <option value="3">未作答</option>
+                {{else}}
+                <option value="2">已完成</option>
+                <option value="0">未开始</option>
+                <option value="1">作业中</option>
+                {{/if}}
             </select>
         </div>
-        <div class="item-box">
-            <label for="markexampapers-peper-difficulty">分组</label>
-            <select>
-                <option>全部</option>
-                <option>全部</option>
-                <option>全部</option>
-                <option>全部</option>
+        <div class="item-box" style="margin-left: 20px">
+            <label for="markexampapers-peper-difficulty" style="width: auto;margin-right: 5px">分组</label>
+            <select class="ViewStudent_group">
+
             </select>
         </div>
-        <div class="item-box">
-            <input type="text">
+        <div class="item-box" style="margin-right: 15px">
+            <input type="text" placeholder="请输入姓名" class="ViewStudent_input layui-input">
         </div>
         <div class="item-box">
-            <button class="layui-btn">确定</button>
+            <button class="layui-btn ViewStudent_input_button">确定</button>
         </div>
     </div>
     <div id="paperHtml">
-        {{if TestPaperDB.resultObject.lists != '' ||  TestPaperDB.resultObject.lists != undefined}}
-        <div class="markexampapers-cont">
-            <table id="markexampapersTable" class="display" cellspacing="0" width="100%">
-                <thead>
+        <div class="ViewStudent-cont">
+            <table id="ViewStudentTable" class="display myClass_table" cellspacing="0" width="100%">
                 <tr>
-                    <th>试卷名称</th>
-                    <th>难度</th>
-                    <th>关联课程</th>
-                    <th>热度（次）</th>
-                    <th>创建时间</th>
-                    <th>操作</th>
+                    <td>姓名</td>
+                    <td>交练习时间</td>
+                    <td>正确率</td>
+                    <td>分组</td>
+                    <td>状态</td>
+                    <td>操作</td>
                 </tr>
-                </thead>
+                <tbody id="ViewStudentTable_tbody">
+
+                </tbody>
             </table>
         </div>
+        <div>
+            <div id="page">
 
-        {{else}}
-        <!--空文件-->
-        <div class="contnet-dummy">
-            <div class="dummy-file"></div>
+            </div>
         </div>
-        <!--end空文件-->
-        {{/if}}
     </div>
 </div>

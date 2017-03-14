@@ -27,12 +27,12 @@
 		<li class="Change-cont-ul-li">
 			<div class="Change-cont-ul-li-table">
 				<input type="radio" name="subject" value="{{danXuan.id}}" id="danXuan-{{danXuan.id}}" />
-				<label for="danXuan-{{danXuan.id}}">{{danXuan.questionContent}}</label>
+				<label for="danXuan-{{danXuan.id}}" title="{{#danXuan.questionContent}}">{{#danXuan.questionContent}}</label>
 			</div>
 		</li>
 		<!--end试题名称-->
 		<!--知识点-->
-		<li class="Change-table-topic">
+		<li class="Change-table-topic" title="{{danXuan.kpointName}}">
 			{{danXuan.kpointName}}
 		</li>
 		<!--end知识点-->
@@ -92,7 +92,7 @@
 			<li>
 				<div class="pagePaper-content-box">
 					<div class="title">
-						<p>{{danXuan.questionContent}}</p>
+						<p>{{#danXuan.questionContent}}</p>
 					</div>
 					<ul class="title-selete">
 						{{each danXuan.optionsList as optionsList index}}
@@ -105,7 +105,7 @@
 						{{/each}}
 					</ul>
 					<div class="paper-answer">
-						<span class="answer">答案说明:</span><span class="answer-contnet">{{danXuan.solution}}</span>
+						<span class="answer">答案解析:</span><span class="answer-contnet">{{#danXuan.solution}}</span>
 					</div>
 				</div>
 			</li>
@@ -125,14 +125,14 @@
 		<!--试题名称-->
 		<li class="Change-cont-ul-li">
 			<div class="Change-cont-ul-li-table">
-				<input type="radio" name="subject" value="{{duoXuan.id}}" id="duoXuan-{{danXuan.id}}" />
-				<label for="duoXuan-{{danXuan.id}}">{{duoXuan.questionContent}}</label>
+				<input type="radio" name="subject" value="{{duoXuan.id}}" id="duoXuan-{{duoXuan.id}}" />
+				<label for="duoXuan-{{duoXuan.id}}" title="{{#duoXuan.questionContent}}">{{#duoXuan.questionContent}}</label>
 			</div>
 		</li>
 		<!--end试题名称-->
 		<!--知识点-->
-		<li class="Change-table-topic">
-			{{duoXuan.topic}}
+		<li class="Change-table-topic" title="{{duoXuan.kpointName}}">
+			{{duoXuan.kpointName}}
 		</li>
 		<!--end知识点-->
 		<!--题型-->
@@ -191,7 +191,7 @@
 			<li>
 				<div class="pagePaper-content-box">
 					<div class="title">
-						<p>{{duoXuan.questionContent}}</p>
+						<p>{{#duoXuan.questionContent}}</p>
 					</div>
 					<ul class="title-selete">
 						{{each duoXuan.optionsList as optionsList index}}
@@ -204,7 +204,7 @@
 						{{/each}}
 					</ul>
 					<div class="paper-answer">
-						<span class="answer">答案说明:</span><span class="answer-contnet">{{duoXuan.answer}}</span>
+						<span class="answer">答案解析:</span><span class="answer-contnet">{{#duoXuan.solution}}</span>
 					</div>
 				</div>
 			</li>
@@ -227,12 +227,12 @@
 		<li class="Change-cont-ul-li">
 			<div class="Change-cont-ul-li-table">
 				<input type="radio" name="subject"  value="{{panDuan.id}}" id="panDuan-{{panDuan.id}}" />
-				<label for="panDuan-{{panDuan.id}}">{{panDuan.questionContent}}</label>
+				<label for="panDuan-{{panDuan.id}}" title="{{#panDuan.questionContent}}">{{#panDuan.questionContent}}</label>
 			</div>
 		</li>
 		<!--end试题名称-->
 		<!--知识点-->
-		<li class="Change-table-topic">
+		<li class="Change-table-topic" title="{{panDuan.kpointName}}">
 			{{panDuan.kpointName}}
 		</li>
 		<!--end知识点-->
@@ -292,7 +292,7 @@
 			<li>
 				<div class="pagePaper-content-box">
 					<div class="title">
-						<p>{{panDuan.questionContent}}</p>
+						<p>{{#panDuan.questionContent}}</p>
 					</div>
 					<ul class="title-selete">
 						<li>
@@ -309,7 +309,7 @@
 						</li>
 					</ul>
 					<div class="paper-answer">
-						<span class="answer">答案说明:</span><span class="answer-contnet">{{panDuan.answer}}</span>
+						<span class="answer">答案解析:</span><span class="answer-contnet">{{#panDuan.solution}}</span>
 					</div>
 				</div>
 			</li>
@@ -333,12 +333,12 @@
 		<li class="Change-cont-ul-li">
 			<div class="Change-cont-ul-li-table">
 				<input type="radio" name="subject"  value="{{tianKong.id}}" id="tianKong-{{tianKong.id}}" />
-				<label for="tianKong-{{tianKong.id}}">{{#tianKong.questionContent}}</label>
+				<label for="tianKong-{{tianKong.id}}" title="{{#tianKong.questionContent}}">{{#tianKong.questionContent}}</label>
 			</div>
 		</li>
 		<!--end试题名称-->
 		<!--知识点-->
-		<li class="Change-table-topic">
+		<li class="Change-table-topic" title="{{tianKong.kpointName}}">
 			{{tianKong.kpointName}}
 		</li>
 		<!--end知识点-->
@@ -401,7 +401,7 @@
 						<p>{{#tianKong.questionContent}}</p>
 					</div>
 					<div class="paper-answer">
-						<span class="answer">答案说明:</span><span class="answer-contnet">{{tianKong.answer}}</span>
+						<span class="answer">答案解析:</span><span class="answer-contnet">{{#tianKong.solution}}</span>
 					</div>
 				</div>
 			</li>
@@ -423,12 +423,12 @@
 		<li class="Change-cont-ul-li">
 			<div class="Change-cont-ul-li-table">
 				<input type="radio" name="subject"  value="{{jianDa.id}}" id="jianDa-{{jianDa.id}}" />
-				<label for="jianDa-{{jianDa.id}}">{{jianDa.questionContent}}</label>
+				<label for="jianDa-{{jianDa.id}}" title="{{#jianDa.questionContent}}">{{#jianDa.questionContent}}</label>
 			</div>
 		</li>
 		<!--end试题名称-->
 		<!--知识点-->
-		<li class="Change-table-topic">
+		<li class="Change-table-topic" title="{{jianDa.kpointName}}">
 			{{jianDa.kpointName}}
 		</li>
 		<!--end知识点-->
@@ -488,7 +488,7 @@
 			<li>
 				<div class="pagePaper-content-box">
 					<div class="title">
-						<p>{{jianDa.questionContent}}</p>
+						<p>{{#jianDa.questionContent}}</p>
 					</div>
 					<ul class="title-selete">
 						<li>
@@ -498,7 +498,7 @@
 						</li>
 					</ul>
 					<div class="paper-answer">
-						<span class="answer">答案说明:</span><span class="answer-contnet">{{jianDa.solution}}</span>
+						<span class="answer">答案解析:</span><span class="answer-contnet">{{#jianDa.solution}}</span>
 					</div>
 				</div>
 			</li>

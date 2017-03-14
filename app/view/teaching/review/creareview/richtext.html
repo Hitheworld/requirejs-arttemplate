@@ -1,0 +1,41 @@
+<!--常见问题-->
+{{if problems.success}}
+	{{if problems.resultObject.items}}
+		<div class="richtext">
+			<div class="richtext-box">
+				<ul>
+					<li>
+						<div class="richtext-cont">
+							<div class="title">
+								<h3>【名称】</h3>
+							</div>
+							<div class="cont">
+								<p>{{problems.resultObject.items[indexRic].title}}</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="richtext-cont">
+							<div class="title">
+								<h3>【问题描述】</h3>
+							</div>
+							<div class="cont">
+								<p>{{#problems.resultObject.items[indexRic].description}}</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="richtext-cont">
+							<div class="title">
+								<h3>【答案解析】</h3>
+							</div>
+							<div class="cont">
+								<p>{{#problems.resultObject.items[indexRic].analysis}}</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	{{/if}}
+{{/if}}

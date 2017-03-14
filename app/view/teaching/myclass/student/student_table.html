@@ -13,13 +13,14 @@
     <td>{{i.studentNo}}</td>
     <td>{{i.group}}</td>
     <td>{{i.mobile}}</td>
-    <td>{{i.studentNo}}</td>
+    <td>{{i.last_time}}</td>
     <td>
         {{if resultObject.squad.status}}
-        <button class="layui-btn Delete_the_student" data-id="{{i.id}}" data-name="{{i.login_name}}">删除</button>
+        <a class="Delete_the_student" title="删除" data-id="{{i.id}}" data-name="{{i.login_name}}"><img src='./app/assets/images/myclass/008.png' alt=''></a>
         {{else}}
-        <button class="layui-btn compile_student" data-id="{{i.id}}">编辑信息</button>
-        <button class="layui-btn Delete_the_student" data-id="{{i.id}}" data-name="{{i.login_name}}">删除</button>
+        <a class="compile_student" title="编辑信息" data-id="{{i.id}}"><img src='./app/assets/images/myclass/002.png' alt=''></a>
+        <a class="Reset_Password" title="重置密码" data-id="{{i.login_name}}" href="javascript:void (0)"><img src='./app/assets/images/myclass/035.png' alt=''></a>
+        <a class="Delete_the_student" title="删除" data-id="{{i.id}}" data-name="{{i.login_name}}"><img src='./app/assets/images/myclass/008.png' alt=''></a>
         {{/if}}
     </td>
 </tr>

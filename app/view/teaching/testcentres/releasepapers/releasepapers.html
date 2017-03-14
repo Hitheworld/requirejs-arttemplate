@@ -7,21 +7,59 @@
 		<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
 			{{if NotCarried != "" || HistoryExam != ""}}
 			<ul class="layui-tab-title">
-				<li class="layui-this">未结束的考试</li>
-				<li>历史考试</li>
+				<li class="notOver-tab layui-this" onclick="window.location.hash='#/teaching/testcentres/releasepapers/not';">未结束的考试</li>
+				<li class="history-tab"  onclick="window.location.hash='#/teaching/testcentres/releasepapers/history';">历史考试</li>
 			</ul>
 			<div class="layui-tab-content">
-				<div class="layui-tab-item layui-show">
+				<div class="layui-tab-item notOver-cont layui-show">
 					<!--未结束的考试-->
 					<div class="Not-carried-teaching" id="NotCarried"></div>
 					<!--end/未结束的考试-->
 					<div id="page1"></div>
 				</div>
-				<div class="layui-tab-item">
+				<div class="layui-tab-item history-cont">
+					{{if HistoryExam != ""}}
 					<!--历史考试-->
+						<ul class="completedHomework">
+							<li>
+								<div class="item-box">
+									<label for="HistoryExamType">状态：</label>
+									<select id="HistoryExamType" name="completedHomeworkClass">
+										<option selected="" value="">全部</option>
+										<option value="2">待批阅</option>
+										<option value="3">待发布</option>
+										<option value="4">已发布</option>
+									</select>
+								</div>
+							</li>
+							<li>
+								<div class="item-box">
+									<label for="HistoryExamClass">班级：</label>
+									<select id="HistoryExamClass" name="completedHomeworkClass">
+										<option value="">全部</option>
+										{{if findClass.success}}
+										{{if findClass.resultObject}}
+										{{each findClass.resultObject as Class i}}
+										<option value="{{Class.id}}">{{Class.squad_name}}</option>
+										{{/each}}
+										{{else}}
+										<option value="">暂无数据</option>
+										{{/if}}
+										{{else}}
+										{{findClass.errorMessage}}
+										{{/if}}
+									</select>
+								</div>
+							</li>
+						</ul>
 					<div class="HistoryExam-teaching" id="HistoryExam"></div>
 					<!--end/历史考试-->
 					<div id="page2"></div>
+					{{else}}
+						<div class="no-data">
+							<img src="./app/assets/images/emptyData/releasepapers-icon.png" />
+						</div>
+					{{/if}}
 				</div>
 			</div>
 			{{else}}

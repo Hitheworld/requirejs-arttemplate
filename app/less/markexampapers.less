@@ -1,11 +1,35 @@
 .myClass{
   background-color: #fff;
   padding: 30px;
+  .layui-tab{
+    .markexampapers_title{
+      //padding-left: 0;
+      height: 59px;
+      //background: #FFFFFF;
+      //overflow: hidden;
+      li{
+        height: 59px;
+        line-height: 59px;
+        //display: block;
+        //float: left;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .layui-this{
+        &:after{
+          height: 59px;
+        }
+        a{
+          color: #009688;
+        }
+      }
+    }
+  }
   .markexampapers-contnet,.layui-tab-content {
      .markexampapers-header {
        padding-bottom: 30px;
        padding-top: 30px;
-       border-bottom: 1px solid #f0f0f0;
+       //border-bottom: 1px solid #f0f0f0;
        ul {
          overflow: hidden;
          li {
@@ -31,6 +55,7 @@
        }
      }
      .markexampapers-cont {
+
 
 
        .dataTables_wrapper {
@@ -75,31 +100,25 @@ button{
   }
 }
 
-.myClass_table {
-  margin-top: 10px;
-  margin-bottom: 40px;
-  width: 100%;
-  border: 1px solid #e6e6e6;
-  text-align: center;
-  th {
-    color: #39b674;
-    border: 1px solid #e6e6e6;
-  }
-  tr {
-    height: 39px;
-    td:first-child{
-      text-align: left;
-      text-indent: 15px;
-      input{
-        float: left;
-        margin-left: 15px;
-      }
+
+  #markexampapersTable_sort{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 10px;
+    height: 16px;
+    .fa-caret-up{
+      position: absolute;
+      top:0;
+      left:0;
     }
-    td{
-      border: 1px solid #e6e6e6;
+    .fa-caret-down{
+      position: absolute;
+      top: 7px;
+      left: 0;
     }
   }
-}
+
 
 
 //空文件夹
@@ -118,6 +137,7 @@ button{
 .markthetests {
   background-color: #fff;
   padding: 30px;
+  min-height: 520px;
   .markthetests_header {
     height: 38px;
     border-bottom: 1px solid #f0f0f0;
@@ -143,7 +163,7 @@ button{
   .markthetests_header1{
     margin: 30px auto;
     height: 38px;
-    button{
+    a{
       height: 38px;
       width: 158px;
       background-color: #36b774;
@@ -155,6 +175,10 @@ button{
     .item-box {
       float: left;
       height: 38px;
+      .ViewStudent_input{
+        margin-left: 10px;
+        margin-right: 10px;
+      }
       label {
         float: left;
         display: block;
@@ -181,4 +205,15 @@ button{
       span{color: #2592bb;float: none}
     }
   }
+}
+
+.downloadDoc{
+  padding-left: 30px;
+  padding-right: 30px;
+  .downloadDoc_table_val{
+
+  }
+}
+#page1,#page2 {
+  text-align: center;
 }

@@ -1,4 +1,30 @@
 @import "common.less";
+.loginBg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: #f6f6f6;
+  overflow: hidden;
+  min-height: 980px;
+  .login-body {
+    position: absolute;
+    left: 50%;
+    width: 1920px;
+    height:100%;
+    margin: 0 auto;
+    .login-box {
+      position: absolute;
+      left: -960px;
+      width: 100%;
+      height:100%;
+    }
+  }
+
+}
 .myRegister{
   width: 100%;
   overflow: hidden;
@@ -8,7 +34,15 @@
   left: 0px;
   right: 0px;
   background: #fff;
-  background: url("../assets/images/login.jpg") no-repeat;
+  background: url("../assets/images/login.png") no-repeat;
+  .home_a{
+    position: absolute;
+    left: 860px;
+    top: 105px;
+    width: 200px;
+    opacity: 0.5;
+    height: 45px;
+  }
   .popup_login{
     width: 490px;
     min-height: 465px;
@@ -117,6 +151,25 @@
           }
         }
       }
+    }
+  }
+}
+.registration_protocol{
+  p{
+    font-size: 14px;
+    color: #333;
+  }
+  h2{
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 25px 0;
+  }
+  .registration_protocol_p{
+    margin-top: 12px;
+    .indent{
+      display: block;
+      margin-top: 5px;
     }
   }
 }

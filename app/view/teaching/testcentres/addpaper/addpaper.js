@@ -41,7 +41,6 @@ define(['template',
 		'jquery.validate',
 		'jquery.validate.zh',
 		'jquery.form',
-		'jquery.fs.boxer',
 		'css!font-awesome',
 		'css!cssUrl/teaching.testcentres.organizepaper.addpaper',
 		'css!cssUrl/tree.checkbox'
@@ -63,6 +62,34 @@ define(['template',
 			$(".home-header .home-nav .home-nav-li a").removeClass("active");
 			$(".home-header .home-nav .home-nav-li a.teaching").addClass("active");
 
+			//设置头部导航
+			$(".testcentres-tab-title li").removeClass("testcentres-this");
+			$(".testcentres-tab-title li.organizepaper").addClass("testcentres-this");
+
+
+			//判断图片是否存在
+			template.helper('isHasImg', function (data, format) {
+				format = data.replace(/<.*?>/ig,function (tag) {
+					if (tag.indexOf('<img ') === 0) {
+						return '';
+					} else {
+						return '';
+					}
+				});
+				return format;
+			});
+
+			//过滤图片信息
+			template.helper('noImg', function (data, format) {
+				format = data.replace(/<.*?>/ig,function (tag) {
+					if (tag.indexOf('<img ') === 0) {
+						return '';
+					} else {
+						return '';
+					}
+				});
+				return format;
+			});
 
 			/**
 			 * 数据源
@@ -102,25 +129,12 @@ define(['template',
 				new FormPageClass().zTreeDom(courseChapterPointTreeDB);
 			});
 
-
-			//获取page1的高度
-			var TopHeight = (90 +57+80);
-			var page1Height = $(".page1").height();
-			var page2Height = $(".page2").height();
-			var page3Height = $(".page3").height();
-			var page1height = page1Height + TopHeight;
-			var page2height = page2Height + TopHeight;
-			var page3height = page3Height + TopHeight;
-			//初始化
-			//$(".addpaper").height(page1height+"px");
-			console.log("page1",page1height,page2height,page3height )
-
 			//tab切换
 			new FormPageClass().scrollable();
 
 
 			function FormPageClass(){
-
+				var seftFormThis = this;
 				/**
 				 *  初始化加载页面
 				 */
@@ -129,6 +143,18 @@ define(['template',
 						findTeacherCoursesDB: findTeacherCoursesDB,
 						findExamBasicDB: FindExamBasicInfoDB
 					}));
+
+					// 获取试卷名称 -- 判断是否用重名
+					$("#papername").on("blur", function (e) {
+						var TmpName = $('#papername').val();
+						var TmpNameDB = isExamTmpName(TmpName, exampPaperId || '');
+						if( TmpNameDB.resultObject.isHas){
+							$("#isNamePaper").html('试卷名称重复!').show();
+						}else {
+							$("#isNamePaper").hide();
+						}
+					});
+
 				};
 
 
@@ -141,11 +167,27 @@ define(['template',
 							$("#status li").removeClass("active").eq(i).addClass("active");
 						},
 						onBeforeSeek:function(event,i){
-							console.log(event)
-							console.log(i)
 							if(i==1){
-								//$(".addpaper").height(page2height+"px");
+
 								$(".state").addClass("ac");
+
+								// 返回按钮隐藏掉
+								$(".return").hide();
+
+								// 获取试卷名称 -- 判断是否用重名
+								var TmpName = $('#papername').val();
+								if( pageType == undefined ){
+									var id = $("#exampaperId").val();
+									var TmpNameDB = isExamTmpName(TmpName ,id || '');
+								};
+								if( TmpNameDB.resultObject.isHas){
+									// 设置每一屏的高度
+									$('.addpaper').height('1273px');
+									$('.page1').height('1215px');
+									return false;
+								}
+
+
 								/**
 								 * Page1 各个表单的数据
 								 */
@@ -154,43 +196,100 @@ define(['template',
 									difficulty = $.trim($("#papertraits").val()),
 									totalScore = $.trim($("#testScores").val());
 								if (paperName != '' && duration != '' && difficulty != '' && totalScore != '' && courseId!= ''){
-									return true;
+									var ki = seftFormThis.getZTreeName();
+									if( pageType != 'edit' ) {
+										if(ki){
+											return true;
+										};
+									}else {
+										return true;
+									}
+									return false;
 								}else {
 									return false;
-								}
+								};
+								return false;
 							}
 							if (i==2) {
-								//$(".addpaper").height(page3height+"px");
+								$(".addpaper").height("auto");
 								$(".state").addClass("ac");
 								$(".border").addClass("ac");
-								var daiXuanQuestions = $.trim($("#daiXuanQuestions").val()),
-									daiXuanPortion = $.trim($("#daiXuanPortion").val()),
-									duoXuanQuestions = $.trim($("#duoXuanQuestions").val()),
-									duoXuanPortion = $.trim($("#duoXuanPortion").val()),
-									panDuanQuestions = $.trim($("#panDuanQuestions").val()),
-									panDuanPortion = $.trim($("#panDuanPortion").val()),
-									tianKongQuestions = $.trim($("#tianKongQuestions").val()),
-									tianKongPortion = $.trim($("#tianKongPortion").val()),
-									jianDaQuestions = $.trim($("#jianDaQuestions").val()),
-									jianDaPortion = $.trim($("#jianDaPortion").val());
 
-								console.log("第二个数据是:",daiXuanQuestions,daiXuanPortion,
-									duoXuanQuestions,duoXuanPortion,
-									panDuanQuestions,panDuanPortion,
-									tianKongQuestions, tianKongPortion,
-									jianDaQuestions,jianDaPortion
-								)
+								// 返回按钮隐藏掉
+								$(".return").hide();
 
-								if (daiXuanQuestions != '' && daiXuanPortion != ''
-									|| duoXuanQuestions != '' && duoXuanPortion != ''
-									|| panDuanQuestions!= '' && panDuanPortion != ''
-									|| tianKongQuestions!= '' && tianKongPortion != ''
-									|| jianDaQuestions!= '' && jianDaPortion != ''
-								){
+								//获取未分配的分数
+								var residualtalScore = $("#residualtalScore").text();
+								if( residualtalScore != 0 ){
+									//禁止下一步
+									if( residualtalScore <= -1 ){
+										layer.alert("未分配的分数不能为负数");
+									}else {
+										layer.alert("还有"+residualtalScore+"分数未分配！");
+									}
+									return false;
+								}else {
+									$("#residualtalScore").html("0");
+								}
+
+								//判断是否进行下一步来生成试卷
+								var validNums = 0;
+								var inValidNums = 0;
+								$('.questionSet').each(function(i,n){
+									var firstInput = $(this).find("input:first");
+									var secondInput = $(this).find("input:last");
+									var  fValid = $.trim(firstInput.val());
+									var  sValid = $.trim(secondInput.val());
+									if(fValid != '' && sValid != ''){
+										validNums ++;
+									}
+									if( (fValid!='' && sValid == '') || (fValid=='' && sValid != '') ){
+										inValidNums++;
+									}
+								});
+								if(validNums > 0 && inValidNums == 0){
+									//继续下一步
+									//if(pageType == 'edit'){
+										//可用题目数
+										var daiXuanUsableNum = $("#daiXuanUsable").text();
+										var duoXuanUsableNum = $("#duoXuanUsable").text();
+										var panDuanUsableNum = $("#panDuanUsable").text();
+										var tianKongUsableNum = $("#tianKongUsable").text();
+										var jianDaUsableNum = $("#jianDaUsable").text();
+
+										//修改时的数据
+										var daiXuanNum = $("#daiXuanQuestions").val();
+										var duoXuanNum = $("#duoXuanQuestions").val();
+										var panDuanNum = $("#panDuanQuestions").val();
+										var tianKongNum = $("#tianKongQuestions").val();
+										var jianDaNum = $("#jianDaQuestions").val();
+										if( Number(daiXuanUsableNum) < Number(daiXuanNum) ){
+											layer.alert("请修改对应的参数值，再进行下一步!");
+											return false;
+										}else if( Number(duoXuanUsableNum) < Number(duoXuanNum) ){
+											layer.alert("请修改对应的参数值，再进行下一步!");
+											return false;
+										}else if( Number(panDuanUsableNum) < Number(panDuanNum) ){
+											layer.alert("请修改对应的参数值，再进行下一步!");
+											return false;
+										}else if( Number(tianKongUsableNum) < Number(tianKongNum) ){
+											layer.alert("请修改对应的参数值，再进行下一步!");
+											return false;
+										}else if( Number(jianDaUsableNum) < Number(jianDaNum) ){
+											layer.alert("请修改对应的参数值，再进行下一步!");
+											return false;
+										}else {
+											return true;
+										}
+									//}
+
 									return true;
 								}else {
+									layer.alert('没有填写完数据');
 									return false;
 								}
+								return false;
+
 							}
 							if (i==3) {
 								$(".state").addClass("ac");
@@ -211,9 +310,10 @@ define(['template',
 				 */
 				this.getZTreeName = function(){
 					var treeObj = $.fn.zTree.getZTreeObj("tree-combined"),
-						nodes = treeObj.getCheckedNodes(true),
-						v = '';
-					var kp = '';
+						nodes = treeObj.getCheckedNodes(true);
+					exam_range = [];
+					kpointIds = [];
+					//var kp = '';
 					for(var i = 0; i < nodes.length; i++) {
 						//v += nodes[i].name + ",";
 						//获取kpointIds名字
@@ -223,7 +323,25 @@ define(['template',
 					}
 					kpointIds = kpointIds.toString();
 					exam_range = exam_range.toString();
-					console.log(exam_range)
+					//console.log(exam_range);
+
+					//判断是否选中了
+					for(var node in treeObj.transformToArray(nodes)){ //转换成数组
+						var checked = node.checked; //检查每一个节点的选中状态
+						console.log(checked + "是否选中")
+						if(checked){
+							//未选中
+							console.log("未选中")
+							return false;
+							//result =result+"1 ";
+						}else{
+							//选中了
+							console.log("选中了")
+							return true;
+							//result=result+"0 ";
+						}
+					};
+
 				};
 
 
@@ -265,10 +383,11 @@ define(['template',
 
 				};
 
+				var saveDB = "";
 				/**
 				 * page1 表单检验
 				 */
-				this.page1ValidataFun = function(){
+				this.page1ValidataFun = function(exampaperId ,MxamPaperType){
 					$("#page1-form").validate({
 						rules : {
 							papername : {
@@ -296,523 +415,494 @@ define(['template',
 							testScores : {required : '请输入试卷分数'},
 							paperselete : {required : '请选择选择课程'}
 						},
-						errorElement : "p"
-					});
-				};
+						errorElement : "p",
+						submitHandler: function(){
 
-				/***
-				 * pgae1----表单提交
-				 *
-				 *  MxamPaperType:　　bxg/examPaper/makeExamPaper　接口状态,新增 type=add,修改 type=update
-				 */
-				this.page1SaveFun = function(exampaperId ,MxamPaperType ){
-					var saveDB;
-					var totalScore = 0;
-					$('#page1-form').on("submit",function() {
-						/**
-						 * Page1 各个表单的数据
-						 */
-						var paperName = $("#papername").val(),
-							duration = $("#paperwhenlong").val(),
-							difficulty = $("#papertraits").val();
-						totalScore = $("#testScores").val();
-						console.log("kpointIds值是:",kpointIds);
-						console.log("考试名称",paperName,"，考试时长:",duration,"，考试难度:",difficulty,"，考试总分:",totalScore,"，课程ID:",courseId)
-						if (paperName != '' && duration != '' && difficulty != '' && totalScore != '' && courseId != ''){
-
-							saveDB = Page1saveExamPaperBasicInfo(exampaperId,courseId,difficulty,duration,kpointIds,exam_range,paperName,totalScore,login_name);
-							if(saveDB.success){
-								if(saveDB != undefined ){
-									//提示
-									if(saveDB.resultObject.msg != undefined ) {
-										layer.alert(saveDB.resultObject.msg || "服务器出错！");
-									};
-
-									//保存page1后对可用题数进行展示
-									var daiXuanUsable = saveDB.resultObject.danxuan, duoXuanUsable = saveDB.resultObject.duoxuan,
-										panDuanUsable = saveDB.resultObject.panduan, tianKongUsable = saveDB.resultObject.tiankong,
-										jianDaUsable = saveDB.resultObject.jianda;
-									$("#daiXuanUsable").html(daiXuanUsable);
-									$("#duoXuanUsable").html(duoXuanUsable);
-									$("#panDuanUsable").html(panDuanUsable);
-									$("#tianKongUsable").html(tianKongUsable);
-									$("#jianDaUsable").html(jianDaUsable);
-
-									if(pageType == 'edit'){
-										//编辑时要显示的数据
-										var daiXuanQuestions = saveDB.resultObject.danxuanType.questionNum,
-											daiXuanPortion = saveDB.resultObject.danxuanType.score,
-											daiXuanTotalScore = saveDB.resultObject.danxuanType.totalScore,
-
-											duoXuanQuestions = saveDB.resultObject.duoxuanType.questionNum,
-											duoXuanPortion = saveDB.resultObject.duoxuanType.score,
-											duoXuanTotalScore = saveDB.resultObject.duoxuanType.totalScore,
-
-											panDuanQuestions = saveDB.resultObject.panduanType.questionNum,
-											panDuanPortion = saveDB.resultObject.panduanType.score,
-											panDuanTotalScore = saveDB.resultObject.panduanType.totalScore,
-
-											tianKongQuestions = saveDB.resultObject.tiankongType.questionNum,
-											tianKongPortion = saveDB.resultObject.tiankongType.score,
-											tianKongTotalScore = saveDB.resultObject.tiankongType.totalScore,
-
-											jianDaQuestions = saveDB.resultObject.jiandaType.questionNum,
-											jianDaPortion = saveDB.resultObject.jiandaType.score,
-											jianDaTotalScore = saveDB.resultObject.jiandaType.totalScore;
-
-										$("#daiXuanQuestions").val(daiXuanQuestions);
-										$("#daiXuanPortion").val(daiXuanPortion);
-										$("#daiXuanTotalScore").html("共"+daiXuanTotalScore+"分");
-
-										$("#duoXuanQuestions").val(duoXuanQuestions);
-										$("#duoXuanPortion").val(duoXuanPortion);
-										$("#duoXuanTotalScore").html("共"+duoXuanTotalScore+"分");
-
-										$("#panDuanQuestions").val(panDuanQuestions);
-										$("#panDuanPortion").val(panDuanPortion);
-										$("#panDuanTotalScore").html("共"+panDuanTotalScore+"分");
-
-										$("#tianKongQuestions").val(tianKongQuestions);
-										$("#tianKongPortion").val(tianKongPortion);
-										$("#tianKongTotalScore").html("共"+tianKongTotalScore+"分");
-
-										$("#jianDaQuestions").val(jianDaQuestions);
-										$("#jianDaPortion").val(jianDaPortion);
-										$("#jianDaTotalScore").html("共"+jianDaTotalScore+"分");
-									}
-
-									/**
-									 * 表单2--检验
-									 */
-									$("#page2-form").validate({
-										rules : {
-											daiXuanQuestions : {
-												digits: true,
-												max: daiXuanUsable
-											},
-											daiXuanPortion : {digits: true},
-											duoXuanQuestions : {
-												digits: true,
-												max: duoXuanUsable
-											},
-											duoXuanPortion : {digits: true},
-											panDuanQuestions : {
-												digits: true,
-												max: panDuanUsable
-											},
-											panDuanPortion : {digits: true},
-											tianKongQuestions : {
-												digits: true,
-												max: tianKongUsable
-											},
-											tianKongPortion : {digits: true},
-											jianDaQuestions : {
-												digits: true,
-												max: jianDaUsable
-											},
-											jianDaPortion : {digits: true}
-										},
-										messages : {
-											daiXuanQuestions : {
-												required : '请输入题数',
-												max: "不能大于可用题数"
-											},
-											daiXuanPortion : {required : '请输入分数'},
-											duoXuanQuestions : {
-												required : '请输入题数',
-												max: "不能大于可用题数"
-											},
-											duoXuanPortion : {required : '请输入分数'},
-											panDuanQuestions : {
-												required : '请输入题数',
-												max: "不能大于可用题数"
-											},
-											panDuanPortion : {required : '请输入分数'},
-											tianKongQuestions : {
-												required : '请输入题数',
-												max: "不能大于可用题数"
-											},
-											tianKongPortion : {required : '请输入分数'},
-											jianDaQuestions : {
-												required : '请输入题数',
-												max: "不能大于可用题数"
-											},
-											jianDaPortion : {required : '请输入分数'},
-										},
-										errorElement : "p"
-									});
-									$("#page2-form").validate({
-										rules : {
-											daiXuanQuestions : {max: true},
-											daiXuanPortion : {max: true},
-											duoXuanQuestions : {max: true},
-											duoXuanPortion : {max: true},
-											panDuanQuestions : {max: true},
-											panDuanPortion : {max: true},
-											tianKongQuestions : {max: true},
-											tianKongPortion : {max: true},
-											jianDaQuestions : {max: true},
-											jianDaPortion : {max: true}
-										},
-										errorElement : "p"
-									});
-									//计算剩余分数;
-									var residual = 0;
-									//计算剩余分数--初始化;
-									var residualtalScore = $("#residualtalScore").html("剩余"+totalScore+"分未分配");
-									//page2---计算总题数与总分数
-									$("#daiXuanQuestions,#daiXuanPortion,#duoXuanQuestions,#duoXuanPortion,#panDuanQuestions,#panDuanPortion,#tianKongQuestions,#tianKongPortion,#jianDaQuestions,#jianDaPortion").on('keyup', function(){
-
-										var daiXuanQuestions = $.trim($("#daiXuanQuestions").val()) || 0,
-											daiXuanPortion = $.trim($("#daiXuanPortion").val()) || 0,
-											duoXuanQuestions = $.trim($("#duoXuanQuestions").val()) || 0,
-											duoXuanPortion = $.trim($("#duoXuanPortion").val()) || 0,
-											panDuanQuestions = $.trim($("#panDuanQuestions").val()) || 0,
-											panDuanPortion = $.trim($("#panDuanPortion").val()) || 0,
-											tianKongQuestions = $.trim($("#tianKongQuestions").val()) || 0,
-											tianKongPortion = $.trim($("#tianKongPortion").val()) || 0,
-											jianDaQuestions = $.trim($("#jianDaQuestions").val()) || 0,
-											jianDaPortion = $.trim($("#jianDaPortion").val()) || 0;
-
-
-										residual = Number(totalScore- (daiXuanQuestions*daiXuanPortion) - (duoXuanQuestions*duoXuanPortion) -
-											(panDuanQuestions*panDuanPortion) - (tianKongQuestions*tianKongPortion) - (jianDaQuestions*jianDaPortion));
-										//剩余分数显示到页面上
-										residualtalScore = $("#residualtalScore").html("剩余"+residual+"分未分配");
-
-										//总题数
-										var totalQuestions = 0;
-										if(isNaN(Number(daiXuanQuestions)+
-												Number(duoXuanQuestions)+
-												Number(panDuanQuestions)+
-												Number(tianKongQuestions)+
-												Number(jianDaQuestions))){
-											return false;
-										}else {
-											totalQuestions =Number(daiXuanQuestions)+
-												Number(duoXuanQuestions)+
-												Number(panDuanQuestions)+
-												Number(tianKongQuestions)+
-												Number(jianDaQuestions);
-											$("#totalQuestions").html("总计"+totalQuestions+"题");
-										};
-										//总分数
-										var totalPortion = 0;
-										if(isNaN(Number(daiXuanPortion)
-												+Number(duoXuanPortion)
-												+Number(panDuanPortion)
-												+Number(tianKongPortion)
-												+Number(jianDaPortion))){
-											return false;
-										}else {
-											totalPortion = Number(((daiXuanQuestions*daiXuanPortion)+(duoXuanQuestions*duoXuanPortion)
-												+(panDuanQuestions*panDuanPortion)+(tianKongQuestions*tianKongPortion)+(jianDaQuestions*jianDaPortion)
-											));
-											$("#totalPortion").html("共"+totalPortion+"分");
-										};
-
-										//计算每个题型的总分数
-										var daiXuanTotalScore = 0, duoXuanTotalScore = 0, panDuanTotalScore = 0, tianKongTotalScore = 0, jianDaTotalScore = 0;
-										if(isNaN(Number(daiXuanPortion)
-												+Number(duoXuanPortion)
-												+Number(panDuanPortion)
-												+Number(tianKongPortion)
-												+Number(jianDaPortion)
-												+Number(daiXuanQuestions)
-												+Number(duoXuanQuestions)
-												+Number(panDuanQuestions)
-												+Number(tianKongQuestions)
-												+Number(jianDaQuestions)
-											)){
-											return false;
-										}else {
-											daiXuanTotalScore = Number(daiXuanPortion)* Number(daiXuanQuestions),
-												duoXuanTotalScore = Number(duoXuanPortion)* Number(duoXuanQuestions),
-												panDuanTotalScore = Number(panDuanPortion)* Number(panDuanQuestions),
-												tianKongTotalScore = Number(tianKongPortion)* Number(tianKongQuestions),
-												jianDaTotalScore = Number(jianDaPortion)* Number(jianDaQuestions);
-											$("#daiXuanTotalScore").html("共"+daiXuanTotalScore+"分");
-											$("#duoXuanTotalScore").html("共"+duoXuanTotalScore+"分");
-											$("#panDuanTotalScore").html("共"+panDuanTotalScore+"分");
-											$("#tianKongTotalScore").html("共"+tianKongTotalScore+"分");
-											$("#jianDaTotalScore").html("共"+jianDaTotalScore+"分");
-										};
-									});
-								}
-							}else {
-								layer.alert(saveDB.errorMessage  || "服务器出错!");
-								return false;
+							// 获取试卷名称 -- 判断是否用重名
+							var TmpName = $('#papername').val();
+							var TmpNameDB = isExamTmpName(TmpName, exampPaperId || '');
+							if( !TmpNameDB.resultObject.isHas){
+								$(".addpaper").height("710px");
 							}
 
-							$('#page2-form').on("submit",function() {
-								//page2提交
-								var daiXuanQuestions = $.trim($("#daiXuanQuestions").val()) || 0,
-									daiXuanPortion = $.trim($("#daiXuanPortion").val()) || 0,
-									duoXuanQuestions = $.trim($("#duoXuanQuestions").val()) || 0,
-									duoXuanPortion = $.trim($("#duoXuanPortion").val()) || 0,
-									panDuanQuestions = $.trim($("#panDuanQuestions").val()) || 0,
-									panDuanPortion = $.trim($("#panDuanPortion").val()) || 0,
-									tianKongQuestions = $.trim($("#tianKongQuestions").val()) || 0,
-									tianKongPortion = $.trim($("#tianKongPortion").val()) || 0,
-									jianDaQuestions = $.trim($("#jianDaQuestions").val()) || 0,
-									jianDaPortion = $.trim($("#jianDaPortion").val()) || 0;
 
+							var totalScore = 0;
+							/**
+							 * Page1 各个表单的数据
+							 */
+							var paperName = $("#papername").val(),
+								duration = $("#paperwhenlong").val(),
+								difficulty = $("#papertraits").val();
+							totalScore = $("#testScores").val();
+							console.log("kpointIds值是:",kpointIds);
+							console.log("考试名称",paperName,"，考试时长:",duration,"，考试难度:",difficulty,"，考试总分:",totalScore,"，课程ID:",courseId)
+							if (paperName != '' && duration != '' && difficulty != '' && totalScore != '' && courseId != ''){
 
-								var JSONArry = '';
-								if( saveDB.success ){
-									if(saveDB != undefined ) {
+								var ki = seftFormThis.getZTreeName();
+								if( pageType != 'edit' ) {
+									if (ki == undefined) {
+										layer.alert("还没有选择对应的课程哦！");
+										$('.addpaper').height('1215px');
+										return false;
+									};
+								}
+								if( pageType != 'edit' ) {
+									if(ki){
+										var type = $("#isType").val();
+										if( pageType == 'edit' ){
+											type = 'update';
+											saveDB = Page1saveExamPaperBasicInfo(exampPaperId,courseId,difficulty,duration,kpointIds,exam_range,paperName,totalScore,login_name,type);
+										} else {
+											if( type == 'add' ){
+												saveDB = Page1saveExamPaperBasicInfo(exampPaperId,courseId,difficulty,duration,kpointIds,exam_range,paperName,totalScore,login_name,type);
+											};
+											if( type == 'update'){
+												var exampaperId = saveDB.resultObject.exampaperId;
+												saveDB = Page1saveExamPaperBasicInfo(exampaperId,courseId,difficulty,duration,kpointIds,exam_range,paperName,totalScore,login_name,type);
+											};
+										};
+									}else {
+										return false;
+									};
+								}else {
+									var type = $("#isType").val();
+									if( pageType == 'edit' ){
+										type = 'update';
+										saveDB = Page1saveExamPaperBasicInfo(exampPaperId,courseId,difficulty,duration,kpointIds,exam_range,paperName,totalScore,login_name,type);
+									} else {
+										if( type == 'add' ){
+											saveDB = Page1saveExamPaperBasicInfo(exampPaperId,courseId,difficulty,duration,kpointIds,exam_range,paperName,totalScore,login_name,type);
+										};
+										if( type == 'update'){
+											var exampaperId = saveDB.resultObject.exampaperId;
+											saveDB = Page1saveExamPaperBasicInfo(exampaperId,courseId,difficulty,duration,kpointIds,exam_range,paperName,totalScore,login_name,type);
+										};
+									};
+								}
+
+								$("#exampaperId").val(saveDB.resultObject.exampaperId);
+
+								if(saveDB.success){
+									if(saveDB != undefined ){
 										//提示
 										if(saveDB.resultObject.msg != undefined ) {
-											layer.alert(saveDB.resultObject.msg);
+											layer.alert(saveDB.resultObject.msg || "服务器出错！");
 										};
 
-										exampaperId = saveDB.resultObject.exampaperId;
-										if( exampaperId != undefined ){
-											JSONArry = '[{"qType":0,"qNum":'+daiXuanQuestions+',"score":'+daiXuanPortion+'},{"qType":1,"qNum":'+duoXuanQuestions+',"score":'+duoXuanPortion +'},{"qType":2,"qNum":'+panDuanQuestions+',"score":'+panDuanPortion+'},{"qType":3,"qNum":'+tianKongQuestions+',"score":'+tianKongPortion+'},{"qType":4,"qNum":'+jianDaQuestions+',"score":'+jianDaPortion+'}]';
-											var Page2DB = Page2makeExamPaper(login_name, exampaperId, JSONArry ,MxamPaperType);
-											if(!Page2DB.success){
-												layer.alert(Page2DB.errorMessage || "服务器出错！");
-											}
-											//生成试卷方法
-											var GeneratedPaperDB = GeneratedPaper(exampaperId);
-											if(!GeneratedPaperDB.success){
-												layer.alert(GeneratedPaperDB.errorMessage || "服务器出错！");
-											}
-
-											$("#page3").html(template.compile( page3Tpl)({
-												GeneratedPaper: GeneratedPaperDB,
-												danXuan: GeneratedPaperDB.resultObject.danxuan.lists,
-												duoXuan: GeneratedPaperDB.resultObject.duoxuan.lists,
-												panDuan: GeneratedPaperDB.resultObject.panduan.lists,
-												tianKong: GeneratedPaperDB.resultObject.tiankong.lists,
-												jianDa: GeneratedPaperDB.resultObject.jianda.lists
-											}));
-
-											console.log("判断题是否为空",( GeneratedPaperDB.resultObject.jianda.lists != undefined) )
-											//处理试卷中的图片
-											$('.J-pic-click .J-boxer').boxer({
-												requestKey: 'abc123'
-											});
-											$('.J-pic-click img').boxer({
-												requestKey: 'abc123'
-											});
-
-
-											/**
-											 * page3交互效果与数据交互
-											 */
-												//题库导航
-												//$('#sidebar').portamento({disableWorkaround: true});
-											t = $('.fixed').offset().top;
-											mh = $('.paper-main').height();
-											fh = $('.fixed').height();
-											$(window).scroll(function(e){
-												s = $(document).scrollTop();
-												if(s > t - 10){
-													$('.fixed').css({'position':'fixed','top':'10px'});
-													if(s + fh > mh){
-														$('.fixed').css('top',mh-s-fh+'px');
-													}
-												}else{
-													$('.fixed').css('position','');
-												}
-											});
-
-
-											//page3---换题
-											$(".J-btn-Change").on('click', function(){
-												var ChangeThis = $(this);
-												var questionType = ChangeThis.data("type");
-												var ChangePageSize = 10,    //换题的每页显示多少条数据
-													ChangeCkpointIds= new Array() || null,               //树的id   1，2，3
-													difficulty = $("#difficultyChange  option:selected").val() || null,             //难度  ---""
-													questionContent = $.trim($("#questionContent").val()) || null;       //搜索的内容
-
-												function ChangeZteer(){
-													var setting = {
-														check: {
-															enable: true
-														},
-														/*data: {
-														 simpleData: {
-														 enable: true
-														 }
-														 }*/
-														data: {
-															simpleData: {
-																enable: true
-															}
-														},
-														callback: {
-															onCheck: onCheck
-														}
-													};
-													//换题树
-													var ChangeTreeDB = ChangeFindSelectedTree(exampaperId);
-													if(ChangeTreeDB.success){
-														var zNodes = ChangeTreeDB.resultObject;
-
-														$(document).ready(function() {
-															$.fn.zTree.init($("#Change-Ztree"), setting, zNodes);
-														});
-													}else {
-														$("#tree-combined").html("<span class='error'>"+ChangeTreeDB.errorMessage  || "服务器出错！"+"</span>");
-													}
-													function onCheck(e, treeId, treeNode) {
-														var treeObj = $.fn.zTree.getZTreeObj("Change-Ztree"),
-															nodes = treeObj.getCheckedNodes(true),
-															v = '';
-														var kp = '';
-														for(var i = 0; i < nodes.length; i++) {
-															//v += nodes[i].name + ",";
-															//获取kpointIds名字
-															//exam_range.push(nodes[i].name);
-															//获取kpointIds
-															ChangeCkpointIds.push(nodes[i].id);
-														}
-														ChangeCkpointIds = ChangeCkpointIds.toString();
-														//exam_range = exam_range.toString();
-														console.log(ChangeCkpointIds)
-													}
-												}
-
-												//换题的数据源
-												var PaperChangeDB = ChangeQuestionPage(questionType,exampaperId, 1,ChangePageSize, ChangeCkpointIds,difficulty,questionContent);
-
-												layer.open({
-													type: 1,
-													title: false,
-													skin: 'layui-layer-rim', //加上边框
-													area: ['920px','755px'], //宽高
-													content: ChangeTpl
-												});
-												if(PaperChangeDB.success){
-													$("#ChangeTpl").html(template.compile( ChangeContentTpl)({
-														questionType: questionType,
-														PaperChangeDB: PaperChangeDB,
-														ChangeDB: PaperChangeDB.resultObject.items,
-													}));
-												}else {
-													layer.alert(PaperChangeDB.errorMessage  || "服务器出错！");
-												}
-												//显示分页
-												//计算总页数
-												var totalpages = PaperChangeDB.resultObject.totalCount / ChangePageSize;
-												laypage({
-													cont:  $('#page'), //容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：<div id="page1"></div>
-													pages: totalpages, //通过后台拿到的总页数
-													curr: 1, //当前页
-													skin: '#2cb82c', //配色方案
-													jump: function(obj, first){ //触发分页后的回调
-														console.log(obj)
-														if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
-															var PaperChangeDB = ChangeQuestionPage(questionType,exampaperId, obj.curr,ChangePageSize, ChangeCkpointIds,difficulty,questionContent);
-															if(PaperChangeDB.success){
-																$("#ChangeTpl").html(template.compile( ChangeContentTpl)({
-																	questionType: questionType,
-																	PaperChangeDB: PaperChangeDB,
-																	ChangeDB: PaperChangeDB.resultObject.items,
-																}));
-															}else {
-																layer.alert(PaperChangeDB.errorMessage  || "服务器出错！");
-															}
-
-														}
-													}
-												});
-
-												//生成树结构
-												ChangeZteer();
-												//搜索提交
-												$("#searchForm").on('submit', function(event){
-													ChangeZteer();
-													difficulty = $.trim($("#difficultyChange option:selected").val()),             //难度  ---""
-														questionContent = $("#questionContent").val();       //搜索的内容
-													console.log("搜索内容是:", questionContent, "难度是:",difficulty, "树结构值是:",ChangeCkpointIds);
-													var PaperChangeDB = ChangeQuestionPage(questionType,exampaperId, 1,ChangePageSize, ChangeCkpointIds,difficulty,questionContent);
-													if(PaperChangeDB.success){
-														if(PaperChangeDB.resultObject.items == ''){
-															layer.alert("没有数据!");
-														}
-														$("#ChangeTpl").html(template.compile( ChangeContentTpl)({
-															questionType: questionType,
-															PaperChangeDB: PaperChangeDB,
-															ChangeDB: PaperChangeDB.resultObject.items,
-														}));
-													}else {
-														layer.alert(PaperChangeDB.errorMessage  || "服务器出错！");
-													}
-
-													return false;  //阻止默认提交
-													//event.preventDefault();     //阻止提交按钮的默认行为（提交表单）
-												});
-
-												//奇偶行色
-												$("ul.Change-cont-ul:odd").addClass("odd");
-												$("ul.Change-cont-ul:even").addClass("even");
-
-												//换题树型结构
-												$(".down-input").on('click',function(){
-													$(".J-close-Ztree").show();
-													$(".down-box").show();
-												});
-												$(".J-close-Ztree").on('click',function(){
-													$(this).hide();
-													$(".down-box").hide();
-												});
-
-
-
-												//操作展开
-												$(".table-body").on('click', function(e){
-													var btn = e.target;
-													if($(btn).hasClass("J-btn-toggle")){
-														$(this).find(".box").toggle();
-													}
-												});
-
-												//开始换题
-												$("#ChangeSave").on('submit', function(){
-													//获取选中的哪条数据
-													var oldQuestionId = ChangeThis.data("id"),  //旧题的id
-														newQuestionId = $("input[name='subject']:checked").val();   //新题的id
-													var ChangeSwitchQuestionDB =  ChangeSwitchQuestion(exampaperId,oldQuestionId,newQuestionId);
-													if(ChangeSwitchQuestionDB.success){
-														//if(ChangeSwitchQuestionDB.resultObject.status == '1'){
-														//	layer.alert("换题成功!");
-														//} else {
-														//	layer.alert(ChangeSwitchQuestionDB.resultObject.message);
-														//}
-														layer.alert(ChangeSwitchQuestionDB.resultObject.message);
-													}else {
-														layer.alert(ChangeSwitchQuestionDB.errorMessage  || "服务器出错！");
-													}
-													return false; //阻止默认提交
-												});
-
-
-
-											});
-
-
-											return false; //阻止表单默认提交---防止跳转
+										var exampaperId = saveDB.resultObject.exampaperId;
+										//如果试卷名称已存在，就返回
+										if(saveDB.resultObject.repeatStatus == 1){
+											layer.alert("考试名称已存在,<br />请修改试卷名称再继续!");
+											return false;
 										}
+
+										//保存page1后对可用题数进行展示
+										var daiXuanUsable = saveDB.resultObject.danxuan, duoXuanUsable = saveDB.resultObject.duoxuan,
+											panDuanUsable = saveDB.resultObject.panduan, tianKongUsable = saveDB.resultObject.tiankong,
+											jianDaUsable = saveDB.resultObject.jianda;
+										$("#daiXuanUsable").html(daiXuanUsable);
+										$("#duoXuanUsable").html(duoXuanUsable);
+										$("#panDuanUsable").html(panDuanUsable);
+										$("#tianKongUsable").html(tianKongUsable);
+										$("#jianDaUsable").html(jianDaUsable);
+
+										if(pageType == 'edit'){
+											//编辑时要显示的数据
+											var daiXuanQuestions = saveDB.resultObject.danxuanType.questionNum,
+												daiXuanPortion = saveDB.resultObject.danxuanType.score,
+												daiXuanTotalScore = saveDB.resultObject.danxuanType.totalScore,
+
+												duoXuanQuestions = saveDB.resultObject.duoxuanType.questionNum,
+												duoXuanPortion = saveDB.resultObject.duoxuanType.score,
+												duoXuanTotalScore = saveDB.resultObject.duoxuanType.totalScore,
+
+												panDuanQuestions = saveDB.resultObject.panduanType.questionNum,
+												panDuanPortion = saveDB.resultObject.panduanType.score,
+												panDuanTotalScore = saveDB.resultObject.panduanType.totalScore,
+
+												tianKongQuestions = saveDB.resultObject.tiankongType.questionNum,
+												tianKongPortion = saveDB.resultObject.tiankongType.score,
+												tianKongTotalScore = saveDB.resultObject.tiankongType.totalScore,
+
+												jianDaQuestions = saveDB.resultObject.jiandaType.questionNum,
+												jianDaPortion = saveDB.resultObject.jiandaType.score,
+												jianDaTotalScore = saveDB.resultObject.jiandaType.totalScore;
+
+											$("#daiXuanQuestions").val(daiXuanQuestions);
+											$("#daiXuanPortion").val(daiXuanPortion);
+											$("#daiXuanTotalScore").html("共"+daiXuanTotalScore+"分");
+
+											$("#duoXuanQuestions").val(duoXuanQuestions);
+											$("#duoXuanPortion").val(duoXuanPortion);
+											$("#duoXuanTotalScore").html("共"+duoXuanTotalScore+"分");
+
+											$("#panDuanQuestions").val(panDuanQuestions);
+											$("#panDuanPortion").val(panDuanPortion);
+											$("#panDuanTotalScore").html("共"+panDuanTotalScore+"分");
+
+											$("#tianKongQuestions").val(tianKongQuestions);
+											$("#tianKongPortion").val(tianKongPortion);
+											$("#tianKongTotalScore").html("共"+tianKongTotalScore+"分");
+
+											$("#jianDaQuestions").val(jianDaQuestions);
+											$("#jianDaPortion").val(jianDaPortion);
+											$("#jianDaTotalScore").html("共"+jianDaTotalScore+"分");
+										}
+
+										/**
+										 * 表单2--检验
+										 */
+										$("#page2-form").validate({
+											rules : {
+												daiXuanQuestions : {
+													digits: true
+												},
+												daiXuanPortion : {digits: true},
+												duoXuanQuestions : {
+													digits: true
+												},
+												duoXuanPortion : {digits: true},
+												panDuanQuestions : {
+													digits: true
+												},
+												panDuanPortion : {digits: true},
+												tianKongQuestions : {
+													digits: true
+												},
+												tianKongPortion : {digits: true},
+												jianDaQuestions : {
+													digits: true
+												},
+												jianDaPortion : {digits: true}
+											},
+											messages : {
+												daiXuanQuestions : {
+													required : '请输入题数'
+												},
+												daiXuanPortion : {required : '请输入分数'},
+												duoXuanQuestions : {
+													required : '请输入题数'
+												},
+												duoXuanPortion : {required : '请输入分数'},
+												panDuanQuestions : {
+													required : '请输入题数'
+												},
+												panDuanPortion : {required : '请输入分数'},
+												tianKongQuestions : {
+													required : '请输入题数'
+												},
+												tianKongPortion : {required : '请输入分数'},
+												jianDaQuestions : {
+													required : '请输入题数'
+												},
+												jianDaPortion : {required : '请输入分数'},
+											},
+											errorElement : "p",
+											submitHandler: function(){
+
+												//page2提交
+												var daiXuanQuestions = $.trim($("#daiXuanQuestions").val()) || 0,
+													daiXuanPortion = $.trim($("#daiXuanPortion").val()) || 0,
+													duoXuanQuestions = $.trim($("#duoXuanQuestions").val()) || 0,
+													duoXuanPortion = $.trim($("#duoXuanPortion").val()) || 0,
+													panDuanQuestions = $.trim($("#panDuanQuestions").val()) || 0,
+													panDuanPortion = $.trim($("#panDuanPortion").val()) || 0,
+													tianKongQuestions = $.trim($("#tianKongQuestions").val()) || 0,
+													tianKongPortion = $.trim($("#tianKongPortion").val()) || 0,
+													jianDaQuestions = $.trim($("#jianDaQuestions").val()) || 0,
+													jianDaPortion = $.trim($("#jianDaPortion").val()) || 0;
+
+
+												var JSONArry = '';
+												if( saveDB.success ){
+													if(saveDB != undefined ) {
+														//提示
+														if(saveDB.resultObject.msg != undefined ) {
+															layer.alert(saveDB.resultObject.msg);
+														};
+
+														exampaperId = saveDB.resultObject.exampaperId;
+														if( exampaperId != undefined ){
+															JSONArry = '[{"qType":0,"qNum":'+daiXuanQuestions+',"score":'+daiXuanPortion+'},{"qType":1,"qNum":'+duoXuanQuestions+',"score":'+duoXuanPortion +'},{"qType":2,"qNum":'+panDuanQuestions+',"score":'+panDuanPortion+'},{"qType":3,"qNum":'+tianKongQuestions+',"score":'+tianKongPortion+'},{"qType":4,"qNum":'+jianDaQuestions+',"score":'+jianDaPortion+'}]';
+
+															//获取未分配的分数
+															var residualtalScore = $("#residualtalScore").text();
+															if( residualtalScore != 0 ){
+																//禁止执行下一步，不能提交数据
+																return false;
+															};
+
+															//对输入的数据进行判断
+															var validNums = 0;
+															var inValidNums = 0;
+															$('.questionSet').each(function(i,n){
+																var firstInput = $(this).find("input:first");
+																var secondInput = $(this).find("input:last");
+																var  fValid = $.trim(firstInput.val());
+																var  sValid = $.trim(secondInput.val());
+																if(fValid != '' && sValid != ''){
+																	validNums ++;
+																}
+																if( (fValid!='' && sValid == '') || (fValid=='' && sValid != '') ){
+																	inValidNums++;
+																}
+															});
+															if(validNums > 0 && inValidNums == 0){
+																//alert('可以生成了');
+																var Page2DB = Page2makeExamPaper(login_name, exampaperId, JSONArry ,MxamPaperType);
+																//return true;
+															}else {
+																layer.alert('不能生成');
+																return false;
+															}
+
+															if(!Page2DB.success){
+																layer.alert(Page2DB.errorMessage || "服务器出错！");
+															}
+
+
+															//生成试卷
+															Page3View(exampaperId);
+
+
+
+															return false; //阻止表单默认提交---防止跳转
+														}
+													}
+												} else {
+													layer.alert(saveDB.errorMessage  || "服务器出错！");
+													return false;
+												}
+
+												return false; //阻止表单默认提交
+											}
+										});
+										/**
+										* 表单2--检验
+										*/
+										$("#daiXuanQuestions").rules("remove","max" );
+										$("#daiXuanQuestions").rules("add", {
+											max: daiXuanUsable,
+											messages: {
+												max: "不能大于可用题数"
+											}
+										});
+										$("#duoXuanQuestions").rules("remove","max" );
+										$("#duoXuanQuestions").rules("add", {
+											max: duoXuanUsable,
+											messages: {
+												max: "不能大于可用题数"
+											}
+										});
+										$("#panDuanQuestions").rules("remove","max" );
+										$("#panDuanQuestions").rules("add", {
+											max: panDuanUsable,
+											messages: {
+												max: "不能大于可用题数"
+											}
+										});
+										$("#tianKongQuestions").rules("remove","max" );
+										$("#tianKongQuestions").rules("add", {
+											max: tianKongUsable,
+											messages: {
+												max: "不能大于可用题数"
+											}
+										});
+										$("#jianDaQuestions").rules("remove","max" );
+										$("#jianDaQuestions").rules("add", {
+											max: jianDaUsable,
+											messages: {
+												max: "不能大于可用题数"
+											}
+										});
+
+
+
+										//计算剩余分数;
+										var residual = 0;
+										//计算剩余分数--初始化;
+										var residualtalScore = $("#residualtalScore").html(totalScore);
+										//page2---计算总题数与总分数
+										//编辑时初始化
+										if(pageType == 'edit'){
+											var daiXuanQuestions = $.trim($("#daiXuanQuestions").val()) || 0,
+												daiXuanPortion = $.trim($("#daiXuanPortion").val()) || 0,
+												duoXuanQuestions = $.trim($("#duoXuanQuestions").val()) || 0,
+												duoXuanPortion = $.trim($("#duoXuanPortion").val()) || 0,
+												panDuanQuestions = $.trim($("#panDuanQuestions").val()) || 0,
+												panDuanPortion = $.trim($("#panDuanPortion").val()) || 0,
+												tianKongQuestions = $.trim($("#tianKongQuestions").val()) || 0,
+												tianKongPortion = $.trim($("#tianKongPortion").val()) || 0,
+												jianDaQuestions = $.trim($("#jianDaQuestions").val()) || 0,
+												jianDaPortion = $.trim($("#jianDaPortion").val()) || 0;
+											residual = Number(totalScore- (daiXuanQuestions*daiXuanPortion) - (duoXuanQuestions*duoXuanPortion) -
+												(panDuanQuestions*panDuanPortion) - (tianKongQuestions*tianKongPortion) - (jianDaQuestions*jianDaPortion));
+											//剩余分数显示到页面上
+											residualtalScore = $("#residualtalScore").html(residual);
+
+											//总题数
+											var totalQuestions = 0;
+											if(isNaN(Number(daiXuanQuestions)+
+													Number(duoXuanQuestions)+
+													Number(panDuanQuestions)+
+													Number(tianKongQuestions)+
+													Number(jianDaQuestions))){
+												return false;
+											}else {
+												totalQuestions =Number(daiXuanQuestions)+
+													Number(duoXuanQuestions)+
+													Number(panDuanQuestions)+
+													Number(tianKongQuestions)+
+													Number(jianDaQuestions);
+												$("#totalQuestions").html("总计"+totalQuestions+"题");
+											};
+											//总分数
+											var totalPortion = 0;
+											if(isNaN(Number(daiXuanPortion)
+													+Number(duoXuanPortion)
+													+Number(panDuanPortion)
+													+Number(tianKongPortion)
+													+Number(jianDaPortion))){
+												return false;
+											}else {
+												totalPortion = Number(((daiXuanQuestions*daiXuanPortion)+(duoXuanQuestions*duoXuanPortion)
+													+(panDuanQuestions*panDuanPortion)+(tianKongQuestions*tianKongPortion)+(jianDaQuestions*jianDaPortion)
+												));
+												$("#totalPortion").html("共"+totalPortion+"分");
+											};
+
+											//计算每个题型的总分数
+											var daiXuanTotalScore = 0, duoXuanTotalScore = 0, panDuanTotalScore = 0, tianKongTotalScore = 0, jianDaTotalScore = 0;
+											if(isNaN(Number(daiXuanPortion +duoXuanPortion +panDuanPortion+ tianKongPortion
+													+jianDaPortion +daiXuanQuestions +duoXuanQuestions +panDuanQuestions
+													+tianKongQuestions +jianDaQuestions)
+												)){
+												return false;
+											}else {
+												daiXuanTotalScore = Number(daiXuanPortion)* Number(daiXuanQuestions),
+													duoXuanTotalScore = Number(duoXuanPortion)* Number(duoXuanQuestions),
+													panDuanTotalScore = Number(panDuanPortion)* Number(panDuanQuestions),
+													tianKongTotalScore = Number(tianKongPortion)* Number(tianKongQuestions),
+													jianDaTotalScore = Number(jianDaPortion)* Number(jianDaQuestions);
+												$("#daiXuanTotalScore").html("共"+daiXuanTotalScore+"分");
+												$("#duoXuanTotalScore").html("共"+duoXuanTotalScore+"分");
+												$("#panDuanTotalScore").html("共"+panDuanTotalScore+"分");
+												$("#tianKongTotalScore").html("共"+tianKongTotalScore+"分");
+												$("#jianDaTotalScore").html("共"+jianDaTotalScore+"分");
+											};
+										};
+										addScoreNum();
+										function addScoreNum(){
+											var daiXuanQuestions = $.trim($("#daiXuanQuestions").val()) || 0,
+												daiXuanPortion = $.trim($("#daiXuanPortion").val()) || 0,
+												duoXuanQuestions = $.trim($("#duoXuanQuestions").val()) || 0,
+												duoXuanPortion = $.trim($("#duoXuanPortion").val()) || 0,
+												panDuanQuestions = $.trim($("#panDuanQuestions").val()) || 0,
+												panDuanPortion = $.trim($("#panDuanPortion").val()) || 0,
+												tianKongQuestions = $.trim($("#tianKongQuestions").val()) || 0,
+												tianKongPortion = $.trim($("#tianKongPortion").val()) || 0,
+												jianDaQuestions = $.trim($("#jianDaQuestions").val()) || 0,
+												jianDaPortion = $.trim($("#jianDaPortion").val()) || 0;
+
+
+											residual = Number(totalScore- (daiXuanQuestions*daiXuanPortion) - (duoXuanQuestions*duoXuanPortion) -
+												(panDuanQuestions*panDuanPortion) - (tianKongQuestions*tianKongPortion) - (jianDaQuestions*jianDaPortion));
+											//剩余分数显示到页面上
+											residualtalScore = $("#residualtalScore").html(residual);
+										};
+
+										$("#daiXuanQuestions,#daiXuanPortion,#duoXuanQuestions,#duoXuanPortion,#panDuanQuestions,#panDuanPortion,#tianKongQuestions,#tianKongPortion,#jianDaQuestions,#jianDaPortion").on('keyup', function(){
+											//输入时计算分数值
+											var daiXuanQuestions = $.trim($("#daiXuanQuestions").val()) || 0,
+												daiXuanPortion = $.trim($("#daiXuanPortion").val()) || 0,
+												duoXuanQuestions = $.trim($("#duoXuanQuestions").val()) || 0,
+												duoXuanPortion = $.trim($("#duoXuanPortion").val()) || 0,
+												panDuanQuestions = $.trim($("#panDuanQuestions").val()) || 0,
+												panDuanPortion = $.trim($("#panDuanPortion").val()) || 0,
+												tianKongQuestions = $.trim($("#tianKongQuestions").val()) || 0,
+												tianKongPortion = $.trim($("#tianKongPortion").val()) || 0,
+												jianDaQuestions = $.trim($("#jianDaQuestions").val()) || 0,
+												jianDaPortion = $.trim($("#jianDaPortion").val()) || 0;
+
+
+											residual = Number(totalScore- (daiXuanQuestions*daiXuanPortion) - (duoXuanQuestions*duoXuanPortion) -
+												(panDuanQuestions*panDuanPortion) - (tianKongQuestions*tianKongPortion) - (jianDaQuestions*jianDaPortion));
+											//剩余分数显示到页面上
+											residualtalScore = $("#residualtalScore").html(residual);
+
+											//总题数
+											var totalQuestions = 0;
+											if(isNaN(Number(daiXuanQuestions)+
+													Number(duoXuanQuestions)+
+													Number(panDuanQuestions)+
+													Number(tianKongQuestions)+
+													Number(jianDaQuestions))){
+												return false;
+											}else {
+												totalQuestions =Number(daiXuanQuestions)+
+													Number(duoXuanQuestions)+
+													Number(panDuanQuestions)+
+													Number(tianKongQuestions)+
+													Number(jianDaQuestions);
+												$("#totalQuestions").html("总计"+totalQuestions+"题");
+											};
+											//总分数
+											var totalPortion = 0;
+											if(isNaN(Number(daiXuanPortion)
+													+Number(duoXuanPortion)
+													+Number(panDuanPortion)
+													+Number(tianKongPortion)
+													+Number(jianDaPortion))){
+												return false;
+											}else {
+												totalPortion = Number(((daiXuanQuestions*daiXuanPortion)+(duoXuanQuestions*duoXuanPortion)
+													+(panDuanQuestions*panDuanPortion)+(tianKongQuestions*tianKongPortion)+(jianDaQuestions*jianDaPortion)
+												));
+												$("#totalPortion").html("共"+totalPortion+"分");
+											};
+
+											//计算每个题型的总分数
+											var daiXuanTotalScore = 0, duoXuanTotalScore = 0, panDuanTotalScore = 0, tianKongTotalScore = 0, jianDaTotalScore = 0;
+											if(isNaN(Number(daiXuanPortion)
+													+Number(duoXuanPortion)
+													+Number(panDuanPortion)
+													+Number(tianKongPortion)
+													+Number(jianDaPortion)
+													+Number(daiXuanQuestions)
+													+Number(duoXuanQuestions)
+													+Number(panDuanQuestions)
+													+Number(tianKongQuestions)
+													+Number(jianDaQuestions)
+												)){
+												return false;
+											}else {
+												daiXuanTotalScore = Number(daiXuanPortion)* Number(daiXuanQuestions),
+													duoXuanTotalScore = Number(duoXuanPortion)* Number(duoXuanQuestions),
+													panDuanTotalScore = Number(panDuanPortion)* Number(panDuanQuestions),
+													tianKongTotalScore = Number(tianKongPortion)* Number(tianKongQuestions),
+													jianDaTotalScore = Number(jianDaPortion)* Number(jianDaQuestions);
+												$("#daiXuanTotalScore").html("共"+daiXuanTotalScore+"分");
+												$("#duoXuanTotalScore").html("共"+duoXuanTotalScore+"分");
+												$("#panDuanTotalScore").html("共"+panDuanTotalScore+"分");
+												$("#tianKongTotalScore").html("共"+tianKongTotalScore+"分");
+												$("#jianDaTotalScore").html("共"+jianDaTotalScore+"分");
+											};
+										});
 									}
-								} else {
-									layer.alert(saveDB.errorMessage  || "服务器出错！");
+								}else {
+									layer.alert(saveDB.errorMessage  || "服务器出错!");
 									return false;
 								}
 
-								return false; //阻止表单默认提交
-							});
 
 
-						}else {
-							return false;
-						};
-						return false; //阻止表单默认提交
+
+							}else {
+								return false;
+							};
+							return false; //阻止表单默认提交
+						}
 					});
-
 				};
 
 
@@ -820,8 +910,7 @@ define(['template',
 
 
 			var Fun = new FormPageClass();
-			Fun.page1ValidataFun();
-			Fun.page1SaveFun(null, 'add');
+			Fun.page1ValidataFun(null, 'add');
 
 
 
@@ -852,21 +941,410 @@ define(['template',
 					newPagePaper.getZTreeName();
 					//tab切换
 					newPagePaper.scrollable();
-					newPagePaper.page1ValidataFun();
-					newPagePaper.page1SaveFun(exampPaperId, 'update');
+					newPagePaper.page1ValidataFun(exampPaperId, 'update');
 
 					//显示page2的数据
+					// 对编辑的页面禁止修改除名称外的字段
+					$("#paperwhenlong,#papertraits,#testScores,#paperselete,#daiXuanQuestions,#daiXuanPortion,#duoXuanQuestions,#duoXuanPortion,#panDuanQuestions,#panDuanPortion,#tianKongQuestions,#tianKongPortion,#jianDaQuestions,#jianDaPortion").attr("disabled","disabled");
+					$("#paperwhenlong,#papertraits,#testScores,#paperselete,#daiXuanQuestions,#daiXuanPortion,#duoXuanQuestions,#duoXuanPortion,#panDuanQuestions,#panDuanPortion,#tianKongQuestions,#tianKongPortion,#jianDaQuestions,#jianDaPortion").css({"background-color":"#F5F5F5","color":"#ACA899"});
+
+					var treeObjEdit = $.fn.zTree.getZTreeObj("tree-combined");
+					var nodesEdit = treeObjEdit.getNodes(),
+					disabled = true, inheritParent = true, inheritChildren = true;
+					for (var i = 0, l = nodesEdit.length; i < l; i++) {
+						treeObjEdit.setChkDisabled(nodesEdit[i], disabled, inheritParent, inheritChildren);
+					}
+
+
+					if( pageType == 'edit' ) {
+						// 生成试卷
+						Page3View(exampPaperId);
+						$(".state").addClass("ac");
+						$(".border").addClass("ac");
+						$(".end").addClass("ac");
+						$(".items").css({"left":"-2280px"});
+					}
 
 
 
 				}else {
-					layer.alert(FindExamBasicInfoDB.errorMessage  || "服务器出错！")
+					layer.alert(FindExamBasicInfoDB.errorMessage  || "服务器出错！");
+					return false;
 				}
 
 			}
 			////编辑页面end
 
+
+			/**
+			 * 生成试卷
+ 			 */
+			function Page3View(exampaperId){
+				//生成试卷方法
+				var GeneratedPaperDB = GeneratedPaper(exampaperId);
+				if(!GeneratedPaperDB.success){
+					layer.alert(GeneratedPaperDB.errorMessage || "服务器出错！");
+					return false; //阻止默认提交
+				}
+				$("#page3").html(template.compile( page3Tpl)({
+					GeneratedPaper: GeneratedPaperDB,
+					danXuan: GeneratedPaperDB.resultObject.danxuan.lists,
+					duoXuan: GeneratedPaperDB.resultObject.duoxuan.lists,
+					panDuan: GeneratedPaperDB.resultObject.panduan.lists,
+					tianKong: GeneratedPaperDB.resultObject.tiankong.lists,
+					jianDa: GeneratedPaperDB.resultObject.jianda.lists
+				}));
+
+				console.log("判断题是否为空",( GeneratedPaperDB.resultObject.jianda.lists != undefined) )
+				//处理试卷中的图片
+				common.initImageViewer($('.pagePaper-content'));
+
+
+				/**
+				 * 解决底部浮动
+				 * @type {*|jQuery}
+				 */
+				$(window).scroll(function(e){
+					// 滚动时按钮组，就浮动
+					$('.page3-btn-box').css({"position": "fixed","bottom":"0px","box-shadow":"0px 0px 20px rgba(0, 0, 0, 0.25)","-ms-filter":"progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#000000')","filter":"progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')"});
+					var scrollTop = $(this).scrollTop();
+					var scrollHeight = $(document).height();
+					var windowHeight = $(this).height();
+					//console.log("scrollTop值是:"+scrollTop, ",windowHeight值是:"+windowHeight ,",scrollHeight值是:"+scrollHeight)
+					if(scrollTop + windowHeight == scrollHeight){
+						// 滚动到底部时,按钮组就变成相对位置
+						$('.page3-btn-box').css({"position": "","box-shadow":"","-ms-filter":"","filter":""});
+					}
+				});
+
+
+				/**
+				 * page3交互效果与数据交互
+				 */
+				//题库导航
+				//$('#sidebar').portamento({disableWorkaround: true});
+				var t = $('.fixed').offset().top;
+				var mh = $('.paper-main').height();
+				var fh = $('.fixed').height();
+				$(window).scroll(function(e){
+					var s = $(document).scrollTop();
+					if(s > t - 10){
+						$('.fixed').css({'position':'fixed','top':'10px'});
+						//if(s + fh > mh){
+						//	$('.fixed').css('top',mh-s-fh+'px');
+						//}
+					}else{
+						$('.fixed').css('position','');
+					}
+				});
+
+
+				//page3---换题
+				ChangeTheTopic();
+				function ChangeTheTopic(){
+					$(".J-btn-Change").on('click', function(){
+						var ChangeThis = $(this);
+						var questionType = ChangeThis.data("type");
+						var ChangePageSize = 5,    //换题的每页显示多少条数据
+							ChangeCkpointIds= new Array() || null,               //树的id   1，2，3
+							difficulty = $("#difficultyChange  option:selected").val() || null,             //难度  ---""
+							questionContent = $.trim($("#questionContent").val()) || null;       //搜索的内容
+
+						function ChangeZteer(){
+							var setting = {
+								check: {
+									enable: true
+								},
+								/*data: {
+								 simpleData: {
+								 enable: true
+								 }
+								 }*/
+								data: {
+									simpleData: {
+										enable: true
+									}
+								},
+								callback: {
+									onCheck: onCheck
+								}
+							};
+							//换题树
+							var ChangeTreeDB = ChangeFindSelectedTree(exampaperId);
+							if(ChangeTreeDB.success){
+								var zNodes = ChangeTreeDB.resultObject;
+
+								$(document).ready(function() {
+									$.fn.zTree.init($("#Change-Ztree"), setting, zNodes);
+								});
+							}else {
+								$("#tree-combined").html("<span class='error'>"+ChangeTreeDB.errorMessage  || "服务器出错！"+"</span>");
+							}
+							function onCheck(e, treeId, treeNode) {
+								var treeObj = $.fn.zTree.getZTreeObj("Change-Ztree"),
+									nodes = treeObj.getCheckedNodes(true);
+								ChangeCkpointIds = [];
+								var kp = '';
+								for(var i = 0; i < nodes.length; i++) {
+									//v += nodes[i].name + ",";
+									//获取kpointIds名字
+									//exam_range.push(nodes[i].name);
+									//获取kpointIds
+									ChangeCkpointIds.push(nodes[i].id);
+								}
+								ChangeCkpointIds = ChangeCkpointIds.toString();
+								//exam_range = exam_range.toString();
+								console.log(ChangeCkpointIds)
+							}
+						}
+
+						//换题的数据源
+						var PaperChangeDB = ChangeQuestionPage(questionType,exampaperId, 1,ChangePageSize, ChangeCkpointIds,difficulty,questionContent);
+
+						var ChangeIndex = layer.open({
+							type: 1,
+							title: false,
+							scrollbar: false, // 禁止滚动
+							shade: [0.6, '#000'],
+							skin: 'layui-layer-rim', //加上边框
+							area: ['920px','650px'], //宽高
+							content:  template.compile( ChangeTpl)({
+								PaperChangeDB: PaperChangeDB
+							})
+						});
+						if(PaperChangeDB.success){
+							$("#ChangeTpl").html(template.compile( ChangeContentTpl)({
+								questionType: questionType,
+								PaperChangeDB: PaperChangeDB,
+								ChangeDB: PaperChangeDB.resultObject.items,
+							}));
+						}else {
+							layer.alert(PaperChangeDB.errorMessage  || "服务器出错！");
+						}
+						//显示分页
+						//计算总页数
+						var totalpages = PaperChangeDB.resultObject.totalCount / ChangePageSize;
+
+						laypage({
+							cont:  $('#page'), //容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：<div id="page1"></div>
+							pages: totalpages, //通过后台拿到的总页数
+							curr: 1, //当前页
+							skin: '#2cb82c', //配色方案
+							jump: function(obj, first){ //触发分页后的回调
+								console.log(obj)
+								if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
+									var PaperChangeDB = ChangeQuestionPage(questionType,exampaperId, obj.curr,ChangePageSize, ChangeCkpointIds,difficulty,questionContent);
+									if(PaperChangeDB.success){
+										$("#ChangeTpl").html(template.compile( ChangeContentTpl)({
+											questionType: questionType,
+											PaperChangeDB: PaperChangeDB,
+											ChangeDB: PaperChangeDB.resultObject.items,
+										}));
+										//奇偶行色
+										$("ul.Change-cont-ul:odd").addClass("odd");
+										$("ul.Change-cont-ul:even").addClass("even");
+										ShowHide();
+									}else {
+										layer.alert(PaperChangeDB.errorMessage  || "服务器出错！");
+									}
+
+								}
+							}
+						});
+
+
+
+
+						//生成树结构
+						ChangeZteer();
+						//选择难度来选择数据
+						$("#difficultyChange").change(function() {
+							var difficulty = $("#difficultyChange option:checked").val() || '';
+							var PaperChangeDB = ChangeQuestionPage(questionType,exampaperId, 1,ChangePageSize, ChangeCkpointIds,difficulty,questionContent);
+							if(PaperChangeDB.success){
+								if(PaperChangeDB.resultObject.items == ''){
+									//layer.alert("没有数据!");
+								}
+								$("#ChangeTpl").html(template.compile( ChangeContentTpl)({
+									questionType: questionType,
+									PaperChangeDB: PaperChangeDB,
+									ChangeDB: PaperChangeDB.resultObject.items,
+								}));
+								ShowHide();
+								//奇偶行色
+								$("ul.Change-cont-ul:odd").addClass("odd");
+								$("ul.Change-cont-ul:even").addClass("even");
+								totalpages = PaperChangeDB.resultObject.totalCount / ChangePageSize;
+								laypage({
+									cont:  $('#page'), //容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：<div id="page1"></div>
+									pages: totalpages, //通过后台拿到的总页数
+									curr: 1, //当前页
+									skin: '#2cb82c', //配色方案
+									jump: function(obj, first){ //触发分页后的回调
+										console.log(obj)
+										if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
+											var PaperChangeDB = ChangeQuestionPage(questionType,exampaperId, obj.curr,ChangePageSize, ChangeCkpointIds,difficulty,questionContent);
+											if(PaperChangeDB.success){
+												$("#ChangeTpl").html(template.compile( ChangeContentTpl)({
+													questionType: questionType,
+													PaperChangeDB: PaperChangeDB,
+													ChangeDB: PaperChangeDB.resultObject.items,
+												}));
+												//奇偶行色
+												$("ul.Change-cont-ul:odd").addClass("odd");
+												$("ul.Change-cont-ul:even").addClass("even");
+												ShowHide();
+											}else {
+												layer.alert(PaperChangeDB.errorMessage  || "服务器出错！");
+											}
+
+										}
+									}
+								});
+							}else {
+								layer.alert(PaperChangeDB.errorMessage  || "服务器出错！");
+							}
+
+						});
+
+
+						//搜索提交
+						$("#searchForm").on('submit', function(event){
+							ChangeZteer();
+							difficulty = $.trim($("#difficultyChange option:selected").val()),             //难度  ---""
+								questionContent = $("#questionContent").val();       //搜索的内容
+							console.log("搜索内容是:", questionContent, "难度是:",difficulty, "树结构值是:",ChangeCkpointIds);
+							var PaperChangeDB = ChangeQuestionPage(questionType,exampaperId, 1,ChangePageSize, ChangeCkpointIds,difficulty,questionContent);
+							if(PaperChangeDB.success){
+								if(PaperChangeDB.resultObject.items == ''){
+									layer.alert("没有数据!");
+								}
+								$("#ChangeTpl").html(template.compile( ChangeContentTpl)({
+									questionType: questionType,
+									PaperChangeDB: PaperChangeDB,
+									ChangeDB: PaperChangeDB.resultObject.items,
+								}));
+								ShowHide();
+								//奇偶行色
+								$("ul.Change-cont-ul:odd").addClass("odd");
+								$("ul.Change-cont-ul:even").addClass("even");
+								totalpages = PaperChangeDB.resultObject.totalCount / ChangePageSize;
+								laypage({
+									cont:  $('#page'), //容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：<div id="page1"></div>
+									pages: totalpages, //通过后台拿到的总页数
+									curr: 1, //当前页
+									skin: '#2cb82c', //配色方案
+									jump: function(obj, first){ //触发分页后的回调
+										console.log(obj)
+										if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
+											var PaperChangeDB = ChangeQuestionPage(questionType,exampaperId, obj.curr,ChangePageSize, ChangeCkpointIds,difficulty,questionContent);
+											if(PaperChangeDB.success){
+												$("#ChangeTpl").html(template.compile( ChangeContentTpl)({
+													questionType: questionType,
+													PaperChangeDB: PaperChangeDB,
+													ChangeDB: PaperChangeDB.resultObject.items,
+												}));
+												//奇偶行色
+												$("ul.Change-cont-ul:odd").addClass("odd");
+												$("ul.Change-cont-ul:even").addClass("even");
+												ShowHide();
+											}else {
+												layer.alert(PaperChangeDB.errorMessage  || "服务器出错！");
+											}
+
+										}
+									}
+								});
+							}else {
+								layer.alert(PaperChangeDB.errorMessage  || "服务器出错！");
+							}
+
+							return false;  //阻止默认提交
+							//event.preventDefault();     //阻止提交按钮的默认行为（提交表单）
+						});
+
+						//奇偶行色
+						$("ul.Change-cont-ul:odd").addClass("odd");
+						$("ul.Change-cont-ul:even").addClass("even");
+
+						//换题树型结构
+						$(".down-input").on('click',function(){
+							$(".J-close-Ztree").show();
+							$(".down-box").show();
+						});
+						$(".J-close-Ztree").on('click',function(){
+							$(this).hide();
+							$(".down-box").hide();
+						});
+
+
+
+						//操作展开
+						function ShowHide(){
+							$(".table-body").on('click', function(e){
+								var btn = e.target;
+								if($(btn).hasClass("J-btn-toggle")){
+									$(".box").hide();
+									$(this).find(".box").toggle();
+								}
+							});
+						};
+						ShowHide();
+
+
+						//开始换题
+						$("#ChangeSave").on('submit', function(){
+							//获取选中的哪条数据
+							var oldQuestionId = ChangeThis.data("id"),  //旧题的id
+								newQuestionId = $("input[name='subject']:checked").val();   //新题的id
+							var ChangeSwitchQuestionDB =  ChangeSwitchQuestion(exampaperId,oldQuestionId,newQuestionId);
+							if(ChangeSwitchQuestionDB.success){
+								//if(ChangeSwitchQuestionDB.resultObject.status == '1'){
+								//	layer.alert("换题成功!");
+								//} else {
+								//	layer.alert(ChangeSwitchQuestionDB.resultObject.message);
+								//}
+								//换题成功后执行
+								layer.alert(ChangeSwitchQuestionDB.resultObject.message || "换题成功!");
+								//生成试卷方法
+								var GeneratedPaperDB = GeneratedPaper(exampaperId);
+								if(!GeneratedPaperDB.success){
+									layer.alert(GeneratedPaperDB.errorMessage || "服务器出错！");
+								};
+								$("#page3").html(template.compile( page3Tpl)({
+									GeneratedPaper: GeneratedPaperDB,
+									danXuan: GeneratedPaperDB.resultObject.danxuan.lists,
+									duoXuan: GeneratedPaperDB.resultObject.duoxuan.lists,
+									panDuan: GeneratedPaperDB.resultObject.panduan.lists,
+									tianKong: GeneratedPaperDB.resultObject.tiankong.lists,
+									jianDa: GeneratedPaperDB.resultObject.jianda.lists
+								}));
+								ChangeTheTopic();
+							}else {
+								layer.alert(ChangeSwitchQuestionDB.errorMessage  || "服务器出错！");
+							}
+							//换题成功后关闭弹层
+							layer.close(ChangeIndex);
+							return false; //阻止默认提交
+						});
+
+
+
+					});
+				};
+			}
+
 		}
+
+
+		//查询该老师对应的课程下拉列表
+		var isExamTmpName = function(paperName, exampaperId) {
+			return common.requestService('bxg/examPaper/valiExamTmpName','get', {
+				paperName: paperName,
+				exampaperId: exampaperId
+			});
+		};
+
 
 		/**
 		 * pgge1
@@ -897,7 +1375,8 @@ define(['template',
 			exam_range,   // 知识点--中文名字  参考格式：  1,2,3,4,5
 			paperName,   //试卷名称
 			totalScore,  //总分数
-			login_name    //教师登录名
+			login_name ,   //教师登录名
+			type   //新增 type=add ，修改 type=update
 		) {
 			return common.requestService('bxg/examPaper/saveExamPaperBasicInfo','post', {
 				exampaperId: exampaperId,
@@ -908,7 +1387,8 @@ define(['template',
 				exam_range: exam_range,
 				paperName: paperName,
 				totalScore: totalScore,
-				login_name: login_name
+				login_name: login_name,
+				type: type     //新增 type=add ，修改 type=update
 			});
 		};
 

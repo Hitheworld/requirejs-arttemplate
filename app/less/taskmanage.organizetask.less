@@ -1,12 +1,23 @@
 /**
  * 组织作业
  */
-.organizepaper {
+.organizetask {
     width: 100%;
     background-color: #FFFFFF;
-    .organizepaper-body {
+    .organizetask-body {
         padding: 20px 30px;
-        
+        min-height: 800px;
+        //无数据
+        .no-data {
+            width: 100%;
+            text-align: center;
+            margin-top: 220px;
+            margin-bottom: 280px;
+            img {
+                width: 135px;
+                height: 165px;
+            } 
+        }
         //标题区
         .content-title {
             padding-bottom: 20px;
@@ -32,6 +43,7 @@
                 font-size: 14px;
                 color: #FFFFFF;
                 background-color: #36b773;
+                font-size: 16px;
                 i {
                     margin-right: 8px;
                 }
@@ -40,8 +52,8 @@
         
         //内容区
         .content-body {
-            .organizepaper-contnet {
-                .organizepaper-header {
+            .organizetask-contnet {
+                .organizetask-header {
                     padding-bottom: 30px;
                     padding-top: 30px;
                     border-bottom: 1px solid #f0f0f0;
@@ -69,7 +81,7 @@
                         }
                     }
                 }
-                .organizepaper-cont {
+                .organizetask-cont {
                     
                     
                     //表格尺寸 
@@ -84,14 +96,19 @@
                                     overflow: hidden;
                                     padding-left: 10px;
                                 }
-                                &.difficulty {
-                                    width: 153px;
-                                }
                                 &.courseName {
-                                    width: 164px; 
+                                    width: 242px;
+                                    word-wrap: normal;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    overflow: hidden;
                                 }
                                 &.hots {
-                                    width: 152px;
+                                    width: 240px;
+                                    word-wrap: normal;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    overflow: hidden;
                                 }
                                 &.createTime {
                                     width: 200px;
@@ -113,12 +130,37 @@
                             text-align: center;
                             i {
                                 font-size: 20px;
-                                color: #999999;
+                                color: #36b773;
                             }
                             &:hover {
                                 i {
-                                    color: #36b773;
+                                    color: #279ee9;
                                 }
+                            }
+                            .icon-pic {
+                                display: block;
+                                width: 18px;
+                                height: 18px;
+                                margin-top: 16px;
+                            }
+                            .icon-view{
+                                background: url('../assets/images/icons/view/view.png');
+                                &:hover {
+                                    background: url('../assets/images/icons/view/view-hover.png');
+                                }
+                            }
+                            
+                            .icon-pic-pen {
+                                display: block;
+                                width: 17px; 
+                                height: 17px;
+                                margin-top: 16px;
+                            }
+                            .icon-pen {
+                                background: url('../assets/images/icons/view/pen.png');
+                                &:hover {
+                                    background: url('../assets/images/icons/view/pen-hover.png');
+                                } 
                             }
                         }
                     }

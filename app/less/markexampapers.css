@@ -2,11 +2,25 @@
   background-color: #fff;
   padding: 30px;
 }
+.myClass .layui-tab .markexampapers_title {
+  height: 59px;
+}
+.myClass .layui-tab .markexampapers_title li {
+  height: 59px;
+  line-height: 59px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.myClass .layui-tab .markexampapers_title .layui-this:after {
+  height: 59px;
+}
+.myClass .layui-tab .markexampapers_title .layui-this a {
+  color: #009688;
+}
 .myClass .markexampapers-contnet .markexampapers-header,
 .myClass .layui-tab-content .markexampapers-header {
   padding-bottom: 30px;
   padding-top: 30px;
-  border-bottom: 1px solid #f0f0f0;
 }
 .myClass .markexampapers-contnet .markexampapers-header ul,
 .myClass .layui-tab-content .markexampapers-header ul {
@@ -65,30 +79,22 @@ button:hover a {
   display: block;
   color: #fff;
 }
-.myClass_table {
-  margin-top: 10px;
-  margin-bottom: 40px;
-  width: 100%;
-  border: 1px solid #e6e6e6;
-  text-align: center;
+#markexampapersTable_sort {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  width: 10px;
+  height: 16px;
 }
-.myClass_table th {
-  color: #39b674;
-  border: 1px solid #e6e6e6;
+#markexampapersTable_sort .fa-caret-up {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-.myClass_table tr {
-  height: 39px;
-}
-.myClass_table tr td:first-child {
-  text-align: left;
-  text-indent: 15px;
-}
-.myClass_table tr td:first-child input {
-  float: left;
-  margin-left: 15px;
-}
-.myClass_table tr td {
-  border: 1px solid #e6e6e6;
+#markexampapersTable_sort .fa-caret-down {
+  position: absolute;
+  top: 7px;
+  left: 0;
 }
 .contnet-dummy {
   width: 100%;
@@ -104,6 +110,7 @@ button:hover a {
 .markthetests {
   background-color: #fff;
   padding: 30px;
+  min-height: 520px;
 }
 .markthetests .markthetests_header {
   height: 38px;
@@ -131,7 +138,7 @@ button:hover a {
   margin: 30px auto;
   height: 38px;
 }
-.markthetests .markthetests_header1 button {
+.markthetests .markthetests_header1 a {
   height: 38px;
   width: 158px;
   background-color: #36b774;
@@ -143,6 +150,10 @@ button:hover a {
 .markthetests .markthetests_header1 .item-box {
   float: left;
   height: 38px;
+}
+.markthetests .markthetests_header1 .item-box .ViewStudent_input {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .markthetests .markthetests_header1 .item-box label {
   float: left;
@@ -170,4 +181,12 @@ button:hover a {
 .markthetests .markthetests_header1 span span {
   color: #2592bb;
   float: none;
+}
+.downloadDoc {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+#page1,
+#page2 {
+  text-align: center;
 }

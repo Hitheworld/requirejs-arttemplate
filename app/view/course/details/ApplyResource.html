@@ -1,0 +1,97 @@
+<div class="ApplyResource">
+	<div class="ApplyResource-box">
+		<div class="ApplyResource-body">
+
+			<form id="ApplyResourceForm">
+
+				<div class="layui-form-item">
+					<label class="layui-form-label"><span class="major">*</span>教材名称：</label>
+					<div class="layui-input-inline">
+						<input type="text" name="name" disabled="disabled" class="layui-input disabled-text" id="resourceName" value="{{courseDetail.resultObject[0].name}}" />
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label"><span class="major">*</span>申请数量：</label>
+					<div class="layui-input-inline">
+						<button type="button" class="btn-add J-add">+</button>
+						<input type="text" name="number" id="number" class="layui-input btn-input" maxlength="3" value="1" />
+						<button type="button" class="btn-min J-min">-</button>
+					</div>
+				</div>
+				<p for="number" class="error" style="display: none;"></p>
+
+
+				<div class="layui-form-item">
+					<label class="layui-form-label"><span class="major">*</span>邮寄地址：</label>
+					<div class="layui-input-block">
+						<div id="citybox">
+						<ul>
+							<li>
+								<select class="prov"  name="province" id="province"></select>
+							</li>
+							<li>
+								<select class="city" disabled="disabled"  name="city" id="city"></select>
+							</li>
+							<li>
+								<select class="dist" disabled="disabled"  name="area" id="area"></select>
+							</li>
+						</ul>
+						</div>
+					</div>
+				</div>
+				<p for="province" class="error" style="display: none;"></p>
+				<p for="city" class="error" style="display: none;"></p>
+				<p for="area" class="error" style="display: none;"></p>
+
+				<div class="layui-form-item">
+					<div class="layui-input-inline no-lebel">
+						<input type="text" name="address" id="address" class="layui-input" />
+					</div>
+				</div>
+				<p for="address" class="error" style="display: none;"></p>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label"><span class="major">*</span>邮政编码：</label>
+					<div class="layui-input-inline">
+						<input type="text" name="postalcode" id="postalcode" class="layui-input" />
+					</div>
+				</div>
+				<p for="postalcode" class="error" style="display: none;"></p>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label"><span class="major">*</span>收货人：</label>
+					<div class="layui-input-inline">
+						<input type="text" name="consigneeName" id="consigneeName" class="layui-input input-width-no" />
+					</div>
+				</div>
+				<p for="consigneeName" class="error" style="display: none;"></p>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label"><span class="major">*</span>手机号：</label>
+					<div class="layui-input-inline">
+						<input type="text" name="phone" id="phone" class="layui-input input-width-no" />
+					</div>
+				</div>
+				<p for="phone" class="error" style="display: none;"></p>
+
+				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label">申请理由：</label>
+					<div class="layui-input-block">
+						<textarea name="reason" maxlength="150" id="reason" class="layui-textarea ApplyResource-textarea"></textarea>
+					</div>
+				</div>
+				<p for="reason" class="error" style="display: none;"></p>
+
+				<div class="layui-form-item">
+					<div class="layui-input-block box-btn-block">
+						<button type="submit" class="layui-btn ApplyResource-btn submit-btn">立即提交</button>
+						<button type="reset" class="layui-btn layui-layer-close layui-btn-primary ApplyResource-btn primary-btn">取消</button>
+					</div>
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+</div>

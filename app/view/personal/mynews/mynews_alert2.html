@@ -1,0 +1,20 @@
+<div class="mynews_alert2">
+    <form id="mynews_alert2_form">
+        <div class="layui-form-item teaccert-form-item">
+            <span style="display: block;">{{content}}</span>
+            <input type="hidden" name="messageId" value="{{id}}">
+        </div>
+        <div class="layui-form-item teaccert-form-item mynews_alert2_form_div" style="position: relative">
+            <input type="radio" name="status" value="1" title="同意"><span style="float: left">同意</span>
+            <input type="radio" name="status" value="2" title="拒绝" style="margin-left: 50px"><span style="float: left">拒绝</span>
+        </div>
+        <div class="layui-form-item teaccert-form-item mynews_alert2_form_div2">
+            <textarea name="audit_remark" id="mynews_alert2_form_textarea" maxlength="50" disabled>
+
+            </textarea>
+        </div>
+        <div class="layui-form-item teaccert-form-item" style="margin-top: 40px">
+            <button class="layui-btn">提交</button>
+        </div>
+    </form>
+</div>

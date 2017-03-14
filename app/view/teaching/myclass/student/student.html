@@ -1,24 +1,33 @@
 <div class="myClass_student">
     <div class="myClass_student_header">
-        <span class="myClass_student_header_span1">{{resultObject.squad.squad_name}}</span>
-        {{if resultObject.squad.status}}
-        <span class="myClass_student_header_span1">创建日期：{{resultObject.squad.end_time}}</span>
-        <span class="myClass_student_header_span1">毕业日期：{{resultObject.squad.create_time}}</span>
-        <a href="javascript:history.back(-1);">返回</a>
-        {{else}}
-        <button class="layui-btn" id="Add_the_student">添加学生</button>
-        <button class="layui-btn">批量添加学生</button>
-        <button class="layui-btn download_student">下载学生名单</button>
-        <span class="myClass_student_header_span2">毕业日期：{{resultObject.squad.create_time}}</span>
-        <a href="javascript:history.back(-1);">返回</a>
+        <div class="title_1" style="margin-bottom: 20px">
+            <span class="myClass_student_header_span1">{{resultObject.squad.squad_name}}</span>
+            {{if resultObject.squad.status}}
+            <span class="myClass_student_header_span1">创建日期：{{resultObject.squad.create_time}}</span>
+            <span class="myClass_student_header_span2">毕业日期：{{resultObject.squad.end_time}}</span>
+            <a href="javascript:history.back(-1);">返回</a>
+            {{else}}
+            <span class="myClass_student_header_span1">毕业日期：{{resultObject.squad.end_time}}</span>
+            <a href="javascript:history.back(-1);">返回</a>
+        </div>
+        <div class="button_3">
+
+            <button class="layui-btn" id="Add_the_student"><img src='./app/assets/images/myclass/021.png' alt=''>添加学生</button>
+            <button class="layui-btn" id="To_import_the_students" data-type="{{resultObject.squad.squad_name}}"><img src='./app/assets/images/myclass/016.png' alt=''>批量添加学生</button>
+            <button class="layui-btn download_student"><img src='./app/assets/images/myclass/015.png' alt=''>下载学生名单</button>
+
+        </div>
+        <!--<span class="myClass_student_header_span2">毕业日期：{{resultObject.squad.end_time}}</span>-->
+
         {{/if}}
     </div>
+    <hr>
 
     {{if resultObject.squad.status}}
     <div class="myClass_student_header1">
-        <span class="myClass_student_header1_this" data-type="">全部</span>
+        <span class="layui-btn-radius myClass_student_header1_this" data-type="">全部</span>
         {{each resultObject.grouplist}}
-        <span data-tpye="{{$value.group_name}}">
+        <span class="layui-btn-radius" data-tpye="{{$value.group_name}}">
             {{$value.group_name}}
         </span>
         {{/each}}
@@ -34,7 +43,7 @@
             {{/each}}
         </div>
 
-        <span class="myClass_student_header2_span1" id="AddGroup">添加分组</span>
+        <span class="myClass_student_header2_span1" id="AddGroup" style="border-right: none">添加分组</span>
         <span class="myClass_student_header2_span2">筛选分组</span>
         <select id="myClass_student_header2_select">
             <option value="">全部</option>
@@ -50,14 +59,14 @@
 
 
     <div>
-        <table border="1" class="myClass_table">
+        <table class="myClass_table" style="margin-top: 20px">
             <tr>
-                <th>学生姓名</th>
-                <th>学号</th>
-                <th>分组</th>
-                <th>手机号</th>
-                <th>最新登录时间</th>
-                <th>操作</th>
+                <td>学生姓名</td>
+                <td>学号</td>
+                <td>分组</td>
+                <td>手机号</td>
+                <td>最新登录时间</td>
+                <td>操作</td>
             </tr>
             <tbody class="student_table_val">
 

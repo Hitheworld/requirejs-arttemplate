@@ -1,10 +1,10 @@
 <div class="table">
 	<ul class="table-tr">
 		<li class="table-th testClass">
-			<h1>考试班级</h1>
+			<h1>班级</h1>
 		</li>
 		<li class="table-th testPaper">
-			<h1>试卷名称</h1>
+			<h1>考试名称</h1>
 		</li>
 		<li class="table-th startTime">
 			<h1>开始时间</h1>
@@ -23,16 +23,16 @@
 		</li>
 	</ul>
 	{{if HistoryExamDB.success}}
-		{{if HistoryExamDB.resultObject}}
+		{{if HistoryExamDB.resultObject.items != ''}}
 			{{each HistoryExam as HistoryExam i}}
 			<ul class="table-tr">
 				<!--考试班级-->
-				<li class="table-td testClass">
+				<li class="table-td testClass" title="{{HistoryExam.squadName}}">
 					{{HistoryExam.squadName}}
 				</li>
 				<!--end试考试班级-->
 				<!--试卷名称-->
-				<li class="table-td testPaper">
+				<li class="table-td testPaper" title="{{HistoryExam.paperTplName}}">
 					{{HistoryExam.paperTplName}}
 				</li>
 				<!--end试卷名称-->
@@ -53,7 +53,7 @@
 				<!--end分组-->
 				<!--状态-->
 				<li class="table-td state">
-					{{HistoryExam.statusText}}{{if HistoryExam.statusText == '待批阅'}}{{HistoryExam.waitMarkCounts}}{{/if}}
+					{{HistoryExam.statusText}}{{if HistoryExam.statusText == '待批阅'}} ({{HistoryExam.waitMarkCounts}}){{/if}}
 				</li>
 				<!--end状态-->
 				<!--操作-->
@@ -67,19 +67,19 @@
 							</a>
 
 							{{if HistoryExam.status == 2}}
-							<a href="#/teaching/myclass/student/{{HistoryExam.squadId}}" title="批阅试卷">
-								<i class="fa fa-pencil" aria-hidden="true"></i>
+							<a href="#/teaching/testcentres/markthetests/{{HistoryExam.id}}/releasepapers-history" title="批阅考试">
+								<i class="rele-deit-pic rele-deit"></i>
 							</a>
 							{{/if}}
 
 							{{if HistoryExam.status == 3}}
 							<a href="javascript:void(0);" class="J-publish" data-id="{{HistoryExam.id}}" title="发布">
-								<i class="fa fa-toggle-right" aria-hidden="true"></i>
+								<i class="rele-start-pic rele-start"></i>
 							</a>
 							{{/if}}
 							{{if HistoryExam.status == 4 || HistoryExam.status == 3}}
-							<a href="#/teaching/myclass/student/{{HistoryExam.squadId}}"  title="查看成绩">
-								<i class="fa fa-search" aria-hidden="true"></i>
+							<a href="#/teaching/testcentres/markthetests/{{HistoryExam.id}}/releasepapers-history"  title="查看成绩">
+								<i class="icon-pic icon-view"></i>
 							</a>
 							{{/if}}
 							<!--<a href="#/teaching/testcentres/viewtest/view/{{HistoryExam.id}}" title="查看试卷">-->
@@ -93,7 +93,9 @@
 			</ul>
 			{{/each}}
 		{{else}}
-			暂无数据
+			<div class="no-data">
+				<img src="./app/assets/images/emptyData/releasepapers-icon.png" />
+			</div>
 		{{/if}}
 	{{else}}
 		{{HistoryExamDB.errorMessage}}

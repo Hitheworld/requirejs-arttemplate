@@ -7,9 +7,10 @@
 <script type="text/javascript">
 function login(){
 	$.ajax({
-		url:'http://univ-dev.boxuegu.com:58000/login',
+		//url:'http://univ-dev.boxuegu.com:58000/login',
+		url:'http://localhost/univ-teacher/bxg/aa',
 		type:'post',
-		data:{username:'online',password:'123456'},
+		//data:{username:'online',password:'123456'},
 		dataType:'json',
 		success:function(data){
 			console.log(data);

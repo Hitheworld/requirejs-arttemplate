@@ -11,10 +11,13 @@
   background-color: #fff;
   width: 1200px;
   margin: 0 auto;
-  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   overflow: hidden;
 }
 .readtest .readtest-box .viewtest-top {
+  padding-left: 30px;
+  padding-right: 30px;
   position: relative;
   overflow: hidden;
 }
@@ -22,6 +25,9 @@
   font-size: 24px;
   color: #333333;
   font-weight: 600;
+}
+.readtest .readtest-box .viewtest-top .studentInfo {
+  overflow: hidden;
 }
 .readtest .readtest-box .viewtest-top .studentInfo span {
   float: left;
@@ -43,8 +49,48 @@
   font-size: 30px;
   color: #cccccc;
 }
+.readtest .readtest-box .readtest-tab-title {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-top: 1px solid #e5e5e5;
+  background-color: #ffffff;
+  box-shadow: 0 1px 0 #ccc;
+}
+.readtest .readtest-box .readtest-tab-title li {
+  float: left;
+  width: 63px;
+  height: 52px;
+  border-bottom: 3px solid #fff;
+  text-align: center;
+  line-height: 53px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 37px;
+}
+.readtest .readtest-box .readtest-tab-title li:hover {
+  color: #36b773;
+}
+.readtest .readtest-box .readtest-tab-title .readtest-tab-title-this {
+  color: #36b773;
+  border-bottom: 3px solid #36b773;
+}
+.readtest .readtest-box .readtest-tab-title .history_back {
+  display: none;
+  float: right;
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.readtest .readtest-box .readtest-tab-title .history_back i {
+  font-size: 30px;
+  color: #ccc;
+}
 .readtest .readtest-box .readtest-content {
-  width: 1200px;
+  width: 1140px;
+  padding: 30px;
   float: left;
   overflow: hidden;
 }
@@ -114,30 +160,40 @@
 .readtest .readtest-box .readtest-btn {
   width: 860px;
   float: left;
-  margin-top: 60px;
+  margin-left: 30px;
 }
 .readtest .readtest-box .readtest-btn p {
   margin-top: 10px;
   font-size: 14px;
   color: #656565;
 }
-.readtest .readtest-box .readtest-btn button {
+.readtest .readtest-box .readtest-btn button,
+.readtest .readtest-box .readtest-btn a {
   border-radius: 0;
 }
 .readtest .readtest-box .readtest-btn button:first-child {
   background-color: #36b774;
 }
-.readtest .readtest-box .readtest-btn button:first-child + button {
+.readtest .readtest-box .readtest-btn button:first-child + a {
   background-color: #269eea;
   margin-left: 21px;
 }
+.readtest .readtest-box .grade {
+  border: 1px solid #39b674;
+  width: 85px;
+  height: 29px;
+  -moz-appearance: textfield;
+}
+.readtest .readtest-box input[type=number]::-webkit-inner-spin-button,
+.readtest .readtest-box input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .readtest .readtest-box .pagePaper-questions-nav {
-  width: 230px;
   min-height: 520px;
   background-color: #f3f3f3;
-  padding: 0 15px;
   overflow: hidden;
-  float: right;
+  padding-bottom: 20px;
 }
 .readtest .readtest-box .pagePaper-questions-nav .questions-nav-title {
   overflow: hidden;
@@ -158,7 +214,7 @@
 }
 .readtest .readtest-box .pagePaper-questions-nav ul {
   overflow: hidden;
-  width: 232px;
+  width: 255px;
   margin-right: -2px;
 }
 .readtest .readtest-box .pagePaper-questions-nav ul li {
@@ -183,4 +239,7 @@
   color: #333333;
   text-align: center;
   line-height: 36.666666px;
+}
+.title-selete-box > label {
+  float: left!important;
 }

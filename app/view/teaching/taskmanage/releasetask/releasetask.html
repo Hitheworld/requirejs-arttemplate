@@ -1,48 +1,102 @@
-<div class="myClass">
-	<div class="myclass_btn">
-		<button class="layui-btn" id="Create_a_class"><a href="#/teaching/taskmanage/createtask">布置作业</a></button>
-	</div>
-	<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-		<ul class="layui-tab-title">
-			<li class="layui-this"><a href="#/teaching/taskmanage/releasetask">待完成作业</a></li>
-			<li><a href="#/teaching/taskmanage/FinishHomework">已完成作业</a></li>
-		</ul>
-		<div class="layui-tab-content">
-			<div class="markexampapers-header">
-				<ul>
-					<li>
-						<div class="item-box">
-							<label for="markexampapers-peper-difficulty">班级</label>
-							<select id="markexampapers-peper-difficulty">
-								<option>全部</option>
-								<option>全部</option>
-								<option>全部</option>
-								<option>全部</option>
-							</select>
-						</div>
-					</li>
-				</ul>
-			</div>
-			{{if TestPaperDB.resultObject.lists != '' ||  TestPaperDB.resultObject.lists != undefined}}
-			<div class="markexampapers-cont">
-				<table id="releasetaskTable" class="display" cellspacing="0" width="100%">
-					<thead>
-					<tr>
-						<th>试卷名称</th>
-						<th>难度</th>
-						<th>关联课程</th>
-						<th>热度（次）</th>
-						<th>创建时间</th>
-						<th>操作</th>
-					</tr>
-					</thead>
-				</table>
-			</div>
+<div class="releasepapers releasepapers-tab-box">
+	<div class="releasepapers-body">
+		<button class="layui-btn create-test-btn" id="Create_a_class" onclick="javascript: location.href = '#/teaching/taskmanage/createtask';">
+				<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+			布置练习
+		</button>
+		<div class="layui-tab layui-tab-brief"  lay-filter="demo" lay-filter="docDemoTabBrief">
+			{{if NotCarried != "" || HistoryExam != ""}}
+			<ul class="layui-tab-title">
+				<li class="stayHomework-tab layui-this" onclick="window.location.hash='#/teaching/taskmanage/releasetask/stay'">未结束练习</li>
+				<li class="completedHomework-tab" onclick="window.location.hash='#/teaching/taskmanage/releasetask/completed'">已结束练习</li>
+			</ul>
+			<div class="layui-tab-content">
 
+				<div class="layui-tab-item stayHomework-cont layui-show">
+					<!--未结束作业-->
+					<ul class="stayHomework">
+						<li>
+							<div class="item-box">
+								<label for="stayHomeworkClass">班级：</label>
+								<select id="stayHomeworkClass">
+									<option value="">全部</option>
+									{{if findClass.success}}
+										{{if findClass.resultObject}}
+											{{each findClass.resultObject as Class i}}
+												<option value="{{Class.id}}">{{Class.squad_name}}</option>
+											{{/each}}
+										{{else}}
+											<option value="">暂无数据</option>
+										{{/if}}
+									{{else}}
+										{{findClass.errorMessage}}
+									{{/if}}
+								</select>
+							</div>
+						</li>
+
+					</ul>
+					<div class="Not-carried-teaching" id="NotCarried"></div>
+					<!--end/未结束作业-->
+					<div id="page1"></div>
+				</div>
+				<div class="layui-tab-item completedHomework-cont">
+					<!--已结束作业-->
+					<form id="completedHomeworkForm">
+						<ul class="completedHomework">
+							<li>
+								<div class="item-box">
+									<label for="completedHomeworkClass">班级：</label>
+									<select id="completedHomeworkClass" name="completedHomeworkClass">
+										<option value="">全部</option>
+										{{if findClass.success}}
+											{{if findClass.resultObject}}
+												{{each findClass.resultObject as Class i}}
+												<option value="{{Class.id}}">{{Class.squad_name}}</option>
+												{{/each}}
+											{{else}}
+												<option value="">暂无数据</option>
+											{{/if}}
+										{{else}}
+											{{findClass.errorMessage}}
+										{{/if}}
+									</select>
+								</div>
+							</li>
+							<li>
+								<div class="item-box item-time">
+									<label class="label-t6">练习发布时间：</label>
+									<ul>
+										<li>
+											<input type="text" name="startTime" id="startTime" />
+										</li>
+										<li class="e-end-li">
+											<label class="completedLabel">-</label>
+										</li>
+										<li>
+											<input type="text" name="endTime" id="endTime" />
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<div class="item-box">
+									<input type="text" value="" name="completedHomework" id="completedHomeworkName" class="completedHomeworkName" placeholder="请输入练习名称" />
+									<button type="submit" class="completedHomeworkSubmit"><i class="fa fa-circle-o" aria-hidden="true"></i></button>
+								</div>
+							</li>
+						</ul>
+					</form>
+					<div class="HistoryExam-teaching" id="HistoryExam"></div>
+					<!--end/已结束练习-->
+					<div id="page2"></div>
+				</div>
+
+			</div>
 			{{else}}
 			<!--空文件-->
-			<div class="contnet-dummy">
-				<div class="dummy-file"></div>
+			<div class="no-data">
+				<img src="./app/assets/images/emptyData/releasetask-icon.png" />
 			</div>
 			<!--end空文件-->
 			{{/if}}

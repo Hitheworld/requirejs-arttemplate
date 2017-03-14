@@ -2,7 +2,7 @@
 <div class="addpaper">
 
 	<div class="addpaperTitle">
-		<h1>添加试卷</h1>
+		<h1>添加考试</h1>
 		<a href="#/teaching/testcentres/organizepaper" class="return">返回</a>
 	</div>
 
@@ -13,7 +13,7 @@
 					<i>
 						<span>1</span>
 					</i>
-					<div class="title">设置试卷</div>
+					<div class="title">设置考试</div>
 				</li>
 				<li class="border">
 					<i>
@@ -25,7 +25,7 @@
 					<i>
 						<span>3</span>
 					</i>
-					<div class="title">生成试卷</div>
+					<div class="title">生成考试</div>
 				</li>
 			</ul>
 			<div class="items">
@@ -34,27 +34,28 @@
 					<form id="page1-form">
 					<div class="pagePaper">
 						<div class="fieldset-header">
-							<h2>STEP1  试卷信息</h2>
+							<h2>STEP1  考试信息</h2>
 						</div>
 						<ul class="addpaper-ul">
 							<li class="addpaper-ul-li">
 								<div class="layui-form-item addpaper-form-item">
-									<label class="layui-form-label">试卷名称</label>
+									<label class="layui-form-label"><span class="important">*</span>考试名称</label>
 									<div class="layui-input-block teaccert-form-item-box">
-										<input type="text" name="papername" id="papername" class="layui-input" value="{{findExamBasicDB.resultObject.exampaperName}}" />
+										<input type="text" name="papername" id="papername" maxlength="50" class="layui-input" value="{{findExamBasicDB.resultObject.exampaperName}}" />
 									</div>
 								</div>
 							</li>
 
 							<li class="error-li">
 								<p for="papername" class="error" style="display: none;"></p>
+								<p id="isNamePaper" class="error"></p>
 							</li>
 
 							<li class="addpaper-ul-li">
 								<div class="layui-form-item addpaper-form-item">
-									<label class="layui-form-label">试卷时长</label>
+									<label class="layui-form-label"><span class="important">*</span>考试时长</label>
 									<div class="layui-input-block teaccert-form-item-box">
-										<input type="text" name="paperwhenlong" id="paperwhenlong" class="layui-input paperwhenlong" value="{{findExamBasicDB.resultObject.duration}}" />
+										<input type="text" name="paperwhenlong" id="paperwhenlong" maxlength="3" class="layui-input paperwhenlong" value="{{findExamBasicDB.resultObject.duration}}" />
 										<label class="layui-form-label testScores-label">分钟</label>
 									</div>
 								</div>
@@ -66,7 +67,7 @@
 
 							<li class="addpaper-ul-li">
 								<div class="layui-form-item addpaper-form-item">
-									<label class="layui-form-label">试卷难度</label>
+									<label class="layui-form-label"><span class="important">*</span>考试难度</label>
 									<div class="layui-input-block teaccert-form-item-box">
 										<select name="papertraits" id="papertraits">
 											<option value="A">容易</option>
@@ -92,9 +93,9 @@
 							</li>
 							<li class="addpaper-ul-li">
 								<div class="layui-form-item addpaper-form-item">
-									<label class="layui-form-label">试卷分数</label>
+									<label class="layui-form-label"><span class="important">*</span>考试分数</label>
 									<div class="layui-input-block teaccert-form-item-box">
-										<input type="text" name="testScores" id="testScores" class="layui-input testScores" value="{{findExamBasicDB.resultObject.totalScore}}" />
+										<input type="text" name="testScores" id="testScores" maxlength="3" class="layui-input testScores" value="{{findExamBasicDB.resultObject.totalScore}}" />
 										<label class="layui-form-label testScores-label">分</label>
 									</div>
 								</div>
@@ -105,12 +106,12 @@
 							</li>
 						</ul>
 						<div class="fieldset-header">
-							<h2>STEP2  试卷信息</h2>
+							<h2>STEP2  设置知识点</h2>
 						</div>
 						<ul class="addpaper-ul no-border-bottom">
 							<li class="addpaper-ul-li">
 								<div class="layui-form-item addpaper-form-item">
-									<label class="layui-form-label">试卷名称</label>
+									<label class="layui-form-label"><span class="important">*</span>课程名称</label>
 									<div class="layui-input-block teaccert-form-item-box">
 										{{if findTeacherCoursesDB.success}}
 											<select name="paperselete" id="paperselete" class="layui-input paperselete">
@@ -141,7 +142,6 @@
 						</ul>
 					</div>
 
-
 					<div class="btn_nav">
 						<button type="submit" class="next cont btn-page-next">下一步</button>
 					</div>
@@ -153,11 +153,11 @@
 					<form id="page2-form">
 						<div class="pagePaper">
 							<div class="fieldset-header">
-								<h2>STEP1  试卷信息</h2><span  id="residualtalScore">剩余0分未分配</span>
+								<h2>设置题型</h2><div><span>剩余</span><span  id="residualtalScore">0</span><span>分未分配</span></div>
 							</div>
-							<ul class="addpaper-ul">
+							<ul class="addpaper-ul inputSet">
 								<!--单选题-->
-								<li class="addpaper-ul-li">
+								<li class="addpaper-ul-li questionSet">
 									<ul class="addpaper-ul-ul">
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
@@ -167,14 +167,14 @@
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
 												<label class="form-label-state">单选题</label>
-												<input type="text" name="daiXuanQuestions" class="layui-input" id="daiXuanQuestions" />
+												<input type="text" name="daiXuanQuestions" class="layui-input" id="daiXuanQuestions" maxlength="3" />
 												<label class="form-label-end">题</label>
 											</div>
 										</li>
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
 												<label class="form-label-state lb-padding">每题</label>
-												<input type="text" name="daiXuanPortion" class="layui-input" id="daiXuanPortion" />
+												<input type="text" name="daiXuanPortion" class="layui-input" id="daiXuanPortion" maxlength="3" />
 												<label class="form-label-end">分</label>
 											</div>
 										</li>
@@ -193,11 +193,11 @@
 
 								<li class="error-li">
 									<p for="daiXuanQuestions" class="error" style="display: none;"></p>
-									<p for="daiXuanPortion" class="error" style="display: none;"></p>
+									<p for="daiXuanPortion" class="error number-right" style="display: none;"></p>
 								</li>
 
 								<!--多选题-->
-								<li class="addpaper-ul-li">
+								<li class="addpaper-ul-li questionSet">
 									<ul class="addpaper-ul-ul">
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
@@ -207,14 +207,14 @@
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
 												<label class="form-label-state">多选题</label>
-												<input type="text" name="duoXuanQuestions" class="layui-input" id="duoXuanQuestions" />
+												<input type="text" name="duoXuanQuestions" class="layui-input" id="duoXuanQuestions" maxlength="3" />
 												<label class="form-label-end">题</label>
 											</div>
 										</li>
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
 												<label class="form-label-state lb-padding">每题</label>
-												<input type="text" name="duoXuanPortion" class="layui-input" id="duoXuanPortion" />
+												<input type="text" name="duoXuanPortion" class="layui-input" id="duoXuanPortion" maxlength="3" />
 												<label class="form-label-end">分</label>
 											</div>
 										</li>
@@ -233,11 +233,11 @@
 
 								<li class="error-li">
 									<p for="duoXuanQuestions" class="error" style="display: none;"></p>
-									<p for="duoXuanPortion" class="error" style="display: none;"></p>
+									<p for="duoXuanPortion" class="error number-right" style="display: none;"></p>
 								</li>
 
 								<!--判断题-->
-								<li class="addpaper-ul-li">
+								<li class="addpaper-ul-li questionSet">
 									<ul class="addpaper-ul-ul">
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
@@ -247,14 +247,14 @@
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
 												<label class="form-label-state">判断题</label>
-												<input type="text" name="panDuanQuestions" class="layui-input" id="panDuanQuestions" />
+												<input type="text" name="panDuanQuestions" class="layui-input" id="panDuanQuestions" maxlength="3" />
 												<label class="form-label-end">题</label>
 											</div>
 										</li>
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
 												<label class="form-label-state lb-padding">每题</label>
-												<input type="text" name="panDuanPortion" class="layui-input" id="panDuanPortion" />
+												<input type="text" name="panDuanPortion" class="layui-input" id="panDuanPortion" maxlength="3" />
 												<label class="form-label-end">分</label>
 											</div>
 										</li>
@@ -273,11 +273,11 @@
 
 								<li class="error-li">
 									<p for="panDuanQuestions" class="error" style="display: none;"></p>
-									<p for="panDuanPortion" class="error" style="display: none;"></p>
+									<p for="panDuanPortion" class="error number-right" style="display: none;"></p>
 								</li>
 
 								<!--填空题-->
-								<li class="addpaper-ul-li">
+								<li class="addpaper-ul-li questionSet">
 									<ul class="addpaper-ul-ul">
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
@@ -287,14 +287,14 @@
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
 												<label class="form-label-state">填空题</label>
-												<input type="text" name="tianKongQuestions" class="layui-input" id="tianKongQuestions" />
+												<input type="text" name="tianKongQuestions" class="layui-input" id="tianKongQuestions" maxlength="3" />
 												<label class="form-label-end">题</label>
 											</div>
 										</li>
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
 												<label class="form-label-state lb-padding">每题</label>
-												<input type="text" name="tianKongPortion" class="layui-input" id="tianKongPortion" />
+												<input type="text" name="tianKongPortion" class="layui-input" id="tianKongPortion" maxlength="3" />
 												<label class="form-label-end">分</label>
 											</div>
 										</li>
@@ -313,11 +313,11 @@
 
 								<li class="error-li">
 									<p for="tianKongQuestions" class="error" style="display: none;"></p>
-									<p for="tianKongPortion" class="error" style="display: none;"></p>
+									<p for="tianKongPortion" class="error number-right" style="display: none;"></p>
 								</li>
 
 								<!--简答题-->
-								<li class="addpaper-ul-li">
+								<li class="addpaper-ul-li questionSet">
 									<ul class="addpaper-ul-ul">
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
@@ -327,14 +327,14 @@
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
 												<label class="form-label-state">简答题</label>
-												<input type="text" name="jianDaQuestions" class="layui-input" id="jianDaQuestions" />
+												<input type="text" name="jianDaQuestions" class="layui-input" id="jianDaQuestions" maxlength="3" />
 												<label class="form-label-end">题</label>
 											</div>
 										</li>
 										<li class="addpaper-ul-ul-li">
 											<div class="addpaper2-form-item">
 												<label class="form-label-state lb-padding">每题</label>
-												<input type="text" name="jianDaPortion" class="layui-input" id="jianDaPortion" />
+												<input type="text" name="jianDaPortion" class="layui-input" id="jianDaPortion"  maxlength="3" />
 												<label class="form-label-end">分</label>
 											</div>
 										</li>
@@ -353,7 +353,7 @@
 
 								<li class="error-li">
 									<p for="jianDaQuestions" class="error" style="display: none;"></p>
-									<p for="jianDaPortion" class="error" style="display: none;"></p>
+									<p for="jianDaPortion" class="error number-right" style="display: none;"></p>
 								</li>
 
 							</ul>
@@ -363,9 +363,12 @@
 							</div>
 						</div>
 
+						<!--判断是否是修改还是新增-->
+						<input type="hidden" value="add" id="isType" />
+						<!--判断是否是修改还是新增-->
 						<div class="btn_nav">
-							<button type="button" class="prev left btn-page-next">上一步</button>
-							<button type="submit" class="next right btn-page-next">生成试卷</button>
+							<button type="button" class="prev left btn-page-next" onclick="$('#isType').val('update');$('#page2-form').submit(); $('.addpaper').height('1215px');$('.return').show();">上一步</button>
+							<button type="submit" class="next right btn-page-next">生成考试</button>
 						</div>
 					</form>
 				</div>
@@ -375,9 +378,13 @@
 
 					</div>
 
-					<div class="btn_nav">
-						<button type="button" class="prev left btn-page-next">上一步</button>
-						<input type="button" class="next right btn-page-sub" id="sub" onclick="javascript:location.href = '#/teaching/testcentres/organizepaper';" value="确定" />
+					<div class="end-btn-box"></div>
+					<div class="page3-btn-box">
+						<div class="btn_nav">
+							<input type="hidden" id="exampaperId" />
+							<button type="button" class="prev left btn-page-next" onclick="$('.addpaper').height('710px');">上一步</button>
+							<input type="button" class="next right btn-page-sub" id="sub" onclick="javascript:location.href = '#/teaching/testcentres/organizepaper';" value="确定" />
+						</div>
 					</div>
 
 				</div>

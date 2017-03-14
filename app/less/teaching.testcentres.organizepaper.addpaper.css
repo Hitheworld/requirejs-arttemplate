@@ -25,7 +25,9 @@
   color: #999999;
 }
 .addpaper #sliding-form {
-  margin: 20px auto;
+  margin: 0px auto;
+  margin-top: 30px;
+  margin-bottom: 40px;
   max-width: 1140px;
   overflow: hidden;
   position: relative;
@@ -53,6 +55,7 @@
   text-align: center;
   font-size: 0px;
   margin: 0 auto;
+  font-style: normal;
 }
 .addpaper #sliding-form #status li.active,
 .addpaper #sliding-form #status li.ac {
@@ -101,7 +104,7 @@
   margin-top: -15px;
 }
 .addpaper #sliding-form #status li .title {
-  margin-top: 10px;
+  margin-top: 20px;
   text-align: center;
 }
 .addpaper #sliding-form .items {
@@ -119,8 +122,8 @@
   margin: 0 auto;
 }
 .addpaper #sliding-form .items .page .pagePaper .fieldset-header {
-  height: 85px;
-  line-height: 85px;
+  margin-top: 40px;
+  margin-bottom: 30px;
   overflow: hidden;
 }
 .addpaper #sliding-form .items .page .pagePaper .fieldset-header h2 {
@@ -135,18 +138,37 @@
   float: left;
   margin-left: 20px;
 }
+.addpaper #sliding-form .items .page .pagePaper .fieldset-header span #residualtalScore {
+  margin: 0px;
+}
 .addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul {
   border-bottom: 1px solid #f0f0f0;
-  margin-bottom: 20px;
 }
 .addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.error-li {
   margin-bottom: 20px;
+  position: relative;
 }
-.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.error-li p {
-  margin-left: 110px;
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.error-li .error {
+  margin-left: 80px;
+  margin-top: -10px;
+}
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.error-li .number-right {
+  position: absolute;
+  left: 154px;
 }
 .addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.addpaper-ul-li {
   display: block;
+}
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.addpaper-ul-li .important {
+  color: #FF0000;
+  margin-right: 10px;
+}
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.addpaper-ul-li .layui-form-label {
+  padding: 9px 0px;
+  width: 73px;
+}
+.addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.addpaper-ul-li .layui-input-block {
+  margin-left: 82px;
 }
 .addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.addpaper-ul-li .addpaper-form-item select {
   display: block;
@@ -161,11 +183,12 @@
 }
 .addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.addpaper-ul-li .addpaper-form-item .paperwhenlong,
 .addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.addpaper-ul-li .addpaper-form-item .testScores {
-  width: 88px;
+  width: 115px;
   float: left;
 }
 .addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul li.addpaper-ul-li .addpaper-form-item .testScores-label {
   text-align: left;
+  padding-left: 10px;
 }
 .addpaper #sliding-form .items .page .pagePaper ul.addpaper-ul.no-border-bottom {
   border: none;
@@ -177,15 +200,13 @@
   padding: 5px 5px;
 }
 .addpaper #sliding-form .items .page1 .tree-checkbox {
-  width: 378px;
+  width: 415px;
   height: 452px;
   overflow-x: hidden;
   border: 1px solid #f0f0f0;
-  margin: 0 auto;
 }
 .addpaper #sliding-form .items .page2 li.error-li {
   margin-bottom: 20px;
-  overflow: hidden;
 }
 .addpaper #sliding-form .items .page2 li.error-li p {
   float: left;
@@ -355,6 +376,14 @@
   display: block;
   overflow: hidden;
 }
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title img {
+  width: 200px;
+}
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title .pagePaper-content-box-span {
+  display: inline-block;
+  min-width: 50px;
+  border-bottom: 1px solid;
+}
 .addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .title h3 {
   float: left;
   display: block;
@@ -438,19 +467,49 @@
 .addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer {
   overflow: hidden;
   color: #333333;
-  font-size: 16px;
   margin-top: 16px;
 }
 .addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer {
   float: left;
   font-weight: 600;
+  line-height: 20px;
+  font-size: 16px;
+}
+.addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet-dv {
+  float: left;
+  clear: left;
+  margin-left: 0;
+  display: block;
+  border: 1px solid #dfdfdf;
 }
 .addpaper #sliding-form .items .page3 .paper-main .pagePaper .pagePaper-content ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet {
-  float: left;
+  float: right;
+  font-size: 16px;
+  line-height: 20px;
+  margin-left: 10px;
+  width: 760px;
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.addpaper #sliding-form .items .end-btn-box {
+  height: 90px;
+}
+.addpaper #sliding-form .items .page3-btn-box {
+  position: absolute;
+  width: 890px;
+  margin: 0 auto;
+  padding: 20px 0px;
+  background: #FFFFFF;
+  margin-left: -30px;
+}
+.addpaper #sliding-form .items .page3-btn-box .btn_nav {
+  margin-top: 0px;
 }
 .addpaper #sliding-form .items .btn_nav {
   width: 505px;
-  margin: 20px auto;
+  margin: 0 auto;
+  margin-top: 60px;
   overflow: hidden;
 }
 .addpaper #sliding-form .items .btn_nav .btn-page-next,
@@ -580,7 +639,7 @@
   overflow-x: hidden;
 }
 .page3-Change .Change-box .Change-search ul.searchBox-ul li.searchBox-li.search-so-li {
-  float: right;
+  float: left;
   width: 290px;
   margin-right: 0px;
   position: relative;
@@ -609,7 +668,7 @@
 }
 .page3-Change .Change-box .Change-cont {
   width: 100%;
-  min-height: 420px;
+  min-height: 300px;
 }
 .page3-Change .Change-box .Change-cont .Change-cont-title-ul {
   overflow: hidden;
@@ -617,11 +676,12 @@
   line-height: 50px;
   display: block;
   background-color: #f2fcf7;
-  padding: 0px 20px;
+  padding: 0px 10px;
 }
 .page3-Change .Change-box .Change-cont .Change-cont-title-ul li {
   float: left;
   text-align: left;
+  height: 100%;
 }
 .page3-Change .Change-box .Change-cont .Change-cont-title-ul li h1 {
   font-size: 14px;
@@ -651,7 +711,7 @@
   height: 50px;
   line-height: 50px;
   display: block;
-  padding: 0px 20px;
+  padding: 0px 10px;
 }
 .page3-Change .Change-box .Change-cont .table-body .Change-cont-ul.odd {
   background-color: #f2fcf7;
@@ -664,6 +724,7 @@
   text-align: left;
   position: relative;
   width: 100%;
+  height: 100%;
 }
 .page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-cont-ul-li {
   width: 360px;
@@ -675,6 +736,7 @@
 .page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-cont-ul-li .Change-cont-ul-li-table input {
   float: left;
   margin-top: 20px;
+  margin-right: 10px;
 }
 .page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-cont-ul-li .Change-cont-ul-li-table label {
   float: left;
@@ -682,8 +744,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  width: 345px;
+  width: 325px;
   height: 50px;
+}
+.page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-cont-ul-li .Change-cont-ul-li-table label img {
+  width: 10px;
+  height: 10px;
 }
 .page3-Change .Change-box .Change-cont .table-body .Change-cont-ul li.Change-table-topic {
   width: 190px;
@@ -741,8 +807,12 @@
 }
 .page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .title p {
   font-size: 16px;
-  height: 35px;
   line-height: 35px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .title p img {
+  width: 200px;
 }
 .page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .title p input {
   width: auto;
@@ -750,6 +820,11 @@
   border: none;
   background-color: none;
   border-bottom: 1px solid #999999;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .title .pagePaper-content-box-span {
+  display: inline-block;
+  min-width: 50px;
+  border-bottom: 1px solid;
 }
 .page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li {
   min-height: 35px;
@@ -768,6 +843,11 @@
   float: left;
   width: 96%;
   cursor: pointer;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box label img {
+  width: 200px;
 }
 .page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box {
   overflow: hidden;
@@ -775,20 +855,42 @@
 .page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box span {
   float: left;
 }
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li .title-selete-box.jianDa-selete-box p {
+  word-wrap: break-word;
+  word-break: break-all;
+}
 .page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box ul.title-selete li:hover {
   color: #36b773;
 }
 .page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer {
-  height: 35px;
   line-height: 35px;
   overflow: hidden;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer img {
+  width: 200px;
 }
 .page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer {
   color: #36b773;
   float: left;
+  line-height: 20px;
+  font-size: 16px;
+}
+.page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet-dv {
+  float: left;
+  clear: left;
+  margin-left: 0;
+  display: block;
+  border: 1px solid #dfdfdf;
 }
 .page3-Change .Change-box .Change-cont .box ul.pagePaper-content-questions li .pagePaper-content-box .paper-answer .answer-contnet {
-  float: left;
+  float: right;
+  font-size: 16px;
+  line-height: 20px;
+  margin-left: 10px;
+  width: 740px;
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .page3-Change .Change-box #page {
   margin-top: 30px;
@@ -796,18 +898,26 @@
 }
 .page3-Change .Change-box .Change-footer {
   margin-top: 40px;
+  overflow: hidden;
 }
 .page3-Change .Change-box .Change-footer .btn-box {
   float: right;
   width: auto;
+  width: 198px;
+  overflow: hidden;
 }
 .page3-Change .Change-box .Change-footer .btn-box .buttom-submit {
+  float: left;
+  width: 92px;
   background-color: #36b773;
   color: #FFFFFF;
   border: 1px solid #36b773;
 }
 .page3-Change .Change-box .Change-footer .btn-box .buttom-cancel {
+  width: 92px;
+  float: right;
   background-color: #FFFFFF;
   color: #333333;
   border: 1px solid #f6f6f6;
+  position: relative;
 }

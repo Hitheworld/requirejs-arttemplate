@@ -1,0 +1,61 @@
+{{if !CTPP.msg}}
+    {{if CTPP.length != 0}}
+        <div class="View_the_review_Syllabus_content_dv">
+            {{each CTPP as CTPP index}}
+                {{if CTPP.nodeType == 'CHAPTER'}}
+                    <div class="View_the_review_Syllabus_content_dv_dv1">
+                        <span>章</span>
+                        <p>&nbsp;</p>
+                        <b></b>
+                        <div class="View_the_review_Syllabus_content_dv_dv_header">{{CTPP.name}}</div>
+                        {{if CTPP.duration == '0'}}
+                            <hr>
+                        {{else}}
+                            <div class="View_the_review_Syllabus_content_dv_progress">
+                                <div style="width:{{CTPP.progress}}%;"></div>
+                            </div>
+                            <div class="View_the_review_Syllabus_content_dv_dv_footer">{{CTPP.progress}}%</div>
+                        {{/if}}
+                    </div>
+                {{else if CTPP.nodeType == 'POINT'}}
+                    <div class="View_the_review_Syllabus_content_dv_dv2">
+                        <span>节</span>
+                        <p>&nbsp;</p>
+                        <div class="View_the_review_Syllabus_content_dv_one">{{CTPP.name}}</div>
+                        {{if CTPP.duration == '0'}}
+                        <hr>
+                        {{else}}
+                        <div class="View_the_review_Syllabus_content_dv_progress">
+                            <div style="width:{{CTPP.progress}}%;"></div>
+                        </div>
+                        <div class="View_the_review_Syllabus_content_dv_dv_footer">{{CTPP.progress}}%</div>
+                        {{/if}}
+                    </div>
+                {{else if CTPP.nodeType == ''}}
+                    <div class="View_the_review_Syllabus_content_dv_dv3">
+                        <p></p>
+                        <div class="View_the_review_Syllabus_content_dv_one">{{CTPP.name}}</div>
+                        {{if CTPP.duration == '0'}}
+                        <hr>
+                        {{else}}
+                        <div class="View_the_review_Syllabus_content_dv_progress">
+                            <div style="width:{{CTPP.progress}}%;"></div>
+                        </div>
+                        <div class="View_the_review_Syllabus_content_dv_dv_footer">{{CTPP.progress}}%</div>
+                        {{/if}}
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
+    {{else}}
+<div class='Temporarily_no_data'>
+    <img src='./app/assets/images/myclass/025.png' alt='das'>
+    <p>请选择课程 ~</p>
+</div>
+    {{/if}}
+{{else}}
+<div class='Temporarily_no_data'>
+    <img src='./app/assets/images/myclass/025.png' alt='das'>
+    <p>请选择课程 ~</p>
+</div>
+{{/if}}
